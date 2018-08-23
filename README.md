@@ -3,7 +3,7 @@ ANDP(Automated Network and Device Provisioning ) is a multi-tenant, cloud hosted
 
 Flow-through provisioning streamlines and automates network and service provisioning for facility-based carriers and service providers. Standardized interfaces, protocols and new technologies ensure smooth integration as well as flow-through end-to-end provisioning among network partners.
 
-Overview of provisoning:
+# Overview of provisoning:
 
 1 Network provisioning
 
@@ -20,7 +20,7 @@ Overview of provisoning:
 7 Internet access provisioning
 
 
-Features
+# Features
 
 Cloud Based Architecture, multi-threaded core and multi-process environment. 
 
