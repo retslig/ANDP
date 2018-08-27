@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://www.metaswitch.com/sdp/soap/sh/servicedata" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.metaswitch.com/sdp/soap/sh/servicedata" version="1.14" xsi:schemaLocation="http://www.metaswitch.com/sdp/soap/sh/documentation Documentation.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://www.w3.org/2005/05/xmlmime" namespace="http://www.w3.org/2005/05/xmlmime" />
+  <xs:include schemaLocation="Msph_CommonTypes.xsd" />
+  <xs:complexType name="tMsph_Subscriber_CallTree_BGExtensionList">
+    <xs:annotation>
+      <xs:documentation>
+        Call Tree Business Group Extension List Service Indication - used to define which of the Business Group lines accessible by the call tree should be presented in the attendant TUI when performing Dial-by-Name or Dial-by-Extension actions.
+        <d:Actions xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Action>apply</d:Action></d:Actions><d:AuthLevel xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">admin</d:AuthLevel></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="DefaultState" type="tMsph_Subscriber_CallTree_BGExtensionList_DefaultState">
+        <xs:annotation>
+          <xs:documentation>
+            The default state for lines within the call tree's business group.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Default State</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>Excluded</d:Value><d:Value>Included</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ExemptionList" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The list of lines which are exempt from the configured Default State.  Lines are specified by line UID (for the primary line) and as UID:phone_number (for additional lines); these values may be retrieved from the Msph_BusinessGroup_ChildrenList_Subscriber or Msph_BusinessGroup_ChildrenList_Subscriber_AllFragments indications.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Exemption List</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="Action" type="xs:string" />
+  </xs:complexType>
+  <xs:simpleType name="tMsph_Subscriber_CallTree_BGExtensionList_DefaultState">
+    <xs:annotation>
+      <xs:documentation>The default state for lines within the call tree's business group.  The default state may be one of the following: Excluded - lines within the business group are excluded by default, and only those in the Exemption List are included; Included - lines within the business group are included by default, and those within the Exemption List are excluded.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Excluded" />
+      <xs:enumeration value="Included" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

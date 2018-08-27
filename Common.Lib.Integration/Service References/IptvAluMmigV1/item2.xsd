@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/IptvAluMmigV1" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/IptvAluMmigV1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="PinTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="typeAdult" />
+      <xs:enumeration value="typePurchase" />
+      <xs:enumeration value="typeParentalControl" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PinTypeEnum" nillable="true" type="tns:PinTypeEnum" />
+  <xs:complexType name="Account">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AluDevices" nillable="true" type="tns:ArrayOfDevice" />
+      <xs:element minOccurs="0" name="BillingAccountNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreditLimit" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="DeviceLimit" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DvrEnabled" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EgressProfile" nillable="true" type="tns:StreamProfile" />
+      <xs:element minOccurs="0" name="FipsCodeCounty" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="FipsCodeState" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IngressProfile" nillable="true" type="tns:StreamProfile" />
+      <xs:element minOccurs="0" name="ServiceReference" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SubscriberGuid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UpdatedDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="WanProfile" nillable="true" type="tns:StreamProfile" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Account" nillable="true" type="tns:Account" />
+  <xs:complexType name="ArrayOfDevice">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Device" nillable="true" type="tns:Device" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDevice" nillable="true" type="tns:ArrayOfDevice" />
+  <xs:complexType name="Device">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BillingAccountNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DeviceID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IpAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastLoginDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="MacAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Manufacturer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MediaroomId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Model" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SerialNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServiceReference" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdatedDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Version" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Device" nillable="true" type="tns:Device" />
+  <xs:complexType name="StreamProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DttStreams" type="xs:int" />
+      <xs:element minOccurs="0" name="HDStreams" type="xs:int" />
+      <xs:element minOccurs="0" name="MaxBitRate" type="xs:int" />
+      <xs:element minOccurs="0" name="SDStreams" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StreamProfile" nillable="true" type="tns:StreamProfile" />
+  <xs:complexType name="ArrayOfAluPin">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AluPin" nillable="true" type="tns:AluPin" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAluPin" nillable="true" type="tns:ArrayOfAluPin" />
+  <xs:complexType name="AluPin">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EnabledDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PinType" type="tns:PinTypeEnum" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AluPin" nillable="true" type="tns:AluPin" />
+</xs:schema>

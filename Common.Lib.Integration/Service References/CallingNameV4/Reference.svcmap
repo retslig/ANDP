@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="808557cd-e863-4b36-af0f-3c9499dcf997" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://A19226:8731/Design_Time_Addresses/CallingNameService/CallingNameServiceV4/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="e09d2331-9729-45cf-985f-77198897bb98" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/CallingNameService/CallingNameServiceV4/?disco" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="dcd07db3-5b54-4b5a-99f8-c185d1030a4c" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/CallingNameService/CallingNameServiceV4/?xsd=xsd2" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="d0324c05-10ce-463f-841d-3280b054ea87" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/CallingNameService/CallingNameServiceV4/?xsd=xsd3" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="87f98d54-45e3-47b7-bc14-03c403d1cb6e" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/CallingNameService/CallingNameServiceV4/?xsd=xsd0" />
+    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="5561062d-9a29-4f1b-8296-e20a35ab72c8" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/CallingNameService/CallingNameServiceV4/?xsd=xsd1" />
+    <MetadataFile FileName="CallingNameService.wsdl" MetadataType="Wsdl" ID="254c0853-2213-44f4-9569-9976980535af" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/CallingNameService/CallingNameServiceV4/?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

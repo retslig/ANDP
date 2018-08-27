@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://www.metaswitch.com/sdp/soap/sh/servicedata" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.metaswitch.com/sdp/soap/sh/servicedata" version="1.14" xsi:schemaLocation="http://www.metaswitch.com/sdp/soap/sh/documentation Documentation.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://www.w3.org/2005/05/xmlmime" namespace="http://www.w3.org/2005/05/xmlmime" />
+  <xs:include schemaLocation="Msph_CommonTypes.xsd" />
+  <xs:complexType name="tMsph_Subscriber_CTD">
+    <xs:annotation>
+      <xs:documentation>
+        Click-to-dial settings for a subscriber. You can use this indication to change the click-to-dial settings for a subscriber's devices. Note that these device settings changes will have no effect until click-to-dial is enabled in the subscriber's Class of Service.
+        <d:Actions xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Action>apply</d:Action></d:Actions><d:AuthLevel xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">admin</d:AuthLevel></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Device" type="tMsph_Subscriber_CTD_Device">
+        <xs:annotation>
+          <xs:documentation>
+            Settings related to a specific device.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Device</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="Action" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="tMsph_Subscriber_CTD_Device">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="PhoneNumber" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The phone number of this device.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Phone Number</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">R-R-R-</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Yes</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="UseAutoAnswer" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Flag indicating whether auto answer should be used for click-to-dial calls.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Use Auto Answer</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="UseOwnPhone" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Flag used to indicate whether this device should be used for click-to-dial calls, as opposed to a remote device.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Use Own Phone</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="RemotePhoneNumber" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The remote phone number used for click-to-dial calls.  Permitted regex: (:?^[#*]?\d+(:?-\d{1,3})?$|^$)
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Remote Phone Number</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

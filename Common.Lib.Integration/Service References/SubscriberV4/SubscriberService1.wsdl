@@ -1,0 +1,2094 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SubscriberService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SymmetricBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:ProtectionToken>
+              <wsp:Policy>
+                <sp:SecureConversationToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+                  <wsp:Policy>
+                    <sp:RequireDerivedKeys />
+                    <sp:BootstrapPolicy>
+                      <wsp:Policy>
+                        <sp:SignedParts>
+                          <sp:Body />
+                          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+                        </sp:SignedParts>
+                        <sp:EncryptedParts>
+                          <sp:Body />
+                        </sp:EncryptedParts>
+                        <sp:SymmetricBinding>
+                          <wsp:Policy>
+                            <sp:ProtectionToken>
+                              <wsp:Policy>
+                                <sp:SpnegoContextToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+                                  <wsp:Policy>
+                                    <sp:RequireDerivedKeys />
+                                  </wsp:Policy>
+                                </sp:SpnegoContextToken>
+                              </wsp:Policy>
+                            </sp:ProtectionToken>
+                            <sp:AlgorithmSuite>
+                              <wsp:Policy>
+                                <sp:Basic256 />
+                              </wsp:Policy>
+                            </sp:AlgorithmSuite>
+                            <sp:Layout>
+                              <wsp:Policy>
+                                <sp:Strict />
+                              </wsp:Policy>
+                            </sp:Layout>
+                            <sp:IncludeTimestamp />
+                            <sp:EncryptSignature />
+                            <sp:OnlySignEntireHeadersAndBody />
+                          </wsp:Policy>
+                        </sp:SymmetricBinding>
+                        <sp:Wss11>
+                          <wsp:Policy />
+                        </sp:Wss11>
+                        <sp:Trust10>
+                          <wsp:Policy>
+                            <sp:MustSupportIssuedTokens />
+                            <sp:RequireClientEntropy />
+                            <sp:RequireServerEntropy />
+                          </wsp:Policy>
+                        </sp:Trust10>
+                      </wsp:Policy>
+                    </sp:BootstrapPolicy>
+                  </wsp:Policy>
+                </sp:SecureConversationToken>
+              </wsp:Policy>
+            </sp:ProtectionToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp />
+            <sp:EncryptSignature />
+            <sp:OnlySignEntireHeadersAndBody />
+          </wsp:Policy>
+        </sp:SymmetricBinding>
+        <sp:Wss11 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy />
+        </sp:Wss11>
+        <sp:Trust10 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:MustSupportIssuedTokens />
+            <sp:RequireClientEntropy />
+            <sp:RequireServerEntropy />
+          </wsp:Policy>
+        </sp:Trust10>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_AuditSubscriberAddresses_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_AuditSubscriberAddresses_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_AuditSubscriberGuids_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_AuditSubscriberGuids_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_RemoveSubscriberProv_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_RemoveSubscriberProv_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_AddOrUpdateSubscriberProv_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_AddOrUpdateSubscriberProv_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_GetSubscribersByNumberProv_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_GetSubscribersByNumberProv_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_GetSubscriberByNumberProv_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_GetSubscriberByNumberProv_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_GetSubscriberByDefaultPhoneNumberProv_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_GetSubscriberByDefaultPhoneNumberProv_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_GetSubscriberByGuidProv_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_GetSubscriberByGuidProv_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_GetSubscriberByBillingProv_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_GetSubscriberByBillingProv_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_GetSubscribersByBillingAccountNumberProv_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_GetSubscribersByBillingAccountNumberProv_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_GetSubscribersByNameProv_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_GetSubscribersByNameProv_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_GetSubscriberInternetAccess_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_GetSubscriberInternetAccess_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_GetSubscriberServices_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_GetSubscriberServices_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_SetSubscriberBillingInfo_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_SetSubscriberBillingInfo_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_ReconcileBillingServiceID_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_ReconcileBillingServiceID_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_UpdateBillingAccountNumber_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_UpdateBillingAccountNumber_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_UpdateBillingServiceAddressForBillingAccountNumber_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_UpdateBillingServiceAddressForBillingAccountNumber_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_LinkSubscriberAccountsProv_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_LinkSubscriberAccountsProv_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_UnLinkSubscriberAccountsProv_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_UnLinkSubscriberAccountsProv_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_ResetInternetAccessPassword_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_ResetInternetAccessPassword_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_InternetAccessPasswordChange_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_InternetAccessPasswordChange_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_AddOrUpdateSubscriberInternetAccess_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_AddOrUpdateSubscriberInternetAccess_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_RemoveSubscriberInternetAccess_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISubscriberService_RemoveSubscriberInternetAccess_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/APmaxProvisioning" />
+      <xs:element name="AuditSubscriberAddresses">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="startingAddress" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="numberToReturn" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AuditSubscriberAddressesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AuditSubscriberAddressesResult" nillable="true" type="q1:ArrayOfstring" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AuditSubscriberGuids">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="numberToReturn" type="xs:int" />
+            <xs:element minOccurs="0" name="offset" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AuditSubscriberGuidsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AuditSubscriberGuidsResult" nillable="true" type="q2:ArrayOfstring" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RemoveSubscriberProv">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+            <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/APmaxProvisioning" minOccurs="0" name="subscriber" nillable="true" type="q3:SubscriberType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RemoveSubscriberProvResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddOrUpdateSubscriberProv">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+            <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/APmaxProvisioning" minOccurs="0" name="subscriber" nillable="true" type="q4:SubscriberType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddOrUpdateSubscriberProvResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSubscribersByNumberProv">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="subscriberDefaultPhoneNumber" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSubscribersByNumberProvResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/APmaxProvisioning" minOccurs="0" name="GetSubscribersByNumberProvResult" nillable="true" type="q5:ArrayOfSubscriberType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSubscriberByNumberProv">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="subscriberDefaultPhoneNumber" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSubscriberByNumberProvResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/APmaxProvisioning" minOccurs="0" name="GetSubscriberByNumberProvResult" nillable="true" type="q6:SubscriberType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSubscriberByDefaultPhoneNumberProv">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="subscriberDefaultPhoneNumber" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSubscriberByDefaultPhoneNumberProvResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/APmaxProvisioning" minOccurs="0" name="GetSubscriberByDefaultPhoneNumberProvResult" nillable="true" type="q7:SubscriberType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSubscriberByGuidProv">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="subscriberGuid" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSubscriberByGuidProvResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/APmaxProvisioning" minOccurs="0" name="GetSubscriberByGuidProvResult" nillable="true" type="q8:SubscriberType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSubscriberByBillingProv">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="billingAccountNumber" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="billingServiceID" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSubscriberByBillingProvResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/APmaxProvisioning" minOccurs="0" name="GetSubscriberByBillingProvResult" nillable="true" type="q9:SubscriberType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSubscribersByBillingAccountNumberProv">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="billingAccountNumber" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSubscribersByBillingAccountNumberProvResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/APmaxProvisioning" minOccurs="0" name="GetSubscribersByBillingAccountNumberProvResult" nillable="true" type="q10:ArrayOfSubscriberType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSubscribersByNameProv">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="subscriberName" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSubscribersByNameProvResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/APmaxProvisioning" minOccurs="0" name="GetSubscribersByNameProvResult" nillable="true" type="q11:ArrayOfSubscriberType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSubscriberInternetAccess">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="subscriberGuid" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSubscriberInternetAccessResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/APmaxProvisioning" minOccurs="0" name="GetSubscriberInternetAccessResult" nillable="true" type="q12:SubscriberInternetAccessType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSubscriberServices">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="subscriberGuid" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSubscriberServicesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/APmaxProvisioning" minOccurs="0" name="GetSubscriberServicesResult" nillable="true" type="q13:ArrayOfServiceInfoType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SetSubscriberBillingInfo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="subscriberGuid" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="billingAccountNumber" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="billingAddress" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="billingEnvironmentCode" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SetSubscriberBillingInfoResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ReconcileBillingServiceID">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="billingAccountNumber" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="billingServiceID" nillable="true" type="xs:string" />
+            <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/APmaxProvisioning" minOccurs="0" name="serviceType" type="q14:ServiceType_e" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ReconcileBillingServiceIDResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateBillingAccountNumber">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="originalBillingAccountNumber" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="newBillingAccountNumber" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateBillingAccountNumberResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateBillingServiceAddressForBillingAccountNumber">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="billingAccountNumber" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="originalBillingServiceAddress" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="newBillingServiceAddress" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateBillingServiceAddressForBillingAccountNumberResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="LinkSubscriberAccountsProv">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="subscriberGuid" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="parentGuid" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="LinkSubscriberAccountsProvResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UnLinkSubscriberAccountsProv">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="subscriberGuid" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UnLinkSubscriberAccountsProvResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ResetInternetAccessPassword">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="subscriberGuid" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="newpassword" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ResetInternetAccessPasswordResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="InternetAccessPasswordChange">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="subscriberGuid" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="forcePasswordChange" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="InternetAccessPasswordChangeResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddOrUpdateSubscriberInternetAccess">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="subscriberGuid" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="enabled" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddOrUpdateSubscriberInternetAccessResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RemoveSubscriberInternetAccess">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="subscriberGuid" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RemoveSubscriberInternetAccessResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfstring">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/APmaxProvisioning" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/APmaxProvisioning" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xs:complexType name="SubscriberType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Addresses" nillable="true" type="tns:ArrayOfAddressInfoType" />
+          <xs:element minOccurs="0" name="BillingAccountNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BillingEnvironmentCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BillingServiceAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DialByNameDigits" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InternetAccess" nillable="true" type="tns:InternetAccessType" />
+          <xs:element minOccurs="0" name="LastUpdateTime" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastUpdatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ParentSubscriberId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PlacementType" type="tns:PlacementType_e" />
+          <xs:element minOccurs="0" name="PlacementType2" nillable="true" type="tns:PlacementTypeEx_e" />
+          <xs:element minOccurs="0" name="ServiceInformation" nillable="true" type="tns:ServiceInfoType" />
+          <xs:element minOccurs="0" name="Services" nillable="true" type="tns:ArrayOfServiceInfoType" />
+          <xs:element minOccurs="0" name="SubscriberDefaultPhoneNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SubscriberEmail" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SubscriberGuid" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SubscriberName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SubscriberTimezone" type="tns:Timezone_e" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="SubscriberType" nillable="true" type="tns:SubscriberType" />
+      <xs:complexType name="ArrayOfAddressInfoType">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="AddressInfoType" nillable="true" type="tns:AddressInfoType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfAddressInfoType" nillable="true" type="tns:ArrayOfAddressInfoType" />
+      <xs:complexType name="AddressInfoType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AddressField" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AddressTypeField" type="tns:AddressType_e" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="AddressInfoType" nillable="true" type="tns:AddressInfoType" />
+      <xs:simpleType name="AddressType_e">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="AddressTypeDN">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="AddressTypeAnnID">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="AddressTypeEmailAddr">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="AddressTypeSipAddr">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="AddressTypMailboxNumber">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="AddressTypCentrexExtension">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">15</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="AddressType_e" nillable="true" type="tns:AddressType_e" />
+      <xs:complexType name="InternetAccessType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="MobileEnabled" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ServiceEnabled" type="xs:boolean" />
+          <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="InternetAccessType" nillable="true" type="tns:InternetAccessType" />
+      <xs:simpleType name="PlacementType_e">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="PlacementType_Zero" />
+          <xs:enumeration value="PlacementType_None" />
+          <xs:enumeration value="PlacementType_CASS">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="PlacementType_User">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">10</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="PlacementType_e" nillable="true" type="tns:PlacementType_e" />
+      <xs:simpleType name="PlacementTypeEx_e">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="None" />
+          <xs:enumeration value="Approximate" />
+          <xs:enumeration value="Exact">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Unknown">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">10</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="PlacementTypeEx_e" nillable="true" type="tns:PlacementTypeEx_e" />
+      <xs:complexType name="ServiceInfoType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ApSystemId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BillingServiceAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BillingServiceID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ServiceGuid" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ServiceType" type="tns:ServiceType_e" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ServiceInfoType" nillable="true" type="tns:ServiceInfoType" />
+      <xs:simpleType name="ServiceType_e">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Unknown" />
+          <xs:enumeration value="Voicemail" />
+          <xs:enumeration value="Iptv" />
+          <xs:enumeration value="LargeScaleConferencing" />
+          <xs:enumeration value="OnDemandConferencing" />
+          <xs:enumeration value="TerminatingCallManagement" />
+          <xs:enumeration value="OriginatingCallManagement" />
+          <xs:enumeration value="UniversalCallManagement" />
+          <xs:enumeration value="CallLogging" />
+          <xs:enumeration value="SipAcs" />
+          <xs:enumeration value="WirelessOta" />
+          <xs:enumeration value="ACDAgent" />
+          <xs:enumeration value="ACDCallCenter" />
+          <xs:enumeration value="SingleNumber" />
+          <xs:enumeration value="Notify" />
+          <xs:enumeration value="SipIntercom" />
+          <xs:enumeration value="IptvAluMmig" />
+          <xs:enumeration value="IptvMediaroom" />
+          <xs:enumeration value="VoicemailMobile" />
+          <xs:enumeration value="IptvMobile" />
+          <xs:enumeration value="NotifyMobile" />
+          <xs:enumeration value="StreamingTvMobile" />
+          <xs:enumeration value="StreamingTv" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="ServiceType_e" nillable="true" type="tns:ServiceType_e" />
+      <xs:complexType name="ArrayOfServiceInfoType">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ServiceInfoType" nillable="true" type="tns:ServiceInfoType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfServiceInfoType" nillable="true" type="tns:ArrayOfServiceInfoType" />
+      <xs:simpleType name="Timezone_e">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="ApDefault" />
+          <xs:enumeration value="Midway" />
+          <xs:enumeration value="Hawaii" />
+          <xs:enumeration value="Alaska" />
+          <xs:enumeration value="PacificTime" />
+          <xs:enumeration value="Arizona" />
+          <xs:enumeration value="MountainTime" />
+          <xs:enumeration value="CentralTime" />
+          <xs:enumeration value="Saskatchewan" />
+          <xs:enumeration value="EasternTime" />
+          <xs:enumeration value="IndianaEast" />
+          <xs:enumeration value="AtlanticTime" />
+          <xs:enumeration value="Newfoundland" />
+          <xs:enumeration value="Aleutian" />
+          <xs:enumeration value="Michigan" />
+          <xs:enumeration value="IndianaStarke" />
+          <xs:enumeration value="Samoa" />
+          <xs:enumeration value="PacificNew" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="Timezone_e" nillable="true" type="tns:Timezone_e" />
+      <xs:complexType name="ArrayOfSubscriberType">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="SubscriberType" nillable="true" type="tns:SubscriberType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfSubscriberType" nillable="true" type="tns:ArrayOfSubscriberType" />
+      <xs:complexType name="SubscriberInternetAccessType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ForcePasswordChange" type="xs:boolean" />
+          <xs:element minOccurs="0" name="InternetAccessEnabled" type="xs:boolean" />
+          <xs:element minOccurs="0" name="InternetServices" nillable="true" type="tns:ArrayOfServiceType_e" />
+          <xs:element minOccurs="0" name="SubscriberGuid" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="SubscriberInternetAccessType" nillable="true" type="tns:SubscriberInternetAccessType" />
+      <xs:complexType name="ArrayOfServiceType_e">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ServiceType_e" type="tns:ServiceType_e" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfServiceType_e" nillable="true" type="tns:ArrayOfServiceType_e" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="ISubscriberService_AuditSubscriberAddresses_InputMessage">
+    <wsdl:part name="parameters" element="tns:AuditSubscriberAddresses" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_AuditSubscriberAddresses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AuditSubscriberAddressesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_AuditSubscriberGuids_InputMessage">
+    <wsdl:part name="parameters" element="tns:AuditSubscriberGuids" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_AuditSubscriberGuids_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AuditSubscriberGuidsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_RemoveSubscriberProv_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveSubscriberProv" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_RemoveSubscriberProv_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveSubscriberProvResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_AddOrUpdateSubscriberProv_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateSubscriberProv" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_AddOrUpdateSubscriberProv_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateSubscriberProvResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_GetSubscribersByNumberProv_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubscribersByNumberProv" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_GetSubscribersByNumberProv_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubscribersByNumberProvResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_GetSubscriberByNumberProv_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubscriberByNumberProv" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_GetSubscriberByNumberProv_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubscriberByNumberProvResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_GetSubscriberByDefaultPhoneNumberProv_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubscriberByDefaultPhoneNumberProv" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_GetSubscriberByDefaultPhoneNumberProv_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubscriberByDefaultPhoneNumberProvResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_GetSubscriberByGuidProv_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubscriberByGuidProv" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_GetSubscriberByGuidProv_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubscriberByGuidProvResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_GetSubscriberByBillingProv_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubscriberByBillingProv" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_GetSubscriberByBillingProv_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubscriberByBillingProvResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_GetSubscribersByBillingAccountNumberProv_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubscribersByBillingAccountNumberProv" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_GetSubscribersByBillingAccountNumberProv_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubscribersByBillingAccountNumberProvResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_GetSubscribersByNameProv_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubscribersByNameProv" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_GetSubscribersByNameProv_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubscribersByNameProvResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_GetSubscriberInternetAccess_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubscriberInternetAccess" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_GetSubscriberInternetAccess_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubscriberInternetAccessResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_GetSubscriberServices_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubscriberServices" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_GetSubscriberServices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubscriberServicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_SetSubscriberBillingInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetSubscriberBillingInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_SetSubscriberBillingInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetSubscriberBillingInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_ReconcileBillingServiceID_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReconcileBillingServiceID" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_ReconcileBillingServiceID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReconcileBillingServiceIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_UpdateBillingAccountNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBillingAccountNumber" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_UpdateBillingAccountNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBillingAccountNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_UpdateBillingServiceAddressForBillingAccountNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBillingServiceAddressForBillingAccountNumber" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_UpdateBillingServiceAddressForBillingAccountNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBillingServiceAddressForBillingAccountNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_LinkSubscriberAccountsProv_InputMessage">
+    <wsdl:part name="parameters" element="tns:LinkSubscriberAccountsProv" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_LinkSubscriberAccountsProv_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LinkSubscriberAccountsProvResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_UnLinkSubscriberAccountsProv_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnLinkSubscriberAccountsProv" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_UnLinkSubscriberAccountsProv_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnLinkSubscriberAccountsProvResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_ResetInternetAccessPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResetInternetAccessPassword" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_ResetInternetAccessPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResetInternetAccessPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_InternetAccessPasswordChange_InputMessage">
+    <wsdl:part name="parameters" element="tns:InternetAccessPasswordChange" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_InternetAccessPasswordChange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InternetAccessPasswordChangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_AddOrUpdateSubscriberInternetAccess_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateSubscriberInternetAccess" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_AddOrUpdateSubscriberInternetAccess_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateSubscriberInternetAccessResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_RemoveSubscriberInternetAccess_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveSubscriberInternetAccess" />
+  </wsdl:message>
+  <wsdl:message name="ISubscriberService_RemoveSubscriberInternetAccess_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveSubscriberInternetAccessResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISubscriberService">
+    <wsdl:operation name="AuditSubscriberAddresses">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISubscriberService/AuditSubscriberAddresses" message="tns:ISubscriberService_AuditSubscriberAddresses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISubscriberService/AuditSubscriberAddressesResponse" message="tns:ISubscriberService_AuditSubscriberAddresses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AuditSubscriberGuids">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISubscriberService/AuditSubscriberGuids" message="tns:ISubscriberService_AuditSubscriberGuids_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISubscriberService/AuditSubscriberGuidsResponse" message="tns:ISubscriberService_AuditSubscriberGuids_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveSubscriberProv">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISubscriberService/RemoveSubscriberProv" message="tns:ISubscriberService_RemoveSubscriberProv_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISubscriberService/RemoveSubscriberProvResponse" message="tns:ISubscriberService_RemoveSubscriberProv_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateSubscriberProv">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISubscriberService/AddOrUpdateSubscriberProv" message="tns:ISubscriberService_AddOrUpdateSubscriberProv_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISubscriberService/AddOrUpdateSubscriberProvResponse" message="tns:ISubscriberService_AddOrUpdateSubscriberProv_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSubscribersByNumberProv">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISubscriberService/GetSubscribersByNumberProv" message="tns:ISubscriberService_GetSubscribersByNumberProv_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISubscriberService/GetSubscribersByNumberProvResponse" message="tns:ISubscriberService_GetSubscribersByNumberProv_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSubscriberByNumberProv">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISubscriberService/GetSubscriberByNumberProv" message="tns:ISubscriberService_GetSubscriberByNumberProv_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISubscriberService/GetSubscriberByNumberProvResponse" message="tns:ISubscriberService_GetSubscriberByNumberProv_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSubscriberByDefaultPhoneNumberProv">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISubscriberService/GetSubscriberByDefaultPhoneNumberProv" message="tns:ISubscriberService_GetSubscriberByDefaultPhoneNumberProv_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISubscriberService/GetSubscriberByDefaultPhoneNumberProvResponse" message="tns:ISubscriberService_GetSubscriberByDefaultPhoneNumberProv_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSubscriberByGuidProv">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISubscriberService/GetSubscriberByGuidProv" message="tns:ISubscriberService_GetSubscriberByGuidProv_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISubscriberService/GetSubscriberByGuidProvResponse" message="tns:ISubscriberService_GetSubscriberByGuidProv_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSubscriberByBillingProv">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISubscriberService/GetSubscriberByBillingProv" message="tns:ISubscriberService_GetSubscriberByBillingProv_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISubscriberService/GetSubscriberByBillingProvResponse" message="tns:ISubscriberService_GetSubscriberByBillingProv_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSubscribersByBillingAccountNumberProv">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISubscriberService/GetSubscribersByBillingAccountNumberProv" message="tns:ISubscriberService_GetSubscribersByBillingAccountNumberProv_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISubscriberService/GetSubscribersByBillingAccountNumberProvResponse" message="tns:ISubscriberService_GetSubscribersByBillingAccountNumberProv_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSubscribersByNameProv">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISubscriberService/GetSubscribersByNameProv" message="tns:ISubscriberService_GetSubscribersByNameProv_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISubscriberService/GetSubscribersByNameProvResponse" message="tns:ISubscriberService_GetSubscribersByNameProv_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSubscriberInternetAccess">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISubscriberService/GetSubscriberInternetAccess" message="tns:ISubscriberService_GetSubscriberInternetAccess_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISubscriberService/GetSubscriberInternetAccessResponse" message="tns:ISubscriberService_GetSubscriberInternetAccess_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSubscriberServices">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISubscriberService/GetSubscriberServices" message="tns:ISubscriberService_GetSubscriberServices_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISubscriberService/GetSubscriberServicesResponse" message="tns:ISubscriberService_GetSubscriberServices_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetSubscriberBillingInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISubscriberService/SetSubscriberBillingInfo" message="tns:ISubscriberService_SetSubscriberBillingInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISubscriberService/SetSubscriberBillingInfoResponse" message="tns:ISubscriberService_SetSubscriberBillingInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReconcileBillingServiceID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISubscriberService/ReconcileBillingServiceID" message="tns:ISubscriberService_ReconcileBillingServiceID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISubscriberService/ReconcileBillingServiceIDResponse" message="tns:ISubscriberService_ReconcileBillingServiceID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBillingAccountNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISubscriberService/UpdateBillingAccountNumber" message="tns:ISubscriberService_UpdateBillingAccountNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISubscriberService/UpdateBillingAccountNumberResponse" message="tns:ISubscriberService_UpdateBillingAccountNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBillingServiceAddressForBillingAccountNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISubscriberService/UpdateBillingServiceAddressForBillingAccountNumber" message="tns:ISubscriberService_UpdateBillingServiceAddressForBillingAccountNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISubscriberService/UpdateBillingServiceAddressForBillingAccountNumberResponse" message="tns:ISubscriberService_UpdateBillingServiceAddressForBillingAccountNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LinkSubscriberAccountsProv">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISubscriberService/LinkSubscriberAccountsProv" message="tns:ISubscriberService_LinkSubscriberAccountsProv_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISubscriberService/LinkSubscriberAccountsProvResponse" message="tns:ISubscriberService_LinkSubscriberAccountsProv_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnLinkSubscriberAccountsProv">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISubscriberService/UnLinkSubscriberAccountsProv" message="tns:ISubscriberService_UnLinkSubscriberAccountsProv_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISubscriberService/UnLinkSubscriberAccountsProvResponse" message="tns:ISubscriberService_UnLinkSubscriberAccountsProv_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResetInternetAccessPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISubscriberService/ResetInternetAccessPassword" message="tns:ISubscriberService_ResetInternetAccessPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISubscriberService/ResetInternetAccessPasswordResponse" message="tns:ISubscriberService_ResetInternetAccessPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InternetAccessPasswordChange">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISubscriberService/InternetAccessPasswordChange" message="tns:ISubscriberService_InternetAccessPasswordChange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISubscriberService/InternetAccessPasswordChangeResponse" message="tns:ISubscriberService_InternetAccessPasswordChange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateSubscriberInternetAccess">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISubscriberService/AddOrUpdateSubscriberInternetAccess" message="tns:ISubscriberService_AddOrUpdateSubscriberInternetAccess_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISubscriberService/AddOrUpdateSubscriberInternetAccessResponse" message="tns:ISubscriberService_AddOrUpdateSubscriberInternetAccess_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveSubscriberInternetAccess">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISubscriberService/RemoveSubscriberInternetAccess" message="tns:ISubscriberService_RemoveSubscriberInternetAccess_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISubscriberService/RemoveSubscriberInternetAccessResponse" message="tns:ISubscriberService_RemoveSubscriberInternetAccess_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSHttpBinding_ISubscriberService" type="tns:ISubscriberService">
+    <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AuditSubscriberAddresses">
+      <soap12:operation soapAction="http://tempuri.org/ISubscriberService/AuditSubscriberAddresses" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_AuditSubscriberAddresses_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_AuditSubscriberAddresses_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuditSubscriberGuids">
+      <soap12:operation soapAction="http://tempuri.org/ISubscriberService/AuditSubscriberGuids" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_AuditSubscriberGuids_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_AuditSubscriberGuids_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveSubscriberProv">
+      <soap12:operation soapAction="http://tempuri.org/ISubscriberService/RemoveSubscriberProv" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_RemoveSubscriberProv_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_RemoveSubscriberProv_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateSubscriberProv">
+      <soap12:operation soapAction="http://tempuri.org/ISubscriberService/AddOrUpdateSubscriberProv" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_AddOrUpdateSubscriberProv_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_AddOrUpdateSubscriberProv_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubscribersByNumberProv">
+      <soap12:operation soapAction="http://tempuri.org/ISubscriberService/GetSubscribersByNumberProv" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_GetSubscribersByNumberProv_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_GetSubscribersByNumberProv_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubscriberByNumberProv">
+      <soap12:operation soapAction="http://tempuri.org/ISubscriberService/GetSubscriberByNumberProv" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_GetSubscriberByNumberProv_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_GetSubscriberByNumberProv_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubscriberByDefaultPhoneNumberProv">
+      <soap12:operation soapAction="http://tempuri.org/ISubscriberService/GetSubscriberByDefaultPhoneNumberProv" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_GetSubscriberByDefaultPhoneNumberProv_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_GetSubscriberByDefaultPhoneNumberProv_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubscriberByGuidProv">
+      <soap12:operation soapAction="http://tempuri.org/ISubscriberService/GetSubscriberByGuidProv" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_GetSubscriberByGuidProv_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_GetSubscriberByGuidProv_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubscriberByBillingProv">
+      <soap12:operation soapAction="http://tempuri.org/ISubscriberService/GetSubscriberByBillingProv" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_GetSubscriberByBillingProv_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_GetSubscriberByBillingProv_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubscribersByBillingAccountNumberProv">
+      <soap12:operation soapAction="http://tempuri.org/ISubscriberService/GetSubscribersByBillingAccountNumberProv" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_GetSubscribersByBillingAccountNumberProv_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_GetSubscribersByBillingAccountNumberProv_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubscribersByNameProv">
+      <soap12:operation soapAction="http://tempuri.org/ISubscriberService/GetSubscribersByNameProv" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_GetSubscribersByNameProv_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_GetSubscribersByNameProv_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubscriberInternetAccess">
+      <soap12:operation soapAction="http://tempuri.org/ISubscriberService/GetSubscriberInternetAccess" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_GetSubscriberInternetAccess_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_GetSubscriberInternetAccess_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubscriberServices">
+      <soap12:operation soapAction="http://tempuri.org/ISubscriberService/GetSubscriberServices" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_GetSubscriberServices_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_GetSubscriberServices_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetSubscriberBillingInfo">
+      <soap12:operation soapAction="http://tempuri.org/ISubscriberService/SetSubscriberBillingInfo" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_SetSubscriberBillingInfo_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_SetSubscriberBillingInfo_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReconcileBillingServiceID">
+      <soap12:operation soapAction="http://tempuri.org/ISubscriberService/ReconcileBillingServiceID" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_ReconcileBillingServiceID_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_ReconcileBillingServiceID_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBillingAccountNumber">
+      <soap12:operation soapAction="http://tempuri.org/ISubscriberService/UpdateBillingAccountNumber" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_UpdateBillingAccountNumber_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_UpdateBillingAccountNumber_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBillingServiceAddressForBillingAccountNumber">
+      <soap12:operation soapAction="http://tempuri.org/ISubscriberService/UpdateBillingServiceAddressForBillingAccountNumber" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_UpdateBillingServiceAddressForBillingAccountNumber_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_UpdateBillingServiceAddressForBillingAccountNumber_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LinkSubscriberAccountsProv">
+      <soap12:operation soapAction="http://tempuri.org/ISubscriberService/LinkSubscriberAccountsProv" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_LinkSubscriberAccountsProv_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_LinkSubscriberAccountsProv_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnLinkSubscriberAccountsProv">
+      <soap12:operation soapAction="http://tempuri.org/ISubscriberService/UnLinkSubscriberAccountsProv" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_UnLinkSubscriberAccountsProv_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_UnLinkSubscriberAccountsProv_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetInternetAccessPassword">
+      <soap12:operation soapAction="http://tempuri.org/ISubscriberService/ResetInternetAccessPassword" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_ResetInternetAccessPassword_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_ResetInternetAccessPassword_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InternetAccessPasswordChange">
+      <soap12:operation soapAction="http://tempuri.org/ISubscriberService/InternetAccessPasswordChange" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_InternetAccessPasswordChange_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_InternetAccessPasswordChange_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateSubscriberInternetAccess">
+      <soap12:operation soapAction="http://tempuri.org/ISubscriberService/AddOrUpdateSubscriberInternetAccess" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_AddOrUpdateSubscriberInternetAccess_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_AddOrUpdateSubscriberInternetAccess_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveSubscriberInternetAccess">
+      <soap12:operation soapAction="http://tempuri.org/ISubscriberService/RemoveSubscriberInternetAccess" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_RemoveSubscriberInternetAccess_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_ISubscriberService_RemoveSubscriberInternetAccess_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SubscriberService">
+    <wsdl:port name="WSHttpBinding_ISubscriberService" binding="tns:WSHttpBinding_ISubscriberService">
+      <soap12:address location="http://eaprovision:8731/Design_Time_Addresses/SubscriberServiceV4/SubscriberV4/" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://eaprovision:8731/Design_Time_Addresses/SubscriberServiceV4/SubscriberV4/</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Spn>host/EAProvision</Spn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

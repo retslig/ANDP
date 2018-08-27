@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CallLoggingServiceV3" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CallLoggingServiceV3" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfCallLoggingType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CallLoggingType" nillable="true" type="tns:CallLoggingType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCallLoggingType" nillable="true" type="tns:ArrayOfCallLoggingType" />
+  <xs:complexType name="CallLoggingType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubscriberDn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubscriberID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WebPortalEnabled" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CallLoggingType" nillable="true" type="tns:CallLoggingType" />
+</xs:schema>

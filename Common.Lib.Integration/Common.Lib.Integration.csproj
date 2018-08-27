@@ -1,0 +1,1659 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B677DCFE-E176-4E4A-83A2-746DB5850170}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Common</RootNamespace>
+    <AssemblyName>Common.Lib.Integration</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=3.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MySql.Data.6.9.5\lib\net45\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.2.3\lib\net45\RestSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Services" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.1.0.0\lib\net45\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Thinktecture.IdentityModel, Version=3.6.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Thinktecture.IdentityModel.3.6.1\lib\net45\Thinktecture.IdentityModel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApMax\ApMaxHelper.cs" />
+    <Compile Include="ApMax\CallingNameV4Service.cs" />
+    <Compile Include="ApMax\CallingNumberAnnouncementV3Service.cs" />
+    <Compile Include="ApMax\CallLoggingV3Service.cs" />
+    <Compile Include="ApMax\ApMaxCore.cs" />
+    <Compile Include="ApMax\IptvV3Service.cs" />
+    <Compile Include="ApMax\IptvV7Service.cs" />
+    <Compile Include="ApMax\OnDemandConferencingV3Service.cs" />
+    <Compile Include="ApMax\OriginatingCallManagmentV1Service.cs" />
+    <Compile Include="ApMax\ApMaxService.cs" />
+    <Compile Include="ApMax\ApMaxService_old.cs" />
+    <Compile Include="ApMax\SubscriberV4Service.cs" />
+    <Compile Include="ApMax\SubscriberV3Service.cs" />
+    <Compile Include="ApMax\TerminatingCallManagementV3Service.cs" />
+    <Compile Include="ApMax\UniversalCallManagementV3.cs" />
+    <Compile Include="ApMax\VoicemailV5Service.cs" />
+    <Compile Include="ApMax\VoicemailV3Service.cs" />
+    <Compile Include="ApMax\IApMaxService.cs" />
+    <Compile Include="ApMax\CallingNameV3Service.cs" />
+    <Compile Include="ApMax\LargeScaleConferenceV1Service.cs" />
+    <Compile Include="ApMax\Models\Enums.cs" />
+    <Compile Include="Calix\CalixService.cs" />
+    <Compile Include="MetaSphere\Services\MetaSphereService.cs" />
+    <Compile Include="MetaSphere\Services\MetaSphereShTypedUtilities.cs" />
+    <Compile Include="MetaSphere\Services\MetaSphereShUtilities.cs" />
+    <Compile Include="MetaSwitch\Services\MetaSwitchService.cs" />
+    <Compile Include="MetaSwitch\Services\MetaSphereShTypedUtilities.cs" />
+    <Compile Include="MetaSwitch\Services\MetaSwitchShUtilities.cs" />
+    <Compile Include="MetaSwitch\Subscriber.cs" />
+    <Compile Include="NeoNova\Services\NeoNovaService.cs" />
+    <Compile Include="NewNet\Factories\ProcessMakerServiceFactory.cs" />
+    <Compile Include="NewNet\Services\IProcessMakerService.cs" />
+    <Compile Include="NewNet\Services\ProcessMakerService.cs" />
+    <Compile Include="Pannaway\PannawayService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\ApAdmin\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\CallingNameV3\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\CallingNameV4\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\CallingNumberAnnouncementV3\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\CallLoggingV3\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\IptvAluMmigV1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\IptvMediaroomV1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\IPTVServiceV3\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\IPTVServiceV7\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\LargeScaleConferenceV1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\LocalNumberPortabilityV1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\MetaSphere\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\MetaSwitch\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\NotifyJobSchedulerV6\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\OnDemandConferencingV3\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\OriginatingCallManagementV1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ProcessMakerService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SipAcsV2\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SipAcsV1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\TerminatingCallManagementV3\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\UniveralCallManagementV3\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WirelessOtaV1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServiceReport\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SubscriberV3\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SubscriberV4\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\VoicemailV3\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\VoicemailV4\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\VoicemailV5\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\XmlLegacyProvisioning\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Udp\Factories\UdpBillingServiceFactory.cs" />
+    <Compile Include="Udp\Models\MappingProfiles\BillingRecordProfile.cs" />
+    <Compile Include="Udp\Repositories\BillingEntityConfiguration.cs" />
+    <Compile Include="Udp\Repositories\UdpBillingRepository.cs" />
+    <Compile Include="Udp\Repositories\IUdpBillingRepository.cs" />
+    <Compile Include="Udp\Services\UdpBillingService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="NeoNova\Models\" />
+    <Folder Include="NewNet\Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Service References\ApAdmin\ApAdmin.wsdl" />
+    <None Include="Service References\ApAdmin\Common.ApAdmin.LoginInformation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ApAdmin\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ApAdmin\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ApAdmin\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CallingNameV3\CallingNameService.wsdl" />
+    <None Include="Service References\CallingNameV3\Common.CallingNameV3.CallingNameType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CallingNameV3\Common.CallingNameV3.ScreenPopSubscriberType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CallingNameV3\Common.CallingNameV3.ScreenPopType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CallingNameV3\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CallingNameV3\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CallingNameV3\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CallingNameV4\CallingNameService.wsdl" />
+    <None Include="Service References\CallingNameV4\Common.CallingNameV4.CallingNameType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CallingNameV4\Common.CallingNameV4.CiscoServerLinkType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CallingNameV4\Common.CallingNameV4.ScreenPopSubscriberType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CallingNameV4\Common.CallingNameV4.ScreenPopType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CallingNameV4\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CallingNameV4\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CallingNameV4\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CallingNameV4\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CallingNumberAnnouncementV3\CNAService.wsdl" />
+    <None Include="Service References\CallingNumberAnnouncementV3\Common.CallingNumberAnnouncementV3.CnaInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CallingNumberAnnouncementV3\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CallingNumberAnnouncementV3\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CallingNumberAnnouncementV3\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CallLoggingV3\CLPService.wsdl" />
+    <None Include="Service References\CallLoggingV3\Common.CallLoggingV3.CallLoggingType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CallLoggingV3\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CallLoggingV3\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CallLoggingV3\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CallLoggingV3\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\IptvAluMmigV1\Common.IptvAluMmigV1.Account.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\IptvAluMmigV1\Common.IptvAluMmigV1.AluPin.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\IptvAluMmigV1\Common.IptvAluMmigV1.Device.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\IptvAluMmigV1\IptvAluMmig.wsdl" />
+    <None Include="Service References\IptvAluMmigV1\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\IptvAluMmigV1\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\IptvAluMmigV1\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\IptvAluMmigV1\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\IptvMediaroomV1\Common.IptvMediaroomV1.MediaroomSubscriber.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\IptvMediaroomV1\Common.IptvMediaroomV1.StbType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\IptvMediaroomV1\IptvMediaroom.wsdl" />
+    <None Include="Service References\IptvMediaroomV1\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\IptvMediaroomV1\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\IptvMediaroomV1\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\IptvMediaroomV1\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\IPTVServiceV3\Common.IPTVServiceV3.BandwidthGroupProfileType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\IPTVServiceV3\Common.IPTVServiceV3.ChannelLineupType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\IPTVServiceV3\Common.IPTVServiceV3.Gen1STBConfigurationDiagnosticType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\IPTVServiceV3\Common.IPTVServiceV3.Gen1STBDiagnosticCountType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\IPTVServiceV3\Common.IPTVServiceV3.Gen2AvStatsType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\IPTVServiceV3\Common.IPTVServiceV3.Gen2BoxInfoType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\IPTVServiceV3\Common.IPTVServiceV3.Gen2MemStatsType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\IPTVServiceV3\Common.IPTVServiceV3.Gen2NetworkStatsType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\IPTVServiceV3\Common.IPTVServiceV3.IPTVAccountType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\IPTVServiceV3\Common.IPTVServiceV3.IptvFeatureType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\IPTVServiceV3\Common.IPTVServiceV3.PingResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\IPTVServiceV3\Common.IPTVServiceV3.SetTopBoxType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\IPTVServiceV3\IPTVService.wsdl" />
+    <None Include="Service References\IPTVServiceV7\Common.IPTVServiceV7.BandwidthGroupProfileType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\IPTVServiceV7\Common.IPTVServiceV7.ChannelLineupType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\IPTVServiceV7\Common.IPTVServiceV7.Gen2AvStatsType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\IPTVServiceV7\Common.IPTVServiceV7.Gen2BoxInfoType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\IPTVServiceV7\Common.IPTVServiceV7.Gen2MemStatsType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\IPTVServiceV7\Common.IPTVServiceV7.Gen2NetworkStatsType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\IPTVServiceV7\Common.IPTVServiceV7.IPTVAccountType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\IPTVServiceV7\Common.IPTVServiceV7.IptvFeatureType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\IPTVServiceV7\Common.IPTVServiceV7.PingResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\IPTVServiceV7\Common.IPTVServiceV7.SetTopBoxType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\IPTVServiceV7\IPTVService.wsdl" />
+    <None Include="Service References\LargeScaleConferenceV1\Common.LargeScaleConferenceV1.AccessNumberType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LargeScaleConferenceV1\Common.LargeScaleConferenceV1.BlackListType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LargeScaleConferenceV1\Common.LargeScaleConferenceV1.FreeConferenceType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LargeScaleConferenceV1\Common.LargeScaleConferenceV1.RecordingsType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LargeScaleConferenceV1\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LargeScaleConferenceV1\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LargeScaleConferenceV1\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LargeScaleConferenceV1\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LargeScaleConferenceV1\LargeScaleConference.wsdl" />
+    <None Include="Service References\LocalNumberPortabilityV1\Common.LocalNumberPortabilityV1.LNPType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LocalNumberPortabilityV1\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LocalNumberPortabilityV1\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LocalNumberPortabilityV1\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LocalNumberPortabilityV1\LocalNumberPortability.wsdl" />
+    <None Include="Service References\MetaSphere\Common.MetaSphere.ShPullResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MetaSphere\Common.MetaSphere.ShUpdateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MetaSphere\Common.MetaSphere.tExtendedResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MetaSphere\Common.MetaSphere.tUserData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_BusinessGroup_BaseInformation.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_BusinessGroup_ChildrenList_Department.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_BusinessGroup_ChildrenList_Subscriber.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_BusinessGroup_ChildrenList_Subscriber_AllFragments.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_BusinessGroup_DialingPlan_IntercomCodeRangesList.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_ClassOfService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_CommonTypes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_CustomerGroup.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_CustomerGroup_Administrators.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_CustomerGroup_Reduced.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_Department_BaseInformation.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_Device_BaseInformation.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_IntercomCodeRange_BaseInformation.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_SDC_BaseInformation.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_Subscriber_AppleVVM.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_Subscriber_BaseInformation.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_Subscriber_BusinessGroup.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_Subscriber_CallRouter.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_Subscriber_CallTree_Announcements.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_Subscriber_CallTree_AnnouncementsData.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_Subscriber_CallTree_BaseInformation.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_Subscriber_CallTree_BGExtensionList.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_Subscriber_CallTree_DialByExtensionList.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_Subscriber_CallTree_Nodes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_Subscriber_CallTree_RecordedNames.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_Subscriber_CallTree_RecordedNamesData.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_Subscriber_CallTree_Settings.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_Subscriber_ContactGroup.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_Subscriber_ContactGroup_Recording.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_Subscriber_Contacts.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_Subscriber_CTD.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_Subscriber_CTP.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_Subscriber_CustomData.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_Subscriber_DCLTUI.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_Subscriber_FMFM.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_Subscriber_FutureDeliveryQueue.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_Subscriber_Greetings.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_Subscriber_Greetings_Data.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_Subscriber_GroupMailbox.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_Subscriber_InitFlags.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_Subscriber_LiveMessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_Subscriber_Messaging.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_Subscriber_Messaging_Data.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_Subscriber_Messaging_Status.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_Subscriber_MWI.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_Subscriber_Notifications.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_Subscriber_Reminders.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_Subscriber_Schedules.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\Msph_VPIM.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\serviceData.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\ShService.wsdl" />
+    <None Include="Service References\MetaSphere\userData.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSphere\xmlmime.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSwitch\Common.MetaSwitch.ShPullResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MetaSwitch\Common.MetaSwitch.ShUpdateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MetaSwitch\Common.MetaSwitch.tExtendedResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MetaSwitch\Common.MetaSwitch.tUserData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MetaSwitch\serviceData.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetaSwitch\ShServiceTyped.wsdl" />
+    <None Include="Service References\MetaSwitch\userData.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NotifyJobSchedulerV6\Common.NotifyJobSchedulerV6.NotifyTemplate.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NotifyJobSchedulerV6\Common.NotifyJobSchedulerV6.NotifyTemplateLite.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NotifyJobSchedulerV6\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NotifyJobSchedulerV6\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NotifyJobSchedulerV6\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NotifyJobSchedulerV6\NotifySchedulerService.wsdl" />
+    <None Include="Service References\OnDemandConferencingV3\Common.OnDemandConferencingV3.ConferenceType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OnDemandConferencingV3\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OnDemandConferencingV3\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OnDemandConferencingV3\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OnDemandConferencingV3\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OnDemandConferencingV3\ODConferencingService.wsdl" />
+    <None Include="Service References\OriginatingCallManagementV1\Common.OriginatingCallManagementV1.OCMGroupType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OriginatingCallManagementV1\Common.OriginatingCallManagementV1.OCMSubcriberType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OriginatingCallManagementV1\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OriginatingCallManagementV1\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OriginatingCallManagementV1\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OriginatingCallManagementV1\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OriginatingCallManagementV1\item4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OriginatingCallManagementV1\OCMService.wsdl" />
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.addCaseNoteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.assignUserToGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.cancelCaseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.caseListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.caseListStruct.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.createDepartmentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.createGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.createUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.deleteCaseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.departmentListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.departmentListStruct.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.getCaseInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.getCaseInfoStruct.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.getCaseNotesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.getCaseNotesStruct.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.getVariablesNamesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.getVariablesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.groupListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.groupListStruct.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.importProcessFromLibraryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.informationUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.informationUserStruct.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.inputDocumentListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.inputDocumentListStruct.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.inputDocumentProcessListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.inputDocumentProcessListStruct.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.loginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.newCaseImpersonateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.newCaseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.outputDocumentListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.outputDocumentListStruct.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.pauseCaseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.processListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.processListStruct.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.removeDocumentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.roleListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.roleListStruct.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.routeCaseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.routeListStruct.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.systemInformationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.taskCaseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.taskCaseStruct.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.taskListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.taskListStruct.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.triggerListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.triggerListStruct.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.unassignedCaseListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.unassignedCaseListStruct.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.unpauseCaseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.updateUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.userListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.userListStruct.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.variableListNameStruct.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\Common.ProcessMakerService.variableListStruct.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProcessMakerService\wsdl2.wsdl" />
+    <None Include="Service References\ServiceReport\Common.ServiceReport.ApiVersions.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReport\Common.ServiceReport.ServiceVersions.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SipAcsV1\Common.SipAcsV1.GroupType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SipAcsV1\Common.SipAcsV1.PhoneMappingType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SipAcsV1\Common.SipAcsV1.PhoneModelType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SipAcsV1\Common.SipAcsV1.SubPhoneInfoType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SipAcsV1\Common.SipAcsV1.UpcMappingType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SipAcsV2\Common.SipAcsV2.GroupType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SipAcsV2\Common.SipAcsV2.PhoneMappingType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SipAcsV2\Common.SipAcsV2.PhoneModelType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SipAcsV2\Common.SipAcsV2.SubPhoneInfoType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SipAcsV2\Common.SipAcsV2.UpcMappingType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SipAcsV2\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SipAcsV2\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SipAcsV2\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SipAcsV2\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SipAcsV2\item4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SipAcsV2\SipAcsService.wsdl" />
+    <None Include="Service References\SipAcsV1\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SipAcsV1\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SipAcsV1\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SipAcsV1\SipAcsService.wsdl" />
+    <None Include="Service References\SubscriberV3\Common.SubscriberV3.SubscriberInternetAccessType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SubscriberV3\Common.SubscriberV3.SubscriberType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SubscriberV4\Common.SubscriberV4.ServiceInfoType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SubscriberV4\Common.SubscriberV4.SubscriberInternetAccessType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SubscriberV4\Common.SubscriberV4.SubscriberType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SubscriberV4\SubscriberService1.wsdl" />
+    <None Include="Service References\TerminatingCallManagementV3\Common.TerminatingCallManagementV3.DNDContactListType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TerminatingCallManagementV3\Common.TerminatingCallManagementV3.TCMType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TerminatingCallManagementV3\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TerminatingCallManagementV3\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TerminatingCallManagementV3\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TerminatingCallManagementV3\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TerminatingCallManagementV3\TCMService.wsdl" />
+    <None Include="Service References\UniveralCallManagementV3\Common.UniveralCallManagementV3.ContactListType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniveralCallManagementV3\Common.UniveralCallManagementV3.UniversalCallMgrSubType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniveralCallManagementV3\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UniveralCallManagementV3\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UniveralCallManagementV3\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UniveralCallManagementV3\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UniveralCallManagementV3\UCMService.wsdl" />
+    <None Include="Service References\VoicemailV3\Common.VoicemailV3.NotificationCenterInfoType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VoicemailV3\Common.VoicemailV3.PackageType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VoicemailV3\Common.VoicemailV3.PackageTypeLight.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VoicemailV3\Common.VoicemailV3.VoiceMailBoxType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VoicemailV3\item5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VoicemailV3\item51.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VoicemailV3\item52.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VoicemailV3\item53.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VoicemailV3\item54.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VoicemailV3\Voicemail1.wsdl" />
+    <None Include="Service References\VoicemailV4\Common.VoicemailV4.NotificationCenterInfoType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VoicemailV4\Common.VoicemailV4.PackageType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VoicemailV4\Common.VoicemailV4.PackageTypeLight.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VoicemailV4\Common.VoicemailV4.VoiceMailBoxType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VoicemailV4\item5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VoicemailV4\item51.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VoicemailV4\item52.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VoicemailV4\item53.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VoicemailV4\item54.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VoicemailV4\Voicemail1.wsdl" />
+    <None Include="Service References\VoicemailV5\Common.VoicemailV5.NotificationCenterInfoType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VoicemailV5\Common.VoicemailV5.PackageType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VoicemailV5\Common.VoicemailV5.PackageTypeLight.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VoicemailV5\Common.VoicemailV5.VoiceMailBoxType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VoicemailV5\item5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VoicemailV5\item51.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VoicemailV5\item52.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VoicemailV5\item53.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VoicemailV5\item54.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VoicemailV5\Voicemail1.wsdl" />
+    <None Include="Service References\WirelessOtaV1\Common.WirelessOtaV1.AnnouncementCode.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WirelessOtaV1\Common.WirelessOtaV1.SystemNetworkIDType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WirelessOtaV1\Common.WirelessOtaV1.WirelessOtaConfigElementType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WirelessOtaV1\Common.WirelessOtaV1.WirelessOtaSubscriberType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WirelessOtaV1\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WirelessOtaV1\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WirelessOtaV1\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WirelessOtaV1\WirelessOta.wsdl" />
+    <None Include="Service References\ServiceReport\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReport\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReport\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReport\ServiceReport.wsdl" />
+    <None Include="Service References\SubscriberV3\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SubscriberV3\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SubscriberV3\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SubscriberV3\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SubscriberV3\SubscriberService.wsdl" />
+    <None Include="Service References\XmlLegacyProvisioning\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\XmlLegacyProvisioning\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\XmlLegacyProvisioning\ServDataDirect.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ApAdmin\" />
+    <WCFMetadataStorage Include="Service References\CallingNameV3\" />
+    <WCFMetadataStorage Include="Service References\CallingNameV4\" />
+    <WCFMetadataStorage Include="Service References\CallingNumberAnnouncementV3\" />
+    <WCFMetadataStorage Include="Service References\CallLoggingV3\" />
+    <WCFMetadataStorage Include="Service References\IptvAluMmigV1\" />
+    <WCFMetadataStorage Include="Service References\IptvMediaroomV1\" />
+    <WCFMetadataStorage Include="Service References\IPTVServiceV3\" />
+    <WCFMetadataStorage Include="Service References\IPTVServiceV7\" />
+    <WCFMetadataStorage Include="Service References\LargeScaleConferenceV1\" />
+    <WCFMetadataStorage Include="Service References\LocalNumberPortabilityV1\" />
+    <WCFMetadataStorage Include="Service References\MetaSphere\" />
+    <WCFMetadataStorage Include="Service References\MetaSwitch\" />
+    <WCFMetadataStorage Include="Service References\NotifyJobSchedulerV6\" />
+    <WCFMetadataStorage Include="Service References\OnDemandConferencingV3\" />
+    <WCFMetadataStorage Include="Service References\OriginatingCallManagementV1\" />
+    <WCFMetadataStorage Include="Service References\ProcessMakerService\" />
+    <WCFMetadataStorage Include="Service References\SipAcsV2\" />
+    <WCFMetadataStorage Include="Service References\SipAcsV1\" />
+    <WCFMetadataStorage Include="Service References\TerminatingCallManagementV3\" />
+    <WCFMetadataStorage Include="Service References\UniveralCallManagementV3\" />
+    <WCFMetadataStorage Include="Service References\WirelessOtaV1\" />
+    <WCFMetadataStorage Include="Service References\ServiceReport\" />
+    <WCFMetadataStorage Include="Service References\SubscriberV3\" />
+    <WCFMetadataStorage Include="Service References\SubscriberV4\" />
+    <WCFMetadataStorage Include="Service References\VoicemailV3\" />
+    <WCFMetadataStorage Include="Service References\VoicemailV4\" />
+    <WCFMetadataStorage Include="Service References\VoicemailV5\" />
+    <WCFMetadataStorage Include="Service References\XmlLegacyProvisioning\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReport\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReport\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReport\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReport\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SubscriberV3\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SubscriberV3\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SubscriberV3\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SubscriberV3\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SubscriberV4\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SubscriberV4\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SubscriberV4\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VoicemailV3\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VoicemailV3\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VoicemailV3\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VoicemailV4\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VoicemailV4\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VoicemailV4\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VoicemailV5\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VoicemailV5\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VoicemailV5\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\IPTVServiceV3\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\IPTVServiceV3\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\IPTVServiceV3\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\IPTVServiceV7\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\IPTVServiceV7\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\IPTVServiceV7\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CallingNameV3\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CallingNameV3\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CallingNameV3\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CallingNameV3\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CallingNameV4\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CallingNameV4\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CallingNameV4\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CallingNameV4\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CallLoggingV3\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CallLoggingV3\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CallLoggingV3\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CallLoggingV3\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CallingNumberAnnouncementV3\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CallingNumberAnnouncementV3\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CallingNumberAnnouncementV3\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CallingNumberAnnouncementV3\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\IptvAluMmigV1\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\IptvAluMmigV1\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\IptvAluMmigV1\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\IptvAluMmigV1\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\IptvMediaroomV1\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\IptvMediaroomV1\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\IptvMediaroomV1\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\IptvMediaroomV1\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LargeScaleConferenceV1\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LargeScaleConferenceV1\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LargeScaleConferenceV1\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LargeScaleConferenceV1\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LocalNumberPortabilityV1\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LocalNumberPortabilityV1\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LocalNumberPortabilityV1\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LocalNumberPortabilityV1\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\NotifyJobSchedulerV6\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\NotifyJobSchedulerV6\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\NotifyJobSchedulerV6\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\NotifyJobSchedulerV6\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OnDemandConferencingV3\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OnDemandConferencingV3\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OnDemandConferencingV3\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OnDemandConferencingV3\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OriginatingCallManagementV1\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OriginatingCallManagementV1\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OriginatingCallManagementV1\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OriginatingCallManagementV1\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\XmlLegacyProvisioning\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\XmlLegacyProvisioning\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\XmlLegacyProvisioning\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\XmlLegacyProvisioning\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WirelessOtaV1\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WirelessOtaV1\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WirelessOtaV1\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WirelessOtaV1\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UniveralCallManagementV3\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UniveralCallManagementV3\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UniveralCallManagementV3\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UniveralCallManagementV3\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TerminatingCallManagementV3\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TerminatingCallManagementV3\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TerminatingCallManagementV3\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TerminatingCallManagementV3\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SipAcsV2\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SipAcsV2\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SipAcsV2\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SipAcsV2\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SipAcsV1\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SipAcsV1\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SipAcsV1\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SipAcsV1\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ApAdmin\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ApAdmin\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ApAdmin\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ApAdmin\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ANDP.Domain\ANDP.Lib.Domain.csproj">
+      <Project>{8c2891ee-2c65-42b0-88f9-8a8261148e88}</Project>
+      <Name>ANDP.Lib.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ANDP.Lib.Data\ANDP.Lib.Data.csproj">
+      <Project>{84663F37-A04E-426C-BB3F-B16407D98E83}</Project>
+      <Name>ANDP.Lib.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Lib.Data\Common.Lib.Data.csproj">
+      <Project>{aac193fc-8867-479e-96f3-d5e5f194f5d5}</Project>
+      <Name>Common.Lib.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Lib.Domain\Common.Lib.Domain.csproj">
+      <Project>{D7FF5909-E901-42A0-BA81-CD0D8C377879}</Project>
+      <Name>Common.Lib.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Lib\Common.Lib.csproj">
+      <Project>{6271f6f1-b9a3-4a00-81bd-ac429bc892c2}</Project>
+      <Name>Common.Lib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ProcessMakerService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ProcessMakerService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ProcessMakerService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VoicemailV5\item1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VoicemailV4\item1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VoicemailV3\item1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MetaSwitch\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MetaSwitch\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MetaSwitch\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MetaSphere\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MetaSphere\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MetaSphere\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets')" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

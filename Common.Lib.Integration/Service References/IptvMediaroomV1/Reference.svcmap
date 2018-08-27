@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="03947050-7ca2-4fa3-9e52-078e0b6fbc30" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://A19226:8731/Design_Time_Addresses/IptvMediaroomServiceV1/IptvMediaroom/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="eba53e8b-4a81-4a44-b6cb-f2ebf0eba235" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/IptvMediaroomServiceV1/IptvMediaroom/?xsd=xsd3" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="31cfb7cd-2cb3-41f9-896a-a23bfc229c7c" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/IptvMediaroomServiceV1/IptvMediaroom/?xsd=xsd0" />
+    <MetadataFile FileName="IptvMediaroom.wsdl" MetadataType="Wsdl" ID="229b588a-f86b-4a4c-b422-711cdbea7e91" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/IptvMediaroomServiceV1/IptvMediaroom/?wsdl" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="fdad5725-8af8-49f7-93ef-10a6c0e8ad26" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/IptvMediaroomServiceV1/IptvMediaroom/?xsd=xsd2" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="28e89967-7d48-484d-8b51-5ea1dbc5fd69" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/IptvMediaroomServiceV1/IptvMediaroom/?disco" />
+    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="e66dcdd7-c81e-4910-ade6-fb5aa789fb33" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/IptvMediaroomServiceV1/IptvMediaroom/?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

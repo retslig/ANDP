@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://www.metaswitch.com/sdp/soap/sh/servicedata" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.metaswitch.com/sdp/soap/sh/servicedata" version="1.14" xsi:schemaLocation="http://www.metaswitch.com/sdp/soap/sh/documentation Documentation.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://www.w3.org/2005/05/xmlmime" namespace="http://www.w3.org/2005/05/xmlmime" />
+  <xs:include schemaLocation="Msph_CommonTypes.xsd" />
+  <xs:complexType name="tMsph_Subscriber_GroupMailbox">
+    <xs:annotation>
+      <xs:documentation>
+        Group Mailbox configuration service indication.  Used to associate mailboxes in a group.  You use this indication in a single ShUpdate request following a Msph_Subscriber_BaseInformation indication creating a new mailbox.  This combination creates the mailbox and makes it part of the group.  If you use this indication when creating a primary mailbox you create a group containing just that mailbox.  If you use it when creating a secondary mailbox, specifying the phone number of an existing primary, then you will create the secondary mailbox and add it to the group
+        <d:Actions xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Action>apply</d:Action></d:Actions><d:AuthLevel xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">admin</d:AuthLevel></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="PrimaryPhoneNumber" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The phone number of the primary subscriber in this group mailbox.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Primary Phone Number</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Yes</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="GroupMailboxEnabled" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Flag indicating whether group mailbox function is enabled for this subscriber.  This toggles the presentation of a group menu to callers dialling the primary number.  Note that this is unrelated to the enabled/disabled state of a mailbox - that is controlled by the Disabled element in the Msph_Subscriber_BaseInformation indication.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Group Mailbox Enabled</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Member" type="tMsph_Subscriber_GroupMailbox_Member">
+        <xs:annotation>
+          <xs:documentation>
+            A member of this group mailbox.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Member</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Type" type="tMsph_Subscriber_GroupMailbox_Type">
+        <xs:annotation>
+          <xs:documentation>
+            Used to specify whether this entry is a primary or secondary within a group mailbox.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Type</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">R-R-R-</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>primary</d:Value><d:Value>secondary</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MWIAggregationEnabled" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Flag indicating whether this Subscriber's mailbox aggregates MWI within the group mailbox.  For primary mailboxes this indicates that the mailbox allows MWI aggregation of secondary mailboxes.  For secondary mailboxes, this indicates that the submailbox contributes towards the MWI of the primary.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">MWI Aggregation Enabled</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="AggregatesMessages" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Flag indicating whether this mailbox aggregates messages within its group mailbox. For primary mailboxes this indicates that the mailbox is interested in its sub-mailboxes' new messages.  For sub-mailboxes this indicates that the sub-mailbox is prepared to disclose information about its new messages to its primary.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Aggregates Messages</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="Action" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="tMsph_Subscriber_GroupMailbox_Member">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The phone number of this member of the group mailbox.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Phone Number</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">R-R-R-</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Key" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Each mailbox within the group mailbox can be assigned a key, which is then used to select that mailbox during sign-in, and when calling to deposit a message.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Key</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Yes</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="tMsph_Subscriber_GroupMailbox_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="primary" />
+      <xs:enumeration value="secondary" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

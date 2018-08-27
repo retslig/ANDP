@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/APmaxProvisioning" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/APmaxProvisioning" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="InternetAccessType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MobileEnabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServiceEnabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InternetAccessType" nillable="true" type="tns:InternetAccessType" />
+  <xs:complexType name="ServiceInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApSystemId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BillingServiceAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BillingServiceID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServiceGuid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServiceType" type="tns:ServiceType_e" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServiceInfoType" nillable="true" type="tns:ServiceInfoType" />
+  <xs:simpleType name="ServiceType_e">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="Voicemail" />
+      <xs:enumeration value="Iptv" />
+      <xs:enumeration value="LargeScaleConferencing" />
+      <xs:enumeration value="OnDemandConferencing" />
+      <xs:enumeration value="TerminatingCallManagement" />
+      <xs:enumeration value="OriginatingCallManagement" />
+      <xs:enumeration value="UniversalCallManagement" />
+      <xs:enumeration value="CallLogging" />
+      <xs:enumeration value="SipAcs" />
+      <xs:enumeration value="WirelessOta" />
+      <xs:enumeration value="ACDAgent" />
+      <xs:enumeration value="ACDCallCenter" />
+      <xs:enumeration value="SingleNumber" />
+      <xs:enumeration value="Notify" />
+      <xs:enumeration value="SipIntercom" />
+      <xs:enumeration value="IptvAluMmig" />
+      <xs:enumeration value="IptvMediaroom" />
+      <xs:enumeration value="VoicemailMobile" />
+      <xs:enumeration value="IptvMobile" />
+      <xs:enumeration value="NotifyMobile" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ServiceType_e" nillable="true" type="tns:ServiceType_e" />
+</xs:schema>

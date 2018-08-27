@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://a19226:8731/Design_Time_Addresses/SipAcsServiceV1/SipAcs/?xsd=xsd1" namespace="http://schemas.datacontract.org/2004/07/SipAcsServiceV1" />
+  <xs:element name="GetAllPhoneModels">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPhoneModelsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SipAcsServiceV1" minOccurs="0" name="GetAllPhoneModelsResult" nillable="true" type="q1:ArrayOfPhoneModelType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllUpcMappings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllUpcMappingsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SipAcsServiceV1" minOccurs="0" name="GetAllUpcMappingsResult" nillable="true" type="q2:ArrayOfUpcMappingType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllGroups">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllGroupsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SipAcsServiceV1" minOccurs="0" name="GetAllGroupsResult" nillable="true" type="q3:ArrayOfGroupType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindPhones">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SipAcsServiceV1" minOccurs="0" name="searchType" type="q4:MappingSearchTypeEnum" />
+        <xs:element minOccurs="0" name="searchParam" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindPhonesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SipAcsServiceV1" minOccurs="0" name="FindPhonesResult" nillable="true" type="q5:ArrayOfPhoneMappingType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PreProvisionPhone">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="phoneModelGuid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="phoneMacAddress" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PreProvisionPhoneResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PreProvisionPhoneByUPC">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="phoneUpc" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="phoneMacAddress" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PreProvisionPhoneByUPCResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletePhoneFromInventory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="phoneMacAddress" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletePhoneFromInventoryResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetSipAcsSubscriber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="subscriberID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="internetAccess" type="xs:boolean" />
+        <xs:element minOccurs="0" name="billingServiceID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetSipAcsSubscriberResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSipAcsSubscriber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="subscriberID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSipAcsSubscriberResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProvisionPhoneForSubscriber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SipAcsServiceV1" minOccurs="0" name="phoneInfo" nillable="true" type="q6:ProvisionInfoType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProvisionPhoneForSubscriberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SipAcsServiceV1" minOccurs="0" name="ProvisionPhoneForSubscriberResult" nillable="true" type="q7:SubPhoneInfoType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemovePhoneLineFromSubscriber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="subscriberID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="phoneMacAddress" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lineNumber" type="xs:unsignedInt" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemovePhoneLineFromSubscriberResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemovePhoneFromSubscriber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="subscriberID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="phoneMacAddress" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemovePhoneFromSubscriberResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPhonesForSubscriber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="subscriberID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPhonesForSubscriberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SipAcsServiceV1" minOccurs="0" name="GetPhonesForSubscriberResult" nillable="true" type="q8:ArrayOfSubPhoneInfoType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

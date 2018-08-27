@@ -1,0 +1,1650 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ANDP.Provisioning.API.Rest</name>
+    </assembly>
+    <members>
+        <member name="M:ANDP.Provisioning.API.Rest.Areas.HelpPage.ApiDescriptionExtensions.GetFriendlyId(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Generates an URI-friendly ID for the <see cref="T:System.Web.Http.Description.ApiDescription"/>. E.g. "Get-Values-id_name" instead of "GetValues/{id}?name={name}"
+            </summary>
+            <param name="description">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The ID as a string.</returns>
+        </member>
+        <member name="T:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageConfig">
+            <summary>
+            Use this class to customize the Help Page.
+            For example you can set a custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> to supply the documentation
+            or you can provide the samples for the requests/responses.
+            </summary>
+        </member>
+        <member name="T:ANDP.Provisioning.API.Rest.Areas.HelpPage.Controllers.HelpController">
+            <summary>
+            The controller that will handle requests for the help page.
+            </summary>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageConfigurationExtensions.SetDocumentationProvider(System.Web.Http.HttpConfiguration,System.Web.Http.Description.IDocumentationProvider)">
+            <summary>
+            Sets the documentation provider for help page.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="documentationProvider">The documentation provider.</param>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleObjects(System.Web.Http.HttpConfiguration,System.Collections.Generic.IDictionary{System.Type,System.Object})">
+            <summary>
+            Sets the objects that will be used by the formatters to produce sample requests/responses.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sampleObjects">The sample objects.</param>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type and action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample request directly for the specified media type and action with parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type of the action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample response directly for the specified media type of the action with specific parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleForMediaType(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Sets the sample directly for all actions with the specified media type.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample.</param>
+            <param name="mediaType">The media type.</param>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleForType(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Sets the sample directly for all actions with the specified type and media type.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The parameter type or return type of an action.</param>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Gets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <returns>The help page sample generator.</returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageConfigurationExtensions.SetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration,ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageSampleGenerator)">
+            <summary>
+            Sets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sampleGenerator">The help page sample generator.</param>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageConfigurationExtensions.GetModelDescriptionGenerator(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Gets the model description generator.
+            </summary>
+            <param name="config">The configuration.</param>
+            <returns>The <see cref="T:ANDP.Provisioning.API.Rest.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator"/></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageApiModel(System.Web.Http.HttpConfiguration,System.String)">
+            <summary>
+            Gets the model that represents an API displayed on the help page. The model is initialized on the first call and cached for subsequent calls.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="apiDescriptionId">The <see cref="T:System.Web.Http.Description.ApiDescription"/> ID.</param>
+            <returns>
+            An <see cref="T:ANDP.Provisioning.API.Rest.Areas.HelpPage.Models.HelpPageApiModel"/>
+            </returns>
+        </member>
+        <member name="T:ANDP.Provisioning.API.Rest.Areas.HelpPage.ModelDescriptions.ModelDescription">
+            <summary>
+            Describes a type model.
+            </summary>
+        </member>
+        <member name="T:ANDP.Provisioning.API.Rest.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator">
+            <summary>
+            Generates model descriptions for given types.
+            </summary>
+        </member>
+        <member name="T:ANDP.Provisioning.API.Rest.Areas.HelpPage.ModelDescriptions.ModelNameAttribute">
+            <summary>
+            Use this attribute to change the name of the <see cref="T:ANDP.Provisioning.API.Rest.Areas.HelpPage.ModelDescriptions.ModelDescription"/> generated for a type.
+            </summary>
+        </member>
+        <member name="T:ANDP.Provisioning.API.Rest.Areas.HelpPage.Models.HelpPageApiModel">
+            <summary>
+            The model that represents an API displayed on the help page.
+            </summary>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Areas.HelpPage.Models.HelpPageApiModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:ANDP.Provisioning.API.Rest.Areas.HelpPage.Models.HelpPageApiModel"/> class.
+            </summary>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription">
+            <summary>
+            Gets or sets the <see cref="P:ANDP.Provisioning.API.Rest.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription"/> that describes the API.
+            </summary>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Areas.HelpPage.Models.HelpPageApiModel.UriParameters">
+            <summary>
+            Gets or sets the <see cref="T:ANDP.Provisioning.API.Rest.Areas.HelpPage.ModelDescriptions.ParameterDescription"/> collection that describes the URI parameters for the API.
+            </summary>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Areas.HelpPage.Models.HelpPageApiModel.RequestDocumentation">
+            <summary>
+            Gets or sets the documentation for the request.
+            </summary>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Areas.HelpPage.Models.HelpPageApiModel.RequestModelDescription">
+            <summary>
+            Gets or sets the <see cref="T:ANDP.Provisioning.API.Rest.Areas.HelpPage.ModelDescriptions.ModelDescription"/> that describes the request body.
+            </summary>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Areas.HelpPage.Models.HelpPageApiModel.RequestBodyParameters">
+            <summary>
+            Gets the request body parameter descriptions.
+            </summary>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Areas.HelpPage.Models.HelpPageApiModel.ResourceDescription">
+            <summary>
+            Gets or sets the <see cref="T:ANDP.Provisioning.API.Rest.Areas.HelpPage.ModelDescriptions.ModelDescription"/> that describes the resource.
+            </summary>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Areas.HelpPage.Models.HelpPageApiModel.ResourceProperties">
+            <summary>
+            Gets the resource property descriptions.
+            </summary>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Areas.HelpPage.Models.HelpPageApiModel.SampleRequests">
+            <summary>
+            Gets the sample requests associated with the API.
+            </summary>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Areas.HelpPage.Models.HelpPageApiModel.SampleResponses">
+            <summary>
+            Gets the sample responses associated with the API.
+            </summary>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Areas.HelpPage.Models.HelpPageApiModel.ErrorMessages">
+            <summary>
+            Gets the error messages associated with this model.
+            </summary>
+        </member>
+        <member name="T:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageSampleGenerator">
+            <summary>
+            This class will generate the samples for the help page.
+            </summary>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageSampleGenerator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageSampleGenerator"/> class.
+            </summary>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageSampleGenerator.ActualHttpMessageTypes">
+            <summary>
+            Gets CLR types that are used as the content of <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/>.
+            </summary>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples">
+            <summary>
+            Gets the objects that are used directly as samples for certain actions.
+            </summary>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects">
+            <summary>
+            Gets the objects that are serialized as samples by the supported formatters.
+            </summary>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageSampleGenerator.SampleObjectFactories">
+            <summary>
+            Gets factories for the objects that the supported formatters will serialize as samples. Processed in order,
+            stopping when the factory successfully returns a non-<see langref="null"/> object.
+            </summary>
+            <remarks>
+            Collection includes just <see cref="M:ANDP.Provisioning.API.Rest.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)"/> initially. Use
+            <code>SampleObjectFactories.Insert(0, func)</code> to provide an override and
+            <code>SampleObjectFactories.Add(func)</code> to provide a fallback.</remarks>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageSampleGenerator.GetSampleRequests(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the request body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageSampleGenerator.GetSampleResponses(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the response body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageSampleGenerator.GetSample(System.Web.Http.Description.ApiDescription,ANDP.Provisioning.API.Rest.Areas.HelpPage.SampleDirection)">
+            <summary>
+            Gets the request or response body samples.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageSampleGenerator.GetActionSample(System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.Type,System.Net.Http.Formatting.MediaTypeFormatter,System.Net.Http.Headers.MediaTypeHeaderValue,ANDP.Provisioning.API.Rest.Areas.HelpPage.SampleDirection)">
+            <summary>
+            Search for samples that are provided directly through <see cref="P:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples"/>.
+            </summary>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="type">The CLR type.</param>
+            <param name="formatter">The formatter.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+            <returns>The sample that matches the parameters.</returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageSampleGenerator.GetSampleObject(System.Type)">
+            <summary>
+            Gets the sample object that will be serialized by the formatters. 
+            First, it will look at the <see cref="P:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects"/>. If no sample object is found, it will try to create
+            one using <see cref="M:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageSampleGenerator.DefaultSampleObjectFactory(ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageSampleGenerator,System.Type)"/> (which wraps an <see cref="T:ANDP.Provisioning.API.Rest.Areas.HelpPage.ObjectGenerator"/>) and other
+            factories in <see cref="P:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageSampleGenerator.SampleObjectFactories"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>The sample object.</returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageSampleGenerator.ResolveHttpRequestMessageType(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Resolves the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The type.</returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageSampleGenerator.ResolveType(System.Web.Http.Description.ApiDescription,System.String,System.String,System.Collections.Generic.IEnumerable{System.String},ANDP.Provisioning.API.Rest.Areas.HelpPage.SampleDirection,System.Collections.ObjectModel.Collection{System.Net.Http.Formatting.MediaTypeFormatter}@)">
+            <summary>
+            Resolves the type of the action parameter or return value when <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/> is used.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or a response.</param>
+            <param name="formatters">The formatters.</param>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageSampleGenerator.WriteSampleObjectUsingFormatter(System.Net.Http.Formatting.MediaTypeFormatter,System.Object,System.Type,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Writes the sample object using formatter.
+            </summary>
+            <param name="formatter">The formatter.</param>
+            <param name="value">The value.</param>
+            <param name="type">The type.</param>
+            <param name="mediaType">Type of the media.</param>
+            <returns></returns>
+        </member>
+        <member name="T:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageSampleKey">
+            <summary>
+            This is used to identify the place where the sample should be applied.
+            </summary>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Creates a new <see cref="T:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageSampleKey"/> based on media type.
+            </summary>
+            <param name="mediaType">The media type.</param>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Creates a new <see cref="T:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageSampleKey"/> based on media type and CLR type.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The CLR type.</param>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageSampleKey.#ctor(ANDP.Provisioning.API.Rest.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageSampleKey"/> based on <see cref="P:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            </summary>
+            <param name="sampleDirection">The <see cref="P:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,ANDP.Provisioning.API.Rest.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageSampleKey"/> based on media type, <see cref="P:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The <see cref="P:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageSampleKey.ControllerName">
+            <summary>
+            Gets the name of the controller.
+            </summary>
+            <value>
+            The name of the controller.
+            </value>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageSampleKey.ActionName">
+            <summary>
+            Gets the name of the action.
+            </summary>
+            <value>
+            The name of the action.
+            </value>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageSampleKey.MediaType">
+            <summary>
+            Gets the media type.
+            </summary>
+            <value>
+            The media type.
+            </value>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageSampleKey.ParameterNames">
+            <summary>
+            Gets the parameter names.
+            </summary>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageSampleKey.SampleDirection">
+            <summary>
+            Gets the <see cref="P:ANDP.Provisioning.API.Rest.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.
+            </summary>
+        </member>
+        <member name="T:ANDP.Provisioning.API.Rest.Areas.HelpPage.ImageSample">
+            <summary>
+            This represents an image sample on the help page. There's a display template named ImageSample associated with this class.
+            </summary>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Areas.HelpPage.ImageSample.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ANDP.Provisioning.API.Rest.Areas.HelpPage.ImageSample"/> class.
+            </summary>
+            <param name="src">The URL of an image.</param>
+        </member>
+        <member name="T:ANDP.Provisioning.API.Rest.Areas.HelpPage.InvalidSample">
+            <summary>
+            This represents an invalid sample on the help page. There's a display template named InvalidSample associated with this class.
+            </summary>
+        </member>
+        <member name="T:ANDP.Provisioning.API.Rest.Areas.HelpPage.ObjectGenerator">
+            <summary>
+            This class will create an object of a given type and populate it with sample data.
+            </summary>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)">
+            <summary>
+            Generates an object for a given type. The type needs to be public, have a public default constructor and settable public properties/fields. Currently it supports the following types:
+            Simple types: <see cref="T:System.Int32"/>, <see cref="T:System.String"/>, <see cref="T:System.Enum"/>, <see cref="T:System.DateTime"/>, <see cref="T:System.Uri"/>, etc.
+            Complex types: POCO types.
+            Nullables: <see cref="T:System.Nullable`1"/>.
+            Arrays: arrays of simple types or complex types.
+            Key value pairs: <see cref="T:System.Collections.Generic.KeyValuePair`2"/>
+            Tuples: <see cref="T:System.Tuple`1"/>, <see cref="T:System.Tuple`2"/>, etc
+            Dictionaries: <see cref="T:System.Collections.Generic.IDictionary`2"/> or anything deriving from <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            Collections: <see cref="T:System.Collections.Generic.IList`1"/>, <see cref="T:System.Collections.Generic.IEnumerable`1"/>, <see cref="T:System.Collections.Generic.ICollection`1"/>, <see cref="T:System.Collections.IList"/>, <see cref="T:System.Collections.IEnumerable"/>, <see cref="T:System.Collections.ICollection"/> or anything deriving from <see cref="T:System.Collections.Generic.ICollection`1"/> or <see cref="T:System.Collections.IList"/>.
+            Queryables: <see cref="T:System.Linq.IQueryable"/>, <see cref="T:System.Linq.IQueryable`1"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>An object of the given type.</returns>
+        </member>
+        <member name="T:ANDP.Provisioning.API.Rest.Areas.HelpPage.SampleDirection">
+            <summary>
+            Indicates whether the sample is used for request or response
+            </summary>
+        </member>
+        <member name="T:ANDP.Provisioning.API.Rest.Areas.HelpPage.TextSample">
+            <summary>
+            This represents a preformatted text sample on the help page. There's a display template named TextSample associated with this class.
+            </summary>
+        </member>
+        <member name="T:ANDP.Provisioning.API.Rest.Areas.HelpPage.XmlDocumentationProvider">
+            <summary>
+            A custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> that reads the API documentation from an XML documentation file.
+            </summary>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Areas.HelpPage.XmlDocumentationProvider.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ANDP.Provisioning.API.Rest.Areas.HelpPage.XmlDocumentationProvider"/> class.
+            </summary>
+            <param name="documentPath">The physical path to XML document.</param>
+        </member>
+        <member name="T:ANDP.Provisioning.API.Rest.Controllers.ConnectionInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Controllers.ConnectionInfo.ConnectionManagerService">
+            <summary>
+            Gets or sets the connection manager service.
+            </summary>
+            <value>
+            The connection manager service.
+            </value>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Controllers.ConnectionInfo.LockObj">
+            <summary>
+            Gets or sets the lock object.
+            </summary>
+            <value>
+            The lock object.
+            </value>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Controllers.ConnectionInfo.SessionId">
+            <summary>
+            Gets or sets the session identifier.
+            </summary>
+            <value>
+            The session identifier.
+            </value>
+        </member>
+        <member name="T:ANDP.Provisioning.API.Rest.Controllers.MetaSphereController">
+            <summary>
+            This controller handles all MetaSphere requests...
+            </summary>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.MetaSphereController.#ctor(Common.Lib.Interfaces.ILogger,Common.Lib.Security.Oauth2AuthenticationSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ANDP.Provisioning.API.Rest.Controllers.ApMaxController" /> class.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="oauth2AuthenticationSettings">The oauth2 authentication settings.</param>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.MetaSphereController.Setup(System.Int32)">
+            <summary>
+            The reason this is not in the constructor is solely for the purpose of exception handling.
+            If you leave this in the controller and someone who is not authenticated calls the API you will not get a tenantId not found error.
+            The error will be ugly and be hard to figure out you are not authorized.
+            This way if the all methods have the ClaimsAuthorize attribute on them they will first be authenticated if not get a nice error message of not authorized.
+            </summary>
+            <param name="equipmentId">The equipment identifier.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception">No Tenant Id Found.</exception>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.MetaSphereController.Test">
+            <summary>
+            Tests this instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.MetaSphereController.RetrieveEquipmentConnectionSettings(System.Int32)">
+            <summary>
+            Retrieves the equipment connection settings.
+            </summary>
+            <param name="equipmentId">The equipment identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.MetaSphereController.Pull(System.String,System.String,System.Int32)">
+            <summary>
+            Pulls the specified user identity.
+            </summary>
+            <param name="userIdentity">The user identity.</param>
+            <param name="serviceIndication">The service indication.</param>
+            <param name="equipmentId">The equipment identifier.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception">
+            </exception>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.MetaSphereController.Update(ANDP.Provisioning.API.Rest.Models.MetaSphere.MetaSphereUpdate)">
+            <summary>
+            Update subscriber.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ANDP.Provisioning.API.Rest.Controllers.CalixController">
+            <summary>
+            This controller handles all MetaSwitch requests..
+            </summary>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.CalixController.#ctor(Common.Lib.Interfaces.ILogger,Common.Lib.Mapping.ICommonMapper,Common.Lib.Security.Oauth2AuthenticationSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ANDP.Provisioning.API.Rest.Controllers.ApMaxController" /> class.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="commonMapper">The mapper.</param>
+            <param name="oauth2AuthenticationSettings">The oauth2 authentication settings.</param>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.CalixController.Setup(System.Int32)">
+            <summary>
+            The reason this is not in the constructor is solely for the purpose of exception handling.
+            If you leave this in the controller and someone who is not authenticated calls the API you will not get a tenantId not found error.
+            The error will be ugly and be hard to figure out you are not authorized.
+            This way if the all methods have the ClaimsAuthorize attribute on them they will first be authenticated if not get a nice error message of not authorized.
+            </summary>
+            <param name="equipmentId">The equipment identifier.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception">No Tenant Id Found.</exception>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.CalixController.Test">
+            <summary>
+            Tests this instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.CalixController.PostMessage(ANDP.Provisioning.API.Rest.Models.Calix.ProvisioningPostMessage)">
+            <summary>
+            Posts the message.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.CalixController.PostJsonMessage(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            Posts the message.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.CalixController.XmlToJsonRequest(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            Sends the request.
+            </summary>
+            <param name="req">The req.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.CalixController.JosnToXmlRequest(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            Sends the request.
+            </summary>
+            <param name="req">The req.</param>
+            <returns></returns>
+        </member>
+        <member name="T:ANDP.Provisioning.API.Rest.Controllers.NeoNovaController">
+            <summary>
+            This controller handles all MetaSwitch requests..
+            </summary>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.NeoNovaController.#ctor(Common.Lib.Interfaces.ILogger,Common.Lib.Mapping.ICommonMapper,Common.Lib.Security.Oauth2AuthenticationSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ANDP.Provisioning.API.Rest.Controllers.ApMaxController" /> class.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="commonMapper">The mapper.</param>
+            <param name="oauth2AuthenticationSettings">The oauth2 authentication settings.</param>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.NeoNovaController.Setup(System.Int32)">
+            <summary>
+            The reason this is not in the constructor is solely for the purpose of exception handling.
+            If you leave this in the controller and someone who is not authenticated calls the API you will not get a tenantId not found error.
+            The error will be ugly and be hard to figure out you are not authorized.
+            This way if the all methods have the ClaimsAuthorize attribute on them they will first be authenticated if not get a nice error message of not authorized.
+            </summary>
+            <param name="equipmentId">The equipment identifier.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception">No Tenant Id Found.</exception>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.NeoNovaController.Test">
+            <summary>
+            Tests this instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.NeoNovaController.PostMessage(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Posts the message.
+            </summary>
+            <param name="json">The json.</param>
+            <returns></returns>
+        </member>
+        <member name="T:ANDP.Provisioning.API.Rest.Controllers.MetaSwitchController">
+            <summary>
+            This controller handles all MetaSwitch requests..
+            </summary>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.MetaSwitchController.#ctor(Common.Lib.Interfaces.ILogger,Common.Lib.Mapping.ICommonMapper,Common.Lib.Security.Oauth2AuthenticationSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ANDP.Provisioning.API.Rest.Controllers.ApMaxController" /> class.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="commonMapper">The mapper.</param>
+            <param name="oauth2AuthenticationSettings">The oauth2 authentication settings.</param>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.MetaSwitchController.Setup(System.Int32)">
+            <summary>
+            The reason this is not in the constructor is solely for the purpose of exception handling.
+            If you leave this in the controller and someone who is not authenticated calls the API you will not get a tenantId not found error.
+            The error will be ugly and be hard to figure out you are not authorized.
+            This way if the all methods have the ClaimsAuthorize attribute on them they will first be authenticated if not get a nice error message of not authorized.
+            </summary>
+            <param name="equipmentId">The equipment identifier.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception">No Tenant Id Found.</exception>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.MetaSwitchController.Test">
+            <summary>
+            Tests this instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.MetaSwitchController.RetrieveEquipmentConnectionSettings(System.Int32)">
+            <summary>
+            Retrieves the equipment connection settings.
+            </summary>
+            <param name="equipmentId">The equipment identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.MetaSwitchController.Pull(System.String,System.String,System.Int32)">
+            <summary>
+            Pulls the specified user identity.
+            </summary>
+            <param name="userIdentity">The user identity.</param>
+            <param name="serviceIndication">The service indication.</param>
+            <param name="equipmentId">The equipment identifier.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception">
+            </exception>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.MetaSwitchController.Update(ANDP.Provisioning.API.Rest.Models.MetaSwitch.MetaSwitchUpdate)">
+            <summary>
+            Update subscriber.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.MetaSwitchController.DeleteSubscriber(System.String,System.Int32)">
+            <summary>
+            Delete subscriber by dn and equipment Id.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ANDP.Provisioning.API.Rest.Controllers.ApMaxController">
+            <summary>
+            This controller handles all ApMax requests..
+            </summary>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.#ctor(Common.Lib.Interfaces.ILogger,Common.Lib.Mapping.ICommonMapper,Common.Lib.Security.Oauth2AuthenticationSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ANDP.Provisioning.API.Rest.Controllers.ApMaxController" /> class.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="commonMapper">The mapper.</param>
+            <param name="oauth2AuthenticationSettings">The oauth2 authentication settings.</param>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.Setup(System.Int32)">
+            <summary>
+            The reason this is not in the constructor is solely for the purpose of exception handling.
+            If you leave this in the controller and someone who is not authenticated calls the API you will not get a tenantId not found error.
+            The error will be ugly and be hard to figure out you are not authorized.
+            This way if the all methods have the ClaimsAuthorize attribute on them they will first be authenticated if not get a nice error message of not authorized.
+            </summary>
+            <param name="equipmentId">The equipment identifier.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception">No Tenant Id Found.</exception>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.Test">
+            <summary>
+            Tests this instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.RetrieveEquipmentConnectionSettings(System.Int32)">
+            <summary>
+            Retrieves the equipment connection settings.
+            </summary>
+            <param name="equipmentId">The equipment identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.RetrieveVersions(System.Int32)">
+            <summary>
+            Retrieves all versions.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.RetrieveSubscriberByBilling(System.String,System.String,System.Int32)">
+            <summary>
+            Retrieve the subscriber by billing account number and billing service id.
+            </summary>
+            <param name="billingServiceId"></param>
+            <param name="equipmentId">The company identifier.</param>
+            <param name="billingAccount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.RetrieveSubscriberByDefaultPhoneNumber(System.String,System.Int32)">
+            <summary>
+            Retrieve the subscriber by phone number.
+            </summary>
+            <param name="phoneNumber">The subscriber phone number.</param>
+            <param name="equipmentId">The company identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.RetrieveSubscriberByGuid(System.String,System.Int32)">
+            <summary>
+            Retrieve the subscriber by guid.
+            </summary>
+            <param name="guid"></param>
+            <param name="equipmentId">The equipment identifier </param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.RetrieveSubscriberServicesByGuid(System.String,System.Int32)">
+            <summary>
+            Retrieves the subscriber services by unique identifier.
+            </summary>
+            <param name="guid">The unique identifier.</param>
+            <param name="equipmentId">The equipment identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.RetrieveSubscriberServicesByDefaultPhoneNumber(System.String,System.Int32)">
+            <summary>
+            Retrieves the subscriber services by default phone number.
+            </summary>
+            <param name="phoneNumber">The phone number.</param>
+            <param name="equipmentId">The equipment identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.RetrieveSubscriberServicesByBilling(System.String,System.String,System.Int32)">
+            <summary>
+            Retrieves the subscriber services by billing.
+            </summary>
+            <param name="billingAccount">The billing account.</param>
+            <param name="billingServiceId">The billing service identifier.</param>
+            <param name="equipmentId">The equipment identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.AuditSubscriberForServiceType(System.Int32,System.Int32,System.String,System.Int32)">
+            <summary>
+            Audits the type of the subscriber for service.
+            </summary>
+            <param name="offSet">The off set.</param>
+            <param name="numberOfAccounts">The number of accounts.</param>
+            <param name="serviceType">Type of the service.</param>
+            <param name="equipmentId">The equipment identifier.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception">Could not determine service type.</exception>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.CreateOrUpdateSubscriber(ANDP.Provisioning.API.Rest.Models.ApMax.ProvisioningAddUpdateSubscriber)">
+            <summary>
+            Creates the subscriber.
+            </summary>
+            <param name="subscriber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.DeleteSubscriberByPhoneNumber(System.String,System.Int32)">
+            <summary>
+            Deletes the subscriber.
+            </summary>
+            <param name="phoneNumber">Subscriber phone number.</param>
+            <param name="equipmentId">The equipment identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.DeleteSubscriberByGuid(System.String,System.Int32)">
+            <summary>
+            Deletes the subscriber.
+            </summary>
+            <param name="guid"></param>
+            <param name="equipmentId">The equipment identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.RetrieveAllVoicemailPackages(System.Int32)">
+            <summary>
+            Retrieves all voicemail packages.
+            </summary>
+            <param name="equipmentId">The company identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.RetrieveAllNotificationCenters(System.Int32)">
+            <summary>
+            Retrieves all the notification centers.
+            </summary>
+            <param name="equipmentId">The company identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.RetrieveVoicemail(System.String,System.Int32)">
+            <summary>
+            Gets the version by service.
+            </summary>
+            <param name="phoneNumber">The phone number.</param>
+            <param name="equipmentId">The company identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.SuspendVoicemail(ANDP.Provisioning.API.Rest.Models.ApMax.ProvisioningDisableVoicemail)">
+            <summary>
+            Disable or Enable the voicemail box
+            </summary>ram>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.CreateVoicemail(ANDP.Provisioning.API.Rest.Models.ApMax.ProvisioningCreateVoicemail)">
+            <summary>
+            Creates voicemail.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.CreateVoiceMailSubMailbox(ANDP.Provisioning.API.Rest.Models.ApMax.ProvisioningCreateVoicemailSubMailbox)">
+            <summary>
+            Creates the voicemail sub mailbox.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.AddOutDialNumber(ANDP.Provisioning.API.Rest.Models.ApMax.ProvisioningAddOutDialNumber)">
+            <summary>
+            Adds out dial.
+            </summary>
+            <param name="outDialInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.DeleteOutDialNumber(System.String,System.String,System.Int32)">
+            <summary>
+            Deletes out dial.
+            </summary>
+            <param name="phoneNumber"></param>
+            <param name="outDialPhoneNumber"></param>
+            <param name="equipmentId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.UpdateVoicemailSimple(ANDP.Provisioning.API.Rest.Models.ApMax.ProvisioningUpdateVoicemailSimple)">
+            <summary>
+            Updates the voice mail box with max mail box time and max messages.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.UpdateVoicemailFull(ANDP.Provisioning.API.Rest.Models.ApMax.ProvisioningUpdateVoicemail)">
+            <summary>
+            Updates voice mail with all available properties.
+            </summary>
+            <param name="updateVoicemail"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.UpdateVoiceSubMailbox(ANDP.Provisioning.API.Rest.Models.ApMax.ProvisioningUpdateVoicemailSubMailBox)">
+            <summary>
+            Updates sub mailbox.
+            </summary>ram>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.UpdateVoiceMailBoxPackage(ANDP.Provisioning.API.Rest.Models.ApMax.ProvisioningUpdateVoicemailBoxPackage)">
+            <summary>
+            Updates voicemail box package.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.UpdateVoiceMailBoxType(ANDP.Provisioning.API.Rest.Models.ApMax.ProvisioningUpdateVoicemailBoxType)">
+            <summary>
+            Updates voicemail box type.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.DeleteVoicemail(System.String,System.Boolean,System.Int32)">
+            <summary>
+            Deletes the voicemail..
+            </summary>
+            <param name="phoneNumber"></param>
+            <param name="deleteSubscriber"></param>
+            <param name="equipmentId">The equipment identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.AddVoiceMailBoxInternetAccess(ANDP.Provisioning.API.Rest.Models.ApMax.ProvisioningAddVoiceMailBoxInternetAccess)">
+            <summary/>
+            Adds voicemail box internet access.
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.DeleteVoiceMailBoxInternetAccess(System.String,System.Int32)">
+            <summary/>
+            Deletes the voicemail box internet access.
+            <param name="phoneNumber"></param>
+            <param name="equipmentId">The equipment identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.ReassignVmBoxNumber(ANDP.Provisioning.API.Rest.Models.ApMax.ProvisioningReassignVoicemail)">
+            <summary>
+            Reassigns voicemail box number.
+            </summary>
+            <param name="provisioningReassignVoicemail"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.VmPasswordReset(ANDP.Provisioning.API.Rest.Models.ApMax.ProvisioningVoicemailPasswordReset)">
+            <summary>
+            Resets the voicemail pin to the new pin specified.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.RetrieveAllChannelLineups(System.Int32)">
+            <summary>
+            Retrieves all the channel line ups (aka packages
+            </summary>
+            <param name="equipmentId">The equipment identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.RetrieveIptvAccountTypesByMac(System.String,System.Int32)">
+            <summary>
+            Gets the iptv subscriber by mac address
+            </summary>
+            <param name="subscriberMac"></param>
+            <param name="equipmentId">The company identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.RetrieveIptvAccountTypesBySerialNumber(System.String,System.Int32)">
+            <summary>
+            Gets the iptv subscriber by serial number
+            </summary>
+            <param name="subscriberSerialNumber"></param>
+            <param name="equipmentId">The company identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.RetrieveIptvSettopsByBillingAccountNumber(System.String,System.Int32)">
+            <summary>
+            Gets the iptv settops by billing account number.
+            </summary>
+            <param name="billingAccountNumber">The billing account number.</param>
+            <param name="equipmentId">The company identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.RetrieveIptvAccountTypesByBillingAccountNumber(System.String,System.Int32)">
+            <summary>
+            Gets the iptv subscriber by billing account number.
+            </summary>
+            <param name="billingAccountNumber">The billing account number.</param>
+            <param name="equipmentId">The company identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.RetrieveIptvAccountByServiceReference(System.String,System.Int32)">
+            <summary>
+            Retrieves IPTV Account by service reference.
+            </summary>
+            <param name="serviceReference"></param>
+            <param name="equipmentId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.RetrieveIptvAccountBySubAddress(System.String,System.Int32)">
+            <summary>
+            Gets the iptv account by sub address.
+            </summary>
+            <param name="subAddress"></param>
+            <param name="equipmentId">The company identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.RetrieveIptvAccountBySubAddressAndServiceRef(System.String,System.String,System.Int32)">
+            <summary>
+            Gets the iptv account by sub address and service reference.
+            </summary>
+            <param name="subAddress">the sub address.</param>
+            <param name="serviceReference">the service reference.</param>
+            <param name="equipmentId">The company identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.SetIptvAccount(ANDP.Provisioning.API.Rest.Models.ApMax.ProvisioningSetIptvAccount)">
+            <summary>
+            Creates or Updates the IPTV Account
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.SetIptvAccountExisting(ANDP.Provisioning.API.Rest.Models.ApMax.ProvisioningSetIptvAccountExistingSubscriber)">
+            <summary>
+            Creates or Updates the IPTV Account
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.UpdateIptvChannelPackageList(ANDP.Provisioning.API.Rest.Models.ApMax.ProvisioningSetIptvChannelPackageList)">
+            <summary>
+            Creates or Updates the IPTV Account
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.UpdateIptvServiceReference(ANDP.Provisioning.API.Rest.Models.ApMax.ProvisioningUpdateIptvServiceReference)">
+            <summary>
+            Updates the iptv service reference.
+            </summary>
+            <param name="provisioningUpdateIptvServiceReference">The provisioning update iptv service reference.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.EnableIptvAccount(ANDP.Provisioning.API.Rest.Models.ApMax.ProvisioningEnableIptvAccount)">
+            <summary>
+            Enables the IPTV Account
+            </summary>
+            <param name="provisioningEnableIptvAccount to db testingtodbtesting"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.DisableIptvAccount(ANDP.Provisioning.API.Rest.Models.ApMax.ProvisioningDisableIptvAccount)">
+            <summary>
+            Disables the IPTV Account
+            </summary>
+            <param name="provisioningDisableIptvAccount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.SuspendIptvAccount(ANDP.Provisioning.API.Rest.Models.ApMax.ProvisioningSuspendIptvAccount)">
+            <summary>
+            Suspend the IPTV Account
+            </summary>
+            <param name="provisioningSuspendIptvAccount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.DeleteIptvAccountBySubscriberGuidAndServiceReference(System.String,System.String,System.Int32)">
+            <summary>
+            Deletes the IPTV Account
+            </summary>
+            <param name="equipmentId">The equipment identifier.</param>
+            <param name="subscriberguid"></param>
+            <param name="serviceReference"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.DeleteIptvAccountByServiceReference(System.String,System.Int32,System.Boolean)">
+            <summary>
+            Deletes the IPTV Account
+            </summary>
+            <param name="equipmentId">The equipment identifier.</param>
+            <param name="serviceReference"></param>
+            <param name="force">Indicate if you want to force the delete</param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.DeleteIptvAccountByBillingAccountAndServiceReference(System.String,System.String,System.Int32)">
+            <summary>
+            Deletes the IPTV Account
+            </summary>
+            <param name="equipmentId">The equipment identifier.</param>
+            <param name="billingAccount"></param>
+            <param name="serviceReference"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.DeleteIptvAccountBySubAddressAndServiceReference(System.String,System.String,System.Boolean,System.Int32)">
+            <summary>
+            Deletes the IPTV Account
+            </summary>
+            <param name="deleteSubscriber">True to delete subscriber. False to keep subscriber.</param>
+            <param name="equipmentId">The equipment identifier.</param>
+            <param name="subAddress"></param>
+            <param name="serviceReference"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.ForceDeleteIptvAccount(System.String,System.String,System.Boolean,System.Int32)">
+            <summary>
+            Deletes the IPTV Account
+            </summary>
+            <param name="deleteSubscriber">True to delete subscriber. False to keep subscriber.</param>
+            <param name="equipmentId">The equipment identifier.</param>
+            <param name="subAddress"></param>
+            <param name="serviceReference"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.RetrieveCallerName(System.String,System.Int32)">
+            <summary>
+            Retrieves all the Caller Name entries for a given phone number.
+            </summary>
+            <param name="phoneNumber">The phone number.</param>
+            <param name="equipmentId">The equipment identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.AddCallerName(ANDP.Provisioning.API.Rest.Models.ApMax.ProvisioningAddCallerName)">
+            <summary>
+            Adds Caller Name.
+            </summary>
+            <param name="provisioningAddCallerName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.DeleteCallerName(System.String,System.Int32)">
+            <summary>
+            Deletes Caller Name.
+            </summary>
+            <param name="phoneNumber">The phone number.</param>
+            <param name="equipmentId">The equipment identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.ModifyCallerName(ANDP.Provisioning.API.Rest.Models.ApMax.ProvisioningAddCallerName)">
+            <summary>
+            Modifies Caller Name.
+            </summary>
+            <param name="provisioningModifyCallerName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.ReassignCallerName(ANDP.Provisioning.API.Rest.Models.ApMax.ProvisioningReassignCallerName)">
+            <summary>
+            Reassigns Caller Name.
+            </summary>
+            <param name="provisioningReassignCallerName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.AddScreenPop(ANDP.Provisioning.API.Rest.Models.ApMax.ProvisioningCreateScreenPop)">
+            <summary>
+            Creates Caller Name Screen Pop.
+            </summary>
+            <param name="provisioningCreateScreenPop"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.DeleteScreenPop(System.String,System.String,System.Int32)">
+            <summary>
+            Deletes Calling Name Screen Pop.
+            </summary>
+            <param name="calledNumber"></param>
+            <param name="npaNxx"></param>
+            <param name="equipmentId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.ApMaxController.RetrieveAllScreenPopEntries(System.Int32)">
+            <summary>
+            Retrieves all Caller Name Screen Pop Entries.
+            </summary>
+            <param name="equipmentId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ANDP.Provisioning.API.Rest.Controllers.PannawayController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.PannawayController.#ctor(Common.Lib.Interfaces.ILogger,Common.Lib.Security.Oauth2AuthenticationSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ANDP.Provisioning.API.Rest.Controllers.ApMaxController" /> class.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="oauth2AuthenticationSettings">The oauth2 authentication settings.</param>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.PannawayController.Setup(System.Int32)">
+            <summary>
+            The reason this is not in the constructor is solely for the purpose of exception handling.
+            If you leave this in the controller and someone who is not authenticated calls the API you will not get a tenantId not found error.
+            The error will be ugly and be hard to figure out you are not authorized.
+            This way if the all methods have the ClaimsAuthorize attribute on them they will first be authenticated if not get a nice error message of not authorized.
+            </summary>
+            <param name="equipmentId">The equipment identifier.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception">No Tenant Id Found.</exception>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.PannawayController.Test">
+            <summary>
+            Tests this instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.PannawayController.PostMessage(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            Sends the request.
+            </summary>
+            <param name="request">The request.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.PannawayController.PostMessageWithFakeResponse(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            Sends the request.
+            </summary>
+            <param name="request">The request.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.PannawayController.XmlToJsonRequest(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            Sends the request.
+            </summary>
+            <param name="req">The req.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.PannawayController.JosnToXmlRequest(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            Sends the request.
+            </summary>
+            <param name="req">The req.</param>
+            <returns></returns>
+        </member>
+        <member name="T:ANDP.Provisioning.API.Rest.Controllers.TcpIpController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.TcpIpController.#ctor(Common.Lib.Interfaces.ILogger,Common.Lib.Security.Oauth2AuthenticationSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ANDP.Provisioning.API.Rest.Controllers.ApMaxController" /> class.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="oauth2AuthenticationSettings">The oauth2 authentication settings.</param>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.TcpIpController.Setup(System.Int32,System.String)">
+            <summary>
+            The reason this is not in the constructor is solely for the purpose of exception handling.
+            If you leave this in the controller and someone who is not authenticated calls the API you will not get a tenantId not found error.
+            The error will be ugly and be hard to figure out you are not authorized.
+            This way if the all methods have the ClaimsAuthorize attribute on them they will first be authenticated if not get a nice error message of not authorized.
+            </summary>
+            <param name="equipmentId">The equipment identifier.</param>
+            <param name="sessionId">The session identifier.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception">No Tenant Id Found.</exception>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.TcpIpController.Test">
+            <summary>
+            Tests this instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.TcpIpController.Sendcommand(ANDP.Provisioning.API.Rest.Models.TcpIp.CommandViewModel)">
+            <summary>
+            Sendcommands the specified json.
+            </summary>
+            <param name="commandViewModel">The command view model.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception">Did not receive an json message in the post body.
+            or
+            EquipmentId is a required parameter.
+            or
+            Could not find any connection settings for the equipmentId.</exception>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.TcpIpController.Disconnect(ANDP.Provisioning.API.Rest.Models.TcpIp.CommandViewModel)">
+            <summary>
+            Disconnects this instance.
+            </summary>
+            <param name="commandViewModel">The command view model.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception">
+            Did not receive any json message in the post body.
+            or
+            EquipmentId is a required parameter.
+            or
+            Could not find any connection settings for the equipmentId.
+            </exception>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.TcpIpController.DisconnectAll(ANDP.Provisioning.API.Rest.Models.TcpIp.CommandViewModel)">
+            <summary>
+            Disconnects this instance.
+            </summary>
+            <param name="commandViewModel">The command view model.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception">
+            Did not receive any json message in the post body.
+            or
+            EquipmentId is a required parameter.
+            or
+            Could not find any connection settings for the equipmentId.
+            </exception>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Controllers.TcpIpController.CachedConnections(System.Int32)">
+            <summary>
+            Retrieve all connections stored in Cache
+            </summary>
+            <param name="equipmentId">The equipment identifier.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception">Did not receive any json message in the post body.
+            or
+            EquipmentId is a required parameter.</exception>
+        </member>
+        <member name="T:ANDP.Provisioning.API.Rest.Infrastructure.UnhandledExceptionFilterAttribute">
+            <summary>
+            Represents the an attribute that provides a filter for unhandled exceptions.
+            </summary>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Infrastructure.UnhandledExceptionFilterAttribute.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:ANDP.Provisioning.API.Rest.Infrastructure.UnhandledExceptionFilterAttribute"/> class.
+            </summary>
+        </member>
+        <member name="F:ANDP.Provisioning.API.Rest.Infrastructure.UnhandledExceptionFilterAttribute.DefaultHandler">
+            <summary>
+            Gets a delegate method that returns an <see cref="T:System.Net.Http.HttpResponseMessage"/> 
+            that describes the supplied exception.
+            </summary>
+            <value>
+            A <see cref="T:System.Func`3"/> delegate method that returns 
+            an <see cref="T:System.Net.Http.HttpResponseMessage"/> that describes the supplied exception.
+            </value>
+        </member>
+        <member name="F:ANDP.Provisioning.API.Rest.Infrastructure.UnhandledExceptionFilterAttribute.GetContentOf">
+            <summary>
+            Gets a delegate method that extracts information from the specified exception.
+            </summary>
+            <value>
+            A <see cref="T:System.Func`2"/> delegate method that extracts information 
+            from the specified exception.
+            </value>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Infrastructure.UnhandledExceptionFilterAttribute.Handlers">
+            <summary>
+            Gets the exception handlers registered with this filter.
+            </summary>
+            <value>
+            A <see cref="T:System.Collections.Concurrent.ConcurrentDictionary`2"/> collection that contains 
+            the exception handlers registered with this filter.
+            </value>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Infrastructure.UnhandledExceptionFilterAttribute.OnException(System.Web.Http.Filters.HttpActionExecutedContext)">
+            <summary>
+            Raises the exception event.
+            </summary>
+            <param name="actionExecutedContext">The context for the action.</param>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Infrastructure.UnhandledExceptionFilterAttribute.Register``1(System.Net.HttpStatusCode)">
+            <summary>
+            Registers an exception handler that returns the specified status code for exceptions of type <typeparamref name="TException"/>.
+            </summary>
+            <typeparam name="TException">The type of exception to register a handler for.</typeparam>
+            <param name="statusCode">The HTTP status code to return for exceptions of type <typeparamref name="TException"/>.</param>
+            <returns>
+            This <see cref="T:ANDP.Provisioning.API.Rest.Infrastructure.UnhandledExceptionFilterAttribute"/> after the exception handler has been added.
+            </returns>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Infrastructure.UnhandledExceptionFilterAttribute.Register``1(System.Func{System.Exception,System.Net.Http.HttpRequestMessage,System.Net.Http.HttpResponseMessage})">
+            <summary>
+            Registers the specified exception <paramref name="handler"/> for exceptions of type <typeparamref name="TException"/>.
+            </summary>
+            <typeparam name="TException">The type of exception to register the <paramref name="handler"/> for.</typeparam>
+            <param name="handler">The exception handler responsible for exceptions of type <typeparamref name="TException"/>.</param>
+            <returns>
+            This <see cref="T:ANDP.Provisioning.API.Rest.Infrastructure.UnhandledExceptionFilterAttribute"/> after the exception <paramref name="handler"/> 
+            has been added.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="handler"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="M:ANDP.Provisioning.API.Rest.Infrastructure.UnhandledExceptionFilterAttribute.Unregister``1">
+            <summary>
+            Unregisters the exception handler for exceptions of type <typeparamref name="TException"/>.
+            </summary>
+            <typeparam name="TException">The type of exception to unregister handlers for.</typeparam>
+            <returns>
+            This <see cref="T:ANDP.Provisioning.API.Rest.Infrastructure.UnhandledExceptionFilterAttribute"/> after the exception handler 
+            for exceptions of type <typeparamref name="TException"/> has been removed.
+            </returns>
+        </member>
+        <member name="T:ANDP.Provisioning.API.Rest.Models.ApMax.ProvisioningSuspendIptvAccount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Models.ApMax.ProvisioningSuspendIptvAccount.EquipmentId">
+            <summary>
+            Gets or sets the equipment identifier.
+            </summary>
+            <value>
+            The equipment identifier.
+            </value>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Models.ApMax.ProvisioningSuspendIptvAccount.SubscriberId">
+            <summary>
+            Gets or sets the subscriber identifier.
+            </summary>
+            <value>
+            The subscriber identifier. Either SubscriberId or ServiceReference need to be populated. Both aren't required.
+            </value>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Models.ApMax.ProvisioningSuspendIptvAccount.ServiceReference">
+            <summary>
+            Gets or sets the service reference.
+            </summary>
+            <value>
+            The service reference. Either SubscriberId or ServiceReference need to be populated. Both aren't required.
+            </value>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Models.ApMax.ProvisioningSuspendIptvAccount.Suspend">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:ANDP.Provisioning.API.Rest.Models.ApMax.ProvisioningSuspendIptvAccount"/> is suspend.
+            </summary>
+            <value>
+              <c>true</c> if suspend; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Models.ApMax.ProvisioningSuspendIptvAccount.SuspendReason">
+            <summary>
+            Gets or sets the suspend reason.
+            </summary>
+            <value>
+            The suspend reason.
+            </value>
+        </member>
+        <member name="T:ANDP.Provisioning.API.Rest.Models.ApMax.ProvisioningUpdateIptvServiceReference">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Models.ApMax.ProvisioningUpdateIptvServiceReference.OldServiceReference">
+            <summary>
+            Gets or sets the old service reference.
+            </summary>
+            <value>
+            The old service reference.
+            </value>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Models.ApMax.ProvisioningUpdateIptvServiceReference.NewServiceReference">
+            <summary>
+            Gets or sets the new service reference.
+            </summary>
+            <value>
+            The new service reference.
+            </value>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Models.ApMax.ProvisioningUpdateIptvServiceReference.EquipmentId">
+            <summary>
+            Gets or sets the equipment identifier.
+            </summary>
+            <value>
+            The equipment identifier.
+            </value>
+        </member>
+        <member name="T:ANDP.Provisioning.API.Rest.Models.ApMax.ProvisioningCreateScreenPop">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Models.ApMax.ProvisioningCreateScreenPop.EquipmentId">
+            <summary>
+            Gets or sets the equipment identifier.
+            </summary>
+            <value>
+            The equipment identifier.
+            </value>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Models.ApMax.ProvisioningCreateScreenPop.ScreenPopSubscriberType">
+            <summary>
+            Gets or sets the type of the screen pop subscriber.
+            </summary>
+            <value>
+            The type of the screen pop subscriber.
+            </value>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Models.ApMax.ProvisioningCreateScreenPop.NpaNxx">
+            <summary>
+            Gets or sets the npa NXX.
+            </summary>
+            <value>
+            The npa NXX.
+            </value>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Models.ApMax.ProvisioningCreateScreenPop.Description">
+            <summary>
+            Gets or sets the description.
+            </summary>
+            <value>
+            The description.
+            </value>
+        </member>
+        <member name="T:ANDP.Provisioning.API.Rest.Models.ApMax.ScreenPopSubscriberType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Models.ApMax.ScreenPopSubscriberType.MacAddresses">
+            <summary>
+            Gets or sets the mac addresses.
+            </summary>
+            <value>
+            The mac addresses.
+            </value>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Models.ApMax.ScreenPopSubscriberType.ScreenPopEnabled">
+            <summary>
+            Gets or sets a value indicating whether [screen pop enabled].
+            </summary>
+            <value>
+              <c>true</c> if [screen pop enabled]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Models.ApMax.ScreenPopSubscriberType.SubscriberPhoneNumber">
+            <summary>
+            Gets or sets the subscriber phone number.
+            </summary>
+            <value>
+            The subscriber phone number.
+            </value>
+        </member>
+        <member name="T:ANDP.Provisioning.API.Rest.Models.MetaSphere.MetaSphereUpdate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Models.MetaSphere.MetaSphereUpdate.EquipmentId">
+            <summary>
+            Gets or sets the equipment identifier.
+            </summary>
+            <value>
+            The equipment identifier.
+            </value>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Models.MetaSphere.MetaSphereUpdate.Dn">
+            <summary>
+            Gets or sets the dn.
+            </summary>
+            <value>
+            The dn.
+            </value>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Models.MetaSphere.MetaSphereUpdate.UserData">
+            <summary>
+            Gets or sets the user data.
+            </summary>
+            <value>
+            The user data.
+            </value>
+        </member>
+        <member name="T:ANDP.Provisioning.API.Rest.Models.MetaSwitch.MetaSwitchUpdate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Models.MetaSwitch.MetaSwitchUpdate.EquipmentId">
+            <summary>
+            Gets or sets the equipment identifier.
+            </summary>
+            <value>
+            The equipment identifier.
+            </value>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Models.MetaSwitch.MetaSwitchUpdate.Dn">
+            <summary>
+            Gets or sets the dn.
+            </summary>
+            <value>
+            The dn.
+            </value>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Models.MetaSwitch.MetaSwitchUpdate.UserData">
+            <summary>
+            Gets or sets the user data.
+            </summary>
+            <value>
+            The user data.
+            </value>
+        </member>
+        <member name="T:ANDP.Provisioning.API.Rest.Models.TcpIp.CommandViewModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Models.TcpIp.CommandViewModel.Command">
+            <summary>
+            Gets or sets the command.
+            </summary>
+            <value>
+            The command.
+            </value>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Models.TcpIp.CommandViewModel.ExpectedResponse">
+            <summary>
+            Gets or sets the expected response.
+            </summary>
+            <value>
+            The expected response.
+            </value>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Models.TcpIp.CommandViewModel.ExpectedResponseRegEx">
+            <summary>
+            Gets or sets the expected response reg ex.
+            </summary>
+            <value>
+            The expected response reg ex.
+            </value>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Models.TcpIp.CommandViewModel.EquipmentId">
+            <summary>
+            Gets or sets the equipment identifier.
+            </summary>
+            <value>
+            The equipment identifier.
+            </value>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Models.TcpIp.CommandViewModel.Timeout">
+            <summary>
+            Gets or sets the timeout.
+            </summary>
+            <value>
+            The timeout.
+            </value>
+        </member>
+        <member name="P:ANDP.Provisioning.API.Rest.Models.TcpIp.CommandViewModel.SessionId">
+            <summary>
+            Gets or sets the session identifier.
+            </summary>
+            <value>
+            The session identifier.
+            </value>
+        </member>
+    </members>
+</doc>

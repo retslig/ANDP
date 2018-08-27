@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b8076410-3671-4f5b-bc2f-1ce2772b7a50" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="C:\Users\nmg.RAVEN\Desktop\SDK_V9.0\SDK\V9.0\EAS_WebServices\Definition\ShService.wsdl" Protocol="file" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Msph_Subscriber_CTP.xsd" MetadataType="Schema" ID="75ba5335-6267-452f-9709-1a9f8b678f3f" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_Subscriber_CTP.xsd" />
+    <MetadataFile FileName="serviceData.xsd" MetadataType="Schema" ID="c103746a-f510-4f21-8404-8d3ef81041b4" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/serviceData.xsd" />
+    <MetadataFile FileName="Msph_Subscriber_FMFM.xsd" MetadataType="Schema" ID="21cf71ff-b754-44bf-8b73-30e3113e9fe9" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_Subscriber_FMFM.xsd" />
+    <MetadataFile FileName="Msph_CustomerGroup_Reduced.xsd" MetadataType="Schema" ID="f6022fea-c9ee-4ac9-a4a3-6f2fb8cc2cfb" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_CustomerGroup_Reduced.xsd" />
+    <MetadataFile FileName="Msph_BusinessGroup_ChildrenList_Department.xsd" MetadataType="Schema" ID="218fdc4d-4280-40c4-b283-92c087909e06" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_BusinessGroup_ChildrenList_Department.xsd" />
+    <MetadataFile FileName="Msph_BusinessGroup_ChildrenList_Subscriber_AllFragments.xsd" MetadataType="Schema" ID="2f599048-f4be-44f6-916f-78b72ebec503" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_BusinessGroup_ChildrenList_Subscriber_AllFragments.xsd" />
+    <MetadataFile FileName="Msph_CommonTypes.xsd" MetadataType="Schema" ID="f8da6bd8-8d29-469c-891c-1db85a2fb445" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_CommonTypes.xsd" />
+    <MetadataFile FileName="Msph_Subscriber_ContactGroup_Recording.xsd" MetadataType="Schema" ID="94721c21-b115-4126-bcdc-f7f884a72a4a" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_Subscriber_ContactGroup_Recording.xsd" />
+    <MetadataFile FileName="Msph_Subscriber_CallTree_Settings.xsd" MetadataType="Schema" ID="d2be22ca-584e-4693-b007-416e17a42311" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_Subscriber_CallTree_Settings.xsd" />
+    <MetadataFile FileName="Msph_Subscriber_CallTree_DialByExtensionList.xsd" MetadataType="Schema" ID="085a1cfb-7c9a-43bf-893a-2da0cbf35f27" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_Subscriber_CallTree_DialByExtensionList.xsd" />
+    <MetadataFile FileName="Msph_Subscriber_Messaging.xsd" MetadataType="Schema" ID="c3abc648-5f0d-463c-82ff-8ff743fdb243" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_Subscriber_Messaging.xsd" />
+    <MetadataFile FileName="Msph_ClassOfService.xsd" MetadataType="Schema" ID="36c40e53-22d9-4b6f-ad5c-ba8a34cf0707" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_ClassOfService.xsd" />
+    <MetadataFile FileName="xmlmime.xsd" MetadataType="Schema" ID="e4157577-bffa-4e35-b238-19907c9cfe05" SourceId="1" SourceUrl="http://www.w3.org/2005/05/xmlmime.xsd" />
+    <MetadataFile FileName="Msph_Subscriber_InitFlags.xsd" MetadataType="Schema" ID="1eec1bad-e918-429d-a284-a0037c4ef962" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_Subscriber_InitFlags.xsd" />
+    <MetadataFile FileName="Msph_Subscriber_Messaging_Data.xsd" MetadataType="Schema" ID="705f9c62-0497-4e37-bced-94e9c33e47a2" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_Subscriber_Messaging_Data.xsd" />
+    <MetadataFile FileName="Msph_Subscriber_ContactGroup.xsd" MetadataType="Schema" ID="bfafb633-e561-4743-94ad-32477033c8b8" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_Subscriber_ContactGroup.xsd" />
+    <MetadataFile FileName="Msph_Subscriber_AppleVVM.xsd" MetadataType="Schema" ID="d9ccc4b2-c23e-41d2-b099-5f21e2112b78" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_Subscriber_AppleVVM.xsd" />
+    <MetadataFile FileName="userData.xsd" MetadataType="Schema" ID="31bf8dc3-0727-425b-bc49-12d75fa652d4" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/userData.xsd" />
+    <MetadataFile FileName="Msph_CustomerGroup_Administrators.xsd" MetadataType="Schema" ID="2a5ccd33-44f2-49f3-ada3-bd7fde3449e2" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_CustomerGroup_Administrators.xsd" />
+    <MetadataFile FileName="Msph_Subscriber_BusinessGroup.xsd" MetadataType="Schema" ID="29a231a9-7e23-4636-a76f-cb56ff314bea" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_Subscriber_BusinessGroup.xsd" />
+    <MetadataFile FileName="Msph_Subscriber_DCLTUI.xsd" MetadataType="Schema" ID="7f526d33-ef6a-4c80-bdb0-5a05cdc1509c" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_Subscriber_DCLTUI.xsd" />
+    <MetadataFile FileName="Msph_Subscriber_LiveMessage.xsd" MetadataType="Schema" ID="c2bdaddb-56a6-4f89-93b7-cdb4d08e95e3" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_Subscriber_LiveMessage.xsd" />
+    <MetadataFile FileName="Msph_Subscriber_CallTree_Announcements.xsd" MetadataType="Schema" ID="683b9247-5125-4cd1-8b52-0b44ccef54f9" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_Subscriber_CallTree_Announcements.xsd" />
+    <MetadataFile FileName="Msph_Subscriber_CTD.xsd" MetadataType="Schema" ID="ca7fd40f-123f-4bc7-9eca-9c87c1c22389" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_Subscriber_CTD.xsd" />
+    <MetadataFile FileName="Msph_BusinessGroup_DialingPlan_IntercomCodeRangesList.xsd" MetadataType="Schema" ID="97b68bd9-c9f2-4963-85e8-c2446d166095" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_BusinessGroup_DialingPlan_IntercomCodeRangesList.xsd" />
+    <MetadataFile FileName="Msph_Subscriber_CallTree_AnnouncementsData.xsd" MetadataType="Schema" ID="ea395a84-0a57-4c7a-b6d2-4d7520576c95" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_Subscriber_CallTree_AnnouncementsData.xsd" />
+    <MetadataFile FileName="Msph_Subscriber_CallTree_BGExtensionList.xsd" MetadataType="Schema" ID="9627bb3d-f794-47fd-a796-2fef045d8f66" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_Subscriber_CallTree_BGExtensionList.xsd" />
+    <MetadataFile FileName="ShService.wsdl" MetadataType="Wsdl" ID="260531a2-ee38-46f1-8f4f-d0e05690bc4e" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/ShService.wsdl" />
+    <MetadataFile FileName="Msph_Subscriber_Contacts.xsd" MetadataType="Schema" ID="7956d030-8197-4b30-90d6-c8b6a93e28e7" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_Subscriber_Contacts.xsd" />
+    <MetadataFile FileName="Msph_Subscriber_FutureDeliveryQueue.xsd" MetadataType="Schema" ID="3755b7d2-0b82-440d-b26d-9d7825801378" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_Subscriber_FutureDeliveryQueue.xsd" />
+    <MetadataFile FileName="Msph_Subscriber_CallTree_RecordedNamesData.xsd" MetadataType="Schema" ID="adeaed93-b9a3-4296-a47a-e92bf00291b0" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_Subscriber_CallTree_RecordedNamesData.xsd" />
+    <MetadataFile FileName="Msph_Subscriber_Notifications.xsd" MetadataType="Schema" ID="89c39468-a6f7-418f-b0ad-fb6a580b76d1" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_Subscriber_Notifications.xsd" />
+    <MetadataFile FileName="Msph_Subscriber_Greetings_Data.xsd" MetadataType="Schema" ID="2bfa15bb-515c-441b-9205-5c621e1ff0d9" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_Subscriber_Greetings_Data.xsd" />
+    <MetadataFile FileName="Msph_Device_BaseInformation.xsd" MetadataType="Schema" ID="32a3cd9d-5713-4643-b136-38517c95830a" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_Device_BaseInformation.xsd" />
+    <MetadataFile FileName="Msph_BusinessGroup_BaseInformation.xsd" MetadataType="Schema" ID="0e04c647-efed-495c-9a8c-ad4a22266020" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_BusinessGroup_BaseInformation.xsd" />
+    <MetadataFile FileName="Msph_Subscriber_MWI.xsd" MetadataType="Schema" ID="65f6bdfb-cb47-4f37-be07-525d67d2790a" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_Subscriber_MWI.xsd" />
+    <MetadataFile FileName="Msph_Subscriber_CallTree_RecordedNames.xsd" MetadataType="Schema" ID="4289948d-0dd5-42be-b5c0-bd4d5d33d1a3" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_Subscriber_CallTree_RecordedNames.xsd" />
+    <MetadataFile FileName="Msph_SDC_BaseInformation.xsd" MetadataType="Schema" ID="d8994958-4077-46dc-ac86-2e9d5430f442" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_SDC_BaseInformation.xsd" />
+    <MetadataFile FileName="Msph_Subscriber_CustomData.xsd" MetadataType="Schema" ID="c8a744cc-3967-46df-aaf1-0e794c8df16c" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_Subscriber_CustomData.xsd" />
+    <MetadataFile FileName="Msph_Department_BaseInformation.xsd" MetadataType="Schema" ID="47644617-b648-4dd0-849e-1a85fbaaf594" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_Department_BaseInformation.xsd" />
+    <MetadataFile FileName="Msph_Subscriber_Reminders.xsd" MetadataType="Schema" ID="5314e6e0-3002-402a-a957-02d5dd841f89" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_Subscriber_Reminders.xsd" />
+    <MetadataFile FileName="Msph_VPIM.xsd" MetadataType="Schema" ID="0f451caa-9366-4e2f-a68a-14716baa5ef8" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_VPIM.xsd" />
+    <MetadataFile FileName="Msph_Subscriber_Schedules.xsd" MetadataType="Schema" ID="9edbba05-c239-4584-8d2d-205d087cce08" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_Subscriber_Schedules.xsd" />
+    <MetadataFile FileName="Msph_BusinessGroup_ChildrenList_Subscriber.xsd" MetadataType="Schema" ID="4a202fb3-b1ca-4534-9145-8b58d0ac569a" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_BusinessGroup_ChildrenList_Subscriber.xsd" />
+    <MetadataFile FileName="Msph_Subscriber_GroupMailbox.xsd" MetadataType="Schema" ID="6a20799b-aa73-4453-954f-d715be5ef422" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_Subscriber_GroupMailbox.xsd" />
+    <MetadataFile FileName="Msph_Subscriber_Messaging_Status.xsd" MetadataType="Schema" ID="efbbfceb-c5df-4d17-846a-62e8c46508dc" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_Subscriber_Messaging_Status.xsd" />
+    <MetadataFile FileName="Msph_Subscriber_CallTree_BaseInformation.xsd" MetadataType="Schema" ID="29ba0f2b-9502-4272-b84e-f7afbf4e912d" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_Subscriber_CallTree_BaseInformation.xsd" />
+    <MetadataFile FileName="Msph_Subscriber_BaseInformation.xsd" MetadataType="Schema" ID="a34fd4bb-a30d-403b-b513-fcd80830149d" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_Subscriber_BaseInformation.xsd" />
+    <MetadataFile FileName="Msph_Subscriber_CallTree_Nodes.xsd" MetadataType="Schema" ID="34bcc953-4ea6-47a5-bc0f-9a01dffbc752" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_Subscriber_CallTree_Nodes.xsd" />
+    <MetadataFile FileName="Msph_CustomerGroup.xsd" MetadataType="Schema" ID="ee458356-7f79-4323-8448-319144893c02" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_CustomerGroup.xsd" />
+    <MetadataFile FileName="Msph_IntercomCodeRange_BaseInformation.xsd" MetadataType="Schema" ID="5b6e350d-29dd-41fc-925d-f6146aaf6f94" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_IntercomCodeRange_BaseInformation.xsd" />
+    <MetadataFile FileName="Msph_Subscriber_Greetings.xsd" MetadataType="Schema" ID="a3b8ed26-c640-479c-a911-1b774543a402" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_Subscriber_Greetings.xsd" />
+    <MetadataFile FileName="Msph_Subscriber_CallRouter.xsd" MetadataType="Schema" ID="447c6028-6ddb-40bf-ba77-e0072db30633" SourceId="1" SourceUrl="file:///C:/Users/nmg.RAVEN/Desktop/SDK_V9.0/SDK/V9.0/EAS_WebServices/Definition/Msph_Subscriber_CallRouter.xsd" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

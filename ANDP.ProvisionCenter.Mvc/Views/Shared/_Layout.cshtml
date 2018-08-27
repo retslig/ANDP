@@ -1,0 +1,106 @@
+﻿@using Common.Lib.MVC.Helpers
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    @Html.MetaAcceptLanguage()
+    <meta name="viewport" content="width=device-width" />
+
+    @Styles.Render("~/Content/css")
+    <link rel="stylesheet" type="text/css" href="~/Content/toastr.css" />
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/angular")
+    <script type="text/javascript" src=@Url.Content("~/Scripts/toastr.js")></script>
+    <script type="text/javascript" src=@Url.Content("~/Scripts/angular-animate.js")></script>
+    <script type="text/javascript" src=@Url.Content("~/Scripts/angular-resource.js")></script>
+    <script type="text/javascript" src=@Url.Content("~/Scripts/angular-cookies.js")></script>
+
+    <script type="text/javascript" src=@Url.Content("~/Scripts/apps/apps.js")></script>
+    <script src="~/Scripts/apps/services/mainService.js"></script>
+    <script src="~/Scripts/apps/services/orderService.js"></script>
+    <script src="~/Scripts/apps/services/provisionService.js"></script>
+    <script src="~/Scripts/apps/controllers/mainController.js"></script>
+    <script src="~/Scripts/apps/controllers/orderController.js"></script>
+    <script src="~/Scripts/apps/controllers/scheduleController.js"></script>
+
+    <style>
+        .gridStyle {
+            width: 400px;
+            height: 300px;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            //Ask ASP.NET what culture we prefer, because we stuck it in a meta tag
+            var data = $("meta[name='accept-language']").attr("content");
+            //Tell jQuery to figure it out also on the client side.
+            //				$.global.preferCulture(data);
+
+            //				//Tell the validator, for example,
+            //				// that we want numbers parsed a certain way!
+            //				$.validator.methods.number = function (value, element) {
+            //					if ($.global.parseFloat(value)) {
+            //						return true;
+            //					}
+            //					return false;
+            //				};
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="header-wrapper">
+            <div class="float-right">
+                <nav class="navbar navbar-default" role="navigation">
+                    <div class="container-fluid">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <span class="icon-bar">@Html.ActionLink("ANDP", "Index", "Home", null, new { @class = "site-title" })</span>
+                        </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            @Html.CreateBootstrapMenuItem()
+                        </div><!-- /.navbar-collapse -->
+                    </div><!-- /.container-fluid -->
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div id="body">
+        <section class="content-wrapper clear-fix">
+            @RenderSection("featured", required: false)
+        </section>
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section>
+    </div>
+
+    <section class="clear-fix">
+        <div id="footer">
+            <div class="footer-wrapper">
+                <div class="float-left">
+                    <p>Copyright &copy; @DateTime.Now.Year QS Solutions. All Rights Reserved. </p>
+                </div>
+                <div class="float-right">
+                    <ul id="social">
+                        <li><a href="https://www.linkedin.com/company/qs-solutions-llc-net" class="linkedin">Linked In</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

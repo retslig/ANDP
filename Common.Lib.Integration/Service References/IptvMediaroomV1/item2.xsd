@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://a19226:8731/Design_Time_Addresses/IptvMediaroomServiceV1/IptvMediaroom/?xsd=xsd1" namespace="http://schemas.datacontract.org/2004/07/IptvMediaroomServiceV1" />
+  <xs:import schemaLocation="http://a19226:8731/Design_Time_Addresses/IptvMediaroomServiceV1/IptvMediaroom/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="InsertAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/IptvMediaroomServiceV1" minOccurs="0" name="data" nillable="true" type="q1:MediaroomSubscriber" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertAccountResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/IptvMediaroomServiceV1" minOccurs="0" name="data" nillable="true" type="q2:MediaroomSubscriber" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditAccountResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAccountPassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="serviceReference" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAccountPasswordResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/IptvMediaroomServiceV1" minOccurs="0" name="data" nillable="true" type="q3:MediaroomSubscriber" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAccountResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountByServiceReference">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="serviceReference" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="loadStbs" type="xs:boolean" />
+        <xs:element minOccurs="0" name="apMaxOnly" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountByServiceReferenceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/IptvMediaroomServiceV1" minOccurs="0" name="GetAccountByServiceReferenceResult" nillable="true" type="q4:MediaroomSubscriber" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountBySubscriberGuid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="subscriberGuid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="loadStbs" type="xs:boolean" />
+        <xs:element minOccurs="0" name="apMaxOnly" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountBySubscriberGuidResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/IptvMediaroomServiceV1" minOccurs="0" name="GetAccountBySubscriberGuidResult" nillable="true" type="q5:MediaroomSubscriber" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadAvailablePackages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="apMaxOnly" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadAvailablePackagesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ReadAvailablePackagesResult" nillable="true" type="q6:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddPackageToAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="serviceReference" nillable="true" type="xs:string" />
+        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="packages" nillable="true" type="q7:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddPackageToAccountResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemovePackageFromAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="serviceReference" nillable="true" type="xs:string" />
+        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="packages" nillable="true" type="q8:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemovePackageFromAccountResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDeviceByDeviceId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="deviceId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="apMaxOnly" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDeviceByDeviceIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/IptvMediaroomServiceV1" minOccurs="0" name="GetDeviceByDeviceIdResult" nillable="true" type="q9:StbType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditDevice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/IptvMediaroomServiceV1" minOccurs="0" name="data" nillable="true" type="q10:StbType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditDeviceResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountDevicesLight">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="serviceReference" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="apMaxOnly" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountDevicesLightResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetAccountDevicesLightResult" nillable="true" type="q11:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountDevicesFull">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="serviceReference" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="apMaxOnly" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountDevicesFullResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/IptvMediaroomServiceV1" minOccurs="0" name="GetAccountDevicesFullResult" nillable="true" type="q12:ArrayOfStbType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSTBParentalPin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="deviceId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="oldPin" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newPin" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSTBParentalPinResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSTBAdultContentPin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="deviceId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="oldPin" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newPin" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSTBAdultContentPinResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSTBPurchaseRentalPin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="deviceId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="oldPin" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newPin" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSTBPurchaseRentalPinResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSTBParentalPin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="deviceId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSTBParentalPinResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSTBAdultContentPin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="deviceId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSTBAdultContentPinResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSTBPurchaseRentalPin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="deviceId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSTBPurchaseRentalPinResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResetSTBParentalPin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="deviceId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newPin" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResetSTBParentalPinResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResetSTBAdultContentPin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="deviceId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newPin" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResetSTBAdultContentPinResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResetSTBPurchaseRentalPin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="deviceId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newPin" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResetSTBPurchaseRentalPinResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveStb">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="serviceReference" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="deviceId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="deviceName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveStbResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResetAndUpdateAccountCreditLimit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="serviceReference" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="creditLimit" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResetAndUpdateAccountCreditLimitResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="531bc032-fc51-4e80-bcab-6cee5c5b1c74" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://A19226:8731/Design_Time_Addresses/UniveralCallManagementV3/UCMService/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="bfa4ebc9-c489-4635-9b94-b199854b5ee0" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/UniveralCallManagementV3/UCMService/?xsd=xsd3" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="d9b7f5af-8e02-415d-8bfc-1ce1412e775f" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/UniveralCallManagementV3/UCMService/?xsd=xsd1" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="db0bd3e6-c982-4b60-b926-82d09f5d60be" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/UniveralCallManagementV3/UCMService/?xsd=xsd0" />
+    <MetadataFile FileName="UCMService.wsdl" MetadataType="Wsdl" ID="cefde139-3fd2-4d26-8884-8b56dea2ca53" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/UniveralCallManagementV3/UCMService/?wsdl" />
+    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="a70053ba-78cc-47ea-ad0f-6bdc2ca048ae" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/UniveralCallManagementV3/UCMService/?xsd=xsd2" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="f8b5f876-1f76-49d3-a04e-ccde18853bc9" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/UniveralCallManagementV3/UCMService/?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

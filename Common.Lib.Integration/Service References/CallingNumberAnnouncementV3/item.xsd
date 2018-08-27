@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CNAServiceV3" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CNAServiceV3" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfCnaInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CnaInfo" nillable="true" type="tns:CnaInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCnaInfo" nillable="true" type="tns:ArrayOfCnaInfo" />
+  <xs:complexType name="CnaInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AnncNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="FromNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fromdate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PurgeDays" type="xs:int" />
+      <xs:element minOccurs="0" name="ToNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Todate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CnaInfo" nillable="true" type="tns:CnaInfo" />
+</xs:schema>

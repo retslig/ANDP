@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://www.metaswitch.com/sdp/soap/sh/servicedata" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.metaswitch.com/sdp/soap/sh/servicedata" version="1.14" xsi:schemaLocation="http://www.metaswitch.com/sdp/soap/sh/documentation Documentation.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://www.w3.org/2005/05/xmlmime" namespace="http://www.w3.org/2005/05/xmlmime" />
+  <xs:include schemaLocation="Msph_CommonTypes.xsd" />
+  <xs:complexType name="tMsph_Subscriber_DCLTUI">
+    <xs:annotation>
+      <xs:documentation>
+        DCL specific Subscriber TUI Settings service indication.  Used to make modifications to a subscriber's TUI-related settings.
+        <d:Actions xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Action>apply</d:Action></d:Actions><d:AuthLevel xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">admin</d:AuthLevel></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="IncludeSpokenName" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Flag to indicate whether the subscriber's Spoken Name should be included on new voicemails.  If a spoken name recording is not present then this flag is ignored and no spoken name is added to new voicemails.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Include Spoken Name</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values, Switchable Default</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MarketingEnabled" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Flag to indicate whether marketing broadcasts are enabled for this Subscriber.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Marketing Enabled</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="PlayAudioLogo" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Flag to indicate whether to play the initial audio logo to this subscriber when logging in to the TUI.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Play Audio Logo</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="RequireSpokenName" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Flag to indicate whether a caller should be asked to record a spoken name when leaving a message for a subscriber.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Require Spoken Name</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="AvailableTimeZones" type="tSwitchableDefaultString">
+        <xs:annotation>
+          <xs:documentation>
+            The set of time zones which the subscriber can select from in the TUI. Time zones are described in the Java format (e.g. Europe/London).  Permitted regex: .*
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Available Time Zones</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="InitializedPIN" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Flag to indicate whether the subscriber's PIN has been set appropriately (so that it need not be reset on first time access). It is set whenever the subscriber's PIN is set explicitly, either via a UI, through an API such as this or through business logic on creation.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Initialized PIN</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="InitializedRecordedName" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Flag to indicate whether the subscriber's Recorded Name has been set appropriately (so that it need not be re-recorded on first time access). It is set whenever the greeting is explicitly set up, which may be via a UI or through an API such as this.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Initialized Recorded Name</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="InitializedRecordedGreeting" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Flag to indicate whether the subscriber's Recorded Greeting has been set appropriately (so that it need not be re-recorded on first time access). It is set wheneverthe greeting is explicitly set up, which may be via a UI or through an API such as this.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Initialized Recorded Greeting</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="LeaveMessageLanguages" type="tSwitchableDefaultString">
+        <xs:annotation>
+          <xs:documentation>
+            The language(s) to use when a non-subscriber leaves a message for this subscriber.  Values must be one of the Available Languages specified in the Class of Service, and if more than one language is specified should be comma separated.  If multiple languages are specified then prompts will be read out in each language in turn.  The default Leave Message Language is determined by the Class Of Service for the subscriber.  Permitted regex: .*
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Leave Message Languages</d:DisplayName><d:ValidFrom xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1.1</d:ValidFrom><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Device" type="tMsph_Subscriber_DCLTUI_Device">
+        <xs:annotation>
+          <xs:documentation>
+            Settings related to a specific device.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Device</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="InitializedPassword" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Flag to indicate whether the subscriber's Password has been set appropriately (so that it need not be reset on first time access). It is set whenever the subscriber's password is set explicitly, either via a UI, through an API such as this or through business logic on creation.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Initialized Password</d:DisplayName><d:ValidFrom xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1.12</d:ValidFrom><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="AutovonEnabled" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Flag to indicate whether the autovon tone should be played for this subscriber.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Autovon Enabled</d:DisplayName><d:ValidFrom xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1.11.4.1</d:ValidFrom><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="Action" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="tMsph_Subscriber_DCLTUI_Device">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="PhoneNumber" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The phone number of this device.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Phone Number</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">R-R-R-</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Yes</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="ActiveSchedule" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Which schedule (if any) is active for this device: 0 = the custom TUI schedule, as specified in Msph_Subscriber_Schedules; 1-3 = a standard schedule with differing combinations of work hours and system holidays.  Permitted regex: .*
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Active Schedule</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="AutoContinue" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Flag to indicate whether the TUI should automatically advance to the next message without a Subscriber key press.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Auto Continue</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="AutoPlay" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Flag to indicate whether the TUI should automatically play received messages.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Auto Play</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="AutoPlayFax" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Flag to indicate whether the TUI should automatically play received faxes. Only used if Auto Play is set to True.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Auto Play Fax</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="AutoPlayVoice" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Flag to indicate whether the TUI should automatically play received voicemails. Only used if Auto Play is set to True.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Auto Play Voice</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="FastLogin" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Flag to indicate whether the subscriber can be identified by the number they're calling from.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Fast Login</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="LeaveMessageLanguages" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The language(s) to use when a non-subscriber leaves a message on this device.  If this is set at device level it will override the subscriber level setting, at which point changes to the language made through the provisioning GUI or self-care TUI will have no effect.  Values must be one of the Available Languages specified in the Class of Service, and if more than one language is specified they should be comma separated.  If multiple languages are specified then prompts will be read out in each language in turn.  If this field is not set then the subscriber attribute will be used instead.  This field is deprecated as of version 1.1.  Use the subscriber level setting 'Leave Message Languages'.  Permitted regex: .*
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Leave Message Languages</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="OperatorNumber" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            An operator telephone number for use in the TUI.  Permitted regex: ^[0-9]*$
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Operator Number</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="PlayUrgentMessagesFirst" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Flag indicating whether urgent messages should be played first in the TUI.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Play Urgent Messages First</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="PlayUrgentFaxesFirst" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Flag indicating whether urgent faxes should be played first in the TUI. This setting is only used if Play Urgent Messages First is set.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Play Urgent Faxes First</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="PlayUrgentVoicemailsFirst" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Flag indicating whether urgent voicemails should be played first in the TUI. This setting is only used if Play Urgent Messages First is set.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Play Urgent Voicemails First</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="ShortPrompts" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Flag indicating whether the subscriber should hear short (expert) prompts when accessing the TUI.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Short Prompts</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="SkipPIN" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Flag indicating whether the subscriber skips the PIN stage when logging in using this device.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Skip PIN</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="UseVoiceNavigation" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Flag indicating whether the subscriber can navigate the TUI using Automated Speech Recognition (if not then DTMF tones are used).
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Use Voice Navigation</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="VoicemailPlayback" type="tMsph_Subscriber_DCLTUI_Device_VoicemailPlayback">
+        <xs:annotation>
+          <xs:documentation>
+            How to play back voicemails during message review: Play header, play body or play both (header followed by body).  This setting will only have an effect if the TUI message review prompt uses non-granular message headers. If the TUI message review prompt is configured to use granular message headers then this setting will be ignored. Please contact your CSE if you do not know whether your TUI uses granular or non-granular message headers.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Voicemail Playback</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>header</d:Value><d:Value>body</d:Value><d:Value>both</d:Value><d:Value>HEADER</d:Value><d:Value>BODY</d:Value><d:Value>BOTH</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="AutoPlayEmail" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Flag to indicate whether the TUI should automatically play received emails. Only used if Auto Play is set to True.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Auto Play Email</d:DisplayName><d:ValidFrom xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1.11.4.1</d:ValidFrom><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="PlayUrgentEmailsFirst" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Flag indicating whether urgent emails should be played first in the TUI. This setting is only used if Play Urgent Messages First is set.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Play Urgent Emails First</d:DisplayName><d:ValidFrom xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1.11.4.1</d:ValidFrom><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="tMsph_Subscriber_DCLTUI_Device_VoicemailPlayback">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="header" />
+      <xs:enumeration value="body" />
+      <xs:enumeration value="both" />
+      <xs:enumeration value="HEADER" />
+      <xs:enumeration value="BODY" />
+      <xs:enumeration value="BOTH" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

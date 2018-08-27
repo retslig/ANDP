@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://www.metaswitch.com/sdp/soap/sh/servicedata" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.metaswitch.com/sdp/soap/sh/servicedata" version="1.14" xsi:schemaLocation="http://www.metaswitch.com/sdp/soap/sh/documentation Documentation.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://www.w3.org/2005/05/xmlmime" namespace="http://www.w3.org/2005/05/xmlmime" />
+  <xs:include schemaLocation="Msph_CommonTypes.xsd" />
+  <xs:complexType name="tMsph_Subscriber_BusinessGroup">
+    <xs:annotation>
+      <xs:documentation>
+        Business Group settings for a subscriber.
+        <d:Actions xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Action>apply</d:Action></d:Actions><d:AuthLevel xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">masterAdmin</d:AuthLevel></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="BusinessGroup" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Name of Business Group fragment to which this subscriber belongs.  To remove a subscriber from a business group specify a blank value.  To change the business group fragment specify the new name.  It is always the subscriber's primary line that is added to the Business Group (regardless of which DN is specified on the UserID).
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Business Group</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation" /></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Department" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Full name of department within the Business Group fragment that this subscriber belongs to. Names are separated ' / ', e.g. 'Admin / Accounts'.  Should be set to 'None' if subscriber is not within a department.  To change the department specify the new name.
+            <d:DisplayName>Department</d:DisplayName><d:Type>String</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue /></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="AccountType" type="tMsph_Subscriber_BusinessGroup_AccountType">
+        <xs:annotation>
+          <xs:documentation>
+            Whether this subscriber is an administrator within this business group fragment.
+            <d:DisplayName>Account Type</d:DisplayName><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue /><d:Values><d:Value>Normal</d:Value><d:Value>Administrator</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="AdministrationDepartment" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Full name of department for which this subscriber is an administrator. Names of departments must be separated using ' / ', e.g. 'Admin / Accounts .If the subscriber administers the entire business group fragment set to 'Whole Business Group'.  If the subscriber is not an administrator then this value should be omitted.
+            <d:DisplayName>Administration Department</d:DisplayName><d:Type>String</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue /></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="IntercomCode" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Intercom code for this subscriber.  This is derived from the subscribers primary device number and the intercom code ranges set on the business group fragment.
+            <d:DisplayName>Intercom Code</d:DisplayName><d:Type>String</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue /></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="OperatorNumber" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Directory Number of the Operator associated with this subscriber.
+            <d:DisplayName>Operator Number</d:DisplayName><d:Type>String</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue /></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="IsACDRSAllowed" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Whether this ACD Supervisor has access to the ACD Report Scheduler.
+            <d:DisplayName>Is ACDRS Allowed</d:DisplayName><d:ValidFrom>1.13.10</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue /><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="CurrentNumberOfScheduledReports" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>
+            The number of scheduled reports which are currently configured by this ACD Supervisor.
+            <d:DisplayName>Current Number Of Scheduled Reports</d:DisplayName><d:ValidFrom>1.13.10</d:ValidFrom><d:Type>Integer</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue /></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="Action" type="xs:string" />
+  </xs:complexType>
+  <xs:simpleType name="tMsph_Subscriber_BusinessGroup_AccountType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Normal" />
+      <xs:enumeration value="Administrator" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

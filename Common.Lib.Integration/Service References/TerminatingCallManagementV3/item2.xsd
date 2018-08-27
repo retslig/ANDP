@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://a19226:8731/Design_Time_Addresses/TerminatingCallManagementV3/TCMServiceV3/?xsd=xsd1" namespace="http://schemas.datacontract.org/2004/07/TerminatingCallManagementV3" />
+  <xs:import schemaLocation="http://a19226:8731/Design_Time_Addresses/TerminatingCallManagementV3/TCMServiceV3/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/APmaxProvisioning" />
+  <xs:element name="GetTCMSubscriber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="subscriberAddress" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTCMSubscriberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/TerminatingCallManagementV3" minOccurs="0" name="GetTCMSubscriberResult" nillable="true" type="q1:TCMType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddTCMSubscriber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="subscriberAddress" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tcmEnabled" type="xs:boolean" />
+        <xs:element minOccurs="0" name="dndEnabled" type="xs:boolean" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/APmaxProvisioning" minOccurs="0" name="subscriber" nillable="true" type="q2:SubscriberType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddTCMSubscriberResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTCMSubscriber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/TerminatingCallManagementV3" minOccurs="0" name="tcmSub" nillable="true" type="q3:TCMType" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/APmaxProvisioning" minOccurs="0" name="internetInfo" nillable="true" type="q4:InternetAccessType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTCMSubscriberResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTCMSubscriber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="subscriberAddress" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTCMSubscriberResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TCMFeature">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="subscriberAddress" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="enabled" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TCMFeatureResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DNDFeature">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="subscriberAddress" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="enabled" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DNDFeatureResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSubscribersContacts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="subscriberAddress" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSubscribersContactsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/TerminatingCallManagementV3" minOccurs="0" name="GetSubscribersContactsResult" nillable="true" type="q5:ArrayOfDNDContactListType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

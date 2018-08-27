@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/NotifyJobSchedulerV6" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/NotifyJobSchedulerV6" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="NotifyTemplate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActiveWindowEnd" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ActiveWindowStart" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Announcement" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CallAttempts" type="xs:int" />
+      <xs:element minOccurs="0" name="CustomerGuid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DaysValid" type="xs:int" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EnableResponse" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MaxTrunks" type="xs:int" />
+      <xs:element minOccurs="0" name="MinTime" type="xs:int" />
+      <xs:element minOccurs="0" name="Number" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="TransferDigit" type="xs:int" />
+      <xs:element minOccurs="0" name="TransferEnabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TransferTo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransferType" type="tns:CallTransferType" />
+      <xs:element minOccurs="0" name="TxtMessage" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NotifyTemplate" nillable="true" type="tns:NotifyTemplate" />
+  <xs:simpleType name="CallTransferType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Dn" />
+      <xs:enumeration value="Service" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CallTransferType" nillable="true" type="tns:CallTransferType" />
+  <xs:simpleType name="CalledAddressType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DN" />
+      <xs:enumeration value="Email" />
+      <xs:enumeration value="SMS" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CalledAddressType" nillable="true" type="tns:CalledAddressType" />
+  <xs:complexType name="ArrayOfNotifyTemplate">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="NotifyTemplate" nillable="true" type="tns:NotifyTemplate" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNotifyTemplate" nillable="true" type="tns:ArrayOfNotifyTemplate" />
+  <xs:complexType name="ArrayOfNotifyTemplateLite">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="NotifyTemplateLite" nillable="true" type="tns:NotifyTemplateLite" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNotifyTemplateLite" nillable="true" type="tns:ArrayOfNotifyTemplateLite" />
+  <xs:complexType name="NotifyTemplateLite">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Number" type="xs:unsignedInt" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NotifyTemplateLite" nillable="true" type="tns:NotifyTemplateLite" />
+  <xs:complexType name="ScheduleCallAddressType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AccountNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressType" nillable="true" type="tns:CalledAddressType" />
+      <xs:element minOccurs="0" name="AddressValue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LinkClassID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="LinkRowID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="LinkSubClassID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ScheduleCallAddressType" nillable="true" type="tns:ScheduleCallAddressType" />
+</xs:schema>

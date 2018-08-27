@@ -1,0 +1,31 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "Error";
+}
+
+<h2>Sorry, an error occurred while processing your request.</h2>
+
+@if (Model != null)
+{
+    <p>
+        <b>Exception type thrown:</b> @Model.Exception.GetType().Name<br /><br />
+        <b>Controller:</b> @Model.ControllerName<br /><br />
+        <b>Action:</b> @Model.ActionName<br /><br />
+        @if (Model.Exception is AggregateException)
+        {
+            foreach (var ex in (Model.Exception as AggregateException).Flatten().InnerExceptions)
+            {
+                <b>Message:</b> @HttpUtility.UrlDecode(ex.Message, @System.Text.Encoding.UTF8)<br /><br />
+                <b>Inner Message:</b> @HttpUtility.UrlDecode(ex.InnerException != null ? ex.InnerException.Message : "", @System.Text.Encoding.UTF8)<br /><br />
+                <b>StackTrace:</b><pre> @HttpUtility.UrlDecode(@ViewData["exceptionStackTrace"] != null ? @ViewData["exceptionStackTrace"].ToString() : "", @System.Text.Encoding.UTF8)</pre>
+            }
+        }
+        else
+        {
+            <b>Message:</b> @HttpUtility.UrlDecode(@Model.Exception.Message, @System.Text.Encoding.UTF8)<br /><br />
+            <b>Inner Message:</b> @HttpUtility.UrlDecode(@Model.Exception.InnerException != null ? @Model.Exception.InnerException.Message : "", @System.Text.Encoding.UTF8)<br /><br />
+            <b>StackTrace:</b><pre> @HttpUtility.UrlDecode(@ViewData["exceptionStackTrace"] != null ? @ViewData["exceptionStackTrace"].ToString() : "", @System.Text.Encoding.UTF8)</pre>
+        }
+    </p>
+}

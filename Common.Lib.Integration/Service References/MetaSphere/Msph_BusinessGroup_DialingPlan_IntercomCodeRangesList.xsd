@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://www.metaswitch.com/sdp/soap/sh/servicedata" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.metaswitch.com/sdp/soap/sh/servicedata" version="1.14" xsi:schemaLocation="http://www.metaswitch.com/sdp/soap/sh/documentation Documentation.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://www.w3.org/2005/05/xmlmime" namespace="http://www.w3.org/2005/05/xmlmime" />
+  <xs:include schemaLocation="Msph_CommonTypes.xsd" />
+  <xs:complexType name="tMsph_BusinessGroup_DialingPlan_IntercomCodeRangesList">
+    <xs:annotation>
+      <xs:documentation>
+        Business Group fragment intercom code ranges service indication. Used to manage the intercom code ranges used by a business group fragment. Any intercom ranges which exist for the business group will be deleted if they are not specified in subsequent ShUpdate requests.
+        <d:Actions xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Action>apply</d:Action></d:Actions><d:AuthLevel xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">masterAdmin</d:AuthLevel></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="IntercomCodeRange" type="tIntercomCodeRange">
+        <xs:annotation>
+          <xs:documentation>
+            An entry representing a specific intercom code range.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Intercom Code Range</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="Action" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="tIntercomCodeRange">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="FirstCode" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            First code in the intercom code range.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">First Code</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Yes</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation" /></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="LastCode" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Last code in the intercom code range.
+            <d:DisplayName>Last Code</d:DisplayName><d:Type>String</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>Yes</d:Mandatory><d:DefaultValue /></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="FirstDirectoryNumber" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The Directory Number that the first intercom code in this range maps to.
+            <d:DisplayName>First Directory Number</d:DisplayName><d:Type>String</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>Yes</d:Mandatory><d:DefaultValue /></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="LastDirectoryNumber" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The Directory Number that the last intercom code in this range maps to.  This is determined automatically from the other fields.
+            <d:DisplayName>Last Directory Number</d:DisplayName><d:Type>String</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue /></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,1444 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://www.metaswitch.com/sdp/soap/sh/servicedata" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.metaswitch.com/sdp/soap/sh/servicedata" version="1.14" xsi:schemaLocation="http://www.metaswitch.com/sdp/soap/sh/documentation Documentation.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://www.w3.org/2005/05/xmlmime" namespace="http://www.w3.org/2005/05/xmlmime" />
+  <xs:include schemaLocation="Msph_CommonTypes.xsd" />
+  <xs:complexType name="tMsph_ClassOfService">
+    <xs:annotation>
+      <xs:documentation>
+        Class of Service service indication.  Used to manage Classes of Service.  You can use this indication to add new Classes of Service or to change the settings in an existing Class of Service, which changes the service for all subscribers using it.
+        <d:Actions xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Action>apply</d:Action><d:Action>delete</d:Action></d:Actions><d:AuthLevel xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">admin</d:AuthLevel></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Name" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Name of the Class of Service.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Name</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWR-R-</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Yes</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Description for the Class of Service that is displayed in the Provisioning Web Interface.  Permitted regex: .*
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Description</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Yes</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Categorization" type="tMsph_ClassOfService_Categorization">
+        <xs:annotation>
+          <xs:documentation>
+            Home or Business subscriber type.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Categorization.</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>home</d:Value><d:Value>business</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="RelatedSecondaryCoS" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The opaque internal name (LDAP DN) of the related secondary Class of Service associated with this one.  This field is deprecated as of version 1.11.  Use 'Related Secondary CoS ID' instead.  Permitted regex: .*
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Related Secondary CoS</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="SubscriberRole" type="tMsph_ClassOfService_SubscriberRole">
+        <xs:annotation>
+          <xs:documentation>
+            The role of subscribers that can use this Class of Service.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Subscriber Role</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">neither</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>primary</d:Value><d:Value>secondary</d:Value><d:Value>individual</d:Value><d:Value>primaryorsecondary</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="ASRAllowed" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether subscribers can use the automated speech recognition feature.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">ASR Allowed</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="AudibleNewMessageAlerts" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether audible new message alerts are given to subscribers while they are logged in.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Audible New Message Alerts</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="AOM" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether Class of Service is for Announcement-Only Mailbox or not.  Cannot be changed after a Class of Service is created.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">AOM</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="AutoAnswerAllowed" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether auto-answer is available for calls to the subscriber's primary device.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Auto Answer Allowed</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="BroadcastsEnabled" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether broadcast messages can be sent to subscribers.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Broadcasts Enabled</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="CallListAllowed" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether subscribers can use the Call List feature.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Call List Allowed</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="CallRouterRole" type="tMsph_ClassOfService_CallRouterRole">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether this mailbox can act as a call router or not.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Call Router Role</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">none</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>none</d:Value><d:Value>linkable</d:Value><d:Value>md</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="CallRouterAllowOutdial" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Indicates whether call transfers to arbitrary numbers can be configured. This setting only applies for call router mailboxes that are setup to route callers.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Call Router Allow Outdial</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="ClickToDialAllowed" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Indicates whether the click-to-dial service is available.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Click To Dial Allowed</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="ClickToDialRemoteAllowed" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Indicates whether the click-to-dial from remote phones service is available.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Click To Dial Remote Allowed</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="CommAssistantToolbarAllowed" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether subscribers can use the CommAssistant Toolbar feature.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">CommAssistant Toolbar Allowed</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="CommPortalAllowed" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether the CommPortal function is available to the subscriber.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">CommPortal Allowed</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="CommunalPrimaryMailbox" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Whether the primary mailbox is shared between all the users of a group mailbox.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Communal Primary Mailbox</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="CTPAllowed" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether subscribers can use the cut through paging feature.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">CTP Allowed</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="DirectInwardDial" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Allows incoming calls to be routed directly to selected mailboxes without attendant assistance or being redirected from a physical phone.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Direct Inward Dial</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="DirectOutwardReply" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether subscribers can reply directly to voice messages (Direct Outward Reply).
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Direct Outward Reply</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="AAMode" type="tMsph_ClassOfService_AAMode">
+        <xs:annotation>
+          <xs:documentation>
+            Determines which Auto Attendant feature is enabled.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">AA Mode</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">none</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>none</d:Value><d:Value>easyattendant</d:Value><d:Value firstversion="1.4">premiumattendant</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="AADialByExtensionAllowed" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether the dial by extension feature may be configured as an Auto Attendant option.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">AA Dial By Extension Allowed</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="AADialByNameAllowed" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether the dial by name feature may be configured as an Auto Attendant option.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">AA Dial By Name Allowed</d:DisplayName><d:ValidFrom xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1.4</d:ValidFrom><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="AAMailboxTransferAllowed" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether the transfer to mailbox feature may be configured as an Auto Attendant option.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">AA Mailbox Transfer Allowed</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="EAGMessageReceptionConfig" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether Subscribers can disable message reception when the Extended Absence greeting is active.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">EAG Message Reception Config</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Email" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether email function is available for subscribers.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Email</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Fax" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether fax function is available for subscribers.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Fax</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="FaxAndEmailPrint" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether printing of fax and emails to a default or other fax machine is available.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Fax And Email Print</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="FMFMAllowed" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether subscribers can use the Find-Me-Follow-Me feature.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">FMFM Allowed</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="FMFMCallerNameRecording" type="tMsph_ClassOfService_FMFMCallerNameRecording">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether subscribers can use the caller name recording feature of  Find-Me-Follow-Me.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">FMFM Caller Name Recording</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">optional</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>off</d:Value><d:Value>optional</d:Value><d:Value>on</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="ForcePrimaryGreetings" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether additional numbers are forced to use the same greetings as the primary.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Force Primary Greetings</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="ForwardingLinksAllowed" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether subscribers are allowed to configure action links in their auto-forwarded messages. Note that a subscriber GUI URL must be configured if this option is set.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Forwarding Links Allowed</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="FutureDeliveryEnabled" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether subscribers can use the future delivery feature.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Future Delivery Enabled</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="FutureDeliveryMaxDelay" type="tMsph_ClassOfService_FutureDeliveryMaxDelay">
+        <xs:annotation>
+          <xs:documentation>
+            Maximum number of days for which a future deliverymessage may be queued.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Future Delivery Max Delay</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Integer range</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">364</d:DefaultValue><d:Range xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1 - 364</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="GreetingBusy" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether the busy greeting type is available.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Greeting Busy</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MultiplePersonalGreetings" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether multiple personal greetings are available.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Multiple Personal Greetings</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="GreetingExtendedAbsence" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether the extended absence greeting type is available.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Greeting Extended Absence</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="GreetingOutOfHours" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether the out of hours greeting type is available.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Greeting Out Of Hours</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="GroupCallTreeAllowed" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether a group mailbox uses a call tree sharing the primary mailbox number as the group menu.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Group Call Tree Allowed</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="GroupEditOperatorNumber" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether sub-mailboxes can set their own operator number for operator transfers.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Group Edit Operator Number</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="GroupInheritOperatorNumber" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether, if a sub-mailbox hasn't set its own operator number, the sub-mailbox inherits the operator number from the primary mailbox.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Group Inherit Operator Number</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="GroupMailboxSharedQuota" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether the mailbox quota is shared  between subscribers in a group mailbox. Otherwise each subscriber has their own allowance.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Group Mailbox Shared Quota</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="GroupMessageCountsAllowed" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether primary mailboxes can hear the number of unread messages in sub-mailboxes.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Group Message Counts Allowed</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="ICMEnabled" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether the device can have Incoming Call Manager services configured.  This field is deprecated as of version 1.6.  Use the 'Incoming Call Handling Available' and 'Incoming Call Handling Service Level' fields to set whether subscribers can use Incoming Call Manager.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">ICM Enabled</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="IndividualAccessNumbers" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether secondary mailboxes can be assigned a phone number.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Individual Access Numbers</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MessageScreeningAllowed" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether the live message screening  function is available to the subscriber.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Message Screening Allowed</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MWIAggregationAllowed" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether subscribers can use MWI aggregation.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">MWI Aggregation Allowed</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MWINotifAllowed" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether subscribers can use MWI  notifications for landline or wireless telephones.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">MWI Notif Allowed</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="EmailNotifAllowed" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether subscribers can use email  notifications.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Email Notif Allowed</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="OutdialNotifAllowed" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether subscribers can use outdial  notifications.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Outdial Notif Allowed</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="OutdialDelayAllowed" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether to allow the configuration of outdial notification delays.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Outdial Delay Allowed</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="PagerNotifAllowed" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether subscribers can use pager  notifications.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Pager Notif Allowed</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="SMSNotifAllowed" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether subscribers can use SMS notifications.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">SMS Notif Allowed</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MessagingAllowed" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether subscribers can use the messaging service.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Messaging Allowed</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="OperatorTransfer" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether callers can request a transfer to an operator.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Operator Transfer</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="OwnNumberForSelfCare" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether, if a subscriber dials their own number from their own line, they will be directed to log into their mailbox rather than being taken to the message deposit TUI.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Own Number For Self Care</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="PlaceCallAllowed" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            If set to true, the subscriber can specify the number they wish to place an outdial to rather than just calling back a number that left a message.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Place Call Allowed</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="RemindersAllowed" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether subscribers can use the reminders feature.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Reminders Allowed</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="SecondaryLineGroupMenu" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether to present the group menu on login via secondary lines of the primary group subscriber.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Secondary Line Group Menu</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="SkipPINAllowed" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether the option is exposed for a subscriber to skip PIN entry when calling from the primary device.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Skip PIN Allowed</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="SkipPINOnFTI" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether to skip asking for a PIN when a  subscriber accesses their mailbox for the first time.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Skip PIN On FTI</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="TrashInQuota" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether the contents of the trash count towards the subscriber's message quota.  Cannot be changed after the Class of Service is created.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Trash In Quota</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">True</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="TUIDistributionListsAllowed" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether subscribers can create and manage distribution lists using the TUI.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">TUI Distribution Lists Allowed</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MaxAdditionalNumbers" type="tMsph_ClassOfService_MaxAdditionalNumbers">
+        <xs:annotation>
+          <xs:documentation>
+            Maximum number of additional numbers (wireless + wireline) allowed.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Max Additional Numbers</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Integer range</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">0</d:DefaultValue><d:Range xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">0 - 50</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MaxContacts" type="tMsph_ClassOfService_MaxContacts">
+        <xs:annotation>
+          <xs:documentation>
+            Maximum number of contacts.  This can only be set to zero if Easy Attendant is enabled.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Max Contacts</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Integer range</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1000</d:DefaultValue><d:Range xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">0 - 1000</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MaxContactGroups" type="tMsph_ClassOfService_MaxContactGroups">
+        <xs:annotation>
+          <xs:documentation>
+            Maximum number of contact groups.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Max Contact Groups</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Integer range</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">10</d:DefaultValue><d:Range xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">0 - 2147483647</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MaxContactGroupSize" type="tMsph_ClassOfService_MaxContactGroupSize">
+        <xs:annotation>
+          <xs:documentation>
+            Number of entries allowed in a contact group.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Max Contact Group Size</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Integer range</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">65</d:DefaultValue><d:Range xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">0 - 1000</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MaxGreetingLength" type="tMsph_ClassOfService_MaxGreetingLength">
+        <xs:annotation>
+          <xs:documentation>
+            Maximum length of greeting, in seconds.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Max Greeting Length</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Integer range</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">30</d:DefaultValue><d:Range xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">0 - 240</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="GreetingWarningTime" type="tMsph_ClassOfService_GreetingWarningTime">
+        <xs:annotation>
+          <xs:documentation>
+            If non-zero, play a warning just before a subscriber runs out of time for their greeting.  Specifies the time before the end of the recording.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Greeting Warning Time</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Integer range</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">0</d:DefaultValue><d:Range xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">0 - 240</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MaxMailboxSize" type="tMsph_ClassOfService_MaxMailboxSize">
+        <xs:annotation>
+          <xs:documentation>
+            Mailbox quota, in KB.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Max Mailbox Size</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Integer range</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">100000</d:DefaultValue><d:Range xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">0 - 2147483647</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MaxMessageLength" type="tMsph_ClassOfService_MaxMessageLength">
+        <xs:annotation>
+          <xs:documentation>
+            Maximum length of message, in seconds.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Max Message Length</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Integer range</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">60</d:DefaultValue><d:Range xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">0 - 240</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MessageWarningTime" type="tMsph_ClassOfService_MessageWarningTime">
+        <xs:annotation>
+          <xs:documentation>
+            If non-zero, play a warning just before a caller runs out of time for their voicemail message.  Specifies the time before the end of the recording.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Message Warning Time</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Integer range</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">0</d:DefaultValue><d:Range xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">0 - 240</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MaxMessageSize" type="tMsph_ClassOfService_MaxMessageSize">
+        <xs:annotation>
+          <xs:documentation>
+            Maximum message size, in KB.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Max Message Size</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Integer range</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">50000</d:DefaultValue><d:Range xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">0 - 2147483647</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MaxMessageCount" type="tMsph_ClassOfService_MaxMessageCount">
+        <xs:annotation>
+          <xs:documentation>
+            Maximum number of messages allowed.  A value of -1 denotes unlimited messages.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Max Message Count</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Integer range</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:Range xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">-1 - 2147483647</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MaxOneTimeReminders" type="tMsph_ClassOfService_MaxOneTimeReminders">
+        <xs:annotation>
+          <xs:documentation>
+            Maximum number of pending one-time reminders allowed for subscribers using the reminders feature.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Max One Time Reminders</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Integer range</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">5</d:DefaultValue><d:Range xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">0 - 2147483647</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MaxRecurringReminders" type="tMsph_ClassOfService_MaxRecurringReminders">
+        <xs:annotation>
+          <xs:documentation>
+            Maximum number of pending recurring reminders allowed for subscribers using the reminders feature.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Max Recurring Reminders</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Integer range</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">5</d:DefaultValue><d:Range xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">0 - 2147483647</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MaxSecondaryMailboxes" type="tMsph_ClassOfService_MaxSecondaryMailboxes">
+        <xs:annotation>
+          <xs:documentation>
+            Maximum number of secondary mailboxes allowed.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Max Secondary Mailboxes</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Integer range</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">0</d:DefaultValue><d:Range xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">0 - 99</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MaxVoicemailRecipients" type="tMsph_ClassOfService_MaxVoicemailRecipients">
+        <xs:annotation>
+          <xs:documentation>
+            Maximum number of recipients that can be specified for a voicemail.  A value of 0 disables mailbox to mailbox messaging.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Max Voicemail Recipients</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Integer range</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">10</d:DefaultValue><d:Range xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">0 - 2147483647</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MaxWirelessLines" type="tMsph_ClassOfService_MaxWirelessLines">
+        <xs:annotation>
+          <xs:documentation>
+            Maximum number of additional wireless lines allowed.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Max Wireless Lines</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Integer range</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">0</d:DefaultValue><d:Range xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">0 - 50</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MinPINLength" type="tMsph_ClassOfService_MinPINLength">
+        <xs:annotation>
+          <xs:documentation>
+            Minimum length for Voicemail PIN.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Min PIN Length</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Integer range</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">4</d:DefaultValue><d:Range xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1 - 20</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MaxPINLength" type="tMsph_ClassOfService_MaxPINLength">
+        <xs:annotation>
+          <xs:documentation>
+            Maximum length for Voicemail PIN.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Max PIN Length</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Integer range</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">20</d:DefaultValue><d:Range xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1 - 20</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MinPasswordLength" type="tMsph_ClassOfService_MinPasswordLength">
+        <xs:annotation>
+          <xs:documentation>
+            Minimum length for CommPortal password.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Min Password Length</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Integer range</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">4</d:DefaultValue><d:Range xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1 - 20</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MaxPasswordLength" type="tMsph_ClassOfService_MaxPasswordLength">
+        <xs:annotation>
+          <xs:documentation>
+            Maximum length for CommPortal password.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Max Password Length</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Integer range</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">20</d:DefaultValue><d:Range xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1 - 20</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="InboxExpireRead" type="tMsph_ClassOfService_InboxExpireRead">
+        <xs:annotation>
+          <xs:documentation>
+            Number of days to keep read messages in the inbox before automatically and permanently deleting them; 0 to delete messages as soon as they have been read, or -1 to disable this function.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Inbox Expire Read</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Integer range</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">-1</d:DefaultValue><d:Range xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">-1 - 60</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="InboxExpireUnread" type="tMsph_ClassOfService_InboxExpireUnread">
+        <xs:annotation>
+          <xs:documentation>
+            Number of days to keep unread messages in the inbox before automatically and permanently deleting them; -1 to disable this function. Messages will be permanently deleted, rather than moved to trash.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Inbox Expire Unread</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Integer range</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">-1</d:DefaultValue><d:Range xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">-1 - 60</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="TrashExpireRead" type="tMsph_ClassOfService_TrashExpireRead">
+        <xs:annotation>
+          <xs:documentation>
+            Number of days to keep read messages in the trash before automatically deleting them; 0 to delete messages as soon as they are placed in the trash folder, or -1 to disable this function.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Trash Expire Read</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Integer range</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">-1</d:DefaultValue><d:Range xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">-1 - 60</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="TrashExpireUnread" type="tMsph_ClassOfService_TrashExpireUnread">
+        <xs:annotation>
+          <xs:documentation>
+            Number of days to keep unread messages in the trash before automatically and permanently deleting them; 0 to delete messages as soon as they are placed in the trash folder, or -1 to disable this function.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Trash Expire Unread</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Integer range</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">-1</d:DefaultValue><d:Range xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">-1 - 60</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CommPortalServiceLevel" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Sets the CommPortal service level(s) of the subscriber.  Permitted regex: .*
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">CommPortal Service Level</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation" /></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Languages" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Languages supported.  Permitted regex: .*
+            <d:DisplayName>Languages</d:DisplayName><d:Type>String</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>eng</d:DefaultValue></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="DefaultLanguage" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Default Language.  Permitted regex: .*
+            <d:DisplayName>Default Language</d:DisplayName><d:Type>String</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>none</d:DefaultValue></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DefaultLeaveMessageLanguages" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The default language(s) to use in the TUI for non-subscribers leaving a message.  Permitted regex: .*
+            <d:DisplayName>Default Leave Message Languages</d:DisplayName><d:Type>String</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>subscriberlanguage</d:DefaultValue></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SubscribedMashups" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Mashups that subscribers with this Class of Service are subscribed to.  Permitted regex: .*
+            <d:DisplayName>Subscribed Mashups</d:DisplayName><d:Type>String</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Customizations" type="tMsph_ClassOfService_Customizations">
+        <xs:annotation>
+          <xs:documentation>
+            Container element for language-specific options for this Class of Service.
+            <d:DisplayName>Customizations</d:DisplayName><d:Type>Custom</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="DeviceSelfCareAllowed" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether subscribers can use the TUI to specify devices allowed to login directly without entering a PIN. This feature is only for use by subscribers migrated from MetaSphere UMS since it prevents administrators from managing subscriber devices through the Provisioning UI.
+            <d:DisplayName>Device Self Care Allowed</d:DisplayName><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>False</d:DefaultValue><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MaxForwardingAddresses" type="tMsph_ClassOfService_MaxForwardingAddresses">
+        <xs:annotation>
+          <xs:documentation>
+            Determines how many destination addresses a subscriber can configure for auto-forwarding.
+            <d:DisplayName>Max Forwarding Addresses</d:DisplayName><d:ValidFrom>1.4</d:ValidFrom><d:Type>Integer range</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>1</d:DefaultValue><d:Range>1 - 20</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="FaxContentFormat" type="tMsph_ClassOfService_FaxContentFormat">
+        <xs:annotation>
+          <xs:documentation>
+            Determines in what format fax content is exposed to subcribers: pdf or tiff.
+            <d:DisplayName>Fax Content Format</d:DisplayName><d:ValidFrom>1.4</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>tiff</d:DefaultValue><d:Values><d:Value>pdf</d:Value><d:Value>tiff</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="ICPAllowed" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether the subscriber can have  the Incoming Call Pop-up service configured.
+            <d:DisplayName>ICP Allowed</d:DisplayName><d:ValidFrom>1.4</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>False</d:DefaultValue><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="AAMailboxByNameAllowed" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether the mailbox by name feature may be configured as an Auto Attendant option.
+            <d:DisplayName>AA Mailbox By Name Allowed</d:DisplayName><d:ValidFrom>1.4</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>False</d:DefaultValue><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="AAMailboxByExtensionAllowed" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether the mailbox by extension feature may be configured as an Auto Attendant option.
+            <d:DisplayName>AA Mailbox By Extension Allowed</d:DisplayName><d:ValidFrom>1.4</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>False</d:DefaultValue><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="AAMaxMenuNodes" type="tMsph_ClassOfService_AAMaxMenuNodes">
+        <xs:annotation>
+          <xs:documentation>
+            Determines the maximum number of menu modes that may be configured for an Auto Attendant.
+            <d:DisplayName>AA Max Menu Nodes</d:DisplayName><d:ValidFrom>1.4</d:ValidFrom><d:Type>Integer range</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>50</d:DefaultValue><d:Range>1 - 150</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="APNSNotifAllowed" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether subscribers can use APNS notifications.
+            <d:DisplayName>APNS Notif Allowed</d:DisplayName><d:ValidFrom>1.4</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>False</d:DefaultValue><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="VvmSmsNotifAllowed" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether subscribers can use voicemail over SMS notifications.
+            <d:DisplayName>Vvm Sms Notif Allowed</d:DisplayName><d:ValidFrom>1.4</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>False</d:DefaultValue><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="VvmAllowCache" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether voicemail applications can cache voicemail message contents locally.
+            <d:DisplayName>Vvm Allow Cache</d:DisplayName><d:ValidFrom>1.4</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>False</d:DefaultValue><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="VvmSaveLogin" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether voicemail applications can save login details for future auto-login.
+            <d:DisplayName>Vvm Save Login</d:DisplayName><d:ValidFrom>1.4</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>False</d:DefaultValue><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="PlayNameOnLogin" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether subscribers are played their name when they login to the TUI.
+            <d:DisplayName>Play Name On Login</d:DisplayName><d:ValidFrom>1.4</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>False</d:DefaultValue><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="FusionUIEnabled" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether subscribers see the fusion UI for fixed/mobile convergence.
+            <d:DisplayName>Fusion UI Enabled</d:DisplayName><d:ValidFrom>1.4</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>False</d:DefaultValue><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MaxSMSNotifDestinations" type="tMsph_ClassOfService_MaxSMSNotifDestinations">
+        <xs:annotation>
+          <xs:documentation>
+            Maximum number of phone numbers a subscriber can configure as destinations for SMS notifications.
+            <d:DisplayName>Max SMS Notif Destinations</d:DisplayName><d:ValidFrom>1.4</d:ValidFrom><d:Type>Integer range</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>1</d:DefaultValue><d:Range>0 - 2147483647</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="AADialByExtensionUseInitialPrompt" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether Easy (and Premium) Attendant Dial-by-Extension function automatically provides initial instructions.  When set to false the initial instructions must be provided in the recording made by the mailbox owner.
+            <d:DisplayName>AA Dial By Extension Use Initial Prompt</d:DisplayName><d:ValidFrom>1.4</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>False</d:DefaultValue><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="VmTranscriptionProfile" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Name of the Speech-to-Text Transaction Profile to use when transcribing voicemail messages.  Blank means voicemail transcription is not allowed for this Class of Service.  Permitted regex: .*
+            <d:DisplayName>Vm Transcription Profile</d:DisplayName><d:ValidFrom>1.5</d:ValidFrom><d:Type>String</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue /></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="TUICustomization" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            TUI customization defined for this Class of Service. If the supplied customization does not exist the default customization will be used instead.  Permitted regex: .*
+            <d:DisplayName>TUI Customization</d:DisplayName><d:ValidFrom>1.5</d:ValidFrom><d:Type>String</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MessagePlaybackOrderControlAllowed" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether subscribers can control the order in which messages are played back.
+            <d:DisplayName>Message Playback Order Control Allowed</d:DisplayName><d:ValidFrom>1.5</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>False</d:DefaultValue><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="InternalGreetingsAllowed" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether Business Group subscribers can have Internal Greetings.
+            <d:DisplayName>Internal Greetings Allowed</d:DisplayName><d:ValidFrom>1.5</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>False</d:DefaultValue><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MaxInternalGreetingLength" type="tMsph_ClassOfService_MaxInternalGreetingLength">
+        <xs:annotation>
+          <xs:documentation>
+            Maximum length of internal greeting, in seconds.
+            <d:DisplayName>Max Internal Greeting Length</d:DisplayName><d:ValidFrom>1.5</d:ValidFrom><d:Type>Integer range</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>30</d:DefaultValue><d:Range>0 - 240</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MaxPINHistory" type="tMsph_ClassOfService_MaxPINHistory">
+        <xs:annotation>
+          <xs:documentation>
+            The maximum number of PINs that should be stored in the history.
+            <d:DisplayName>Max PIN History</d:DisplayName><d:ValidFrom>1.6</d:ValidFrom><d:Type>Integer range</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>0</d:DefaultValue><d:Range>0 - 2147483647</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="PINExpiryReminderPeriod" type="tMsph_ClassOfService_PINExpiryReminderPeriod">
+        <xs:annotation>
+          <xs:documentation>
+            The number of days before PIN expiry for which subscribers should receive reminders to change their PIN.
+            <d:DisplayName>PIN Expiry Reminder Period</d:DisplayName><d:ValidFrom>1.6</d:ValidFrom><d:Type>Integer range</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>0</d:DefaultValue><d:Range>0 - 2147483647</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="PINHistoryPeriod" type="tMsph_ClassOfService_PINHistoryPeriod">
+        <xs:annotation>
+          <xs:documentation>
+            The number of days for which previously used PINs should be stored.
+            <d:DisplayName>PIN History Period</d:DisplayName><d:ValidFrom>1.6</d:ValidFrom><d:Type>Integer range</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>0</d:DefaultValue><d:Range>0 - 2147483647</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MaxPINAge" type="tMsph_ClassOfService_MaxPINAge">
+        <xs:annotation>
+          <xs:documentation>
+            The maximum age of a PIN in days.
+            <d:DisplayName>Max PIN Age</d:DisplayName><d:ValidFrom>1.6</d:ValidFrom><d:Type>Integer range</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>0</d:DefaultValue><d:Range>0 - 2147483647</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MaxPasswordHistory" type="tMsph_ClassOfService_MaxPasswordHistory">
+        <xs:annotation>
+          <xs:documentation>
+            The maximum number of passwords that should be stored in the history.
+            <d:DisplayName>Max Password History</d:DisplayName><d:ValidFrom>1.6</d:ValidFrom><d:Type>Integer range</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>0</d:DefaultValue><d:Range>0 - 2147483647</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="PasswordExpiryReminderPeriod" type="tMsph_ClassOfService_PasswordExpiryReminderPeriod">
+        <xs:annotation>
+          <xs:documentation>
+            The number of days before password expiry for which subscribers should receive reminders to change their password.
+            <d:DisplayName>Password Expiry Reminder Period</d:DisplayName><d:ValidFrom>1.6</d:ValidFrom><d:Type>Integer range</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>0</d:DefaultValue><d:Range>0 - 2147483647</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="PasswordHistoryPeriod" type="tMsph_ClassOfService_PasswordHistoryPeriod">
+        <xs:annotation>
+          <xs:documentation>
+            The number of days for which previously used passwords should be stored.
+            <d:DisplayName>Password History Period</d:DisplayName><d:ValidFrom>1.6</d:ValidFrom><d:Type>Integer range</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>0</d:DefaultValue><d:Range>0 - 2147483647</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MaxPasswordAge" type="tMsph_ClassOfService_MaxPasswordAge">
+        <xs:annotation>
+          <xs:documentation>
+            The maximum age of a password in days.
+            <d:DisplayName>Max Password Age</d:DisplayName><d:ValidFrom>1.6</d:ValidFrom><d:Type>Integer range</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>0</d:DefaultValue><d:Range>0 - 2147483647</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="ICTAllowed" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether the subscriber can use in-call Call Jump.
+            <d:DisplayName>ICT Allowed</d:DisplayName><d:ValidFrom>1.6</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>False</d:DefaultValue><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="ICTDTMF" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether subscribers can use DTMF to control in-call Call Jump.
+            <d:DisplayName>ICT DTMF</d:DisplayName><d:ValidFrom>1.6</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>False</d:DefaultValue><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="ICTSimRing" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether the subscriber can use in-call Call Jump with Simring.
+            <d:DisplayName>ICT Sim Ring</d:DisplayName><d:ValidFrom>1.6</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>False</d:DefaultValue><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="ICTCallPres" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether the subscriber can use in-call Call Jump Simring with Call Presentation.
+            <d:DisplayName>ICT Call Pres</d:DisplayName><d:ValidFrom>1.6</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>False</d:DefaultValue><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="ICMCallPres" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether callers with Incoming Call Handling available can use the Call Presentation function.
+            <d:DisplayName>ICM Call Pres</d:DisplayName><d:ValidFrom>1.6</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>False</d:DefaultValue><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="TrashFavoritesNotExpired" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether favorite messages are never expired in the Trash folder. If set to true, favorite messages within the Trash folder are not expired.
+            <d:DisplayName>Trash Favorites Not Expired</d:DisplayName><d:ValidFrom>1.6</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>False</d:DefaultValue><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="InboxFavoritesNotExpired" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether favorite messages are never expired in the Inbox. If set to true, favorite messages within the Inbox are not expired.
+            <d:DisplayName>Inbox Favorites Not Expired</d:DisplayName><d:ValidFrom>1.6</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>False</d:DefaultValue><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="IncomingCallHandlingAvailable" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether Incoming Call Handling services are available to subscribers in this Class of Service.
+            <d:DisplayName>Incoming Call Handling Available</d:DisplayName><d:ValidFrom>1.6</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>False</d:DefaultValue><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="IncomingCallHandlingServiceLevel" type="tMsph_ClassOfService_IncomingCallHandlingServiceLevel">
+        <xs:annotation>
+          <xs:documentation>
+            Determines ther Incoming Call Handling service level available to subscribers in this Class of Service.
+            <d:DisplayName>Incoming Call Handling Service Level</d:DisplayName><d:ValidFrom>1.6</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>icm</d:DefaultValue><d:Values><d:Value>Easy Call Manager</d:Value><d:Value>Incoming Call Manager</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="EmailFooterEnabled" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether mandatory email footers are enabled.
+            <d:DisplayName>Email Footer Enabled</d:DisplayName><d:ValidFrom>1.7</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>False</d:DefaultValue><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="EmailFooterText" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The text to append to include in email footers if mandatory footers are enabled.  Permitted regex: .*
+            <d:DisplayName>Email Footer Text</d:DisplayName><d:ValidFrom>1.7</d:ValidFrom><d:Type>String</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="PINStrengthTNCheck" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether the PIN should be checked to see if it includes part of the telephone number.
+            <d:DisplayName>PIN Strength TN Check</d:DisplayName><d:ValidFrom>1.7</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>False</d:DefaultValue><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="PINStrengthSequentialCheck" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether the PIN should be checked to see if it is a sequential series of numbers in either ascending or descending order.
+            <d:DisplayName>PIN Strength Sequential Check</d:DisplayName><d:ValidFrom>1.7</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>False</d:DefaultValue><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="PINStrengthMaxRepetition" type="tMsph_ClassOfService_PINStrengthMaxRepetition">
+        <xs:annotation>
+          <xs:documentation>
+            The maximum number of times in a row a digit may be repeated in the PIN; 0 for no limit.
+            <d:DisplayName>PIN Strength Max Repetition</d:DisplayName><d:ValidFrom>1.7</d:ValidFrom><d:Type>Integer range</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>0</d:DefaultValue><d:Range>0 - 20</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="VideoMessagingAllowed" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether video messaging is allowed.
+            <d:DisplayName>Video Messaging Allowed</d:DisplayName><d:ValidFrom>1.9</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>False</d:DefaultValue><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="VideoMaxResolution" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The maximum allowed video resolution as '(length)x(height)', where both length and height are between 1 and 9999 e.g. '800x600'.  Permitted regex: ([1-9]\d{0,3})[Xx]([1-9]\d{0,3})
+            <d:DisplayName>Video Max Resolution</d:DisplayName><d:ValidFrom>1.9</d:ValidFrom><d:Type>String</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="PasswordStrengthMinDigits" type="tMsph_ClassOfService_PasswordStrengthMinDigits">
+        <xs:annotation>
+          <xs:documentation>
+            The minimum number of digits a password must have; 0 for no minimum.
+            <d:DisplayName>Password Strength Min Digits</d:DisplayName><d:ValidFrom>1.9</d:ValidFrom><d:Type>Integer range</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>0</d:DefaultValue><d:Range>0 - 20</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="PasswordStrengthMinLetters" type="tMsph_ClassOfService_PasswordStrengthMinLetters">
+        <xs:annotation>
+          <xs:documentation>
+            The minimum number of letters a password must have; 0 for no minimum.
+            <d:DisplayName>Password Strength Min Letters</d:DisplayName><d:ValidFrom>1.9</d:ValidFrom><d:Type>Integer range</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>0</d:DefaultValue><d:Range>0 - 20</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="PasswordStrengthMinSpecChars" type="tMsph_ClassOfService_PasswordStrengthMinSpecChars">
+        <xs:annotation>
+          <xs:documentation>
+            The minimum number of special characters a password must have; 0 for no minimum.
+            <d:DisplayName>Password Strength Min Spec Chars</d:DisplayName><d:ValidFrom>1.9</d:ValidFrom><d:Type>Integer range</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>0</d:DefaultValue><d:Range>0 - 20</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="SecondaryMWIAggregationEnabled" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether MWI aggregation on secondary mailboxes is enabled. When set to true, MWI aggregation on secondary mailboxes will be turned on for all subscribers in the Class of Service. Note that this cannot be set to true if 'MWI Aggregation Allowed' is set to true.
+            <d:DisplayName>Secondary MWI Aggregation Enabled</d:DisplayName><d:ValidFrom>1.10</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>False</d:DefaultValue><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="BrandingControl" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Comma separated list of values that control the behavior of branded features.  Permitted regex: .*
+            <d:DisplayName>Branding Control</d:DisplayName><d:ValidFrom>1.10</d:ValidFrom><d:Type>String</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="ExternalAudioCodec" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Audio codec for messages sent outside the system.  Permitted regex: .*
+            <d:DisplayName>External Audio Codec</d:DisplayName><d:ValidFrom>1.11</d:ValidFrom><d:Type>String</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>g711u</d:DefaultValue></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="IncomingCallHandlingUseContactsForCallingNameDelivery" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether Incoming Call Handling uses the subscriber's contacts to deliver personalized calling information when ringing the subscriber's primary line.
+            <d:DisplayName>Incoming Call Handling Use Contacts For Calling Name Delivery</d:DisplayName><d:ValidFrom>1.11</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>False</d:DefaultValue><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="RelatedSecondaryCoSID" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The ID (name) of the related secondary Class of Service associated with this one.Secondary mailboxes in a group mailbox should have this Class of Service.  Permitted regex: .*
+            <d:DisplayName>Related Secondary CoS ID</d:DisplayName><d:ValidFrom>1.11</d:ValidFrom><d:Type>String</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="SplitNames" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether subscribers have split first and last names, or a company name.
+            <d:DisplayName>Split Names</d:DisplayName><d:ValidFrom>1.11.4.0.1</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="DisableGroupLeaveMessagePrompt" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            When making a call to the primary phone number of a group mailbox, this attribute controls whether or not the caller is given the choice of which mailbox to leave a message for.
+            <d:DisplayName>Disable Group Leave Message Prompt</d:DisplayName><d:ValidFrom>1.12</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>False</d:DefaultValue><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="SubscriberInitializationRequired" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether CommPortal will display the initialization wizard when a subscriber logs in for the first time.
+            <d:DisplayName>Subscriber Initialization Required</d:DisplayName><d:ValidFrom>1.12</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>False</d:DefaultValue><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="iPhoneVVMAvailable" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether or not iPhone VVM is available.
+            <d:DisplayName>iPhone VVM Available</d:DisplayName><d:ValidFrom>1.12.1</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>False</d:DefaultValue><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MaxFailedIMAPLogins" type="tMsph_ClassOfService_MaxFailedIMAPLogins">
+        <xs:annotation>
+          <xs:documentation>
+            The maximum number of failed attempts to log in over IMAP before the mailbox is locked.
+            <d:DisplayName>Max Failed IMAP Logins</d:DisplayName><d:ValidFrom>1.11.4.1</d:ValidFrom><d:Type>Integer range</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>6</d:DefaultValue><d:Range>0 - 2147483647</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MaxFailedUILogins" type="tMsph_ClassOfService_MaxFailedUILogins">
+        <xs:annotation>
+          <xs:documentation>
+            The maximum number of failed attempts to log in to the GUI or TUI before the mailbox is locked.
+            <d:DisplayName>Max Failed UI Logins</d:DisplayName><d:ValidFrom>1.11.4.1</d:ValidFrom><d:Type>Integer range</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>6</d:DefaultValue><d:Range>0 - 2147483647</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="EditOperatorAllowed" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Indicates whether the subscribers can edit their operator numbers.
+            <d:DisplayName>Edit Operator Allowed</d:DisplayName><d:ValidFrom>1.11.4.1</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>False</d:DefaultValue><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MailboxUninitializedDeposit" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether messages can be deposited for subscribers with this Class of Service if the mailbox is uninitialized.
+            <d:DisplayName>Mailbox Uninitialized Deposit</d:DisplayName><d:ValidFrom>1.11.5</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>False</d:DefaultValue><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="TUINotificationScheduleConfig" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether subscribers with this class of service can configure advanced notification options, including notification schedules, through the TUI.
+            <d:DisplayName>TUI Notification Schedule Config</d:DisplayName><d:ValidFrom>1.11.5</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>False</d:DefaultValue><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="TUIOutdialNumberConfiguration" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether subscribers with this Class of Service can configure outdial numbers through the TUI.
+            <d:DisplayName>TUI Outdial Number Configuration</d:DisplayName><d:ValidFrom>1.11.5</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>False</d:DefaultValue><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="IncludeSpokenNameByDefault" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether sent voicemail messages include a subscriber's spken name by default.
+            <d:DisplayName>Include Spoken Name By Default</d:DisplayName><d:ValidFrom>1.11.5</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>False</d:DefaultValue><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="GreetingForwardAll" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Determines whether the forward all greeting type is available.
+            <d:DisplayName>Greeting Forward All</d:DisplayName><d:ValidFrom>1.11.5</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue>False</d:DefaultValue><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="Action" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="tMsph_ClassOfService_Customizations">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="ParentCustomization" type="tMsph_ClassOfService_Customizations_Customization">
+        <xs:annotation>
+          <xs:documentation>
+            Options for the parent customization for this Class of Service.
+            <d:DisplayName>Parent Customization</d:DisplayName><d:Type>Custom</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LanguageCustomization" type="tMsph_ClassOfService_Customizations_Customization">
+        <xs:annotation>
+          <xs:documentation>
+            Language-specific customization options for this Class of Service.
+            <d:DisplayName>Language Customization</d:DisplayName><d:Type>Custom</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="tMsph_ClassOfService_Categorization">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="home" />
+      <xs:enumeration value="business" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_SubscriberRole">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="primary" />
+      <xs:enumeration value="secondary" />
+      <xs:enumeration value="individual" />
+      <xs:enumeration value="primaryorsecondary" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_CallRouterRole">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none" />
+      <xs:enumeration value="linkable" />
+      <xs:enumeration value="md" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_AAMode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none" />
+      <xs:enumeration value="easyattendant" />
+      <xs:enumeration value="premiumattendant" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_FMFMCallerNameRecording">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="off" />
+      <xs:enumeration value="optional" />
+      <xs:enumeration value="on" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_FutureDeliveryMaxDelay">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="1" />
+      <xs:maxInclusive value="364" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_MaxAdditionalNumbers">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="50" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_MaxContacts">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="1000" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_MaxContactGroups">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="2147483647" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_MaxContactGroupSize">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="1000" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_MaxGreetingLength">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="240" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_GreetingWarningTime">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="240" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_MaxMailboxSize">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="2147483647" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_MaxMessageLength">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="240" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_MessageWarningTime">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="240" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_MaxMessageSize">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="2147483647" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_MaxMessageCount">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="-1" />
+      <xs:maxInclusive value="2147483647" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_MaxOneTimeReminders">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="2147483647" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_MaxRecurringReminders">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="2147483647" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_MaxSecondaryMailboxes">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="99" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_MaxVoicemailRecipients">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="2147483647" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_MaxWirelessLines">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="50" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_MinPINLength">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="1" />
+      <xs:maxInclusive value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_MaxPINLength">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="1" />
+      <xs:maxInclusive value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_MinPasswordLength">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="1" />
+      <xs:maxInclusive value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_MaxPasswordLength">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="1" />
+      <xs:maxInclusive value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_InboxExpireRead">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="-1" />
+      <xs:maxInclusive value="60" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_InboxExpireUnread">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="-1" />
+      <xs:maxInclusive value="60" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_TrashExpireRead">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="-1" />
+      <xs:maxInclusive value="60" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_TrashExpireUnread">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="-1" />
+      <xs:maxInclusive value="60" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_MaxForwardingAddresses">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="1" />
+      <xs:maxInclusive value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_FaxContentFormat">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="pdf" />
+      <xs:enumeration value="tiff" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_AAMaxMenuNodes">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="1" />
+      <xs:maxInclusive value="150" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_MaxSMSNotifDestinations">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="2147483647" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_MaxInternalGreetingLength">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="240" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_MaxPINHistory">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="2147483647" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_PINExpiryReminderPeriod">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="2147483647" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_PINHistoryPeriod">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="2147483647" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_MaxPINAge">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="2147483647" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_MaxPasswordHistory">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="2147483647" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_PasswordExpiryReminderPeriod">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="2147483647" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_PasswordHistoryPeriod">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="2147483647" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_MaxPasswordAge">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="2147483647" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_IncomingCallHandlingServiceLevel">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Easy Call Manager" />
+      <xs:enumeration value="Incoming Call Manager" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_PINStrengthMaxRepetition">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_PasswordStrengthMinDigits">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_PasswordStrengthMinLetters">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_PasswordStrengthMinSpecChars">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_MaxFailedIMAPLogins">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="2147483647" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_ClassOfService_MaxFailedUILogins">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="2147483647" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

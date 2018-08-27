@@ -1,0 +1,11 @@
+diff a/ANDP.Lib.Data/MappingProfiles/OrderProfile.cs b/ANDP.Lib.Data/MappingProfiles/OrderProfile.cs	(rejected hunks)
+@@ -11,9 +11,6 @@
+             CreateMap<Order, Repositories.Order.Order>()
+ 
+                 //Ignores
+-                .ForMember(dest => dest.StatusId, opt => opt.Ignore())
+-                .ForMember(dest => dest.TypeId, opt => opt.Ignore())
+-                .ForMember(dest => dest.Items, opt => opt.Ignore()) //ToDo: This needs to be deleted out of the database.
+                 .ForMember(dest => dest.Services, opt => opt.Ignore()) //ToDo: This needs to be mapped later on.
+                 .ForMember(dest => dest.OrderType, opt => opt.Ignore()) //ToDo: This needs to be mapped later on.
+                 .ForMember(dest => dest.StatusType, opt => opt.Ignore()) //ToDo: This needs to be mapped later on.

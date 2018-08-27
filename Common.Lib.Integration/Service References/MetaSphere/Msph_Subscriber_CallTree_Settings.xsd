@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://www.metaswitch.com/sdp/soap/sh/servicedata" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.metaswitch.com/sdp/soap/sh/servicedata" version="1.14" xsi:schemaLocation="http://www.metaswitch.com/sdp/soap/sh/documentation Documentation.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://www.w3.org/2005/05/xmlmime" namespace="http://www.w3.org/2005/05/xmlmime" />
+  <xs:include schemaLocation="Msph_CommonTypes.xsd" />
+  <xs:complexType name="tMsph_Subscriber_CallTree_Settings">
+    <xs:annotation>
+      <xs:documentation>
+        Call Tree Settings Information Service Indication - used to configure call tree settings.  This indication is only available for Premium Attendant (PA) call trees and not for Easy Attendant (EA) call trees.  The indication will be rejected immediately on both a pull and an update for an Easy Attendant subscriber.
+        <d:Actions xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Action>apply</d:Action></d:Actions><d:AuthLevel xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">admin</d:AuthLevel></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="DefaultKeys" type="tMsph_Subscriber_CallTree_Settings_DefaultKeys">
+        <xs:annotation>
+          <xs:documentation>
+            Default key settings for this call tree.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Default Keys</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="TransferMethod" type="tMsph_Subscriber_CallTree_Settings_TransferMethod">
+        <xs:annotation>
+          <xs:documentation>
+            Transfer type to use for any call transfers.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Transfer Method</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>Attended</d:Value><d:Value>Unattended</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Errors" type="tMsph_Subscriber_CallTree_Settings_Errors">
+        <xs:annotation>
+          <xs:documentation>
+            Actions to perform when errors are hit in this call tree.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Errors</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="TimeoutDuration" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Amount of time to wait before a global timeout event is triggered.  Although of type string, this contains an integer.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Timeout Duration</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="DialByNameSearchMethod" type="tMsph_Subscriber_CallTree_Settings_DialByNameSearchMethod">
+        <xs:annotation>
+          <xs:documentation>
+            Whether to search first names, last names or both when performing a dial by name action.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Dial By Name Search Method</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>SearchFirstName</d:Value><d:Value>SearchLastName</d:Value><d:Value>SearchBothNames</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="ScheduleEntryPoints" type="tMsph_Subscriber_CallTree_Settings_ScheduleEntryPoints">
+        <xs:annotation>
+          <xs:documentation>
+            Defines the menu node entry points for each configured schedule.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Schedule Entry Points</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="InterceptMailboxNumber" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Defines the number to use when performing an 'intercept mailbox transfer' action in a menu node.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Intercept Mailbox Number</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="OutdialTimeout" type="tSwitchableDefaultInt">
+        <xs:annotation>
+          <xs:documentation>
+            The timeout in seconds used for outdials from this Auto Attendant.  A value of zero means no timeout.  This is an integer.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Outdial Timeout</d:DisplayName><d:ValidFrom xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1.13.11</d:ValidFrom><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="Action" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="tMsph_Subscriber_CallTree_Settings_DefaultKeys">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="13" name="DefaultKey" type="tMsph_Subscriber_CallTree_Nodes_MenuNode_Result">
+        <xs:annotation>
+          <xs:documentation>
+            A default key setting for this call tree.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Default Key</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tMsph_Subscriber_CallTree_Settings_Errors_Error">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ErrorType" type="tMsph_Subscriber_CallTree_Settings_Errors_Error_ErrorType">
+        <xs:annotation>
+          <xs:documentation>
+            A single set of error handling information.  Includes the error case this applies to, the number of times the error can occur before an action is performed, and the action to perform once this error case has been hit.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Error Type</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>UnknownInput</d:Value><d:Value>CallTransferFailed</d:Value><d:Value>InvalidExtension</d:Value><d:Value>Timeout</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Action" type="tAction">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies the action to take.  This subelement must be present for Default Key and menu node Result elements, but is optional for Error elements.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Action</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="ErrorCount" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>
+            Number of errors of this type which may occur before the specified action is performed.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Error Count</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Integer</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tMsph_Subscriber_CallTree_Settings_Errors">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="4" name="Error" type="tMsph_Subscriber_CallTree_Settings_Errors_Error">
+        <xs:annotation>
+          <xs:documentation>
+            Action to perform when an error is hit in this call tree.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Error</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tMsph_Subscriber_CallTree_Settings_ScheduleEntryPoints_ScheduleEntryPoint">
+    <xs:annotation>
+      <xs:documentation>Indicates which node to use as the call tree entry point when the given schedule is active.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ScheduleID" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The ID of the schedule for this entry point.  A blank string ("") represents the 'all other times' schedule (i.e. a lack of a schedule).
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Schedule ID</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="NodeID" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The ID of the menu to use as the entry point for this schedule.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Node ID</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tMsph_Subscriber_CallTree_Settings_ScheduleEntryPoints">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="10" name="ScheduleEntryPoint" type="tMsph_Subscriber_CallTree_Settings_ScheduleEntryPoints_ScheduleEntryPoint">
+        <xs:annotation>
+          <xs:documentation>
+            Defines the menu node entry point for a given schedule.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Schedule Entry Point</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tSwitchableDefaultInt">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="UseDefault" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Use Default</d:DisplayName>
+            <d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type>
+            <d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess>
+            <d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory>
+            <d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue>
+            <d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Value>True</d:Value>
+              <d:Value>False</d:Value>
+            </d:Values>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Value" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Value</d:DisplayName>
+            <d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Integer</d:Type>
+            <d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess>
+            <d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="Default" type="xs:int" />
+  </xs:complexType>
+  <xs:simpleType name="tMsph_Subscriber_CallTree_Settings_TransferMethod">
+    <xs:annotation>
+      <xs:documentation>Possible transfer types are: Attended - use attended transfers; Unattended - use unattended transfers.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Attended" />
+      <xs:enumeration value="Unattended" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_Subscriber_CallTree_Settings_Errors_Error_ErrorType">
+    <xs:annotation>
+      <xs:documentation>Possible error conditions are: UnknownInput - when unknown input is detected; CallTransferFailed - when a call transfer fails; InvalidExtension - when an invalid extension is selected;Timeout - when a menu times out.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="UnknownInput" />
+      <xs:enumeration value="CallTransferFailed" />
+      <xs:enumeration value="InvalidExtension" />
+      <xs:enumeration value="Timeout" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_Subscriber_CallTree_Settings_DialByNameSearchMethod">
+    <xs:annotation>
+      <xs:documentation>Dial by name search type to use.  When a caller performs a dial by name or voicemail-by-name action, they may search through the list of target extensions.  The search method may be one of the following: SearchFirstName - search by first name only; SearchLastName - search by last name only; SearchBothNames - search by both first and last name.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SearchFirstName" />
+      <xs:enumeration value="SearchLastName" />
+      <xs:enumeration value="SearchBothNames" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

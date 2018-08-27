@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="417a140d-b097-4894-ac4e-2d76e5b257ad" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://A19226:8731/Design_Time_Addresses/WirelessOtaV1/WirelessOta/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="fc05995d-1bd3-42a1-98e2-77b2a49bdc34" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/WirelessOtaV1/WirelessOta/?xsd=xsd2" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="e71b0e26-62fe-4f5d-be61-8a4b11c2595c" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/WirelessOtaV1/WirelessOta/?disco" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="66b52337-b01d-4f7b-ae46-519c00fd7d74" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/WirelessOtaV1/WirelessOta/?xsd=xsd1" />
+    <MetadataFile FileName="WirelessOta.wsdl" MetadataType="Wsdl" ID="8e510a20-f638-4ee8-831f-885d114de321" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/WirelessOtaV1/WirelessOta/?wsdl" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="f24197c6-e458-497f-bbd1-26603b568a0b" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/WirelessOtaV1/WirelessOta/?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/VoicemailServiceV5" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/VoicemailServiceV5" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://a19376:8731/Design_Time_Addresses/VoicemailService/VoicemailV5/?xsd=xsd0" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://a19376:8731/Design_Time_Addresses/VoicemailService/VoicemailV5/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:simpleType name="AddressType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AddressTypeUnknown" />
+      <xs:enumeration value="AddressTypeDN" />
+      <xs:enumeration value="AddressTypeAnnID" />
+      <xs:enumeration value="AddressTypeEmailAddr" />
+      <xs:enumeration value="AddressTypeSipAddr" />
+      <xs:enumeration value="AddressTypeMailboxNumber" />
+      <xs:enumeration value="AddressTypeDistributionList" />
+      <xs:enumeration value="AddressTypeTrunkGroup" />
+      <xs:enumeration value="AddressTypeMailboxName" />
+      <xs:enumeration value="AddressTypeAllMailboxes" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AddressType" nillable="true" type="tns:AddressType" />
+  <xs:simpleType name="MailboxType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NORMAL" />
+      <xs:enumeration value="FAMILY" />
+      <xs:enumeration value="ROUTING" />
+      <xs:enumeration value="FAMILY_CHILD" />
+      <xs:enumeration value="AUTOATTENDANT_ROOT" />
+      <xs:enumeration value="AUTOATTENDANT_CHILD" />
+      <xs:enumeration value="OUTDIAL" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MailboxType" nillable="true" type="tns:MailboxType" />
+  <xs:simpleType name="LoginType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Normal" />
+      <xs:enumeration value="Auto" />
+      <xs:enumeration value="SemiAuto" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="LoginType" nillable="true" type="tns:LoginType" />
+  <xs:simpleType name="InitialActionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Greeting" />
+      <xs:enumeration value="RouteToMailbox" />
+      <xs:enumeration value="DialByName" />
+      <xs:enumeration value="UseActiveGreeting" />
+      <xs:enumeration value="Outdial" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="InitialActionType" nillable="true" type="tns:InitialActionType" />
+  <xs:simpleType name="MessagePlaybackType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Recording" />
+      <xs:enumeration value="Private" />
+      <xs:enumeration value="Urgent" />
+      <xs:enumeration value="Timestamp" />
+      <xs:enumeration value="Caller" />
+      <xs:enumeration value="None">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MessagePlaybackType" nillable="true" type="tns:MessagePlaybackType" />
+  <xs:simpleType name="EmailAudioCodecType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="MSADPCM" />
+      <xs:enumeration value="MP3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EmailAudioCodecType" nillable="true" type="tns:EmailAudioCodecType" />
+  <xs:simpleType name="ReplyType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Phone" />
+      <xs:enumeration value="Mailbox" />
+      <xs:enumeration value="Ask" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ReplyType" nillable="true" type="tns:ReplyType" />
+  <xs:simpleType name="AdminEntryType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="MainMenu" />
+      <xs:enumeration value="MessageRetrieval" />
+      <xs:enumeration value="NewMessagePlayback" />
+      <xs:enumeration value="None" />
+      <xs:enumeration value="SetupMenu" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AdminEntryType" nillable="true" type="tns:AdminEntryType" />
+  <xs:simpleType name="NotificationCenterTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="typeNone" />
+      <xs:enumeration value="typeSerial" />
+      <xs:enumeration value="typeSs7" />
+      <xs:enumeration value="typeSmpp" />
+      <xs:enumeration value="typeSip" />
+      <xs:enumeration value="typeSipDirect" />
+      <xs:enumeration value="typePager" />
+      <xs:enumeration value="typePagerGroup" />
+      <xs:enumeration value="typeScreenPop" />
+      <xs:enumeration value="typeEmail" />
+      <xs:enumeration value="typePcApplication" />
+      <xs:enumeration value="typeVideoMwi" />
+      <xs:enumeration value="typeSnpp" />
+      <xs:enumeration value="typeLast" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="NotificationCenterTypeEnum" nillable="true" type="tns:NotificationCenterTypeEnum" />
+  <xs:simpleType name="EmailFormatEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="html" />
+      <xs:enumeration value="plaintext" />
+      <xs:enumeration value="mms" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EmailFormatEnum" nillable="true" type="tns:EmailFormatEnum" />
+  <xs:simpleType name="NotificationAddressTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="VisualVoicemail" />
+      <xs:enumeration value="Email" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="NotificationAddressTypeEnum" nillable="true" type="tns:NotificationAddressTypeEnum" />
+  <xs:complexType name="ArrayOfVoiceMailBoxType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VoiceMailBoxType" nillable="true" type="tns:VoiceMailBoxType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVoiceMailBoxType" nillable="true" type="tns:ArrayOfVoiceMailBoxType" />
+  <xs:complexType name="VoiceMailBoxType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActiveGreetingField" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="AdminEntryPointField" nillable="true" type="tns:AdminEntryType" />
+      <xs:element minOccurs="0" name="AinTriggers" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowBroadcastMessagesField" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowDailyScheduleField" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowEmailDeletionField" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowForwardingMessagesField" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowFutureDeliveryField" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowHolidayScheduleField" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowInitialActionsField" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowOutdialField" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowOutdialListEditField" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowPagerNotificationField" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowRecordingField" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowSendingMessagesField" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowSpecificCallerField" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowTemporaryGreetingsField" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="AppleVisualVoicemail" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AutoForwardAddressField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AutoForwardMessagesField" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AutoForwardTypeField" nillable="true" type="tns:AddressType" />
+      <xs:element minOccurs="0" name="BillingServiceID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CallScreeningDelayField" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CallScreeningField" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CallingPartyField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ChargeNumberField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ChildListField" nillable="true" type="tns:ArrayOfChildInfoType" />
+      <xs:element minOccurs="0" name="ContinuousPlaybackField" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DailyNotificationStatusField" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DailyNotificationTimeField" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DefaultInitialActionField" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DeleteShortKnownField" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DeleteShortUnknownField" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DescriptionField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DirectoryField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Disabled" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DistributionListField" nillable="true" type="tns:ArrayOfDistributionInfoType" />
+      <xs:element minOccurs="0" name="EmailNotificationDisabledField" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EmailOnlyField" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EmailcodecTypeField" nillable="true" type="tns:EmailAudioCodecType" />
+      <xs:element minOccurs="0" name="ForceLanguageChoiceField" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ForcePasswordChangeField" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ForwardingListField" nillable="true" type="tns:ArrayOfForwardingInfoType" />
+      <xs:element minOccurs="0" name="GreetingFilenameField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GreetingInterruptField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GreetingListField" nillable="true" type="tns:ArrayOfGreetingInfoType" />
+      <xs:element minOccurs="0" name="HolidayListField" nillable="true" type="tns:ArrayOfHolidayInfoType" />
+      <xs:element minOccurs="0" name="IdField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InitialActionListField" nillable="true" type="tns:ArrayOfInitialActionInfoType" />
+      <xs:element minOccurs="0" name="InterPageDelayField" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="LanguageField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastAccessField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LoggingLevelField" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="LoginField" nillable="true" type="tns:LoginType" />
+      <xs:element minOccurs="0" name="MailboxTypeField" nillable="true" type="tns:MailboxType" />
+      <xs:element minOccurs="0" name="MaxDistributionListsField" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MaxMailboxTimeField" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MaxMessageLengthField" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MaxMessagesField" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MaxRegisteredRemoteDevicesField" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MaxSubmailboxesField" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MessageCountField" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MessageListField" nillable="true" type="tns:ArrayOfMessageInfoType" />
+      <xs:element minOccurs="0" name="MessagePlaybackOrderField" nillable="true" type="tns:ArrayOfMessagePlaybackType" />
+      <xs:element minOccurs="0" name="MinimumPasswordLengthField" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="NameField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NewMessageRetentionField" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="NewMessageSortOrderField" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="NotificationListField" nillable="true" type="tns:ArrayOfNotificationInfoType" />
+      <xs:element minOccurs="0" name="OptionsPackageField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PageSeqentialField" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PageUrgentOnlyField" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PagerAttemptsField" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PagerListField" nillable="true" type="tns:ArrayOfPagerInfoType" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ParentListField" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element minOccurs="0" name="PasswordField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PlayAfterPromptField" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PlayBusyGreetingField" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PlayEndOfMessageOptionField" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PrePageDelayField" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ReplyTypeField" nillable="true" type="tns:ReplyType" />
+      <xs:element minOccurs="0" name="SavedMessageRetentionField" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="SavedMessageSortOrderField" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ScheduleListField" nillable="true" type="tns:ArrayOfScheduleInfoType" />
+      <xs:element minOccurs="0" name="ScheduledDeletionDateField" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ShortMessageCriteriaField" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="SingleGreetingMenusField" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SpecificCallerListField" nillable="true" type="tns:ArrayOfSpecificCallerInfoType" />
+      <xs:element minOccurs="0" name="SubscriberListField" nillable="true" type="tns:ArrayOfSubInfoType" />
+      <xs:element minOccurs="0" name="TimezoneField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VideoMWIUpdateRateField" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="VoiceTranscriptionField" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VoiceMailBoxType" nillable="true" type="tns:VoiceMailBoxType" />
+  <xs:complexType name="ArrayOfChildInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ChildInfoType" nillable="true" type="tns:ChildInfoType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfChildInfoType" nillable="true" type="tns:ArrayOfChildInfoType" />
+  <xs:complexType name="ChildInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddressField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DescriptionField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DigitField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NameField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TypeField" type="tns:AddressType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ChildInfoType" nillable="true" type="tns:ChildInfoType" />
+  <xs:complexType name="ArrayOfDistributionInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DistributionInfoType" nillable="true" type="tns:DistributionInfoType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDistributionInfoType" nillable="true" type="tns:ArrayOfDistributionInfoType" />
+  <xs:complexType name="DistributionInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddressesField" nillable="true" type="tns:ArrayOfSubAddressInfoType" />
+      <xs:element minOccurs="0" name="DListField" type="xs:int" />
+      <xs:element minOccurs="0" name="DescriptionField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSharedField" type="xs:boolean" />
+      <xs:element minOccurs="0" name="OwnerDListField" type="xs:int" />
+      <xs:element minOccurs="0" name="OwnerGuidField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DistributionInfoType" nillable="true" type="tns:DistributionInfoType" />
+  <xs:complexType name="ArrayOfSubAddressInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SubAddressInfoType" nillable="true" type="tns:SubAddressInfoType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSubAddressInfoType" nillable="true" type="tns:ArrayOfSubAddressInfoType" />
+  <xs:complexType name="SubAddressInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddressField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressTypeField" type="tns:AddressType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SubAddressInfoType" nillable="true" type="tns:SubAddressInfoType" />
+  <xs:complexType name="ArrayOfForwardingInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ForwardingInfoType" nillable="true" type="tns:ForwardingInfoType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfForwardingInfoType" nillable="true" type="tns:ArrayOfForwardingInfoType" />
+  <xs:complexType name="ForwardingInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddressField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressTypeField" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ForwardingInfoType" nillable="true" type="tns:ForwardingInfoType" />
+  <xs:complexType name="ArrayOfGreetingInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GreetingInfoType" nillable="true" type="tns:GreetingInfoType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGreetingInfoType" nillable="true" type="tns:ArrayOfGreetingInfoType" />
+  <xs:complexType name="GreetingInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DescriptionField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FilenameField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IndexField" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GreetingInfoType" nillable="true" type="tns:GreetingInfoType" />
+  <xs:complexType name="ArrayOfHolidayInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HolidayInfoType" nillable="true" type="tns:HolidayInfoType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHolidayInfoType" nillable="true" type="tns:ArrayOfHolidayInfoType" />
+  <xs:complexType name="HolidayInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DateField" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DescriptionField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransitionListField" nillable="true" type="tns:ArrayOfTransitionInfoType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HolidayInfoType" nillable="true" type="tns:HolidayInfoType" />
+  <xs:complexType name="ArrayOfTransitionInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TransitionInfoType" nillable="true" type="tns:TransitionInfoType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTransitionInfoType" nillable="true" type="tns:ArrayOfTransitionInfoType" />
+  <xs:complexType name="TransitionInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DescriptionField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndTimeField" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="InitialActionIndexField" type="xs:int" />
+      <xs:element minOccurs="0" name="TimeField" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransitionInfoType" nillable="true" type="tns:TransitionInfoType" />
+  <xs:complexType name="ArrayOfInitialActionInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InitialActionInfoType" nillable="true" type="tns:InitialActionInfoType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInitialActionInfoType" nillable="true" type="tns:ArrayOfInitialActionInfoType" />
+  <xs:complexType name="InitialActionInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActionIndexField" type="xs:int" />
+      <xs:element minOccurs="0" name="ActionTypeField" type="tns:InitialActionType" />
+      <xs:element minOccurs="0" name="DescriptionField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GreetingIndexField" type="xs:int" />
+      <xs:element minOccurs="0" name="MailboxNameField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubscriberGroupField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InitialActionInfoType" nillable="true" type="tns:InitialActionInfoType" />
+  <xs:complexType name="ArrayOfMessageInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MessageInfoType" nillable="true" type="tns:MessageInfoType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMessageInfoType" nillable="true" type="tns:ArrayOfMessageInfoType" />
+  <xs:complexType name="MessageInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="InitialField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MessageNameField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OriginatorField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TypeField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MessageInfoType" nillable="true" type="tns:MessageInfoType" />
+  <xs:complexType name="ArrayOfMessagePlaybackType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MessagePlaybackType" type="tns:MessagePlaybackType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMessagePlaybackType" nillable="true" type="tns:ArrayOfMessagePlaybackType" />
+  <xs:complexType name="ArrayOfNotificationInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="NotificationInfoType" nillable="true" type="tns:NotificationInfoType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNotificationInfoType" nillable="true" type="tns:ArrayOfNotificationInfoType" />
+  <xs:complexType name="NotificationInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddressField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CenterField" type="xs:int" />
+      <xs:element minOccurs="0" name="DescriptionField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeviceIdField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmailFormat" type="tns:EmailFormatEnum" />
+      <xs:element minOccurs="0" name="EnabledField" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastAccessField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NotificationAddressType" type="tns:NotificationAddressTypeEnum" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NotificationInfoType" nillable="true" type="tns:NotificationInfoType" />
+  <xs:complexType name="ArrayOfPagerInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PagerInfoType" nillable="true" type="tns:PagerInfoType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPagerInfoType" nillable="true" type="tns:ArrayOfPagerInfoType" />
+  <xs:complexType name="PagerInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddressField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CenterField" type="xs:int" />
+      <xs:element minOccurs="0" name="DescriptionField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IndexField" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagerInfoType" nillable="true" type="tns:PagerInfoType" />
+  <xs:complexType name="ArrayOfScheduleInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ScheduleInfoType" nillable="true" type="tns:ScheduleInfoType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfScheduleInfoType" nillable="true" type="tns:ArrayOfScheduleInfoType" />
+  <xs:complexType name="ScheduleInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DayOfWeekField" type="xs:int" />
+      <xs:element minOccurs="0" name="TransitionListField" nillable="true" type="tns:ArrayOfTransitionInfoType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ScheduleInfoType" nillable="true" type="tns:ScheduleInfoType" />
+  <xs:complexType name="ArrayOfSpecificCallerInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SpecificCallerInfoType" nillable="true" type="tns:SpecificCallerInfoType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSpecificCallerInfoType" nillable="true" type="tns:ArrayOfSpecificCallerInfoType" />
+  <xs:complexType name="SpecificCallerInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddressField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DescriptionField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InitialActionIndexField" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SpecificCallerInfoType" nillable="true" type="tns:SpecificCallerInfoType" />
+  <xs:complexType name="ArrayOfSubInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SubInfoType" nillable="true" type="tns:SubInfoType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSubInfoType" nillable="true" type="tns:ArrayOfSubInfoType" />
+  <xs:complexType name="SubInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ContactListField" nillable="true" type="tns:ArrayOfContactInfoType" />
+      <xs:element minOccurs="0" name="SubscriberAddressListField" nillable="true" type="tns:ArrayOfSubAddressInfoType" />
+      <xs:element minOccurs="0" name="SubscriberDefaultPhoneNumberField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubscriberGroupListField" nillable="true" type="tns:ArrayOfSubscriberGroupInfoType" />
+      <xs:element minOccurs="0" name="SubscriberGuidField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubscriberNameField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SubInfoType" nillable="true" type="tns:SubInfoType" />
+  <xs:complexType name="ArrayOfContactInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ContactInfoType" nillable="true" type="tns:ContactInfoType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfContactInfoType" nillable="true" type="tns:ArrayOfContactInfoType" />
+  <xs:complexType name="ContactInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SubDefaultPhoneNumberField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubGuidField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubNameField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContactInfoType" nillable="true" type="tns:ContactInfoType" />
+  <xs:complexType name="ArrayOfSubscriberGroupInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SubscriberGroupInfoType" nillable="true" type="tns:SubscriberGroupInfoType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSubscriberGroupInfoType" nillable="true" type="tns:ArrayOfSubscriberGroupInfoType" />
+  <xs:complexType name="SubscriberGroupInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DescriptionField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GroupIDField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SubscriberGroupInfoType" nillable="true" type="tns:SubscriberGroupInfoType" />
+  <xs:complexType name="ArrayOfPackageType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PackageType" nillable="true" type="tns:PackageType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPackageType" nillable="true" type="tns:ArrayOfPackageType" />
+  <xs:complexType name="PackageType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdminEntryPointField" nillable="true" type="tns:AdminEntryOptionType" />
+      <xs:element minOccurs="0" name="AllowBroadcastMessagesField" nillable="true" type="tns:BoolOptionType" />
+      <xs:element minOccurs="0" name="AllowDailyScheduleField" nillable="true" type="tns:BoolOptionType" />
+      <xs:element minOccurs="0" name="AllowEmailDeletionField" nillable="true" type="tns:BoolOptionType" />
+      <xs:element minOccurs="0" name="AllowForwardingMessagesField" nillable="true" type="tns:BoolOptionType" />
+      <xs:element minOccurs="0" name="AllowFutureDeliveryField" nillable="true" type="tns:BoolOptionType" />
+      <xs:element minOccurs="0" name="AllowHolidayScheduleField" nillable="true" type="tns:BoolOptionType" />
+      <xs:element minOccurs="0" name="AllowInitialActionsField" nillable="true" type="tns:BoolOptionType" />
+      <xs:element minOccurs="0" name="AllowOutdialField" nillable="true" type="tns:BoolOptionType" />
+      <xs:element minOccurs="0" name="AllowOutdialListEditField" nillable="true" type="tns:BoolOptionType" />
+      <xs:element minOccurs="0" name="AllowPagerNotificationField" nillable="true" type="tns:BoolOptionType" />
+      <xs:element minOccurs="0" name="AllowRecordingField" nillable="true" type="tns:BoolOptionType" />
+      <xs:element minOccurs="0" name="AllowSendingMessagesField" nillable="true" type="tns:BoolOptionType" />
+      <xs:element minOccurs="0" name="AllowSpecificCallerField" nillable="true" type="tns:BoolOptionType" />
+      <xs:element minOccurs="0" name="AllowTemporaryGreetingsField" nillable="true" type="tns:IntegerOptionType" />
+      <xs:element minOccurs="0" name="AppleVisualVoicemail" nillable="true" type="tns:BoolOptionType" />
+      <xs:element minOccurs="0" name="AutoForwardMessagesField" nillable="true" type="tns:BoolOptionType" />
+      <xs:element minOccurs="0" name="AutoForwardToAddressField" nillable="true" type="tns:StringOptionType" />
+      <xs:element minOccurs="0" name="CallScreeningField" nillable="true" type="tns:BoolOptionType" />
+      <xs:element minOccurs="0" name="CallingPartyField" nillable="true" type="tns:StringOptionType" />
+      <xs:element minOccurs="0" name="ContinuousPlaybackField" nillable="true" type="tns:IntegerOptionType" />
+      <xs:element minOccurs="0" name="DailyNotificationStatusField" nillable="true" type="tns:BoolOptionType" />
+      <xs:element minOccurs="0" name="DailyNotificationTimeField" nillable="true" type="tns:StringOptionType" />
+      <xs:element minOccurs="0" name="DeleteShortKnownMessagesField" nillable="true" type="tns:BoolOptionType" />
+      <xs:element minOccurs="0" name="DeleteShortUnknownMessagesField" nillable="true" type="tns:BoolOptionType" />
+      <xs:element minOccurs="0" name="DescriptionField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmailNotificationDisabledField" nillable="true" type="tns:BoolOptionType" />
+      <xs:element minOccurs="0" name="EmailOnlyField" nillable="true" type="tns:BoolOptionType" />
+      <xs:element minOccurs="0" name="EmailcodecTypeField" nillable="true" type="tns:EmailAudioCodecOptionType" />
+      <xs:element minOccurs="0" name="ForceLanguageChoiceField" nillable="true" type="tns:BoolOptionType" />
+      <xs:element minOccurs="0" name="ForcePasswordChangeField" nillable="true" type="tns:BoolOptionType" />
+      <xs:element minOccurs="0" name="GreetingInterruptDigitField" nillable="true" type="tns:StringOptionType" />
+      <xs:element minOccurs="0" name="GuidField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InterPageDelayField" nillable="true" type="tns:IntegerOptionType" />
+      <xs:element minOccurs="0" name="LanguageField" nillable="true" type="tns:StringOptionType" />
+      <xs:element minOccurs="0" name="LoginTypeField" nillable="true" type="tns:LoginOptionType" />
+      <xs:element minOccurs="0" name="MaxDistributionListsField" nillable="true" type="tns:IntegerOptionType" />
+      <xs:element minOccurs="0" name="MaxMessageLengthField" nillable="true" type="tns:IntegerOptionType" />
+      <xs:element minOccurs="0" name="MaxMessagesField" nillable="true" type="tns:IntegerOptionType" />
+      <xs:element minOccurs="0" name="MaxRecordTimeField" nillable="true" type="tns:IntegerOptionType" />
+      <xs:element minOccurs="0" name="MaxRegisteredDevicesField" nillable="true" type="tns:IntegerOptionType" />
+      <xs:element minOccurs="0" name="MaxSubmailboxesField" nillable="true" type="tns:IntegerOptionType" />
+      <xs:element minOccurs="0" name="MessagePlaybackOrderField" nillable="true" type="tns:MessageOptionType" />
+      <xs:element minOccurs="0" name="MinimumPasswordLengthField" nillable="true" type="tns:IntegerOptionType" />
+      <xs:element minOccurs="0" name="NewMessageRetentionField" nillable="true" type="tns:IntegerOptionType" />
+      <xs:element minOccurs="0" name="NewMessageSortOrderField" nillable="true" type="tns:IntegerOptionType" />
+      <xs:element minOccurs="0" name="PageUrgentOnlyField" nillable="true" type="tns:BoolOptionType" />
+      <xs:element minOccurs="0" name="PagerAttemptsField" nillable="true" type="tns:IntegerOptionType" />
+      <xs:element minOccurs="0" name="PasswordField" nillable="true" type="tns:StringOptionType" />
+      <xs:element minOccurs="0" name="PlayAfterPromptField" nillable="true" type="tns:BoolOptionType" />
+      <xs:element minOccurs="0" name="PlayBusyGreetingField" nillable="true" type="tns:BoolOptionType" />
+      <xs:element minOccurs="0" name="PlayEndOfMessageOptionField" nillable="true" type="tns:IntegerOptionType" />
+      <xs:element minOccurs="0" name="PrePageDelayField" nillable="true" type="tns:IntegerOptionType" />
+      <xs:element minOccurs="0" name="ReplyTypeField" nillable="true" type="tns:ReplyOptionType" />
+      <xs:element minOccurs="0" name="SavedMessageRetentionField" nillable="true" type="tns:IntegerOptionType" />
+      <xs:element minOccurs="0" name="SavedMessageSortOrderField" nillable="true" type="tns:IntegerOptionType" />
+      <xs:element minOccurs="0" name="ShortMessageCriteriaField" nillable="true" type="tns:IntegerOptionType" />
+      <xs:element minOccurs="0" name="SingleGreetingMenusField" nillable="true" type="tns:BoolOptionType" />
+      <xs:element minOccurs="0" name="VideoMWIUpdateRateField" nillable="true" type="tns:IntegerOptionType" />
+      <xs:element minOccurs="0" name="VoiceTranscriptionField" nillable="true" type="tns:BoolOptionType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PackageType" nillable="true" type="tns:PackageType" />
+  <xs:complexType name="AdminEntryOptionType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CsrChangeableField" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DefaultField" type="tns:AdminEntryType" />
+      <xs:element minOccurs="0" name="SubscriberChangeableField" type="xs:boolean" />
+      <xs:element minOccurs="0" name="UpdateSubscribersField" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AdminEntryOptionType" nillable="true" type="tns:AdminEntryOptionType" />
+  <xs:complexType name="BoolOptionType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CsrChangeableField" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DefaultField" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SubscriberChangeableField" type="xs:boolean" />
+      <xs:element minOccurs="0" name="UpdateSubscribersField" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BoolOptionType" nillable="true" type="tns:BoolOptionType" />
+  <xs:complexType name="IntegerOptionType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CsrChangeableField" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DefaultField" type="xs:int" />
+      <xs:element minOccurs="0" name="SubscriberChangeableField" type="xs:boolean" />
+      <xs:element minOccurs="0" name="UpdateSubscribersField" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IntegerOptionType" nillable="true" type="tns:IntegerOptionType" />
+  <xs:complexType name="StringOptionType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CsrChangeableField" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DefaultField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubscriberChangeableField" type="xs:boolean" />
+      <xs:element minOccurs="0" name="UpdateSubscribersField" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StringOptionType" nillable="true" type="tns:StringOptionType" />
+  <xs:complexType name="EmailAudioCodecOptionType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CsrChangeableField" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DefaultField" type="tns:EmailAudioCodecType" />
+      <xs:element minOccurs="0" name="SubscriberChangeableField" type="xs:boolean" />
+      <xs:element minOccurs="0" name="UpdateSubscribersField" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EmailAudioCodecOptionType" nillable="true" type="tns:EmailAudioCodecOptionType" />
+  <xs:complexType name="LoginOptionType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CsrChangeableField" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DefaultField" type="tns:LoginType" />
+      <xs:element minOccurs="0" name="SubscriberChangeableField" type="xs:boolean" />
+      <xs:element minOccurs="0" name="UpdateSubscribersField" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LoginOptionType" nillable="true" type="tns:LoginOptionType" />
+  <xs:complexType name="MessageOptionType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CsrChangeableField" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DefaultField" nillable="true" type="tns:ArrayOfMessagePlaybackType" />
+      <xs:element minOccurs="0" name="SubscriberChangeableField" type="xs:boolean" />
+      <xs:element minOccurs="0" name="UpdateSubscribersField" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MessageOptionType" nillable="true" type="tns:MessageOptionType" />
+  <xs:complexType name="ReplyOptionType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CsrChangeableField" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DefaultField" type="tns:ReplyType" />
+      <xs:element minOccurs="0" name="SubscriberChangeableField" type="xs:boolean" />
+      <xs:element minOccurs="0" name="UpdateSubscribersField" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReplyOptionType" nillable="true" type="tns:ReplyOptionType" />
+  <xs:complexType name="ArrayOfPackageTypeLight">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PackageTypeLight" nillable="true" type="tns:PackageTypeLight" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPackageTypeLight" nillable="true" type="tns:ArrayOfPackageTypeLight" />
+  <xs:complexType name="PackageTypeLight">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DescriptionField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GuidField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PackageTypeLight" nillable="true" type="tns:PackageTypeLight" />
+  <xs:complexType name="ArrayOfNotificationCenterInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="NotificationCenterInfoType" nillable="true" type="tns:NotificationCenterInfoType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNotificationCenterInfoType" nillable="true" type="tns:ArrayOfNotificationCenterInfoType" />
+  <xs:complexType name="NotificationCenterInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CenterIdField" type="xs:int" />
+      <xs:element minOccurs="0" name="DescriptionField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TypeField" type="tns:NotificationCenterTypeEnum" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NotificationCenterInfoType" nillable="true" type="tns:NotificationCenterInfoType" />
+</xs:schema>

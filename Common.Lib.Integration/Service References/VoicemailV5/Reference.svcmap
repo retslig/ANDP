@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="938d2f10-8760-4c5f-9c03-01a9fe947f61" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://A19376:8731/Design_Time_Addresses/VoicemailService/VoicemailV5/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item5.xsd" MetadataType="Schema" ID="9e39dca0-5ab3-40d0-a1ce-4c34a67b7651" SourceId="1" SourceUrl="http://a19376:8731/Design_Time_Addresses/VoicemailService/VoicemailV5/?xsd=xsd0" />
+    <MetadataFile FileName="item51.xsd" MetadataType="Schema" ID="72cd13d6-b58f-4e97-9500-6b668c2c5948" SourceId="1" SourceUrl="http://a19376:8731/Design_Time_Addresses/VoicemailService/VoicemailV5/?xsd=xsd2" />
+    <MetadataFile FileName="item52.xsd" MetadataType="Schema" ID="28059b7c-694c-48b9-81ba-80f83f78f29e" SourceId="1" SourceUrl="http://a19376:8731/Design_Time_Addresses/VoicemailService/VoicemailV5/?xsd=xsd3" />
+    <MetadataFile FileName="item53.xsd" MetadataType="Schema" ID="05603094-3ff1-4c24-b91a-cdcb40ab8b1c" SourceId="1" SourceUrl="http://a19376:8731/Design_Time_Addresses/VoicemailService/VoicemailV5/?xsd=xsd4" />
+    <MetadataFile FileName="Voicemail1.wsdl" MetadataType="Wsdl" ID="19ce0ecc-82db-4514-b182-e5e190557a7f" SourceId="1" SourceUrl="http://a19376:8731/Design_Time_Addresses/VoicemailService/VoicemailV5/?wsdl" />
+    <MetadataFile FileName="item54.xsd" MetadataType="Schema" ID="37df9d12-43f2-4f90-bdbd-2e5be2762aeb" SourceId="1" SourceUrl="http://a19376:8731/Design_Time_Addresses/VoicemailService/VoicemailV5/?xsd=xsd1" />
+    <MetadataFile FileName="item1.disco" MetadataType="Disco" ID="32f4e179-2ea6-4a04-b4e0-b8c4e96f0f57" SourceId="1" SourceUrl="http://a19376:8731/Design_Time_Addresses/VoicemailService/VoicemailV5/?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://www.metaswitch.com/sdp/soap/sh/servicedata" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.metaswitch.com/sdp/soap/sh/servicedata" version="1.14" xsi:schemaLocation="http://www.metaswitch.com/sdp/soap/sh/documentation Documentation.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://www.w3.org/2005/05/xmlmime" namespace="http://www.w3.org/2005/05/xmlmime" />
+  <xs:include schemaLocation="Msph_CommonTypes.xsd" />
+  <xs:complexType name="tMsph_BusinessGroup_ChildrenList_Subscriber_AllFragments">
+    <xs:annotation>
+      <xs:documentation>
+        Read only service indication used to list all subscriber devices within all fragments of a business group.
+        <d:Actions xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation" /><d:AuthLevel>masterAdmin</d:AuthLevel></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Subscriber" type="tBGCLSubscriber">
+        <xs:annotation>
+          <xs:documentation>
+            An entry representing a single subscriber device in the specified business group fragment.
+            <d:DisplayName>Subscriber</d:DisplayName><d:Type>Custom</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://www.metaswitch.com/sdp/soap/sh/servicedata" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.metaswitch.com/sdp/soap/sh/servicedata" version="1.14" xsi:schemaLocation="http://www.metaswitch.com/sdp/soap/sh/documentation Documentation.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://www.w3.org/2005/05/xmlmime" namespace="http://www.w3.org/2005/05/xmlmime" />
+  <xs:include schemaLocation="Msph_CommonTypes.xsd" />
+  <xs:complexType name="tMsph_Subscriber_CallRouter">
+    <xs:annotation>
+      <xs:documentation>
+        Call Router indication - allows configuration of call router function.  This includes the subscribers the call router is linked to and the menu actions for the call router.  In addition it indicates which call routers this subscriber is linked from.
+        <d:Actions xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Action>apply</d:Action></d:Actions><d:AuthLevel xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">admin</d:AuthLevel></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="SubscribersLinkedTo" type="tMsph_Subscriber_CallRouter_SubscribersLinkedTo">
+        <xs:annotation>
+          <xs:documentation>
+            The phone numbers of the subscribers that this call router is linked to.  A call router must be linked to a subscriber to allow that subscriber's devices to be specified in the call router menu.  If the phone number specified in the user identity is not a call router, this element is omitted from the response.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Subscribers Linked To</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Menu" type="tMsph_Subscriber_CallRouter_Menu">
+        <xs:annotation>
+          <xs:documentation>
+            The menu for this call router.  If the subscriber specified is not a call router, this element is omitted from the response.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Menu</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="CallRoutersLinkedFrom" type="tMsph_Subscriber_CallRouter_RoutersLinkedFrom">
+        <xs:annotation>
+          <xs:documentation>
+            The phone numbers of the call routers which this subscriber is linked from.  Note that this element is read-only - to establish a link between a call router and another subscriber, use the SubscribersLinkedTo field.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Call Routers Linked From</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">R-R-R-</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="AdminPIN" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The administrative PIN for this call router.  Permitted regex: ^\d+$
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Admin PIN</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="Action" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="tMsph_Subscriber_CallRouter_SubscribersLinkedTo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LinkedToEntry" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            A single subscriber which this call router is linked to.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Linked To Entry</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tMsph_Subscriber_CallRouter_Menu_Entry">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Event" type="tMsph_Subscriber_CallRouter_Menu_Entry_EventType">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies the event that must occur for this menu entry to apply, e.g. a digit that is pressed.  Must be a digit between 1 and 9 or "Timeout".  Each event may appear only once in the menu.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Event</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>1</d:Value><d:Value>2</d:Value><d:Value>3</d:Value><d:Value>4</d:Value><d:Value>5</d:Value><d:Value>6</d:Value><d:Value>7</d:Value><d:Value>8</d:Value><d:Value>9</d:Value><d:Value>Timeout</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="Action" type="tMsph_Subscriber_CallRouter_Menu_Entry_ActionType">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies the action to take.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Action</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>Replay Menu</d:Value><d:Value>Leave Message for Mailbox</d:Value><d:Value>Leave Message</d:Value><d:Value>Transfer to Phone Number</d:Value><d:Value>Transfer to Operator</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Number" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies the phone number to use in this action.  The only actions that require a number are Leave Message for Mailbox and Transfer to Phone Number.  This element is ignored for all other actions.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Number</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tMsph_Subscriber_CallRouter_Menu">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="10" name="Entry" type="tMsph_Subscriber_CallRouter_Menu_Entry">
+        <xs:annotation>
+          <xs:documentation>
+            A single menu entry in this call router menu.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Entry</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tMsph_Subscriber_CallRouter_RoutersLinkedFrom">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LinkedFromEntry" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            A single call router which this subscriber is linked from.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Linked From Entry</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">R-R-R-</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="tMsph_Subscriber_CallRouter_Menu_Entry_EventType">
+    <xs:annotation>
+      <xs:documentation>The event for this menu entry.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="1" />
+      <xs:enumeration value="2" />
+      <xs:enumeration value="3" />
+      <xs:enumeration value="4" />
+      <xs:enumeration value="5" />
+      <xs:enumeration value="6" />
+      <xs:enumeration value="7" />
+      <xs:enumeration value="8" />
+      <xs:enumeration value="9" />
+      <xs:enumeration value="Timeout" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tMsph_Subscriber_CallRouter_Menu_Entry_ActionType">
+    <xs:annotation>
+      <xs:documentation>The action to use; can be one of: Replay Menu, Leave Message for Mailbox, Leave Message, Transfer to Phone Number or Transfer to Operator.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Replay Menu" />
+      <xs:enumeration value="Leave Message for Mailbox" />
+      <xs:enumeration value="Leave Message" />
+      <xs:enumeration value="Transfer to Phone Number" />
+      <xs:enumeration value="Transfer to Operator" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

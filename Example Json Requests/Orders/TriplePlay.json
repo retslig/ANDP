@@ -1,0 +1,652 @@
+{
+    "ExternalOrderId": "TestTriplePlay1",
+    "ExternalAccountId": "104494",
+    "ExternalCompanyId": "srv",
+    "Priority": 1,
+    "Xml": "",
+    "ProvisionDate": "2015-09-16T16:25:13.2821774",
+    "OrginatingIp": null,
+    "StatusType": "pending",
+    "ActionType": "add",
+    "ResultMessage": "",
+    "Log": "",
+    "ResponseSent": false,
+    "CompletionDate": null,
+    "StartDate": null,
+    "ServiceProvider": null,
+    "Configuration": "myConfiguration",
+    "Product": null,
+    "ClassOfService": "R1",
+    "CSR": null,
+    "Notes": null,
+    "CreatedByUser": "qss_apiuser",
+    "ModifiedByUser": "qss_apiuser",
+    "DateCreated": "2015-09-16T19:28:41.4106095",
+    "DateModified": "2015-10-14T15:42:19.5505613",
+    "Version": 3,
+    "Account": {
+        "Name": "",
+        "MasterPhone": null,
+        "ExternalAccountId": "104494",
+        "ExternalAccountGroupId": null,
+        "CompanyId": 1,
+        "Type": null,
+        "StatusType": "pending",
+        "CreatedByUser": "bob",
+        "ModifiedByUser": "bob",
+        "DateCreated": "0001-01-01T00:00:00",
+        "DateModified": "0001-01-01T00:00:00",
+        "Version": 0,
+        "Contact": {
+            "Type": "mytype",
+            "FirstName": "billy",
+            "LastName": "bob",
+            "Corporation": "myCorp",
+            "PhoneNumber": "6075225757",
+            "Address": null,
+            "OldAddress": null
+        },
+        "ValidationErrors": {
+        }
+    },
+    "Services": [
+        {
+            "Locations": [
+                {
+                    "ExternalLocationId": null,
+                    "Address": {
+                        "Attention": "",
+                        "StreetLine1": "435 E 6th St",
+                        "StreetLine2": null,
+                        "Municipality": "Sioux Falls",
+                        "AdministrativeArea": null,
+                        "SubAdministrativeArea": "SD",
+                        "PostalCode": "57107",
+                        "Country": null,
+                        "CreatedById": 0,
+                        "ModifiedById": 0,
+                        "DateCreated": "0001-01-01T00:00:00",
+                        "DateModified": "0001-01-01T00:00:00",
+                        "Version": 0,
+                        "ValidationErrors": {
+                        }
+                    },
+                    "OldAddress": null,
+                    "LocationInfo": null,
+                    "PhoneItems": [
+                        {
+                            "ExternalItemId": "TriplePlayItemPhone1",
+                            "Priority": 1,
+                            "ProvisionSequence": 1,
+                            "Xml": null,
+                            "ProvisionDate": "2015-09-16T16:25:13.2851777-05:00",
+                            "StatusType": "pending",
+                            "ActionType": "add",
+                            "ResultMessage": "",
+                            "Log": "",
+                            "CompletionDate": null,
+                            "StartDate": null,
+                            "Notes": null,
+                            "CustomId": null,
+                            "CreatedByUser": "bob",
+                            "ModifiedByUser": "bob",
+                            "DateCreated": "2015-09-16T16:25:13.2841776-05:00",
+                            "DateModified": "2015-09-16T16:25:13.2841776-05:00",
+                            "Version": 0,
+                            "LineInformation": {
+                                "ActionType": "add",
+                                "LidBBlock": null,
+                                "LidBClassCode": null,
+                                "DirectoryPublish": null,
+                                "CallerName": "Bob",
+                                "PrivacyIndicator": "",
+                                "PhoneNumber": "6075225757",
+                                "OldPhoneNumber": null,
+                                "Esn": null,
+                                "OldEsn": null,
+                                "Mdn": null,
+                                "OldMdn": null,
+                                "Msid": null,
+                                "OldMsid": null,
+                                "PortIn": false,
+                                "PortOut": false,
+                                "PersistentProfile": null,
+                                "LCCS": [],
+                                "InterLataPic": {
+                                    "ActionType": "add",
+                                    "Cic": "123",
+                                    "PicFreezeCode": null,
+                                    "PicEffectiveDate": "2015-09-16T16:25:13.2861778-05:00"
+                                },
+                                "IntraLataPic": {
+                                    "ActionType": "add",
+                                    "Cic": "123",
+                                    "PicFreezeCode": null,
+                                    "PicEffectiveDate": "2015-09-16T16:25:13.2861778-05:00"
+                                },
+                                "InterNationalPic": {
+                                    "ActionType": "add",
+                                    "Cic": "123",
+                                    "PicFreezeCode": null,
+                                    "PicEffectiveDate": "2015-09-16T16:25:13.2861778-05:00"
+                                }
+                            },
+                            "Features": [
+                                {
+                                    "ActionType": "add",
+                                    "Code": "CMVM",
+                                    "Description": "VoiceMail",
+                                    "ActivationDate": "2015-09-16T16:25:13.2851777-05:00",
+                                    "DeactivationDate": "0001-01-01T00:00:00",
+                                    "Quantity": 0,
+                                    "Attributes": []
+                                },
+                                {
+                                    "ActionType": "add",
+                                    "Code": "4911",
+                                    "Description": "CallWaitingWithCallerID",
+                                    "ActivationDate": "2015-09-16T16:25:13.2851777-05:00",
+                                    "DeactivationDate": "0001-01-01T00:00:00",
+                                    "Quantity": 0,
+                                    "Attributes": []
+                                },
+                                {
+                                    "ActionType": "add",
+                                    "Code": "4887",
+                                    "Description": "CallTrace",
+                                    "ActivationDate": "2015-09-16T16:25:13.2851777-05:00",
+                                    "DeactivationDate": "0001-01-01T00:00:00",
+                                    "Quantity": 0,
+                                    "Attributes": []
+                                },
+                                {
+                                    "ActionType": "add",
+                                    "Code": "4844",
+                                    "Description": "AnonymousCallRejection",
+                                    "ActivationDate": "2015-09-16T16:25:13.2851777-05:00",
+                                    "DeactivationDate": "0001-01-01T00:00:00",
+                                    "Quantity": 0,
+                                    "Attributes": []
+                                },
+                                {
+                                    "ActionType": "add",
+                                    "Code": "4839",
+                                    "Description": "PriorityCall",
+                                    "ActivationDate": "2015-09-16T16:25:13.2851777-05:00",
+                                    "DeactivationDate": "0001-01-01T00:00:00",
+                                    "Quantity": 0,
+                                    "Attributes": []
+                                },
+                                {
+                                    "ActionType": "add",
+                                    "Code": "4833",
+                                    "Description": "DoNotDisturb",
+                                    "ActivationDate": "2015-09-16T16:25:13.2851777-05:00",
+                                    "DeactivationDate": "0001-01-01T00:00:00",
+                                    "Quantity": 0,
+                                    "Attributes": []
+                                },
+                                {
+                                    "ActionType": "add",
+                                    "Code": "4821",
+                                    "Description": "SelectiveCallRejection",
+                                    "ActivationDate": "2015-09-16T16:25:13.2851777-05:00",
+                                    "DeactivationDate": "0001-01-01T00:00:00",
+                                    "Quantity": 0,
+                                    "Attributes": []
+                                },
+                                {
+                                    "ActionType": "add",
+                                    "Code": "4809",
+                                    "Description": "AutomaticRecall",
+                                    "ActivationDate": "2015-09-16T16:25:13.2851777-05:00",
+                                    "DeactivationDate": "0001-01-01T00:00:00",
+                                    "Quantity": 0,
+                                    "Attributes": []
+                                },
+                                {
+                                    "ActionType": "add",
+                                    "Code": "4803",
+                                    "Description": "AutomaticCallback",
+                                    "ActivationDate": "2015-09-16T16:25:13.2851777-05:00",
+                                    "DeactivationDate": "0001-01-01T00:00:00",
+                                    "Quantity": 0,
+                                    "Attributes": []
+                                },
+                                {
+                                    "ActionType": "add",
+                                    "Code": "4800",
+                                    "Description": "CallerIDPresentation",
+                                    "ActivationDate": "2015-09-16T16:25:13.2851777-05:00",
+                                    "DeactivationDate": "0001-01-01T00:00:00",
+                                    "Quantity": 0,
+                                    "Attributes": []
+                                },
+                                {
+                                    "ActionType": "add",
+                                    "Code": "4410",
+                                    "Description": "RemoteAccessToCallForwarding",
+                                    "ActivationDate": "2015-09-16T16:25:13.2851777-05:00",
+                                    "DeactivationDate": "0001-01-01T00:00:00",
+                                    "Quantity": 0,
+                                    "Attributes": []
+                                },
+                                {
+                                    "ActionType": "add",
+                                    "Code": "4148",
+                                    "Description": "MandatoryAccountCodes",
+                                    "ActivationDate": "2015-09-16T16:25:13.2851777-05:00",
+                                    "DeactivationDate": "0001-01-01T00:00:00",
+                                    "Quantity": 0,
+                                    "Attributes": []
+                                },
+                                {
+                                    "ActionType": "add",
+                                    "Code": "9999",
+                                    "Description": "CallingNameDelivery",
+                                    "ActivationDate": "2015-09-16T16:25:13.2851777-05:00",
+                                    "DeactivationDate": "0001-01-01T00:00:00",
+                                    "Quantity": 0,
+                                    "Attributes": []
+                                },
+                                {
+                                    "ActionType": "add",
+                                    "Code": "4861",
+                                    "Description": "CallingNumberDelivery",
+                                    "ActivationDate": "2015-09-16T16:25:13.2851777-05:00",
+                                    "DeactivationDate": "0001-01-01T00:00:00",
+                                    "Quantity": 0,
+                                    "Attributes": []
+                                },
+                                {
+                                    "ActionType": "add",
+                                    "Code": "4100",
+                                    "Description": "UnconditionalCallForwarding",
+                                    "ActivationDate": "2015-09-16T16:25:13.2851777-05:00",
+                                    "DeactivationDate": "0001-01-01T00:00:00",
+                                    "Quantity": 0,
+                                    "Attributes": []
+                                },
+                                {
+                                    "ActionType": "add",
+                                    "Code": "4140",
+                                    "Description": "CallWaiting",
+                                    "ActivationDate": "2015-09-16T16:25:13.2851777-05:00",
+                                    "DeactivationDate": "0001-01-01T00:00:00",
+                                    "Quantity": 0,
+                                    "Attributes": []
+                                },
+                                {
+                                    "ActionType": "add",
+                                    "Code": "4103",
+                                    "Description": "CallTransfer",
+                                    "ActivationDate": "2015-09-16T16:25:13.2851777-05:00",
+                                    "DeactivationDate": "0001-01-01T00:00:00",
+                                    "Quantity": 0,
+                                    "Attributes": []
+                                },
+                                {
+                                    "ActionType": "add",
+                                    "Code": "4110",
+                                    "Description": "3WayCalling",
+                                    "ActivationDate": "2015-09-16T16:25:13.2851777-05:00",
+                                    "DeactivationDate": "0001-01-01T00:00:00",
+                                    "Quantity": 0,
+                                    "Attributes": []
+                                },
+                                {
+                                    "ActionType": "add",
+                                    "Code": "4120",
+                                    "Description": "SpeedCalling",
+                                    "ActivationDate": "2015-09-16T16:25:13.2851777-05:00",
+                                    "DeactivationDate": "0001-01-01T00:00:00",
+                                    "Quantity": 0,
+                                    "Attributes": [
+                                        {
+                                            "Name": "AddSpeedValue",
+                                            "Value1": "8",
+                                            "Value2": null,
+                                            "Value3": null,
+                                            "Value4": null,
+                                            "Value5": null
+                                        }
+                                    ]
+                                },
+                                {
+                                    "ActionType": "add",
+                                    "Code": "4101",
+                                    "Description": "DelayedCallForwarding",
+                                    "ActivationDate": "2015-09-16T16:25:13.2851777-05:00",
+                                    "DeactivationDate": "0001-01-01T00:00:00",
+                                    "Quantity": 0,
+                                    "Attributes": [
+                                        {
+                                            "Name": "ForwardingNumber",
+                                            "Value1": "9374843002",
+                                            "Value2": null,
+                                            "Value3": null,
+                                            "Value4": null,
+                                            "Value5": null
+                                        }
+                                    ]
+                                },
+                                {
+                                    "ActionType": "add",
+                                    "Code": "4102",
+                                    "Description": "BusyCallForwarding",
+                                    "ActivationDate": "2015-09-16T16:25:13.2851777-05:00",
+                                    "DeactivationDate": "0001-01-01T00:00:00",
+                                    "Quantity": 0,
+                                    "Attributes": [
+                                        {
+                                            "Name": "ForwardingNumber",
+                                            "Value1": "9374843002",
+                                            "Value2": null,
+                                            "Value3": null,
+                                            "Value4": null,
+                                            "Value5": null
+                                        }
+                                    ]
+                                },
+                                {
+                                    "ActionType": "add",
+                                    "Code": "4827",
+                                    "Description": "SelectiveCallForwarding",
+                                    "ActivationDate": "2015-09-16T16:25:13.2851777-05:00",
+                                    "DeactivationDate": "0001-01-01T00:00:00",
+                                    "Quantity": 0,
+                                    "Attributes": []
+                                },
+                                {
+                                    "ActionType": "add",
+                                    "Code": "4886",
+                                    "Description": "DistinctiveRing",
+                                    "ActivationDate": "2015-09-16T16:25:13.2851777-05:00",
+                                    "DeactivationDate": "0001-01-01T00:00:00",
+                                    "Quantity": 0,
+                                    "Attributes": [
+                                        {
+                                            "Name": "SecondaryLine",
+                                            "Value1": "9374843002",
+                                            "Value2": null,
+                                            "Value3": null,
+                                            "Value4": null,
+                                            "Value5": null
+                                        }
+									]
+                                }
+                            ],
+                            "Directory": null,
+                            "Plant": {
+                                "Ont": null,
+                                "NetworkIp": null,
+                                "NetworkPort": null,
+                                "NetworkName": null,
+                                "Vpi": null,
+                                "Vci": null,
+                                "Vlan": null,
+                                "OltPort": 0,
+                                "PonNumber": 0,
+                                "OntNumber": 0,
+                                "CentralOffice": "Pannaway",
+                                "CircuitName": "circuit name",
+                                "Node": "Burdett Bas 1",
+                                "NodeIp": "10.104.1.12",
+                                "Shelf": null,
+                                "Slot": null,
+                                "Card": null,
+                                "Port": 40,
+                                "EquipmentType": null,
+                                "HasActiveInternetService": true,
+                                "HasActivePhoneService": true,
+                                "HasActiveVideoService": true
+                            },
+                            "OldPlant": null,
+                            "Equipments": [],
+                            "ValidationErrors": {
+                            }
+                        }
+                    ],
+                    "InternetItems": [
+						{
+						  "ExternalItemId": "TriplePlayItemInternet1",
+						  "Priority": 1,
+						  "ProvisionSequence": 1,
+						  "Xml": null,
+						  "ProvisionDate": "2015-05-06T00:00:00",
+						  "StatusType": "pending",
+						  "ActionType": "add",
+						  "ResultMessage": "",
+						  "Log": "",
+						  "CompletionDate": null,
+						  "StartDate": null,
+						  "Notes": null,
+						  "CustomId": null,
+						  "CreatedByUser": null,
+						  "ModifiedByUser": null,
+						  "DateCreated": "0001-01-01T00:00:00",
+						  "DateModified": "0001-01-01T00:00:00",
+						  "Version": 0,
+						  "PrimaryUser": {
+							"UserName": "sweigart24",
+							"EmailAddress": "",
+							"Password": "Urbana24",
+							"Domain": "ctcn.net",
+							"Type": "",
+							"FirstName": "CHEYENNE",
+							"LastName": "SWEIGART",
+							"ActionType": "add"
+						  },
+						  "Users": [
+							{
+							  "UserName": "modem.97006749",
+							  "EmailAddress": "",
+							  "Password": "ctcpassword",
+							  "Domain": "ctcn.net",
+							  "Type": "",
+							  "FirstName": "CHEYENNE",
+							  "LastName": "SWEIGART",
+							  "ActionType": "add"
+							}
+						  ],
+						  "Features": [
+							{
+							  "ActionType": "add",
+							  "Code": "4419IN",
+							  "Description": "Internet CT DATA EXPRESS LINE",
+							  "ActivationDate": "2015-05-06T00:00:00",
+							  "DeactivationDate": "2015-05-06T00:00:00",
+							  "Quantity": 0,
+							  "Attributes": []
+							},
+							{
+							  "ActionType": "add",
+							  "Code": "5026",
+							  "Description": "SIMPLICITY INTERNET ILEC",
+							  "ActivationDate": "2015-05-06T00:00:00",
+							  "DeactivationDate": "2015-05-06T00:00:00",
+							  "Quantity": 0,
+							  "Attributes": []
+							},
+							{
+							  "ActionType": "add",
+							  "Code": "8402",
+							  "Description": "Internet DSL/ADSL MODEM LEASE",
+							  "ActivationDate": "2015-05-06T00:00:00",
+							  "DeactivationDate": "2015-05-06T00:00:00",
+							  "Quantity": 0,
+							  "Attributes": []
+							},
+							{
+							  "ActionType": "add",
+							  "Code": "8403",
+							  "Description": "Internet Wireless Upgrade",
+							  "ActivationDate": "2015-05-06T00:00:00",
+							  "DeactivationDate": "2015-05-06T00:00:00",
+							  "Quantity": 0,
+							  "Attributes": []
+							},
+							{
+							  "ActionType": "add",
+							  "Code": "ICS",
+							  "Description": "Internet Copper Service",
+							  "ActivationDate": "2015-05-06T00:00:00",
+							  "DeactivationDate": "2015-05-06T00:00:00",
+							  "Quantity": 0,
+							  "Attributes": []
+							},
+							{
+							  "ActionType": "add",
+							  "Code": "RC51",
+							  "Description": "Internet Res Copper 5x1",
+							  "ActivationDate": "2015-05-06T00:00:00",
+							  "DeactivationDate": "2015-05-06T00:00:00",
+							  "Quantity": 0,
+							  "Attributes": []
+							},
+							{
+							  "ActionType": "add",
+							  "Code": "SOCRE",
+							  "Description": "NRC-Service Order Internet Reconnect",
+							  "ActivationDate": "2015-05-06T00:00:00",
+							  "DeactivationDate": "2015-05-06T00:00:00",
+							  "Quantity": 0,
+							  "Attributes": []
+							},
+							{
+							  "ActionType": "add",
+							  "Code": "TRIP",
+							  "Description": "TRIP CHARGE",
+							  "ActivationDate": "2015-05-06T00:00:00",
+							  "DeactivationDate": "2015-05-06T00:00:00",
+							  "Quantity": 0,
+							  "Attributes": []
+							}
+						  ],
+						  "Plant": null,
+						  "OldPlant": null,
+						  "Equipments": [],
+						  "ValidationErrors": {
+						  }
+						}
+					  ],
+						"VideoItems": [
+						{
+						  "ExternalItemId": "TriplePlayItemVideo1",
+						  "Priority": 1,
+						  "ProvisionSequence": 1,
+						  "Xml": null,
+						  "ProvisionDate": "2014-09-03T12:07:04",
+						  "StatusType": "pending",
+						  "ActionType": "add",
+						  "ResultMessage": "",
+						  "Log": null,
+						  "CompletionDate": null,
+						  "StartDate": null,
+						  "MaxPurchaseLimit": 0,
+						  "PurchasePin": "0",
+						  "RatingPin": "0",
+						  "ServiceArea": "Wichita Falls-Abilene",
+						  "OldServiceArea": null,
+						  "FipsCountyCode": "275",
+						  "OldFipsCountyCode": null,
+						  "FipsStateCode": "48",
+						  "OldFipsStateCode": null,
+						  "ScreenPopPhoneNumber": "2002001756",
+						  "OldScreenPopPhoneNumber": null,
+						  "Notes": null,
+						  "CustomId": null,
+						  "CreatedByUser": "srtc",
+						  "ModifiedByUser": "srtc",
+						  "DateCreated": "2014-09-03T12:07:05.23144-05:00",
+						  "DateModified": "2014-09-03T12:07:05.23144-05:00",
+						  "Version": 0,
+						  "Features": [
+							{
+							  "ActionType": "add",
+							  "Code": "ENCORE",
+							  "Description": "ENCORE-7 CHANNELS",
+							  "ActivationDate": "0001-01-01T00:00:00",
+							  "DeactivationDate": "2014-09-03T12:07:05",
+							  "Quantity": 0,
+							  "Attributes": []
+							},
+							{
+							  "ActionType": "add",
+							  "Code": "ULTRA2",
+							  "Description": "SRTV ULTRA 2 STREAMS",
+							  "ActivationDate": "0001-01-01T00:00:00",
+							  "DeactivationDate": "2014-09-03T12:07:05",
+							  "Quantity": 0,
+							  "Attributes": []
+							}
+						  ],
+						  "Equipments": [],
+						  "ValidationErrors": {
+						  }
+						}
+					  ],
+					  "Plant": {
+						"Ont": null,
+						"NetworkIp": null,
+						"NetworkPort": null,
+						"NetworkName": null,
+						"Vpi": null,
+						"Vci": null,
+						"Vlan": null,
+						"OltPort": 0,
+						"PonNumber": 0,
+						"OntNumber": 0,
+						"CentralOffice": "Pannaway",
+						"CircuitName": "circuit name",
+						"Node": "Burdett Bas 1",
+						"NodeIp": "10.104.1.12",
+						"Shelf": null,
+						"Slot": null,
+						"Card": null,
+						"Port": 3,
+						"EquipmentType": null,
+						"HasActiveInternetService": true,
+						"HasActivePhoneService": true,
+						"HasActiveVideoService": true
+					},
+					"OldPlant": null,
+                    "TaxArea": null,
+                    "CountyJurisdiction": null,
+                    "DistrictJurisdiction": null,
+                    "MsagExchange": null,
+                    "MsaGesn": 0,
+                    "ValidationErrors": {
+                    }
+                }
+            ],
+            "ExternalServiceId": "TriplePlayService1",
+            "Priority": 1,
+            "ProvisionSequence": 1,
+            "Xml": "",
+            "ProvisionDate": "2015-09-16T16:25:13.2871779",
+            "StatusType": "pending",
+            "ActionType": "add",
+            "ResultMessage": "",
+            "Log": "",
+            "CompletionDate": null,
+            "StartDate": null,
+            "Notes": null,
+            "CreatedByUser": "qss_apiuser",
+            "ModifiedByUser": "qss_apiuser",
+            "DateCreated": "2015-09-16T19:28:38.9893674",
+            "DateModified": "2015-10-14T15:42:17.9975613",
+            "Version": 3,
+            "ValidationErrors": {
+            }
+        }
+    ],
+    "NewNetCaseId": null,
+    "NewNetRouteIndex": null,
+    "NewNetTriggerId": null,
+    "NewNetProcessId": null,
+    "NewNetTaskId": null,
+    "NewNetUserId": null,
+    "ValidationErrors": {
+    }
+}

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/IptvMediaroomServiceV1" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/IptvMediaroomServiceV1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://a19226:8731/Design_Time_Addresses/IptvMediaroomServiceV1/IptvMediaroom/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:simpleType name="TimezoneMediaroom">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="GMT_Minus_1100_MidwayIsland_Samoa" />
+      <xs:enumeration value="GMT_Minus_1000_Hawaii" />
+      <xs:enumeration value="GMT_Minus_0900_Alaska" />
+      <xs:enumeration value="GMT_Minus_0800_PacificTimeUSAndCanada_Tijuana" />
+      <xs:enumeration value="GMT_Minus_0700_Arizona" />
+      <xs:enumeration value="GMT_Minus_0700_Chihuahua_LaPaz_Mazatlan" />
+      <xs:enumeration value="GMT_Minus_0700_MountainTimeUSAndCanada" />
+      <xs:enumeration value="GMT_Minus_0600_CentralAmerica" />
+      <xs:enumeration value="GMT_Minus_0600_CentralTimeUSAndCanada" />
+      <xs:enumeration value="GMT_Minus_0600_Guadalajara_MexicoCity_Monterrey" />
+      <xs:enumeration value="GMT_Minus_0600_Saskatchewan" />
+      <xs:enumeration value="GMT_Minus_0500_Bogota_Lima_Quito" />
+      <xs:enumeration value="GMT_Minus_0500_EasternTimeUSAndCanada" />
+      <xs:enumeration value="GMT_Minus_0500_IndianaEast" />
+      <xs:enumeration value="GMT_Minus_0400_AtlanticTimeCanada" />
+      <xs:enumeration value="GMT_Minus_0400_Caracas_LaPaz" />
+      <xs:enumeration value="GMT_Minus_0400_Santiago" />
+      <xs:enumeration value="GMT_Minus_0330_Newfoundland" />
+      <xs:enumeration value="GMT_Minus_0300_Brasilia" />
+      <xs:enumeration value="GMT_Minus_0300_Buenos_Aires_Georgetown" />
+      <xs:enumeration value="GMT_Minus_0300_Greenland" />
+      <xs:enumeration value="GMT_Minus_0200_MidAtlantic" />
+      <xs:enumeration value="GMT_Minus_0100_Azores" />
+      <xs:enumeration value="GMT_Minus_0100_Cape_Verde_Is" />
+      <xs:enumeration value="GMT_Casablanca_Monrovia" />
+      <xs:enumeration value="GMT_GreenwichMeanTime_Dublin_Edinburgh_Lisbon_London" />
+      <xs:enumeration value="GMT_Plus_0100_Amsterdam_Berlin_Bern_Rome_Stockholm_Vienna" />
+      <xs:enumeration value="GMT_Plus_0100_Belgrade_Bratislava_Budapest_Ljubljana_Prague" />
+      <xs:enumeration value="GMT_Plus_0100_Brussels_Copenhagen_Madrid_Paris" />
+      <xs:enumeration value="GMT_Plus_0100_Sarajevo_Skopje_Warsaw_Zagreb" />
+      <xs:enumeration value="GMT_Plus_0100_WestCentralAfrica" />
+      <xs:enumeration value="GMT_Plus_0200_Athens_Beirut_Istanbul_Minsk" />
+      <xs:enumeration value="GMT_Plus_0200_Bucharest" />
+      <xs:enumeration value="GMT_Plus_0200_Cairo" />
+      <xs:enumeration value="GMT_Plus_0200_Harare_Pretoria" />
+      <xs:enumeration value="GMT_Plus_0200_Helsinki_Kyiv_Riga_Sofia_Tallinn_Vilnius" />
+      <xs:enumeration value="GMT_Plus_0200_Jerusalem" />
+      <xs:enumeration value="GMT_Plus_0300_Baghdad" />
+      <xs:enumeration value="GMT_Plus_0300_Kuwait_Riyadh" />
+      <xs:enumeration value="GMT_Plus_0300_Moscow_StPetersbug_Volgograd" />
+      <xs:enumeration value="GMT_Plus_0300_Nairobi" />
+      <xs:enumeration value="GMT_Plus_0330_Tehran" />
+      <xs:enumeration value="GMT_Plus_0400_AbuDhabi_Muscat" />
+      <xs:enumeration value="GMT_Plus_0400_Baku_Tbilsi_Yerevan" />
+      <xs:enumeration value="GMT_Plus_0430_Kabul" />
+      <xs:enumeration value="GMT_Plus_0500_Ekaterinburg" />
+      <xs:enumeration value="GMT_Plus_0500_Islamabad_Karachi_Tashkent" />
+      <xs:enumeration value="GMT_Plus_0530_Chennai_Kolkata_Mumbai_NewDelhi" />
+      <xs:enumeration value="GMT_Plus_0545_Kathmandu" />
+      <xs:enumeration value="GMT_Plus_0600_Almaty_Novosibirsk" />
+      <xs:enumeration value="GMT_Plus_0600_Astana_Dhaka" />
+      <xs:enumeration value="GMT_Plus_0600_SriJayawardenepura" />
+      <xs:enumeration value="GMT_Plus_0630_Rangoon" />
+      <xs:enumeration value="GMT_Plus_0700_Bangkok_Hanoi_Jakarta" />
+      <xs:enumeration value="GMT_Plus_0700_Kransnoyarsk" />
+      <xs:enumeration value="GMT_Plus_0800_Beijing_Chongqing_HongKong_Urumqi" />
+      <xs:enumeration value="GMT_Plus_0800_Irkutsk_UlaanBataar" />
+      <xs:enumeration value="GMT_Plus_0800_KualaLumpur_Singapore" />
+      <xs:enumeration value="GMT_Plus_0800_Perth" />
+      <xs:enumeration value="GMT_Plus_0800_Taipei" />
+      <xs:enumeration value="GMT_Plus_0900_Osaka_Sapporo_Tokyo" />
+      <xs:enumeration value="GMT_Plus_0900_Seoul" />
+      <xs:enumeration value="GMT_Plus_0900_Yakutsk" />
+      <xs:enumeration value="GMT_Plus_0930_Adelaide" />
+      <xs:enumeration value="GMT_Plus_0930_Darwin" />
+      <xs:enumeration value="GMT_Plus_1000_Brisbane" />
+      <xs:enumeration value="GMT_Plus_1000_Canberra_Melbourne_Sydney" />
+      <xs:enumeration value="GMT_Plus_1000_Guam_PortMoresby" />
+      <xs:enumeration value="GMT_Plus_1000_Hobart" />
+      <xs:enumeration value="GMT_Plus_1000_Vladivostok" />
+      <xs:enumeration value="GMT_Plus_1100_Magadan_SolomonIs_NewCaledonia" />
+      <xs:enumeration value="GMT_Plus_1200_Auckland_Wellington" />
+      <xs:enumeration value="GMT_Plus_1200_Fiji_Kamchatka_MarshallIs" />
+      <xs:enumeration value="GMT_Plus_1300_Nuku_alofa" />
+      <xs:enumeration value="GMT_Minus_0800_Tijuana_Baja_California" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TimezoneMediaroom" nillable="true" type="tns:TimezoneMediaroom" />
+  <xs:complexType name="MediaroomSubscriber">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountTimeZone" nillable="true" type="tns:TimezoneMediaroom" />
+      <xs:element minOccurs="0" name="CreditLimit" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DVREnabled" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DeviceLimit" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="EgressHDStreams" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="EgressSDStreams" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="FipsCodeCounty" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="FipsCodeState" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="HDStreams" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IngressHDStreams" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IngressSDStreams" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="LoginID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RecordingDeviceId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SDStreams" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ServiceReference" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SetTopBoxes" nillable="true" type="tns:ArrayOfStbType" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SubscriberContactNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubscriberGuid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubscriberName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SubscriberPackages" nillable="true" type="q1:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MediaroomSubscriber" nillable="true" type="tns:MediaroomSubscriber" />
+  <xs:complexType name="ArrayOfStbType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StbType" nillable="true" type="tns:StbType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStbType" nillable="true" type="tns:ArrayOfStbType" />
+  <xs:complexType name="StbType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DeviceId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExternalId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FriendlyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IpAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MacAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SerialNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServiceReference" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Version" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StbType" nillable="true" type="tns:StbType" />
+</xs:schema>

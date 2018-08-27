@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="489b575a-e931-4fba-8598-3321ffe03f24" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://A19226:8731/Design_Time_Addresses/NotifyJobSchedulerV6/NotifySchedulerService/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="1a0fb529-6b11-4a50-84c3-14c38b156cca" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/NotifyJobSchedulerV6/NotifySchedulerService/?xsd=xsd0" />
+    <MetadataFile FileName="NotifySchedulerService.wsdl" MetadataType="Wsdl" ID="bd273278-2a02-4628-8036-98abcb99e680" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/NotifyJobSchedulerV6/NotifySchedulerService/?wsdl" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="64ad19db-9d27-4456-8623-35939ef6a49b" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/NotifyJobSchedulerV6/NotifySchedulerService/?xsd=xsd1" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="d72f2ef8-fe0b-498a-bbd5-8cd9356a8c00" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/NotifyJobSchedulerV6/NotifySchedulerService/?xsd=xsd2" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="5b4690d4-bfac-429d-ae08-317f6c20d695" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/NotifyJobSchedulerV6/NotifySchedulerService/?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

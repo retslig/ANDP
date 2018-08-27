@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/TerminatingCallManagementV3" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TerminatingCallManagementV3" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="ContactType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Group" />
+      <xs:enumeration value="Friend" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ContactType" nillable="true" type="tns:ContactType" />
+  <xs:simpleType name="CallerActions">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Allowed" />
+      <xs:enumeration value="Blocked" />
+      <xs:enumeration value="Challenged" />
+      <xs:enumeration value="Forward" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CallerActions" nillable="true" type="tns:CallerActions" />
+  <xs:simpleType name="TimeoutAction">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Allowed" />
+      <xs:enumeration value="Blocked" />
+      <xs:enumeration value="Forward" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TimeoutAction" nillable="true" type="tns:TimeoutAction" />
+  <xs:simpleType name="Language">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="English" />
+      <xs:enumeration value="Spanish" />
+      <xs:enumeration value="None" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Language" nillable="true" type="tns:Language" />
+  <xs:simpleType name="AddDelete">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Add" />
+      <xs:enumeration value="Delete" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AddDelete" nillable="true" type="tns:AddDelete" />
+  <xs:complexType name="TCMType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AllowDistinctiveRing" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowedList" nillable="true" type="tns:ArrayOfTCMCallListType" />
+      <xs:element minOccurs="0" name="AnnouncementHit" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Blocked" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="BlockedList" nillable="true" type="tns:ArrayOfTCMCallListType" />
+      <xs:element minOccurs="0" name="ContactList" nillable="true" type="tns:ArrayOfDNDContactListType" />
+      <xs:element minOccurs="0" name="Dialthru" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Disconnect" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DndCallsBlocked" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DndFeatureEnabled" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DndManagementEnabled" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DndPin" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DndPinCollected" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DndSchedule" nillable="true" type="tns:ArrayOfDNDScheduleType" />
+      <xs:element minOccurs="0" name="DndSubscriberEnabled" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DndTimeoutTreatment" nillable="true" type="tns:TimeoutAction" />
+      <xs:element minOccurs="0" name="ForwardToVmCount" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="LastAccessed" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastCallingNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastUpload" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaxAllowed" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MaxBlocked" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MaxFriends" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PrivateCallerTreatment" nillable="true" type="tns:CallerActions" />
+      <xs:element minOccurs="0" name="SubLanguage" nillable="true" type="tns:Language" />
+      <xs:element minOccurs="0" name="SubscriberDn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubscriberGuid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TcmFeatureEnabled" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TcmManagementEnabled" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TcmSubscriberEnabled" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TcmTimeoutTreatment" nillable="true" type="tns:TimeoutAction" />
+      <xs:element minOccurs="0" name="TimeZone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UnknownNumberTreatment" nillable="true" type="tns:CallerActions" />
+      <xs:element minOccurs="0" name="VmAdminNumber" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TCMType" nillable="true" type="tns:TCMType" />
+  <xs:complexType name="ArrayOfTCMCallListType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TCMCallListType" nillable="true" type="tns:TCMCallListType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTCMCallListType" nillable="true" type="tns:ArrayOfTCMCallListType" />
+  <xs:complexType name="TCMCallListType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddOrDelete" nillable="true" type="tns:AddDelete" />
+      <xs:element minOccurs="0" name="Dn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Enduring" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastCallDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumCalls" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TCMCallListType" nillable="true" type="tns:TCMCallListType" />
+  <xs:complexType name="ArrayOfDNDContactListType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DNDContactListType" nillable="true" type="tns:DNDContactListType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDNDContactListType" nillable="true" type="tns:ArrayOfDNDContactListType" />
+  <xs:complexType name="DNDContactListType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddOrDelete" nillable="true" type="tns:AddDelete" />
+      <xs:element minOccurs="0" name="ContactGuid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactType" type="tns:ContactType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DNDContactListType" nillable="true" type="tns:DNDContactListType" />
+  <xs:complexType name="ArrayOfDNDScheduleType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DNDScheduleType" nillable="true" type="tns:DNDScheduleType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDNDScheduleType" nillable="true" type="tns:ArrayOfDNDScheduleType" />
+  <xs:complexType name="DNDScheduleType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Day" type="xs:int" />
+      <xs:element minOccurs="0" name="EndTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartTime" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DNDScheduleType" nillable="true" type="tns:DNDScheduleType" />
+</xs:schema>

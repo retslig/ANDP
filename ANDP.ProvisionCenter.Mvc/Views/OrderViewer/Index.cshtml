@@ -1,0 +1,36 @@
+﻿
+<div id="featured-wrapper">
+    <div id="row-one">
+        <div class="boxed" ng-app="andpApps" ng-controller="orderGridController">
+            <h2 class="title">{{statusType}}</h2>
+            <div class="content">
+                Status Types:
+                <select ng-model="statusType" ng-options="item.code as item.name for item in statusTypes"></select>
+                Company:
+                <select ng-model="externalCompanyId" ng-options="item.ExternalCompanyId as item.Name for item in companies" ng-change="onCompanyChange()"></select>
+                Test Mode:
+                <select ng-options="item.code as item.name for item in testModes " ng-model="testMode"></select>
+                <div>
+                    <div ng-show="GridLoading">
+                        <p><img style="width:200px; height:50px" src=@Url.Content("~/Content/images/ajax-loader-bar.gif") />Loading please wait.</p>
+                    </div>
+                    <div style="width: 800px; height: 600px;" ng-grid="gridOptions"></div>
+                </div>
+                <button ng-click="refresh()">Refresh</button>
+                <button ng-click="provisionOrder()">Provision Order</button>
+                <button ng-click="provisionService()">Provision Service</button>
+                <div ng-show="ProvisioningLoading">
+                    <p><img style="width:75px; height:75px" src=@Url.Content("~/Content/images/ajax-loader-circle.gif") />Processing Service please wait.</p>
+                </div>
+                <p>{{resultMessage}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+

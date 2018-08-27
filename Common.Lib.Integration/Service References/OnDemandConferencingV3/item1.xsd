@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/OnDemandConferencingV3" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/OnDemandConferencingV3" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="BillingType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Summary" />
+      <xs:enumeration value="Detail" />
+      <xs:enumeration value="Both" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="BillingType" nillable="true" type="tns:BillingType" />
+  <xs:complexType name="ConferenceType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdminRequired" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AdministratorID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AllowRecording" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="BillingRates" nillable="true" type="tns:BillingRateInfo" />
+      <xs:element minOccurs="0" name="BillingServiceID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BillingType" nillable="true" type="tns:BillingType" />
+      <xs:element minOccurs="0" name="ConferenceID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DefaultMuted" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Disabled" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DisabledReason" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaxPorts" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MaxRecordLength" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MaxRecordPerConf" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Quiet" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RetentionPeriod" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="SubscriberAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubscriberGuid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TerminateWhenAdminLeaves" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConferenceType" nillable="true" type="tns:ConferenceType" />
+  <xs:complexType name="BillingRateInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ConferenceCharge" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DirectDialRate" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="OutdialRate" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TollFreeRate" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BillingRateInfo" nillable="true" type="tns:BillingRateInfo" />
+</xs:schema>

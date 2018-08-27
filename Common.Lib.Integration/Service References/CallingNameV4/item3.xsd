@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CallingNameServiceV4" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CallingNameServiceV4" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://a19226:8731/Design_Time_Addresses/CallingNameService/CallingNameServiceV4/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:simpleType name="ScreenPopServerTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="InnovativeSystems" />
+      <xs:enumeration value="Cisco" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ScreenPopServerTypeEnum" nillable="true" type="tns:ScreenPopServerTypeEnum" />
+  <xs:complexType name="CallingNameType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BgId" type="xs:int" />
+      <xs:element minOccurs="0" name="CName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CallingNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Presentation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserOverride" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CallingNameType" nillable="true" type="tns:CallingNameType" />
+  <xs:complexType name="ArrayOfCallingNameType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CallingNameType" nillable="true" type="tns:CallingNameType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCallingNameType" nillable="true" type="tns:ArrayOfCallingNameType" />
+  <xs:complexType name="ArrayOfScreenPopType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ScreenPopType" nillable="true" type="tns:ScreenPopType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfScreenPopType" nillable="true" type="tns:ArrayOfScreenPopType" />
+  <xs:complexType name="ScreenPopType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DescriptionField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NpaNxx" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServersField" nillable="true" type="tns:ArrayOfScreenPopServerType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ScreenPopType" nillable="true" type="tns:ScreenPopType" />
+  <xs:complexType name="ArrayOfScreenPopServerType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ScreenPopServerType" nillable="true" type="tns:ScreenPopServerType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfScreenPopServerType" nillable="true" type="tns:ArrayOfScreenPopServerType" />
+  <xs:complexType name="ScreenPopServerType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DescriptionField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IpAddressField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PortNumberField" type="xs:int" />
+      <xs:element minOccurs="0" name="ServerType" type="tns:ScreenPopServerTypeEnum" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ScreenPopServerType" nillable="true" type="tns:ScreenPopServerType" />
+  <xs:complexType name="ScreenPopSubscriberType">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="MacAddresses" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element minOccurs="0" name="ScreenPopEnabledField" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SubscriberPhoneNumberField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ScreenPopSubscriberType" nillable="true" type="tns:ScreenPopSubscriberType" />
+  <xs:complexType name="ArrayOfScreenPopSubscriberType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ScreenPopSubscriberType" nillable="true" type="tns:ScreenPopSubscriberType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfScreenPopSubscriberType" nillable="true" type="tns:ArrayOfScreenPopSubscriberType" />
+  <xs:complexType name="ArrayOfCiscoServerLinkType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CiscoServerLinkType" nillable="true" type="tns:CiscoServerLinkType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCiscoServerLinkType" nillable="true" type="tns:ArrayOfCiscoServerLinkType" />
+  <xs:complexType name="CiscoServerLinkType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DescriptionField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EnabledField" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LocalIpAddressField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OperationalStateField" type="xs:int" />
+      <xs:element minOccurs="0" name="ServerIpAddressField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServerPortNumberField" type="xs:int" />
+      <xs:element minOccurs="0" name="UnitField" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CiscoServerLinkType" nillable="true" type="tns:CiscoServerLinkType" />
+</xs:schema>

@@ -1,0 +1,49 @@
+﻿@model ANDP.ProvisionCenter.Mvc.Models.LogInModel
+@{
+    ViewBag.Title = "Log In";
+}
+
+<div id="columns-wrapper">
+    <div id="col-one">
+        <div class="boxed">
+            <h2>Log In</h2>
+
+            @Html.ValidationSummary(true)
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+               
+                @Html.LabelFor(p => p.TenantName) <br/>
+                @Html.TextBoxFor(p=>p.TenantName) <br />
+                @Html.LabelFor(p => p.Username) <br />
+                @Html.TextBoxFor(p => p.Username) <br />
+                @Html.LabelFor(p => p.Password) <br />
+                @Html.PasswordFor(p => p.Password) <br />
+                @Html.HiddenFor(p => p.ReturnUrl) <br />
+                @Html.HiddenFor(p => p.RememberMe) <br />
+                @Html.HiddenFor(p => p.RenewSession) <br />
+                <button type="submit" class="btn btn-info btn-sm detail-btn">Log In</button>
+            }
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    function pageLoad() {
+        toastr.options = {
+            "positionClass": "toast-bottom-right"
+        };
+
+        var renewSession = document.getElementById('RenewSession').value;
+
+        if (renewSession == 'true') {
+            toastr.error('Sorry your session has timed out. Please login.');
+        }
+    }
+
+    window.onload = pageLoad;  // invoke pageLoad after all content is loaded
+
+</script>
+

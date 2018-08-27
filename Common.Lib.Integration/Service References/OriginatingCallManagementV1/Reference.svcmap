@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="926cab43-2403-4531-9461-2deeb0a672eb" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://A19226:8731/Design_Time_Addresses/OriginatingCallManagementV1/OCMService/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="dc6f11e1-cf89-4d99-873b-d17fd67ad8f8" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/OriginatingCallManagementV1/OCMService/?xsd=xsd3" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="77646d0f-bf44-4a10-8949-fa55cb495e96" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/OriginatingCallManagementV1/OCMService/?xsd=xsd2" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="363c0cf6-0695-41d6-b440-ffb32724aa56" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/OriginatingCallManagementV1/OCMService/?xsd=xsd4" />
+    <MetadataFile FileName="OCMService.wsdl" MetadataType="Wsdl" ID="50eb2766-269d-47b2-b6be-265216f2c910" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/OriginatingCallManagementV1/OCMService/?wsdl" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="c9ca032a-2c21-4518-9283-7e38480ca9d0" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/OriginatingCallManagementV1/OCMService/?disco" />
+    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="23c3ebcc-e0cd-48db-a9eb-32750aaf0160" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/OriginatingCallManagementV1/OCMService/?xsd=xsd1" />
+    <MetadataFile FileName="item4.xsd" MetadataType="Schema" ID="648b4301-d6af-4ebb-b0ee-befde12e4a23" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/OriginatingCallManagementV1/OCMService/?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

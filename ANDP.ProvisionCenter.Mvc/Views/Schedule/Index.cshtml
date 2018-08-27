@@ -1,0 +1,38 @@
+﻿
+
+<div id="featured-wrapper" ng-app="andpApps" ng-controller="scheduleController">
+    <table class="table">
+        <tr>
+            <th>
+                <h4>Currently Provisioning Orders</h4>
+                Company: <select ng-model="externalCompanyId" ng-options="company.ExternalCompanyId as company.Name for company in companies" ng-change="onCompanyChange()"></select>
+            </th>
+            <th>
+                <button class="btn btn-info btn-sm detail-btn" ng-click="refresh()">Refresh</button>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <div ng-repeat="order in orders">
+                    Order Number: {{order.ExternalOrderId}}<br />
+                </div>
+            </td>
+        </tr>
+    </table>
+    <table class="table">
+        <tr>
+            <th>
+                <h4>Scheduler Status: {{schedulerStatus}}</h4>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <div><button class="btn btn-info btn-sm detail-btn" ng-click="unpauseProvisioningEngine()" ng-show="showUnPauseButton">Un Pause Service</button></div>
+                <div><button class="btn btn-info btn-sm detail-btn" ng-click="pauseProvisioningEngine()" ng-show="showPauseButton">Pause Service</button></div>
+                <div><button class="btn btn-info btn-sm detail-btn" ng-click="stopProvisioningEngine()" ng-show="showStopButton">Stop Service</button></div>
+                <div><button class="btn btn-info btn-sm detail-btn" ng-click="startProvisioningEngine()" ng-show="showStartButton">Start Service</button></div>
+            </td>
+        </tr>
+    </table>
+</div>
+

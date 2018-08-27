@@ -1,0 +1,1302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://www.metaswitch.com/sdp/soap/sh/servicedata" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.metaswitch.com/sdp/soap/sh/servicedata" version="1.14" xsi:schemaLocation="http://www.metaswitch.com/sdp/soap/sh/documentation Documentation.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://www.w3.org/2005/05/xmlmime" namespace="http://www.w3.org/2005/05/xmlmime" />
+  <xs:complexType name="tSwitchableDefaultMWIWirelessType">
+    <xs:annotation>
+      <xs:documentation>MWI mechanism for wireless devices.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="UseDefault" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Use Default</d:DisplayName>
+            <d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type>
+            <d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess>
+            <d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory>
+            <d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue>
+            <d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Value>True</d:Value>
+              <d:Value>False</d:Value>
+            </d:Values>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Value" type="tMWIWirelessValuesType">
+        <xs:annotation>
+          <xs:documentation>
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Value</d:DisplayName>
+            <d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type>
+            <d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess>
+            <d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory>
+            <d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Value>smpp</d:Value>
+              <d:Value>msgdir</d:Value>
+              <d:Value firstversion="1.4">none</d:Value>
+            </d:Values>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="Default" type="tMWIWirelessValuesType" />
+  </xs:complexType>
+  <xs:simpleType name="tPartDay_day">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Monday" />
+      <xs:enumeration value="Tuesday" />
+      <xs:enumeration value="Wednesday" />
+      <xs:enumeration value="Thursday" />
+      <xs:enumeration value="Friday" />
+      <xs:enumeration value="Saturday" />
+      <xs:enumeration value="Sunday" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="tMsph_Subscriber_Greetings_Data_Greeting">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Name" type="tGreetingType">
+        <xs:annotation>
+          <xs:documentation>
+            The name of this greeting; can be one of: BGExtendedAbsence(only valid for business group subscribers), Extended_Absence, FMFMGreeting, GroupMailbox (only valid for group mailboxes), SameAsPrimary (only valid for secondary devices), AutoAttendant (only valid for Call Router mailboxes), OutOfHours (only valid for business mailboxes), BGCall(only valid for business group subscribers), Busy, ForwardAll, AllCalls, SpokenName(doesn't support video), SystemNumber, SystemAnonymous, MultipleGreeting1, MultipleGreeting2, MultipleGreeting3, MultipleGreeting4, MultipleGreeting5, BGSpokenName(doesn't support video, only valid for business group subscribers) See the 'Voicemail and Unified Messaging' section of the MetaSphere EAS System Overview Guide for further information about the different types of greeting. The greeting name should be specified for deletes, to identify the greeting or greeting expiry to be removed.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Name</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Yes</d:Mandatory><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>BGExtendedAbsence</d:Value><d:Value>Extended_Absence</d:Value><d:Value>FMFMGreeting</d:Value><d:Value>GroupMailbox</d:Value><d:Value>AutoAttendant</d:Value><d:Value>OutOfHours</d:Value><d:Value>BGCall</d:Value><d:Value>Busy</d:Value><d:Value>ForwardAll</d:Value><d:Value>AllCalls</d:Value><d:Value>SameAsPrimary</d:Value><d:Value>SpokenName</d:Value><d:Value>SystemNumber</d:Value><d:Value>SystemAnonymous</d:Value><d:Value>MultipleGreeting1</d:Value><d:Value>MultipleGreeting2</d:Value><d:Value>MultipleGreeting3</d:Value><d:Value>MultipleGreeting4</d:Value><d:Value>MultipleGreeting5</d:Value><d:Value>BGSpokenName</d:Value><d:Value firstversion="1.9">VideoAll</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="GreetingFile" type="tBinaryData">
+        <xs:annotation>
+          <xs:documentation>
+            The file to use for the greeting. The data in this file and its corresponding content type must be in one of the supported formats defined in the EAS System Planning Guide. The formats enabled on a system can be viewed through Craft.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Greeting File</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Yes</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="VideoGreetingFile" type="tBinaryData">
+        <xs:annotation>
+          <xs:documentation>
+            The file to use for the greeting. The content type must be video/mp4 and the video data must be h.264 video and aac audio wrapped in an MP4 container. If this file is specified, any audio greeting file provided is ignored. Video data must be uploaded using MTOM.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Video Greeting File</d:DisplayName><d:ValidFrom xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1.10</d:ValidFrom><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Yes</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tAction_CallTransfer">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="CallTransferNumber" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The number to transfer the call to.  May be a phone number or business group extension or short code.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Call Transfer Number</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Yes</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="tRetry_maxnumurgent">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="2147483647" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="tAction_CallExtension">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:simpleType name="tCalendar_Service">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="TUI" />
+      <xs:enumeration value="EA" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tGreetingType">
+    <xs:annotation>
+      <xs:documentation>The name of this greeting; can be one of: BGExtendedAbsence(only valid for business group subscribers), Extended_Absence, FMFMGreeting, GroupMailbox (only valid for group mailboxes), SameAsPrimary (only valid for secondary devices), AutoAttendant (only valid for Call Router mailboxes), OutOfHours (only valid for business mailboxes), BGCall(only valid for business group subscribers), Busy, ForwardAll, AllCalls, SpokenName(doesn't support video), SystemNumber, SystemAnonymous, MultipleGreeting1, MultipleGreeting2, MultipleGreeting3, MultipleGreeting4, MultipleGreeting5, BGSpokenName(doesn't support video, only valid for business group subscribers) See the 'Voicemail and Unified Messaging' section of the MetaSphere EAS System Overview Guide for further information about the different types of greeting. The greeting name should be specified for deletes, to identify the greeting or greeting expiry to be removed.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="BGExtendedAbsence" />
+      <xs:enumeration value="Extended_Absence" />
+      <xs:enumeration value="FMFMGreeting" />
+      <xs:enumeration value="GroupMailbox" />
+      <xs:enumeration value="AutoAttendant" />
+      <xs:enumeration value="OutOfHours" />
+      <xs:enumeration value="BGCall" />
+      <xs:enumeration value="Busy" />
+      <xs:enumeration value="ForwardAll" />
+      <xs:enumeration value="AllCalls" />
+      <xs:enumeration value="SameAsPrimary" />
+      <xs:enumeration value="SpokenName" />
+      <xs:enumeration value="SystemNumber" />
+      <xs:enumeration value="SystemAnonymous" />
+      <xs:enumeration value="MultipleGreeting1" />
+      <xs:enumeration value="MultipleGreeting2" />
+      <xs:enumeration value="MultipleGreeting3" />
+      <xs:enumeration value="MultipleGreeting4" />
+      <xs:enumeration value="MultipleGreeting5" />
+      <xs:enumeration value="BGSpokenName" />
+      <xs:enumeration value="VideoAll" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="tCalendar">
+    <xs:annotation>
+      <xs:documentation>A collection of schedules that can be viewed as a single entity.  These may be specific to a service. Note that Notification Schedules are made available through the Msph_Subscriber_Notifications service indication.  On a ShUpdate, any schedules included in this calendar will replace any existing schedules that were previously stored.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Service" type="tCalendar_Service">
+        <xs:annotation>
+          <xs:documentation>
+            The service to which these schedules relate.  For a subscriber, the only valid value is EA, used for Easy Attendant or Premium Attendant schedules.  For a device, the only valid value is TUI, used for schedules within the TUI, e.g. the schedule that defines when to play an Out of Office greeting.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Service</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Yes</d:Mandatory><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>TUI</d:Value><d:Value>EA</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Schedules" type="tSchedule">
+        <xs:annotation>
+          <xs:documentation>
+            A list of schedules.  On a ShUpdate, existing schedules for this combination of device/subscriber and service will be deleted and replaced with this list.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Schedules</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Yes</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tFileReference">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Path" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The full path of the referenced file.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Path</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Yes</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute ref="xmime:contentType" use="required" />
+  </xs:complexType>
+  <xs:complexType name="tMsph_ClassOfService_Customizations_Customization">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Language" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Language these options are for. This may not be set for the parent customization.  Allowed languages are: eng,en-GB,spa,fr-CA.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Language</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="SubscriberGUIURL" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            URL of the subscriber GUI.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Subscriber GUI URL</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="DirectAccessURL" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            URL for direct access to the subscriber GUI, used for action links in auto-forwarded messages.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Direct Access URL</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="CustDomain" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The domain name of the customization used for this combination of Class of Service and language. Used to allow customization of notification templates.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Cust Domain</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="CustName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The name of the customization used for this combination of Class of Service and language. Used to allow customization of notification templates.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Cust Name</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tAction_GoToMenu">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="MenuID" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The ID of the menu to transfer to.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Menu ID</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Yes</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tAction_ReplayMenu">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:simpleType name="tCurrentPriority">
+    <xs:annotation>
+      <xs:documentation>The current priority of a schedule.  100 indicates that the schedule isn't currently active.  0-99 is a relative priority of the schedule. Lower numbers indicate higher priority.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="100" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="tPagerTrigger">
+    <xs:annotation>
+      <xs:documentation>Pager notification trigger.  Up to two schedule names may be listed, and this notification rule applies whenever either of the stated schedules is active.  If no schedule is supplied, the notification rule applies at all times.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="PagerProfileName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            This name must match the name of a separately populated pagerProfile, or - if using a "non-directdial", pager - the email address of the pager.  Profiles related to Notification Overrides must be named "profiletemporary".
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Pager Profile Name</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="2" name="ScheduleName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            If provided, this name must match the name of a separately populated schedule.  Schedules related to Notification Overrides must be named "temporary".
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Schedule Name</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tAction_MailboxTransfer">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="MailboxTransfer" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The number of the mailbox or business group extension or short code to transfer the call to.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Mailbox Transfer</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Yes</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tAction_CallName">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:simpleType name="tBGCLSubscriber_AttendantLineType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="AutoAttendant" />
+      <xs:enumeration value="EasyAttendant" />
+      <xs:enumeration value="PremiumAttendant" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tRetry_interval">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="1440" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="tSwitchableDefaultMWILandlineType">
+    <xs:annotation>
+      <xs:documentation>MWI mechanism for landline devices.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="UseDefault" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Use Default</d:DisplayName>
+            <d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type>
+            <d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess>
+            <d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory>
+            <d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue>
+            <d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Value>True</d:Value>
+              <d:Value>False</d:Value>
+            </d:Values>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Value" type="tMWILandlineValuesType">
+        <xs:annotation>
+          <xs:documentation>
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Value</d:DisplayName>
+            <d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type>
+            <d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess>
+            <d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory>
+            <d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Value>sip</d:Value>
+              <d:Value>smdi</d:Value>
+              <d:Value>gr866</d:Value>
+            </d:Values>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="Default" type="tMWILandlineValuesType" />
+  </xs:complexType>
+  <xs:complexType name="tMsph_Subscriber_Messaging_Data_Message_Report">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="OriginalMessageSentDate" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>
+            The Sent Date of the message to which this report refers. Dates are in the format "YYYY-MM-DDThh:mm:ss" using the 24 hour clock. For example, 12:30 am on the 8th of July 2010 is expressed as 2010-07-08T00:30:00.  NOTE: If using a pre-1.4.1 Axis2 client, there are issues in converting from a Java Calendar object to an XML date string where daylight savings time is in effect.  To avoid this issue, please upgrade to the most recent version of Axis2.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Original Message Sent Date</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RecipientAddress" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The VPIM address of the message recipient.  This can be multi-valued for future delivery messages.  If the recipient address represents a distribution list then the required format is: &lt;distribution list #&gt;&lt;subscriber phone #&gt;@&lt;subscriber domain&gt;, for example distribution list #2 for subscriber 610-555-1212 would be indicated as 26105551212@vpim.example.com.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Recipient Address</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Yes</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="Status" type="tMsph_Subscriber_Messaging_Data_Message_Report_Status">
+        <xs:annotation>
+          <xs:documentation>
+            The reported status for this recipient.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Status</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Yes</d:Mandatory><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>Read</d:Value><d:Value>NonDelivered</d:Value><d:Value firstversion="1.7">Delivered</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="ReportText" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The human-readable text in this report.  If this field not provided, the report will be created with default text.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Report Text</d:DisplayName><d:ValidFrom xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1.7</d:ValidFrom><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="ReportSubject" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The subject for this report.  If this field is not provided, the default report subject will be used.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Report Subject</d:DisplayName><d:ValidFrom xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1.7</d:ValidFrom><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tAction_InterceptMailboxTransfer">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:simpleType name="tMsph_Subscriber_Messaging_Data_Message_Report_Status">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Read" />
+      <xs:enumeration value="NonDelivered" />
+      <xs:enumeration value="Delivered" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tRetry_intervalurgent">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="1440" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tRetry_maxnum">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="2147483647" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="tOutdialTrigger">
+    <xs:annotation>
+      <xs:documentation>Outdial notification trigger. Up to two schedule names may be listed, and this notification rule applies whenever either of the stated schedules is active.  If no schedule is supplied, the notification rule applies at all times.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="OutdialProfileName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            This name must match the name of a separately populated outdialProfile.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Outdial Profile Name</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="2" name="ScheduleName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            If provided, this name must match the name of a separately populated schedule.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Schedule Name</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tAction_TransferToMailboxByExtension">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="tAction_DoNothing">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="tTrigger">
+    <xs:annotation>
+      <xs:documentation>Notification trigger.  This can be an email (smtp), mwi, msgdir, pager, sms or outdial notification.  If an update includes a particular trigger type (e.g. normal voicemails) then it will replace all existing triggers of that type. The special "none" target type indicates that no targets are configuredfor the given trigger type.</xs:documentation>
+    </xs:annotation>
+    <xs:choice>
+      <xs:element minOccurs="0" maxOccurs="1" name="smtp" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Email address to notify.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">smtp</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="mwi" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The phone number of the device to which MWI notifications should be delivered.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">mwi</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="msgdir" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The phone number of the device to which MSGDIR notifications should be delivered.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">msgdir</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="pager" type="tPagerTrigger">
+        <xs:annotation>
+          <xs:documentation>
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">pager</d:DisplayName>
+            <d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type>
+            <d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess>
+            <d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="outdial" type="tOutdialTrigger">
+        <xs:annotation>
+          <xs:documentation>
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">outdial</d:DisplayName>
+            <d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type>
+            <d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess>
+            <d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="none" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            No targets configured.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">none</d:DisplayName><d:ValidFrom xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1.4</d:ValidFrom><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="sms" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The phone number of the device to which SMS notifications should be delivered.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">sms</d:DisplayName><d:ValidFrom xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1.4</d:ValidFrom><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="tAction_TransferToMailboxByName">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="tAction_ReturnFromMenu">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="tAction_AnnouncementThenHangUp">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="AnnouncementID" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies the announcement to play for this action.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Announcement ID</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Yes</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tDelay">
+    <xs:annotation>
+      <xs:documentation>Specifies the delay configuration.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="interval" type="tDelay_interval">
+        <xs:annotation>
+          <xs:documentation>
+            The number of minutes to wait before initiating an outdial.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">interval</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Integer range</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Yes</d:Mandatory><d:Range xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">0 - 1440</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="intervalurgent" type="tDelay_intervalurgent">
+        <xs:annotation>
+          <xs:documentation>
+            The number of minutes to wait before initiating an outdial for urgent messages. If this optional element is present, it overrides the value specified for interval for urgent messages only.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">interval urgent</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Integer range</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Yes</d:Mandatory><d:Range xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">0 - 1440</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="tMWIWirelessValuesType">
+    <xs:annotation>
+      <xs:documentation>Valid wireless MWI mechanisms.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="smpp" />
+      <xs:enumeration value="msgdir" />
+      <xs:enumeration value="none" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tDelay_interval">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="1440" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="tAction">
+    <xs:annotation>
+      <xs:documentation>Action to be taken.  Actions are used for three types of event: Msph_Subscriber_CallTree_Settings_DefaultKey (default key); Msph_Subscriber_CallTree_Settings_Errors (errors); Msph_Subscriber_CallTree_Nodes_MenuNode_Result (menu node result).  Unless otherwise stated, each action is available for all three event types.  Unless otherwise stated, each action is available only for Premium Attendant (PA) call trees, and not for Easy Attendant (EA) call trees.</xs:documentation>
+    </xs:annotation>
+    <xs:choice>
+      <xs:element minOccurs="0" maxOccurs="1" name="PlayAnnouncement" type="tAction_PlayAnnouncement">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that the action is to play an announcement.  This action is available only for the menu node event type.  This action is available for both EA and PA call trees.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Play Announcement</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="CallTransfer" type="tAction_CallTransfer">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that the action is to transfer the call.  This action is available for both EA and PA call trees.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Call Transfer</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MailboxTransfer" type="tAction_MailboxTransfer">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that the action is to transfer to a mailbox.  This action is available for both EA and PA call trees.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Mailbox Transfer</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="CallExtension" type="tAction_CallExtension">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that the action is to perform a dial by extension action.  This action is available only for the menu node and default keys event types.  This action is available for both EA and PA call trees.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Call Extension</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="CallName" type="tAction_CallName">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that the action is to transfer the call, allowing the caller to search for the call recipient by name.  This action may only be set if the 'AA Dial By Name Allowed' feature is allowed in the parent Class of Service.  This action is available only for the menu node event type.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Call Name</d:DisplayName><d:ValidFrom xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1.4</d:ValidFrom><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="GoToMenu" type="tAction_GoToMenu">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that the action is to go to a menu.  The menu ID specified in this action is not checked - it is the responsibility of the client to check that the specified node ID is valid.  This action is available only for the menu node event type.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Go To Menu</d:DisplayName><d:ValidFrom xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1.4</d:ValidFrom><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="ReturnFromMenu" type="tAction_ReturnFromMenu">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that the action is to return from a menu.  It the responsibility of the client to check that this action makes sense within the context of the call tree, i.e. that this action is not specified on a top-level node.  This action is available only for the menu node and default keys event types.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Return From Menu</d:DisplayName><d:ValidFrom xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1.4</d:ValidFrom><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="AnnouncementThenHangUp" type="tAction_AnnouncementThenHangUp">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that the action is to play the specified announcement, then hang up the call.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Announcement Then Hang Up</d:DisplayName><d:ValidFrom xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1.4</d:ValidFrom><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="HangUp" type="tAction_HangUp">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that the action is to hang up.  This action is available only for the errors and menu node event types.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Hang Up</d:DisplayName><d:ValidFrom xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1.4</d:ValidFrom><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="TransferToMailboxByName" type="tAction_TransferToMailboxByName">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that the action is to transfer to a mailbox by specifying the name of the destination.  This action may only be set if the 'transfer to mailbox by extension' feature is allowed in the parent Class of Service.  This action is available only for the menu node event type.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Transfer To Mailbox By Name</d:DisplayName><d:ValidFrom xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1.4</d:ValidFrom><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="TransferToMailboxByExtension" type="tAction_TransferToMailboxByExtension">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that the action is to transfer to a mailbox by specifying the extension number of the destination.  This action may only be set if the 'transfer to mailbox by extension' feature is allowed in the parent Class of Service.  This action is available only for the menu node event type.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Transfer To Mailbox By Extension</d:DisplayName><d:ValidFrom xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1.4</d:ValidFrom><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="OperatorTransfer" type="tAction_OperatorTransfer">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that the action is to transfer to the operator.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Operator Transfer</d:DisplayName><d:ValidFrom xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1.4</d:ValidFrom><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="ReplayMenu" type="tAction_ReplayMenu">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that the action is to replay the current menu.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Replay Menu</d:DisplayName><d:ValidFrom xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1.4</d:ValidFrom><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="InterceptMailboxTransfer" type="tAction_InterceptMailboxTransfer">
+        <xs:annotation>
+          <xs:documentation>
+            Transfer to the 'Intercept Mailbox' number configured at the global scope.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Intercept Mailbox Transfer</d:DisplayName><d:ValidFrom xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1.4</d:ValidFrom><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="DoNothing" type="tAction_DoNothing">
+        <xs:annotation>
+          <xs:documentation>
+            Do nothing when the key is pressed.  Note that this is not the same as the 'unassigned key' behavior: an unassigned key will generate an 'invalid input' error when pressed; a key set to 'do nothing' will not.  This action is only available for the default key event type.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Do Nothing</d:DisplayName><d:ValidFrom xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1.4</d:ValidFrom><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="tRetry">
+    <xs:annotation>
+      <xs:documentation>Specifies the retry configuration.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="maxnum" type="tRetry_maxnum">
+        <xs:annotation>
+          <xs:documentation>
+            The maximum number of times to retry the call.  If zero, the call should not be retried.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">max num</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Integer range</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Yes</d:Mandatory><d:Range xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">0 - 2147483647</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="maxnumurgent" type="tRetry_maxnumurgent">
+        <xs:annotation>
+          <xs:documentation>
+            The maximum number of times to retry the call, for urgent messages.  If this optional element is present, it overrides the value specified for maxnum for urgent messages only.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">max num urgent</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Integer range</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Yes</d:Mandatory><d:Range xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">0 - 2147483647</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="interval" type="tRetry_interval">
+        <xs:annotation>
+          <xs:documentation>
+            The number of minutes to wait before retrying the call.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">interval</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Integer range</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Yes</d:Mandatory><d:Range xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">0 - 1440</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="intervalurgent" type="tRetry_intervalurgent">
+        <xs:annotation>
+          <xs:documentation>
+            The number of minutes to wait before retrying the call, for urgent messages. If this optional element is present, it overrides the value specified for interval for urgent messages only.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">interval urgent</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Integer range</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Yes</d:Mandatory><d:Range xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">0 - 1440</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="acceptonanswer" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Whether notifications expire when the notification call is answered.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">accept on answer</d:DisplayName><d:ValidFrom xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1.1</d:ValidFrom><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Yes</d:Mandatory><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="acceptonanswerurgent" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Whether notifications expire when the notification call is answered for urgent messages.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">accept on answer urgent</d:DisplayName><d:ValidFrom xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1.1</d:ValidFrom><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Yes</d:Mandatory><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="tTrueFalse">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="True" />
+      <xs:enumeration value="False" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tBGCLSubscriber_BusinessGroupAdministrationAccountType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Normal" />
+      <xs:enumeration value="Administrator" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tDelay_intervalurgent">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="1440" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="tMsph_Subscriber_Messaging_Data_Message">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="SentDate" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>
+            The date on which this message was sent.  If Future Delivery is true, then this should be the date in the future when the message should be sent. Dates are in the format "YYYY-MM-DDThh:mm:ss" using the 24 hour clock. For example, 12:30 am on the 8th of July 2010 is expressed as 2010-07-08T00:30:00.  NOTE: If using a pre-1.4.1 Axis2 client, there are issues in converting from a Java Calendar object to an XML date string where daylight savings time is in effect.  To avoid this issue, please upgrade to the most recent version of Axis2.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Sent Date</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="FutureDelivery" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Whether this message is scheduled for delivery in the future. If set to true, then the sent date for this message must be the date in the future when the message should be sent.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Future Delivery</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Urgent" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Flag indicating if the message is urgent.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Urgent</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Read" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Flag indicating if the message has been read/heard.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Read</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Saved" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Flag indicating if the message has been saved.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Saved</d:DisplayName><d:ValidFrom xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1.9</d:ValidFrom><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Private" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Flag indicating if the message is marked as private.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Private</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="ReadReceiptRequested" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Flag indicating if a read-receipt was requested for this message.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Read Receipt Requested</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="ReadReceiptSent" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Flag indicating whether a read receipt was already sent in response to this message.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Read Receipt Sent</d:DisplayName><d:ValidFrom xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1.7</d:ValidFrom><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Voicemail" type="tMsph_Subscriber_Messaging_Data_Message_Voicemail">
+        <xs:annotation>
+          <xs:documentation>
+            Voicemail-specific fields.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Voicemail</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Report" type="tMsph_Subscriber_Messaging_Data_Message_Report">
+        <xs:annotation>
+          <xs:documentation>
+            Report-specific fields.  In addition, the original message must be present in the attached Message field.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Report</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Message" type="tMsph_Subscriber_Messaging_Data_Message">
+        <xs:annotation>
+          <xs:documentation>
+            Message fields.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Message</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MessageUID" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Unique identifier for the message.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Message UID</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">R-R-R-</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Fax" type="tMsph_Subscriber_Messaging_Data_Message_Fax">
+        <xs:annotation>
+          <xs:documentation>
+            Fax-specific fields.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Fax</d:DisplayName><d:ValidFrom xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1.3</d:ValidFrom><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Favorite" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Flag indicating if the message is a favorite.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Favorite</d:DisplayName><d:ValidFrom xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1.6</d:ValidFrom><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="IMAPUID" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The IMAP UID for this message.  May be used to import messages with a specific IMAP UID.  When importing a message, the IMAP UID must be greater than zero.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">IMAP UID</d:DisplayName><d:ValidFrom xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1.7</d:ValidFrom><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tSchedule">
+    <xs:annotation>
+      <xs:documentation>A schedule event is a period of time or times defined by a schedule. It may take the form of a set of holidays, or a set of times during a week.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="name" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Name of the holiday or scheduled element (letters, numbers and spaces only).
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">name</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Yes</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="PresentationName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Description of this scheduled element.  This must be of the form XX-YYYYYYY, where XX is a number and YYYYYYY a series of letters (e.g. 1-Weekend). This element must be supplied in environments where CommPortal is deployed.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Presentation Name</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="entry" type="tScheduleEntry">
+        <xs:annotation>
+          <xs:documentation>
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">entry</d:DisplayName>
+            <d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type>
+            <d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess>
+            <d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Yes</d:Mandatory>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="CurrentPriority" type="tCurrentPriority">
+        <xs:annotation>
+          <xs:documentation>
+            Current Priority of this schedule in the Subscriber's timezone.  This is worked out when the schedule is retrieved.  Current Priority is a mandatory field (on ShUpdates) in versions where it is supported.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Current Priority</d:DisplayName><d:ValidFrom xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1.3</d:ValidFrom><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Integer range</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">R-R-R-</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Yes</d:Mandatory><d:Range xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">0 - 100</d:Range></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tBinaryData">
+    <xs:annotation>
+      <xs:documentation>Choice of ways to define binary data</xs:documentation>
+    </xs:annotation>
+    <xs:choice>
+      <xs:element minOccurs="0" maxOccurs="1" name="FileReference" type="tFileReference">
+        <xs:annotation>
+          <xs:documentation>
+            A string reference (i.e. URL) to the file containing the data to be used.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">File Reference</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Yes</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Data" type="xmime:base64Binary">
+        <xs:annotation>
+          <xs:documentation>
+            Binary data supplied in-line in the XML.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Data</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Binary</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Yes</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="tAction_OperatorTransfer">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="tSwitchableDefaultString">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="UseDefault" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Use Default</d:DisplayName>
+            <d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type>
+            <d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess>
+            <d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory>
+            <d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue>
+            <d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Value>True</d:Value>
+              <d:Value>False</d:Value>
+            </d:Values>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Value" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Value</d:DisplayName>
+            <d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type>
+            <d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess>
+            <d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="Default" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="tMsph_Subscriber_CallTree_Nodes_MenuNode_Result">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Event" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies the event that must occur for this result to apply, e.g. a digit that is pressed.  For EA call trees, must be a digit between 0 and 9.  For PA call trees, must be a digit between 0 and 9, *, # or "timeout".
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Event</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Action" type="tAction">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies the action to take.  This subelement must be present for Default Key and menu node Result elements, but is optional for Error elements.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Action</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tScheduleEntry">
+    <xs:annotation>
+      <xs:documentation>A schedule entry defines a single time range forming part of a schedule event. A schedule event may contain several schedule entries, defining different time ranges. The schedule applies if the current time is within any of the time ranges it contains. There are two types of schedule entry (fullDay and partDay).</xs:documentation>
+    </xs:annotation>
+    <xs:choice>
+      <xs:element minOccurs="0" maxOccurs="1" name="fullDay" type="tFullDay">
+        <xs:annotation>
+          <xs:documentation>
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">fullDay</d:DisplayName>
+            <d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type>
+            <d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess>
+            <d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="partDay" type="tPartDay">
+        <xs:annotation>
+          <xs:documentation>
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">partDay</d:DisplayName>
+            <d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type>
+            <d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess>
+            <d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="tAction_HangUp">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="tMsph_Subscriber_Messaging_Data_Message_Voicemail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="CallerNumber" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The Caller's phone number from the message.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Caller Number</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="CallerName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The Caller's text name from the message.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Caller Name</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="CallerSpokenName" type="tBinaryData">
+        <xs:annotation>
+          <xs:documentation>
+            The Caller's spoken name from the message.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Caller Spoken Name</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="VoiceAttachment" type="tBinaryData">
+        <xs:annotation>
+          <xs:documentation>
+            Voice attachment to this message. This field is always returned, even for video messages. When importing a video message, the audio supplied in the VIDEO_ATTACHMENT field will be used instead of any audio data supplied in this field. However, if the target susbcriber has disabled video then the audio supplied in this field will be used and an error returned if this field doesn't have any audio in this case.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Voice Attachment</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RecipientAddress" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The VPIM address of the message recipient.  This can be multi-valued for future delivery messages.  If the recipient address represents a distribution list then the required format is: &lt;distribution list #&gt;&lt;subscriber phone #&gt;@&lt;subscriber domain&gt;, for example distribution list #2 for subscriber 610-555-1212 would be indicated as 26105551212@vpim.example.com.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Recipient Address</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Yes</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="CalledNumber" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The phone number originally called to deposit the message.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Called Number</d:DisplayName><d:ValidFrom xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1.4</d:ValidFrom><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="TranscriptionStatus" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Transcription status of this message.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Transcription Status</d:DisplayName><d:ValidFrom xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1.5</d:ValidFrom><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="PlainTranscript" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Transcript attachment to this message.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Plain Transcript</d:DisplayName><d:ValidFrom xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1.5</d:ValidFrom><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="RichTranscript" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Rich transcript attachment to this message.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Rich Transcript</d:DisplayName><d:ValidFrom xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1.5</d:ValidFrom><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="SubToSub" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Whether this voicemail is a subscriber to subscriber message.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Sub To Sub</d:DisplayName><d:ValidFrom xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1.6</d:ValidFrom><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="VideoAttachment" type="tBinaryData">
+        <xs:annotation>
+          <xs:documentation>
+            Video attachment to this message. In MP4 format with h.264 video and AAC audio. Video data must be uploaded using MTOM. If the target subscriber has video disabled then the value of this field is ignored and the audio supplied in the VOICE_ATTACHMENT field is used. An error is returned if no audio is provided in this case.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Video Attachment</d:DisplayName><d:ValidFrom xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">1.9</d:ValidFrom><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Custom</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="tMWILandlineValuesType">
+    <xs:annotation>
+      <xs:documentation>Valid landline MWI mechanisms.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="sip" />
+      <xs:enumeration value="smdi" />
+      <xs:enumeration value="gr866" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="tSwitchableDefaultMultiValuedEmailDomain">
+    <xs:annotation>
+      <xs:documentation>Subscriber email domains.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="UseDefault" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Use Default</d:DisplayName>
+            <d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type>
+            <d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess>
+            <d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory>
+            <d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">False</d:DefaultValue>
+            <d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Value>True</d:Value>
+              <d:Value>False</d:Value>
+            </d:Values>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="10" name="Value" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Value</d:DisplayName>
+            <d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type>
+            <d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess>
+            <d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="Default" type="xs:string" />
+  </xs:complexType>
+  <xs:simpleType name="tPriority">
+    <xs:annotation>
+      <xs:documentation>The priority of the event. Events with a lower number take priority over events with a higher number (zero is the top priority).</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="2147483647" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="tAction_PlayAnnouncement">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="AnnouncementID" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies the announcement to play for this action.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Announcement ID</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Yes</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tFullDay">
+    <xs:annotation>
+      <xs:documentation>This schedule type is for full day events.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="index" type="tPriority">
+        <xs:annotation>
+          <xs:documentation>
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">index</d:DisplayName>
+            <d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Integer range</d:Type>
+            <d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess>
+            <d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Yes</d:Mandatory>
+            <d:Range xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">0 - 2147483647</d:Range>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="name" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Description of the holiday.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">name</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="date" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>
+            Start date of holiday.  Time and timezone components will be ignored on ShUpdate calls and should be ignored on ShPull responses.  NOTE: If using a pre-1.4.1 Axis2 client, there are issues in converting from a Java Calendar object to an XML date string where daylight savings time is in effect.  To avoid this issue, please upgrade to the most recent version of Axis2.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">date</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Yes</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="enddate" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>
+            If included, this is a multi-day holiday, taking place between the date and enddate inclusive. If not included, this is a single-day holiday, taking place on the date.  Time and timezone components will be ignored on ShUpdate calls and should be ignored on ShPull responses.  NOTE: If using a pre-1.4.1 Axis2 client, there are issues in converting from a Java Calendar object to an XML date string where daylight savings time is in effect.  To avoid this issue, please upgrade to the most recent version of Axis2.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">end date</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tPartDay">
+    <xs:annotation>
+      <xs:documentation>This schedule type is for part day events. For the schedule to be valid, the end time must be later than the start time. To specify a full day, specify both the start and end times as 00:00.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="index" type="tPriority">
+        <xs:annotation>
+          <xs:documentation>
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">index</d:DisplayName>
+            <d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Integer range</d:Type>
+            <d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess>
+            <d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Yes</d:Mandatory>
+            <d:Range xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">0 - 2147483647</d:Range>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="name" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Description of the holiday.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">name</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="day" type="tPartDay_day">
+        <xs:annotation>
+          <xs:documentation>
+            The day of the week this schedule applies.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">day</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Choice of values</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Yes</d:Mandatory><d:Values xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation"><d:Value>Monday</d:Value><d:Value>Tuesday</d:Value><d:Value>Wednesday</d:Value><d:Value>Thursday</d:Value><d:Value>Friday</d:Value><d:Value>Saturday</d:Value><d:Value>Sunday</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="start" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Start time of this schedule in the local timezone of the subscriber (as defined by the TimeZone field) in HH:MM 24-hr clock format.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">start</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Yes</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="end" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            End time of this schedule in the local timezone of the subscriber (as defined by the TimeZone field) in HH:MM 24-hr clock format.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">end</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">RWRWRW</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Yes</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tBGCLSubscriber">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="DirectoryNumber" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            DN of this subscriber device.
+            <d:DisplayName xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">Directory Number</d:DisplayName><d:Type xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">String</d:Type><d:BaseAccess xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">R-R-R-</d:BaseAccess><d:Mandatory xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">No</d:Mandatory><d:DefaultValue xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation" /></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="SubscriberUID" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Unique identifier of this subscriber.
+            <d:DisplayName>Subscriber UID</d:DisplayName><d:Type>String</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue /></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="IntercomDialingCode" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Intercom code for this subscriber device.
+            <d:DisplayName>Intercom Dialing Code</d:DisplayName><d:Type>String</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue /></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Name of this subscriber.
+            <d:DisplayName>Name</d:DisplayName><d:Type>String</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue /></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="BusinessGroupAdministrationAccountType" type="tBGCLSubscriber_BusinessGroupAdministrationAccountType">
+        <xs:annotation>
+          <xs:documentation>
+            Whether this subscriber can administer this business group fragment, or departments within it.
+            <d:DisplayName>Business Group Administration Account Type</d:DisplayName><d:Type>Choice of values</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue /><d:Values><d:Value>Normal</d:Value><d:Value>Administrator</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="BusinessGroupAdministrationAdministrationDepartment" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Full name of the department this subscriber can administer, or 'None' if they can administer the entire BG fragment.  Only present if the account type is Administrator.
+            <d:DisplayName>Business Group Administration Administration Department</d:DisplayName><d:Type>String</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue /></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="AttendantLineType" type="tBGCLSubscriber_AttendantLineType">
+        <xs:annotation>
+          <xs:documentation>
+            What type of auto-attendant this line represents, if any.
+            <d:DisplayName>Attendant Line Type</d:DisplayName><d:Type>Choice of values</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue /><d:Values><d:Value>None</d:Value><d:Value>AutoAttendant</d:Value><d:Value>EasyAttendant</d:Value><d:Value>PremiumAttendant</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Department" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Full name of the department this subscriber is in or 'None' if they are not in a department.
+            <d:DisplayName>Department</d:DisplayName><d:Type>String</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue /></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="BusinessGroupSpokenNameRecorded" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Whether this subscriber has a business group spoken name greeting recorded (visible only to callers within the business group).
+            <d:DisplayName>Business Group Spoken Name Recorded</d:DisplayName><d:Type>Choice of values</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue /><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="SpokenNameRecorded" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Whether this subscriber has a spoken name greetingrecorded (visible to callers outside the business group).
+            <d:DisplayName>Spoken Name Recorded</d:DisplayName><d:Type>Choice of values</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue /><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="AdditionalNumber" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Whether this device uses an additional number.
+            <d:DisplayName>Additional Number</d:DisplayName><d:ValidFrom>1.12</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue /><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="CoSID" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The ID of the Class of Service used for this subscriber.
+            <d:DisplayName>CoS ID</d:DisplayName><d:ValidFrom>1.13.10</d:ValidFrom><d:Type>String</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue /></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tMsph_Subscriber_Messaging_Data_Message_Fax">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="FaxCallerNumber" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The Caller's phone number from the fax message.
+            <d:DisplayName>Fax Caller Number</d:DisplayName><d:ValidFrom>1.3</d:ValidFrom><d:Type>String</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="FaxCallerName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The Caller's text name from the fax message.
+            <d:DisplayName>Fax Caller Name</d:DisplayName><d:ValidFrom>1.3</d:ValidFrom><d:Type>String</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="FaxRecipientAddress" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The VPIM address of the fax message recipient in the format:&lt;subscriber phone #&gt;@&lt;subscriber domain&gt;.
+            <d:DisplayName>Fax Recipient Address</d:DisplayName><d:ValidFrom>1.3</d:ValidFrom><d:Type>String</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>Yes</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="FaxAttachment" type="tBinaryData">
+        <xs:annotation>
+          <xs:documentation>
+            Fax attachment to this message.
+            <d:DisplayName>Fax Attachment</d:DisplayName><d:ValidFrom>1.3</d:ValidFrom><d:Type>Custom</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>Yes</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="FaxCalledNumber" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The phone number originally called to deposit the fax.
+            <d:DisplayName>Fax Called Number</d:DisplayName><d:ValidFrom>1.4</d:ValidFrom><d:Type>String</d:Type><d:BaseAccess>RWRWRW</d:BaseAccess><d:Mandatory>No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

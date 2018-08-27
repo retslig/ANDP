@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/APmaxProvisioning" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/APmaxProvisioning" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://a19376:8731/Design_Time_Addresses/VoicemailService/VoicemailV5/?xsd=xsd0" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="SubscriberType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Addresses" nillable="true" type="tns:ArrayOfAddressInfoType" />
+      <xs:element minOccurs="0" name="BillingAccountNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BillingEnvironmentCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BillingServiceAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DialByNameDigits" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InternetAccess" nillable="true" type="tns:InternetAccessType" />
+      <xs:element minOccurs="0" name="LastUpdateTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastUpdatedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentSubscriberId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PlacementType" type="tns:PlacementType_e" />
+      <xs:element minOccurs="0" name="ServiceInformation" nillable="true" type="tns:ServiceInfoType" />
+      <xs:element minOccurs="0" name="SubscriberDefaultPhoneNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubscriberEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubscriberGuid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubscriberName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubscriberTimezone" type="tns:Timezone_e" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SubscriberType" nillable="true" type="tns:SubscriberType" />
+  <xs:complexType name="ArrayOfAddressInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AddressInfoType" nillable="true" type="tns:AddressInfoType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAddressInfoType" nillable="true" type="tns:ArrayOfAddressInfoType" />
+  <xs:complexType name="AddressInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddressField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressTypeField" type="tns:AddressType_e" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AddressInfoType" nillable="true" type="tns:AddressInfoType" />
+  <xs:simpleType name="AddressType_e">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AddressTypeDN">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AddressTypeAnnID">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AddressTypeEmailAddr">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AddressTypeSipAddr">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AddressTypMailboxNumber">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AddressTypCentrexExtension">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">15</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AddressType_e" nillable="true" type="tns:AddressType_e" />
+  <xs:complexType name="InternetAccessType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MobileEnabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServiceEnabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InternetAccessType" nillable="true" type="tns:InternetAccessType" />
+  <xs:simpleType name="PlacementType_e">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PlacementType_None">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PlacementType_CASS">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PlacementType_User">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">10</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PlacementType_e" nillable="true" type="tns:PlacementType_e" />
+  <xs:complexType name="ServiceInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApSystemId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BillingServiceAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BillingServiceID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServiceGuid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServiceType" type="tns:ServiceType_e" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServiceInfoType" nillable="true" type="tns:ServiceInfoType" />
+  <xs:simpleType name="ServiceType_e">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="Voicemail" />
+      <xs:enumeration value="Iptv" />
+      <xs:enumeration value="LargeScaleConferencing" />
+      <xs:enumeration value="OnDemandConferencing" />
+      <xs:enumeration value="TerminatingCallManagement" />
+      <xs:enumeration value="OriginatingCallManagement" />
+      <xs:enumeration value="UniversalCallManagement" />
+      <xs:enumeration value="CallLogging" />
+      <xs:enumeration value="SipAcs" />
+      <xs:enumeration value="WirelessOta" />
+      <xs:enumeration value="ACDAgent" />
+      <xs:enumeration value="ACDCallCenter" />
+      <xs:enumeration value="SingleNumber" />
+      <xs:enumeration value="Notify" />
+      <xs:enumeration value="SipIntercom" />
+      <xs:enumeration value="IptvAluMmig" />
+      <xs:enumeration value="IptvMediaroom" />
+      <xs:enumeration value="VoicemailMobile" />
+      <xs:enumeration value="IptvMobile" />
+      <xs:enumeration value="NotifyMobile" />
+      <xs:enumeration value="StreamingTvMobile" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ServiceType_e" nillable="true" type="tns:ServiceType_e" />
+  <xs:simpleType name="Timezone_e">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ApDefault" />
+      <xs:enumeration value="Midway" />
+      <xs:enumeration value="Hawaii" />
+      <xs:enumeration value="Alaska" />
+      <xs:enumeration value="PacificTime" />
+      <xs:enumeration value="Arizona" />
+      <xs:enumeration value="MountainTime" />
+      <xs:enumeration value="CentralTime" />
+      <xs:enumeration value="Saskatchewan" />
+      <xs:enumeration value="EasternTime" />
+      <xs:enumeration value="IndianaEast" />
+      <xs:enumeration value="AtlanticTime" />
+      <xs:enumeration value="Newfoundland" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Timezone_e" nillable="true" type="tns:Timezone_e" />
+</xs:schema>

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SipAcsServiceV2" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SipAcsServiceV2" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://a19226:8731/Design_Time_Addresses/SipAcsServiceV2/SipAcsService/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:simpleType name="FirmwareUpgradeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FwUpgradeIgnore" />
+      <xs:enumeration value="FwUpgradeAllowed" />
+      <xs:enumeration value="FwUpgradeDeny" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="FirmwareUpgradeEnum" nillable="true" type="tns:FirmwareUpgradeEnum" />
+  <xs:simpleType name="MappingSearchTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SearchMac" />
+      <xs:enumeration value="SearchSubscriber" />
+      <xs:enumeration value="SearchGroup" />
+      <xs:enumeration value="SearchIP" />
+      <xs:enumeration value="SearchDevice" />
+      <xs:enumeration value="SearchAll" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MappingSearchTypeEnum" nillable="true" type="tns:MappingSearchTypeEnum" />
+  <xs:simpleType name="OptionTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OptionTypeNormal" />
+      <xs:enumeration value="OptionTypeUserName" />
+      <xs:enumeration value="OptionTypeUserPass" />
+      <xs:enumeration value="OptionTypeAdmin" />
+      <xs:enumeration value="OptionTypeAdminPass" />
+      <xs:enumeration value="OptionTypeSipGwAddr" />
+      <xs:enumeration value="OptionTypeAddress" />
+      <xs:enumeration value="OptionTypeSipProxyAddr" />
+      <xs:enumeration value="OptionTypeNtpServ1" />
+      <xs:enumeration value="OptionTypeNtpServ2" />
+      <xs:enumeration value="OptionTypeNtpServ3" />
+      <xs:enumeration value="OptionTypeMessageServer" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="OptionTypeEnum" nillable="true" type="tns:OptionTypeEnum" />
+  <xs:simpleType name="RebootTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="RebootPhoneDN" />
+      <xs:enumeration value="RebootPhoneMAC" />
+      <xs:enumeration value="RebootPhoneIP" />
+      <xs:enumeration value="RebootPhoneGroup" />
+      <xs:enumeration value="RebootPhoneAll" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RebootTypeEnum" nillable="true" type="tns:RebootTypeEnum" />
+  <xs:complexType name="ArrayOfPhoneModelType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PhoneModelType" nillable="true" type="tns:PhoneModelType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPhoneModelType" nillable="true" type="tns:ArrayOfPhoneModelType" />
+  <xs:complexType name="PhoneModelType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FwGuid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ignoreadv" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Is_prefered" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Manufacturer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Maxlines" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="Model" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OptionsGuid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneGuid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Progkeys" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="Series" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Softkeys" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="Version" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="Version_string" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PhoneModelType" nillable="true" type="tns:PhoneModelType" />
+  <xs:complexType name="ArrayOfUpcMappingType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UpcMappingType" nillable="true" type="tns:UpcMappingType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUpcMappingType" nillable="true" type="tns:ArrayOfUpcMappingType" />
+  <xs:complexType name="UpcMappingType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PhoneModelGuid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Upc" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UpcMappingType" nillable="true" type="tns:UpcMappingType" />
+  <xs:complexType name="ArrayOfGroupType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GroupType" nillable="true" type="tns:GroupType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGroupType" nillable="true" type="tns:ArrayOfGroupType" />
+  <xs:complexType name="GroupType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GroupDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GroupGuid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GroupName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GroupType" nillable="true" type="tns:GroupType" />
+  <xs:complexType name="ArrayOfPhoneMappingType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PhoneMappingType" nillable="true" type="tns:PhoneMappingType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPhoneMappingType" nillable="true" type="tns:ArrayOfPhoneMappingType" />
+  <xs:complexType name="PhoneMappingType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Allow_upgrade" type="tns:FirmwareUpgradeEnum" />
+      <xs:element minOccurs="0" name="Fwguid" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GroupGuid" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element minOccurs="0" name="Ip_age" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Lastconfig_fetch" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Lastfw_fetch" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Lastip" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mac" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="New_ver" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="Numconfig_fetch" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="Numfw_fetch" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="PhoneGuid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubscriberGuid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Version" type="xs:unsignedInt" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PhoneMappingType" nillable="true" type="tns:PhoneMappingType" />
+  <xs:complexType name="ProvisionInfoType">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GroupGuids" nillable="true" type="q2:ArrayOfstring" />
+      <xs:element minOccurs="0" name="LineNumber" nillable="true" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneMacAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneModelGuidOrUpc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubscriberID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UsernameAddress" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProvisionInfoType" nillable="true" type="tns:ProvisionInfoType" />
+  <xs:complexType name="SubPhoneInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GenericOptions" nillable="true" type="tns:ArrayOfGenericOptionType" />
+      <xs:element minOccurs="0" name="PhoneInfo" nillable="true" type="tns:PhoneMappingType" />
+      <xs:element minOccurs="0" name="PhoneLines" nillable="true" type="tns:ArrayOfLineInfoType" />
+      <xs:element minOccurs="0" name="PhoneModelInfo" nillable="true" type="tns:PhoneModelType" />
+      <xs:element minOccurs="0" name="PhoneOptions" nillable="true" type="tns:ArrayOfPhoneOptionType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SubPhoneInfoType" nillable="true" type="tns:SubPhoneInfoType" />
+  <xs:complexType name="ArrayOfGenericOptionType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GenericOptionType" nillable="true" type="tns:GenericOptionType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGenericOptionType" nillable="true" type="tns:ArrayOfGenericOptionType" />
+  <xs:complexType name="GenericOptionType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ValueType" type="tns:OptionTypeEnum" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GenericOptionType" nillable="true" type="tns:GenericOptionType" />
+  <xs:complexType name="ArrayOfLineInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LineInfoType" nillable="true" type="tns:LineInfoType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLineInfoType" nillable="true" type="tns:ArrayOfLineInfoType" />
+  <xs:complexType name="LineInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GenericOptions" nillable="true" type="tns:ArrayOfGenericOptionType" />
+      <xs:element minOccurs="0" name="LineNumber" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="LineOptions" nillable="true" type="tns:ArrayOfPhoneOptionType" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LineInfoType" nillable="true" type="tns:LineInfoType" />
+  <xs:complexType name="ArrayOfPhoneOptionType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PhoneOptionType" nillable="true" type="tns:PhoneOptionType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPhoneOptionType" nillable="true" type="tns:ArrayOfPhoneOptionType" />
+  <xs:complexType name="PhoneOptionType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Header" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ValueType" type="tns:OptionTypeEnum" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PhoneOptionType" nillable="true" type="tns:PhoneOptionType" />
+  <xs:complexType name="ArrayOfSubPhoneInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SubPhoneInfoType" nillable="true" type="tns:SubPhoneInfoType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSubPhoneInfoType" nillable="true" type="tns:ArrayOfSubPhoneInfoType" />
+</xs:schema>

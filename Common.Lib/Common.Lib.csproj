@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6271F6F1-B9A3-4A00-81BD-AC429BC892C2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Common.Lib</RootNamespace>
+    <AssemblyName>Common.Lib</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=3.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml">
+      <HintPath>..\packages\DocumentFormat.OpenXml.1.0\lib\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\packages\iTextSharp.5.5.1\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.Unity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\MySql.Data.6.9.5\lib\net45\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entity.6.9.5\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=3.1.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NLog.3.1.0.0\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.2.3\lib\net45\RestSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Services" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.1.0.0\lib\net45\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Thinktecture.IdentityModel">
+      <HintPath>..\packages\Thinktecture.IdentityModel.3.6.1\lib\net45\Thinktecture.IdentityModel.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attributes\CustomAttributes.cs" />
+    <Compile Include="Common\Caching\MemoryCacheProvider.cs" />
+    <Compile Include="Common\CustomDateTime\DateRange.cs" />
+    <Compile Include="Common\Email\EmailDistributionList.cs" />
+    <Compile Include="Common\Enums\CachePriorityType.cs" />
+    <Compile Include="Common\Enums\LogLevelType.cs" />
+    <Compile Include="Common\ThreadLockHelper.cs" />
+    <Compile Include="Common\WCF\BindingHelper.cs" />
+    <Compile Include="Common\UsernameToken\Constants.cs" />
+    <Compile Include="Common\UsernameToken\UsernameClientCredentials.cs" />
+    <Compile Include="Common\UsernameToken\UsernameClientCredentialsSecurityTokenManager.cs" />
+    <Compile Include="Common\UsernameToken\UsernameInfo.cs" />
+    <Compile Include="Common\UsernameToken\UsernamePasswordProvider.cs" />
+    <Compile Include="Common\UsernameToken\UsernameSecurityTokenSerializer.cs" />
+    <Compile Include="Common\UsernameToken\UsernameServiceCredentials.cs" />
+    <Compile Include="Common\UsernameToken\UsernameToken.cs" />
+    <Compile Include="Common\UsernameToken\UsernameTokenAuthenticator.cs" />
+    <Compile Include="Common\UsernameToken\UserNameTokenAuthorizationPolicy.cs" />
+    <Compile Include="Common\UsernameToken\UsernameTokenParameters.cs" />
+    <Compile Include="Common\UsernameToken\UsernameTokenProvider.cs" />
+    <Compile Include="Common\WCF\HeaderRemoverMessageInspector.cs" />
+    <Compile Include="Common\WCF\LoggingEndpointBehavior.cs" />
+    <Compile Include="Common\WCF\LoggingMessageInspector.cs" />
+    <Compile Include="Common\WCF\RemoveHeaderEndpointBehavior.cs" />
+    <Compile Include="EntityProvider\MultipleDbConfiguration.cs" />
+    <Compile Include="EntityProvider\MySqlConfiguration.cs" />
+    <Compile Include="EntityProvider\MySqlHistoryContext.cs" />
+    <Compile Include="Extensions\CloneExtension.cs" />
+    <Compile Include="Extensions\CrytpoExtensions.cs" />
+    <Compile Include="Extensions\DateTimeExtensions.cs" />
+    <Compile Include="Extensions\ExceptionExtension.cs" />
+    <Compile Include="Extensions\JObjectExtensions.cs" />
+    <Compile Include="Extensions\LinqExtensions.cs" />
+    <Compile Include="Extensions\RestSharpExtensionMethods.cs" />
+    <Compile Include="Extensions\SecurityClaimsExtension.cs" />
+    <Compile Include="Extensions\StringUnescape.cs" />
+    <Compile Include="Utility\XmlHelpers.cs" />
+    <Compile Include="Extensions\UnityExtensions\BuildTreeItemNode.cs" />
+    <Compile Include="Extensions\UnityExtensions\DisposableStrategyExtension.cs" />
+    <Compile Include="Extensions\UnityExtensions\DisposingLifetimeManager.cs" />
+    <Compile Include="Extensions\UnityExtensions\DisposingLifetimeStrategy.cs" />
+    <Compile Include="Extensions\UnityExtensions\DisposingSharedLifetimeManager.cs" />
+    <Compile Include="Extensions\UnityExtensions\DisposingTransientLifetimeManager.cs" />
+    <Compile Include="Extensions\UnityExtensions\DisposingPerTenantLifeTimeManager.cs" />
+    <Compile Include="Extensions\UnityExtensions\IDisposingLifetimeManager.cs" />
+    <Compile Include="Extensions\UnityExtensions\ReferenceCounter.cs" />
+    <Compile Include="Extensions\UnityExtensions\WeakReferenceComparer.cs" />
+    <Compile Include="Infastructure\DisposableBase.cs" />
+    <Compile Include="Infastructure\DynamicCodeService.cs" />
+    <Compile Include="Infastructure\ModelBase.cs" />
+    <Compile Include="Infastructure\ObjectFactory.cs" />
+    <Compile Include="Interfaces\ICacheProvider.cs" />
+    <Compile Include="Interfaces\Ilogger.cs" />
+    <Compile Include="Mapping\CustomResolvers\ByteToDecimalCustomResolover.cs" />
+    <Compile Include="Mapping\CustomResolvers\DecimalToDoubleCustomResolover.cs" />
+    <Compile Include="Mapping\CommonMapperProfileResolutionSettings.cs" />
+    <Compile Include="Mapping\CustomResolvers\SerializeObjectToXmlCustomResolver.cs" />
+    <Compile Include="Mapping\ICommonMapper.cs" />
+    <Compile Include="Mapping\CommonMapper.cs" />
+    <Compile Include="Mapping\CommonMappingProfile.cs" />
+    <Compile Include="Mapping\CommonTypeMap.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Security\AuthenticationConstants.cs" />
+    <Compile Include="Security\BearerTokenHelper.cs" />
+    <Compile Include="Security\CertificateHelper.cs" />
+    <Compile Include="Security\ClaimsConstants.cs" />
+    <Compile Include="Security\ClaimsWebApiHelper.cs" />
+    <Compile Include="Security\Oauth2AuthenticationSettings.cs" />
+    <Compile Include="Security\OAuth2Client.cs" />
+    <Compile Include="Security\SecurityTokenConstants.cs" />
+    <Compile Include="EntityProvider\CommonDbContext.cs" />
+    <Compile Include="Common\Enums\SerializerType.cs" />
+    <Compile Include="Services\WindowsServiceHelperService.cs" />
+    <Compile Include="Utility\ActiveDirectoryHelper.cs" />
+    <Compile Include="Utility\CalendarHelper.cs" />
+    <Compile Include="Utility\CommandLineHelper.cs" />
+    <Compile Include="Utility\DateTimeHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Common\Email\Emailer.cs" />
+    <Compile Include="Utility\EncryptionHelper.cs" />
+    <Compile Include="Utility\ExcelHelper.cs" />
+    <Compile Include="Utility\FlatFileHelper.cs" />
+    <Compile Include="Extensions\JsonExtensions.cs" />
+    <Compile Include="Utility\LinqHelper.cs" />
+    <Compile Include="Common\Log\LogObject.cs" />
+    <Compile Include="Services\NLogWriterService.cs" />
+    <Compile Include="Utility\LogWriter.cs" />
+    <Compile Include="Utility\OdbcHelper.cs" />
+    <Compile Include="Utility\PdfHelper.cs" />
+    <Compile Include="Utility\LambdaHelper.cs" />
+    <Compile Include="Utility\PluginHelper.cs" />
+    <Compile Include="Utility\PrintHelper.cs" />
+    <Compile Include="Utility\SerializableDictionary.cs" />
+    <Compile Include="Utility\MathHelper.cs" />
+    <Compile Include="Extensions\XmlExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+  </PropertyGroup>
+  <Import Project="..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets')" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WirelessOtaV1" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WirelessOtaV1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="WirelessOtaConfigElementType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ACCOLC" nillable="true" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="Authentication" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EVDO_PRLfilename" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EX" nillable="true" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="FIRSTCHP" nillable="true" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="HOME_SID" nillable="true" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="IMSI_M_ADDR_NUM" nillable="true" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="IMSI_M_CLASS" nillable="true" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="IMSI_M_S" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IMSI__M_11_12" nillable="true" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="IpAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LocalControl" nillable="true" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="MCC_M" nillable="true" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="MOB_P_REV" nillable="true" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="MOB_TERM_FOR_NID" nillable="true" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="MOB_TERM_FOR_SID" nillable="true" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="MOB_TERM_HOM" nillable="true" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="OneXRtt_PRLfilename" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Port" nillable="true" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="SCM" nillable="true" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="System" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SystemAndNetworkIDs" nillable="true" type="tns:ArrayOfSystemNetworkIDType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WirelessOtaConfigElementType" nillable="true" type="tns:WirelessOtaConfigElementType" />
+  <xs:complexType name="ArrayOfSystemNetworkIDType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SystemNetworkIDType" nillable="true" type="tns:SystemNetworkIDType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSystemNetworkIDType" nillable="true" type="tns:ArrayOfSystemNetworkIDType" />
+  <xs:complexType name="SystemNetworkIDType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="NID" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="SID" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="System" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SystemNetworkIDType" nillable="true" type="tns:SystemNetworkIDType" />
+  <xs:complexType name="ArrayOfWirelessOtaConfigElementType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WirelessOtaConfigElementType" nillable="true" type="tns:WirelessOtaConfigElementType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWirelessOtaConfigElementType" nillable="true" type="tns:ArrayOfWirelessOtaConfigElementType" />
+  <xs:complexType name="WirelessOtaSubscriberType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActivationCount" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="Esn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirmwareRevision" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastUpdate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Manufacturer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mdn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Meid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Min" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MobileStationModel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PRL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PRLcount" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="SSPRRev" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Subscriber" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WirelessOtaSubscriberType" nillable="true" type="tns:WirelessOtaSubscriberType" />
+  <xs:complexType name="ArrayOfWirelessOtaSubscriberType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WirelessOtaSubscriberType" nillable="true" type="tns:WirelessOtaSubscriberType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWirelessOtaSubscriberType" nillable="true" type="tns:ArrayOfWirelessOtaSubscriberType" />
+  <xs:complexType name="ArrayOfAnnouncementCode">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AnnouncementCode" nillable="true" type="tns:AnnouncementCode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAnnouncementCode" nillable="true" type="tns:ArrayOfAnnouncementCode" />
+  <xs:complexType name="AnnouncementCode">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AnnouncementID" type="xs:int" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AnnouncementCode" nillable="true" type="tns:AnnouncementCode" />
+</xs:schema>

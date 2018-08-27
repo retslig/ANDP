@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/OriginatingCallManagementV1" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/OriginatingCallManagementV1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="GroupType_e">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="typeSubscriber" />
+      <xs:enumeration value="typeAcctCode" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="GroupType_e" nillable="true" type="tns:GroupType_e" />
+  <xs:simpleType name="LanguageType_e">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="English" />
+      <xs:enumeration value="Spanish" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="LanguageType_e" nillable="true" type="tns:LanguageType_e" />
+  <xs:complexType name="OCMAllowedType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GroupName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OCMAllowedType" nillable="true" type="tns:OCMAllowedType" />
+  <xs:complexType name="OCMBlockedType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GroupName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OCMBlockedType" nillable="true" type="tns:OCMBlockedType" />
+  <xs:complexType name="OCMTimedNumberType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AvailableMinutes" type="xs:int" />
+      <xs:element minOccurs="0" name="GroupName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TimedNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UsedMinutes" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OCMTimedNumberType" nillable="true" type="tns:OCMTimedNumberType" />
+  <xs:complexType name="OCMAccountCodeType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AccountCodeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AvailableMinutes" type="xs:int" />
+      <xs:element minOccurs="0" name="GroupName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UsedMinutes" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OCMAccountCodeType" nillable="true" type="tns:OCMAccountCodeType" />
+  <xs:complexType name="OCMGroupType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountCasual" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AccountCodeDigits" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="AccountCodeTries" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="AccountInternational" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AccountLocal" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AccountOperator" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AccountToll" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="BlockCasual" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="BlockInternational" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="BlockLocal" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="BlockOperator" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="BlockToll" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EnableAccountCodeSettings" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EnableBlockedSettings" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EnableTimedSettings" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="GroupName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GroupType" nillable="true" type="tns:GroupType_e" />
+      <xs:element minOccurs="0" name="IncludeInServiceUsageReport" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="OCMAccountCodeElements" nillable="true" type="tns:ArrayOfOCMAccountCodeType" />
+      <xs:element minOccurs="0" name="OCMAllowedNumberRecords" nillable="true" type="tns:ArrayOfOCMAllowedType" />
+      <xs:element minOccurs="0" name="OCMBlockedNumberRecords" nillable="true" type="tns:ArrayOfOCMBlockedType" />
+      <xs:element minOccurs="0" name="OCMSubscriberRecords" nillable="true" type="tns:ArrayOfOCMSubcriberType" />
+      <xs:element minOccurs="0" name="OCMTimedNumberElements" nillable="true" type="tns:ArrayOfOCMTimedNumberType" />
+      <xs:element minOccurs="0" name="TimeCasual" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TimeInternational" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TimeLocal" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TimeOperator" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TimeToll" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OCMGroupType" nillable="true" type="tns:OCMGroupType" />
+  <xs:complexType name="ArrayOfOCMAccountCodeType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OCMAccountCodeType" nillable="true" type="tns:OCMAccountCodeType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOCMAccountCodeType" nillable="true" type="tns:ArrayOfOCMAccountCodeType" />
+  <xs:complexType name="ArrayOfOCMAllowedType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OCMAllowedType" nillable="true" type="tns:OCMAllowedType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOCMAllowedType" nillable="true" type="tns:ArrayOfOCMAllowedType" />
+  <xs:complexType name="ArrayOfOCMBlockedType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OCMBlockedType" nillable="true" type="tns:OCMBlockedType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOCMBlockedType" nillable="true" type="tns:ArrayOfOCMBlockedType" />
+  <xs:complexType name="ArrayOfOCMSubcriberType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OCMSubcriberType" nillable="true" type="tns:OCMSubcriberType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOCMSubcriberType" nillable="true" type="tns:ArrayOfOCMSubcriberType" />
+  <xs:complexType name="OCMSubcriberType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AllowOverride" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AvailableMinutes" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="GroupName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Language" nillable="true" type="tns:LanguageType_e" />
+      <xs:element minOccurs="0" name="LastPeriodUsedTenthsSeconds" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="LastReplenishDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="OverrideCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RemoteAccess" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ReplenishDayOfMonth" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ReplenishMinutes" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="SendUsageReport" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SubscriberGuid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UsedMinutes" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ValidPinTries" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OCMSubcriberType" nillable="true" type="tns:OCMSubcriberType" />
+  <xs:complexType name="ArrayOfOCMTimedNumberType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OCMTimedNumberType" nillable="true" type="tns:OCMTimedNumberType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOCMTimedNumberType" nillable="true" type="tns:ArrayOfOCMTimedNumberType" />
+</xs:schema>

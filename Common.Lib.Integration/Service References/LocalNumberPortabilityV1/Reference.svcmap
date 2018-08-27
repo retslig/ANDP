@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="137a2566-820c-4903-95f4-5b7811a20010" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://A19226:8731/Design_Time_Addresses/LocalNumberPortabilityV1/LocalNumberPortability/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="aad6d6bd-3a43-472e-983c-4af73e749828" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/LocalNumberPortabilityV1/LocalNumberPortability/?disco" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="02c36cad-1c6e-4a80-abf5-d292a1c78894" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/LocalNumberPortabilityV1/LocalNumberPortability/?xsd=xsd1" />
+    <MetadataFile FileName="LocalNumberPortability.wsdl" MetadataType="Wsdl" ID="319ff07d-395a-49d1-9906-00e91fdc7328" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/LocalNumberPortabilityV1/LocalNumberPortability/?wsdl" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="34317791-40b7-4e25-ac22-9aa894118025" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/LocalNumberPortabilityV1/LocalNumberPortability/?xsd=xsd0" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="c8623b66-2789-4e5a-885b-6783aee0ccb4" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/LocalNumberPortabilityV1/LocalNumberPortability/?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

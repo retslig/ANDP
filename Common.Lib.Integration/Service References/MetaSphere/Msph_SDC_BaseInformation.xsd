@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://www.metaswitch.com/sdp/soap/sh/servicedata" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.metaswitch.com/sdp/soap/sh/servicedata" version="1.14" xsi:schemaLocation="http://www.metaswitch.com/sdp/soap/sh/documentation Documentation.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://www.w3.org/2005/05/xmlmime" namespace="http://www.w3.org/2005/05/xmlmime" />
+  <xs:include schemaLocation="Msph_CommonTypes.xsd" />
+  <xs:complexType name="tMsph_SDC_BaseInformation">
+    <xs:annotation>
+      <xs:documentation>
+        EAS system base information service indication.  Used to read information for a local EAS system.  This indication only supports ShPull operations.
+        <d:Actions xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation" /><d:AuthLevel>admin</d:AuthLevel></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Name" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The friendly name of the local EAS system.
+            <d:DisplayName>Name</d:DisplayName><d:Type>String</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="UniqueIdentifier" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The Unique identifier for this EAS system.
+            <d:DisplayName>Unique Identifier</d:DisplayName><d:Type>String</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="Version" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The MetaSphere software version installed on this EAS system.
+            <d:DisplayName>Version</d:DisplayName><d:Type>String</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="WSDVersion" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The WSD version installed on this EAS system (returned in a format that can be simply supplied back as-is in the version parameter of an originHost object).
+            <d:DisplayName>WSD Version</d:DisplayName><d:Type>String</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="SASAddress" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The IP address for the SAS. This will be the (optional) external address for the SAS if configured, otherwise the internal address is returned.
+            <d:DisplayName>SAS Address</d:DisplayName><d:Type>String</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="ProvAddress" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The IP address for the web provisioning pool (EAS provisioning).
+            <d:DisplayName>Prov Address</d:DisplayName><d:Type>String</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="IMAPAddress" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The IP address for the IMAP pool.
+            <d:DisplayName>IMAP Address</d:DisplayName><d:Type>String</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="LDAPAddress" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The IP address of the LDAP pool.
+            <d:DisplayName>LDAP Address</d:DisplayName><d:Type>String</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="SMTPAddress" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The IP address of the SMTP pool.
+            <d:DisplayName>SMTP Address</d:DisplayName><d:Type>String</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="TUIAddress" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The IP address for the SIP TUI.  This address must only be used for SIP traffic.  If multiple VLANs are enabled, this is the IP address on the Signaling VLAN.
+            <d:DisplayName>TUI Address</d:DisplayName><d:Type>String</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="WebServicesAddress" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The IP address for web services administration.
+            <d:DisplayName>Web Services Address</d:DisplayName><d:Type>String</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="DomainPrefix" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The prefix to add to the federation's domain name to identify servers in this EAS system.
+            <d:DisplayName>Domain Prefix</d:DisplayName><d:Type>String</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="CommPortalSSOURLPrefix" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The URL prefix used for single sign-on from provisioning to CommPortal.
+            <d:DisplayName>CommPortal SSO URL Prefix</d:DisplayName><d:Type>String</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="NotificationServerType" type="tMsph_Global_Configuration_NotificationServerType">
+        <xs:annotation>
+          <xs:documentation>
+            The type of notification server used.
+            <d:DisplayName>Notification Server Type</d:DisplayName><d:Type>Choice of values</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:Values><d:Value>SNS</d:Value><d:Value>UNS</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="CommPortalAdminType" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The type of CommPortal admin.
+            <d:DisplayName>CommPortal Admin Type</d:DisplayName><d:Type>String</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="CommPortalClientVersion" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The CommPortal client version.
+            <d:DisplayName>CommPortal Client Version</d:DisplayName><d:Type>String</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="SyncPINandPassword" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Whether to synchronise PIN and password.
+            <d:DisplayName>Sync PIN and Password</d:DisplayName><d:Type>Choice of values</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="DeviceNotifyTypes" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The permitted device notification types.
+            <d:DisplayName>Device Notify Types</d:DisplayName><d:Type>String</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="ProvDefaultSubTimezone" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The default provisioning timezone for subscribers.
+            <d:DisplayName>Prov Default Sub Timezone</d:DisplayName><d:Type>String</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="ProvDefaultMWIMechanism" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The default provisioning MWI mechanism.
+            <d:DisplayName>Prov Default MWI Mechanism</d:DisplayName><d:Type>String</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="ProvDefaultNotifyDomain" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The default domain for notifications.
+            <d:DisplayName>Prov Default Notify Domain</d:DisplayName><d:Type>String</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="ProvPermitMatchingPhoneFax" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Permit matching phone and fax numbers.
+            <d:DisplayName>Prov Permit Matching Phone Fax</d:DisplayName><d:Type>Choice of values</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="ProvEditMWIType" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Whether the MWI mechanism and SMDI switch can be edited using the provisioning GUI.
+            <d:DisplayName>Prov Edit MWI Type</d:DisplayName><d:Type>Choice of values</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="ProvSuppressUnsupportedCOSSettings" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Whether to suppress unsupported COS settings.
+            <d:DisplayName>Prov Suppress Unsupported COS Settings</d:DisplayName><d:Type>Choice of values</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="ProvTUIinitPINonly" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Whether the TUI's first time initialization process requires only a PIN.
+            <d:DisplayName>Prov TUI init PIN only</d:DisplayName><d:Type>Choice of values</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="UsingDedicatedLinkServer" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Whether a dedicated link server is used.
+            <d:DisplayName>Using Dedicated Link Server</d:DisplayName><d:Type>Choice of values</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CodecInfo" type="tMsph_SDC_BaseInformation_CodecInfo">
+        <xs:annotation>
+          <xs:documentation>
+            Details about a supported codec.
+            <d:DisplayName>Codec Info</d:DisplayName><d:ValidFrom>1.11</d:ValidFrom><d:Type>Custom</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MessageWaitingCountsEnabled" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Whether Message Waiting Counts are enabled in the deployment.
+            <d:DisplayName>Message Waiting Counts Enabled</d:DisplayName><d:ValidFrom>1.5</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="EASProvisioningSubscriberAdminEnabled" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Whether this deployment supports subscriber administration via the EAS Provisioning GUI.
+            <d:DisplayName>EAS Provisioning Subscriber Admin Enabled</d:DisplayName><d:ValidFrom>1.9</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="iPhoneVVMManualEnable" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            If true then iPhone VVM Enabled needs to be enabled manually for each device. If false then iPhone VVM is enabled automatically at the device level.
+            <d:DisplayName>iPhone VVM Manual Enable</d:DisplayName><d:ValidFrom>1.12.1</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="iPhoneVVMSupported" type="tTrueFalse">
+        <xs:annotation>
+          <xs:documentation>
+            Whether Native iPhone Visual Voicemail is globally enabled for this SDC.
+            <d:DisplayName>iPhone VVM Supported</d:DisplayName><d:ValidFrom>1.12.1</d:ValidFrom><d:Type>Choice of values</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:Values><d:Value>True</d:Value><d:Value>False</d:Value></d:Values></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tMsph_SDC_BaseInformation_CodecInfo">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="CodecName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Name of the codec.
+            <d:DisplayName>Codec Name</d:DisplayName><d:ValidFrom>1.11</d:ValidFrom><d:Type>String</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>Yes</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="CodecExtension" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            File extension used by this codec.
+            <d:DisplayName>Codec Extension</d:DisplayName><d:ValidFrom>1.11</d:ValidFrom><d:Type>String</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>Yes</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="CodecContentType" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Content Type used by this codec.
+            <d:DisplayName>Codec Content Type</d:DisplayName><d:ValidFrom>1.11</d:ValidFrom><d:Type>String</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>Yes</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="tMsph_Global_Configuration_NotificationServerType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SNS" />
+      <xs:enumeration value="UNS" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

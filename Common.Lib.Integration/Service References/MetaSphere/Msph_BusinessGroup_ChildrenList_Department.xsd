@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://www.metaswitch.com/sdp/soap/sh/servicedata" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.metaswitch.com/sdp/soap/sh/servicedata" version="1.14" xsi:schemaLocation="http://www.metaswitch.com/sdp/soap/sh/documentation Documentation.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://www.w3.org/2005/05/xmlmime" namespace="http://www.w3.org/2005/05/xmlmime" />
+  <xs:include schemaLocation="Msph_CommonTypes.xsd" />
+  <xs:complexType name="tMsph_BusinessGroup_ChildrenList_Department">
+    <xs:annotation>
+      <xs:documentation>
+        Service indication used to list all departments within a Business Group fragment.
+        <d:Actions xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation" /><d:AuthLevel>admin</d:AuthLevel></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Department" type="tBGCLDepartment">
+        <xs:annotation>
+          <xs:documentation>
+            An entry representing a single department within a business group fragment.
+            <d:DisplayName>Department</d:DisplayName><d:Type>Custom</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tBGCLDepartment">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Name" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Name of this particular department.
+            <d:DisplayName>Name</d:DisplayName><d:Type>String</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>Yes</d:Mandatory><d:DefaultValue /></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="FullName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Full name of this particular department, including the parent department names, separated by ' / '. e.g. Development / System Test for the System Test department within the Development department.
+            <d:DisplayName>Full Name</d:DisplayName><d:Type>String</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue /></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="ParentDepartment" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Full name of the parent of this department in the same format as FullName or 'None' if no parent department.
+            <d:DisplayName>Parent Department</d:DisplayName><d:Type>String</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue /></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="OperatorNumber" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Directory Number of the Operator associated with this department. Does not inherit parent department's value.
+            <d:DisplayName>Operator Number</d:DisplayName><d:Type>String</d:Type><d:BaseAccess>R-R-R-</d:BaseAccess><d:Mandatory>No</d:Mandatory><d:DefaultValue /></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

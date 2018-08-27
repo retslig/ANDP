@@ -1,0 +1,349 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{45CDEE42-F3FB-4EA7-AEC0-F7B02547D598}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Common.Lib.MVC</RootNamespace>
+    <AssemblyName>Common.Lib.MVC</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=3.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="BrockAllen.MembershipReboot">
+      <HintPath>..\packages\BrockAllen.MembershipReboot.8.1.0\lib\net45\BrockAllen.MembershipReboot.dll</HintPath>
+    </Reference>
+    <Reference Include="BrockAllen.MembershipReboot.Ef">
+      <HintPath>..\packages\BrockAllen.MembershipReboot.Ef.8.0.0\lib\net45\BrockAllen.MembershipReboot.Ef.dll</HintPath>
+    </Reference>
+    <Reference Include="BrockAllen.MembershipReboot.WebHost">
+      <HintPath>..\packages\BrockAllen.MembershipReboot.WebHost.7.1.0\lib\net45\BrockAllen.MembershipReboot.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Services" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.1.0.0\lib\net45\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Routing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Thinktecture.IdentityModel, Version=3.6.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Thinktecture.IdentityModel.3.6.1\lib\net45\Thinktecture.IdentityModel.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActionResults\RavenMapperActionResult.cs" />
+    <Compile Include="ActionResults\XmlActionResult.cs" />
+    <Compile Include="Attributes\CommonMapperAttribute.cs" />
+    <Compile Include="Attributes\CurrencyFormatsAttribute.cs" />
+    <Compile Include="Attributes\CustomAttributes.cs" />
+    <Compile Include="Attributes\DateTimeFormatsAttribute.cs" />
+    <Compile Include="Attributes\GlobalizationAttributes.cs" />
+    <Compile Include="Controllers\ExtendedController.cs" />
+    <Compile Include="Exceptions\CustomExceptions.cs" />
+    <Compile Include="Extensions\Enum.cs" />
+    <Compile Include="Extensions\ModelState.cs" />
+    <Compile Include="Extensions\UserContext.cs" />
+    <Compile Include="Helpers\GlobalizationHelper.cs" />
+    <Compile Include="Helpers\JavascriptHelper.cs" />
+    <Compile Include="ActionFilters\RavenMapperActionFilter.cs" />
+    <Compile Include="Helpers\Languages.cs" />
+    <Compile Include="Helpers\Menu.cs" />
+    <Compile Include="Helpers\ResourceHelper.cs" />
+    <Compile Include="Attributes\ModelValidationAttributes.cs" />
+    <Compile Include="Infastructure\MVCServiceLocator.cs" />
+    <Compile Include="ModelBinders\CurrencyModelBinder.cs" />
+    <Compile Include="ModelBinders\DateTimeModelBinder.cs" />
+    <Compile Include="ModelBinders\TimeSpanModelBinder.cs" />
+    <Compile Include="Controllers\SharedController.cs" />
+    <Compile Include="Helpers\HtmlHelper.cs" />
+    <Compile Include="Helpers\MetaDataHelper.cs" />
+    <Compile Include="Helpers\ModelToJavascript.cs" />
+    <Compile Include="Models\GoogleChartsDataTable.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\ModelMetaData\ExtendedModelMetadataProvider.cs" />
+    <Compile Include="Providers\Resource\DatabaseResourceProviderFactory.cs" />
+    <Compile Include="Providers\Resource\DatabaseResourceReader.cs" />
+    <Compile Include="Providers\Resource\DatabaseResourceProvider.cs" />
+    <Compile Include="Providers\Resource\IResourceFactory.cs" />
+    <Compile Include="Providers\Resource\ResourceFactory.cs" />
+    <Compile Include="Resources\Global.designer.cs" />
+    <Compile Include="Security\Claims\MembershipRebootOAuthAuthorizationServerRefreshTokenProvider.cs" />
+    <Compile Include="Security\Claims\WcfAuthenticationManager.cs" />
+    <Compile Include="Security\OwinBasicAuth\BasicAuthenticationExtensions.cs" />
+    <Compile Include="Security\OwinBasicAuth\BasicAuthenticationHandler.cs" />
+    <Compile Include="Security\OwinBasicAuth\BasicAuthenticationMiddleware.cs" />
+    <Compile Include="Security\OwinBasicAuth\BasicAuthenticationOptions.cs" />
+    <Compile Include="Security\Claims\MembershipRebootOAuthAuthorizationServerProvider.cs" />
+    <Compile Include="Security\Claims\RestAuthenticationConfigurationHelper.cs" />
+    <Compile Include="Security\Claims\ProvisioningAuthenticationConfigurationHelper.cs" />
+    <Compile Include="Security\Claims\AuthorizationManager.cs" />
+    <Compile Include="Security\Claims\ProvisioningClaimsAuthenticationManager.cs" />
+    <Compile Include="Security\Claims\RestClaimsAuthenticationManager.cs" />
+    <Compile Include="Security\Claims\WcfAuthorizationManager.cs" />
+    <Compile Include="Serializer\JsonNetResult.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Content\Images\ajax-loader.gif" />
+    <EmbeddedResource Include="Content\Site.css" />
+    <EmbeddedResource Include="Resources\Global.de.resx" />
+    <EmbeddedResource Include="Resources\Global.es.resx" />
+    <EmbeddedResource Include="Resources\Global.resx" />
+    <EmbeddedResource Include="Scripts\BrowserDetection.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\Javascript.Controls.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Content\Images\aerostar.jpg" />
+    <EmbeddedResource Include="Content\Images\aerostar_bw.jpg" />
+    <EmbeddedResource Include="Content\Images\applied technology.jpg" />
+    <EmbeddedResource Include="Content\Images\applied technology_bw.jpg" />
+    <EmbeddedResource Include="Content\Images\applied technology_bw_resized.gif" />
+    <EmbeddedResource Include="Content\Images\applied technology_bw_resized.jpg" />
+    <EmbeddedResource Include="Content\Images\block.jpg" />
+    <EmbeddedResource Include="Content\Images\block_bw.jpg" />
+    <EmbeddedResource Include="Content\Images\corporate services division.jpg" />
+    <EmbeddedResource Include="Content\Images\corporate.gif" />
+    <EmbeddedResource Include="Content\Images\corporate.jpg" />
+    <EmbeddedResource Include="Content\Images\corporate_bw.jpg" />
+    <EmbeddedResource Include="Content\Images\electronic systems.jpg" />
+    <EmbeddedResource Include="Content\Images\electronic systems_bw.jpg" />
+    <EmbeddedResource Include="Content\Images\engineered films.jpg" />
+    <EmbeddedResource Include="Content\Images\engineered films_bw.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Content\jquery.qtip.css" />
+    <EmbeddedResource Include="Content\jquery.qtip.min.css" />
+    <EmbeddedResource Include="Scripts\jquery.qtip.js" />
+    <EmbeddedResource Include="Scripts\jquery.qtip.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\detect_timezone.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\DigitalClock.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Content\Images\loading-bar.gif" />
+    <EmbeddedResource Include="Content\fullcalendar.css" />
+    <EmbeddedResource Include="Content\fullcalendar.print.css" />
+    <EmbeddedResource Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <EmbeddedResource Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <EmbeddedResource Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <EmbeddedResource Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <EmbeddedResource Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <EmbeddedResource Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <EmbeddedResource Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <EmbeddedResource Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <EmbeddedResource Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <EmbeddedResource Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <EmbeddedResource Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <EmbeddedResource Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <EmbeddedResource Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <EmbeddedResource Include="Content\themes\base\jquery-ui.css" />
+    <EmbeddedResource Include="Content\themes\base\jquery.ui.accordion.css" />
+    <EmbeddedResource Include="Content\themes\base\jquery.ui.all.css" />
+    <EmbeddedResource Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <EmbeddedResource Include="Content\themes\base\jquery.ui.base.css" />
+    <EmbeddedResource Include="Content\themes\base\jquery.ui.button.css" />
+    <EmbeddedResource Include="Content\themes\base\jquery.ui.core.css" />
+    <EmbeddedResource Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <EmbeddedResource Include="Content\themes\base\jquery.ui.dialog.css" />
+    <EmbeddedResource Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <EmbeddedResource Include="Content\themes\base\jquery.ui.resizable.css" />
+    <EmbeddedResource Include="Content\themes\base\jquery.ui.selectable.css" />
+    <EmbeddedResource Include="Content\themes\base\jquery.ui.slider.css" />
+    <EmbeddedResource Include="Content\themes\base\jquery.ui.tabs.css" />
+    <EmbeddedResource Include="Content\themes\base\jquery.ui.theme.css" />
+    <EmbeddedResource Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <EmbeddedResource Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <EmbeddedResource Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <EmbeddedResource Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <EmbeddedResource Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <EmbeddedResource Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <EmbeddedResource Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <EmbeddedResource Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <EmbeddedResource Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <EmbeddedResource Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <EmbeddedResource Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <EmbeddedResource Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <EmbeddedResource Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <EmbeddedResource Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <EmbeddedResource Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <EmbeddedResource Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <EmbeddedResource Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <EmbeddedResource Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <EmbeddedResource Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <EmbeddedResource Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <EmbeddedResource Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <EmbeddedResource Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <EmbeddedResource Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <EmbeddedResource Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <EmbeddedResource Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <EmbeddedResource Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <EmbeddedResource Include="Scripts\fullcalendar.js" />
+    <EmbeddedResource Include="Scripts\fullcalendar.min.js" />
+    <EmbeddedResource Include="Scripts\gcal.js" />
+    <EmbeddedResource Include="Scripts\jquery-1.7.2.intellisense.js" />
+    <EmbeddedResource Include="Scripts\jquery-1.7.2.js" />
+    <EmbeddedResource Include="Scripts\jquery-1.7.2.min.js" />
+    <EmbeddedResource Include="Scripts\jquery-ui-1.8.24.js" />
+    <EmbeddedResource Include="Scripts\jquery-ui-1.8.24.min.js" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\NoCache.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ANDP.Lib\ANDP.Lib.csproj">
+      <Project>{2AC1BBE9-BAB9-4EEB-AABB-9D76F03EE658}</Project>
+      <Name>ANDP.Lib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Lib.Data\Common.Lib.Data.csproj">
+      <Project>{aac193fc-8867-479e-96f3-d5e5f194f5d5}</Project>
+      <Name>Common.Lib.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Lib.Domain\Common.Lib.Domain.csproj">
+      <Project>{d7ff5909-e901-42a0-ba81-cd0d8c377879}</Project>
+      <Name>Common.Lib.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Lib\Common.Lib.csproj">
+      <Project>{6271f6f1-b9a3-4a00-81bd-ac429bc892c2}</Project>
+      <Name>Common.Lib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+  </PropertyGroup>
+  <Import Project="..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets')" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

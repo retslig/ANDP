@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://www.metaswitch.com/sdp/soap/sh/servicedata" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.metaswitch.com/sdp/soap/sh/servicedata" version="1.14" xsi:schemaLocation="http://www.metaswitch.com/sdp/soap/sh/documentation Documentation.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="Msph_Subscriber_InitFlags.xsd" />
+  <xs:include schemaLocation="Msph_Subscriber_MWI.xsd" />
+  <xs:include schemaLocation="Msph_Subscriber_AppleVVM.xsd" />
+  <xs:include schemaLocation="Msph_Subscriber_BaseInformation.xsd" />
+  <xs:include schemaLocation="Msph_Subscriber_CTP.xsd" />
+  <xs:include schemaLocation="Msph_Subscriber_Contacts.xsd" />
+  <xs:include schemaLocation="Msph_Subscriber_GroupMailbox.xsd" />
+  <xs:include schemaLocation="Msph_Subscriber_Messaging.xsd" />
+  <xs:include schemaLocation="Msph_Subscriber_DCLTUI.xsd" />
+  <xs:include schemaLocation="Msph_Subscriber_Messaging_Status.xsd" />
+  <xs:include schemaLocation="Msph_Subscriber_Greetings.xsd" />
+  <xs:include schemaLocation="Msph_Subscriber_Greetings_Data.xsd" />
+  <xs:include schemaLocation="Msph_Subscriber_Messaging_Data.xsd" />
+  <xs:include schemaLocation="Msph_Subscriber_ContactGroup.xsd" />
+  <xs:include schemaLocation="Msph_Device_BaseInformation.xsd" />
+  <xs:include schemaLocation="Msph_VPIM.xsd" />
+  <xs:include schemaLocation="Msph_Subscriber_Notifications.xsd" />
+  <xs:include schemaLocation="Msph_Subscriber_ContactGroup_Recording.xsd" />
+  <xs:include schemaLocation="Msph_ClassOfService.xsd" />
+  <xs:include schemaLocation="Msph_Subscriber_CustomData.xsd" />
+  <xs:include schemaLocation="Msph_CustomerGroup_Reduced.xsd" />
+  <xs:include schemaLocation="Msph_CustomerGroup.xsd" />
+  <xs:include schemaLocation="Msph_CustomerGroup_Administrators.xsd" />
+  <xs:include schemaLocation="Msph_Subscriber_CallTree_BaseInformation.xsd" />
+  <xs:include schemaLocation="Msph_Subscriber_CallTree_Nodes.xsd" />
+  <xs:include schemaLocation="Msph_Subscriber_CallTree_Announcements.xsd" />
+  <xs:include schemaLocation="Msph_Subscriber_CallTree_AnnouncementsData.xsd" />
+  <xs:include schemaLocation="Msph_Subscriber_CallTree_DialByExtensionList.xsd" />
+  <xs:include schemaLocation="Msph_Subscriber_CallTree_RecordedNamesData.xsd" />
+  <xs:include schemaLocation="Msph_Subscriber_CallTree_RecordedNames.xsd" />
+  <xs:include schemaLocation="Msph_Subscriber_CallTree_Settings.xsd" />
+  <xs:include schemaLocation="Msph_Subscriber_CallTree_BGExtensionList.xsd" />
+  <xs:include schemaLocation="Msph_Subscriber_Schedules.xsd" />
+  <xs:include schemaLocation="Msph_BusinessGroup_BaseInformation.xsd" />
+  <xs:include schemaLocation="Msph_BusinessGroup_DialingPlan_IntercomCodeRangesList.xsd" />
+  <xs:include schemaLocation="Msph_IntercomCodeRange_BaseInformation.xsd" />
+  <xs:include schemaLocation="Msph_Department_BaseInformation.xsd" />
+  <xs:include schemaLocation="Msph_BusinessGroup_ChildrenList_Department.xsd" />
+  <xs:include schemaLocation="Msph_BusinessGroup_ChildrenList_Subscriber_AllFragments.xsd" />
+  <xs:include schemaLocation="Msph_BusinessGroup_ChildrenList_Subscriber.xsd" />
+  <xs:include schemaLocation="Msph_Subscriber_BusinessGroup.xsd" />
+  <xs:include schemaLocation="Msph_SDC_BaseInformation.xsd" />
+  <xs:include schemaLocation="Msph_Subscriber_Reminders.xsd" />
+  <xs:include schemaLocation="Msph_Subscriber_FutureDeliveryQueue.xsd" />
+  <xs:include schemaLocation="Msph_Subscriber_CallRouter.xsd" />
+  <xs:include schemaLocation="Msph_Subscriber_CTD.xsd" />
+  <xs:include schemaLocation="Msph_Subscriber_FMFM.xsd" />
+  <xs:include schemaLocation="Msph_Subscriber_LiveMessage.xsd" />
+  <xs:complexType name="tServiceData">
+    <xs:choice>
+      <xs:element name="MetaSphereData" type="tMetaSphereData" />
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="tMetaSphereData">
+    <xs:choice>
+      <xs:element name="Msph_Subscriber_InitFlags" type="tMsph_Subscriber_InitFlags">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Subscriber : Phone number</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_Subscriber_MWI" type="tMsph_Subscriber_MWI">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Subscriber : Phone number</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_Subscriber_AppleVVM" type="tMsph_Subscriber_AppleVVM">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Subscriber : Phone number</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_Subscriber_BaseInformation" type="tMsph_Subscriber_BaseInformation">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Subscriber : Phone number or (ShUpdate only) * for multiple updates</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_Subscriber_CTP" type="tMsph_Subscriber_CTP">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Subscriber : Phone number</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_Subscriber_Contacts" type="tMsph_Subscriber_Contacts">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Subscriber : Phone number</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_Subscriber_GroupMailbox" type="tMsph_Subscriber_GroupMailbox">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Subscriber : Phone number</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_Subscriber_Messaging" type="tMsph_Subscriber_Messaging">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Subscriber : Phone number</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_Subscriber_DCLTUI" type="tMsph_Subscriber_DCLTUI">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Subscriber : Phone number</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_Subscriber_Messaging_Status" type="tMsph_Subscriber_Messaging_Status">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Subscriber : Phone number</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_Subscriber_Greetings" type="tMsph_Subscriber_Greetings">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Subscriber : Phone number</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_Subscriber_Greetings_Data" type="tMsph_Subscriber_Greetings_Data">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Subscriber : Phone number</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_Subscriber_Messaging_Data" type="tMsph_Subscriber_Messaging_Data">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Subscriber : Phone number</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_Subscriber_ContactGroup" type="tMsph_Subscriber_ContactGroup">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Subscriber : Phone number</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_Device_BaseInformation" type="tMsph_Device_BaseInformation">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Device : Phone number</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_VPIM" type="tMsph_VPIM">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Device : Phone number or (ShUpdate only) * for multiple updates</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_Subscriber_Notifications" type="tMsph_Subscriber_Notifications">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Subscriber : Phone number</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_Subscriber_ContactGroup_Recording" type="tMsph_Subscriber_ContactGroup_Recording">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Subscriber : Phone number</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_ClassOfService" type="tMsph_ClassOfService">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Class Of Service : Name</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_Subscriber_CustomData" type="tMsph_Subscriber_CustomData">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Subscriber : Phone number</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_CustomerGroup_Reduced" type="tMsph_CustomerGroup_Reduced">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Customer Group: Name</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_CustomerGroup" type="tMsph_CustomerGroup">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Customer Group: Name</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_CustomerGroup_Administrators" type="tMsph_CustomerGroup_Administrators">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Customer Group: Name</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_Subscriber_CallTree_BaseInformation" type="tMsph_Subscriber_CallTree_BaseInformation">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Subscriber : Phone number</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_Subscriber_CallTree_Nodes" type="tMsph_Subscriber_CallTree_Nodes">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Subscriber : Phone number</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_Subscriber_CallTree_Announcements" type="tMsph_Subscriber_CallTree_Announcements">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Subscriber : Phone number</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_Subscriber_CallTree_AnnouncementsData" type="tMsph_Subscriber_CallTree_AnnouncementsData">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Subscriber : Phone number</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_Subscriber_CallTree_DialByExtensionList" type="tMsph_Subscriber_CallTree_DialByExtensionList">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Subscriber : Phone number</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_Subscriber_CallTree_RecordedNamesData" type="tMsph_Subscriber_CallTree_RecordedNamesData">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Subscriber : Phone number</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_Subscriber_CallTree_RecordedNames" type="tMsph_Subscriber_CallTree_RecordedNames">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Subscriber : Phone number</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_Subscriber_CallTree_Settings" type="tMsph_Subscriber_CallTree_Settings">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Subscriber : Phone number</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_Subscriber_CallTree_BGExtensionList" type="tMsph_Subscriber_CallTree_BGExtensionList">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Subscriber : Phone number</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_Subscriber_Schedules" type="tMsph_Subscriber_Schedules">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Subscriber : Phone number</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_BusinessGroup_BaseInformation" type="tMsph_BusinessGroup_BaseInformation">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Business Group: Business Group fragment name</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_BusinessGroup_DialingPlan_IntercomCodeRangesList" type="tMsph_BusinessGroup_DialingPlan_IntercomCodeRangesList">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Business Group: Business Group fragment name</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_IntercomCodeRange_BaseInformation" type="tMsph_IntercomCodeRange_BaseInformation">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Business Group: Business Group name</d:Identifier>
+              <d:Identifier>Intercom Code Range : First code</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_Department_BaseInformation" type="tMsph_Department_BaseInformation">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Business Group: Business Group fragment name</d:Identifier>
+              <d:Identifier>Department: Full name</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_BusinessGroup_ChildrenList_Department" type="tMsph_BusinessGroup_ChildrenList_Department">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Business Group: Business Group fragment name</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_BusinessGroup_ChildrenList_Subscriber_AllFragments" type="tMsph_BusinessGroup_ChildrenList_Subscriber_AllFragments">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Business Group: Business Group fragment name</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_BusinessGroup_ChildrenList_Subscriber" type="tMsph_BusinessGroup_ChildrenList_Subscriber">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Business Group: BG fragment name with optional dept filter (?filterDepartment=&lt;Fullname&gt;)</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_Subscriber_BusinessGroup" type="tMsph_Subscriber_BusinessGroup">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Subscriber : Phone number</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_SDC_BaseInformation" type="tMsph_SDC_BaseInformation">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>No user identity - pass 0</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_Subscriber_Reminders" type="tMsph_Subscriber_Reminders">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Subscriber : Phone number</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_Subscriber_FutureDeliveryQueue" type="tMsph_Subscriber_FutureDeliveryQueue">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Subscriber : Phone number</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_Subscriber_CallRouter" type="tMsph_Subscriber_CallRouter">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Subscriber : Phone number</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_Subscriber_CTD" type="tMsph_Subscriber_CTD">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Subscriber : Phone number</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_Subscriber_FMFM" type="tMsph_Subscriber_FMFM">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Subscriber : Phone number</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Msph_Subscriber_LiveMessage" type="tMsph_Subscriber_LiveMessage">
+        <xs:annotation>
+          <xs:documentation>
+            <d:Identifiers xmlns:d="http://www.metaswitch.com/sdp/soap/sh/documentation">
+              <d:Identifier>Subscriber : Phone number</d:Identifier>
+            </d:Identifiers>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+</xs:schema>

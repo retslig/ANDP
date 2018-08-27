@@ -1,0 +1,453 @@
+<#@ import namespace="System.Collections.Generic" #>
+<#
+fileManager.StartHeader();
+// Copyright © Simon Hughes 2012
+// v2.4.1
+#>
+// ReSharper disable RedundantUsingDirective
+// ReSharper disable DoNotCallOverridableMethodsInConstructor
+// ReSharper disable InconsistentNaming
+// ReSharper disable PartialTypeWithSinglePart
+// ReSharper disable PartialMethodWithSinglePart
+// ReSharper disable RedundantNameQualifier
+
+using System;
+using Common.Lib.EntityProvider;
+using System.Data.Entity.Infrastructure;
+<# if(ElementsToGenerate.HasFlag(Elements.Poco)){ #>
+using System.Collections.Generic;
+<# } #>
+<# if((ElementsToGenerate.HasFlag(Elements.Context) || ElementsToGenerate.HasFlag(Elements.Poco)) && IsSupportedFrameworkVersion("4.5")){ #>
+using System.ComponentModel.DataAnnotations.Schema;
+<# } #>
+<# if(ElementsToGenerate.HasFlag(Elements.Context) || ElementsToGenerate.HasFlag(Elements.UnitOfWork)){ #>
+using System.Data.Entity;
+<# } #>
+<# if(ElementsToGenerate.HasFlag(Elements.PocoConfiguration)){ #>
+using System.Data.Entity.ModelConfiguration;
+<# } #>
+<# if(AddWcfDataAttributes){ #>
+using System.Runtime.Serialization;
+<# } #>
+<# if((ElementsToGenerate.HasFlag(Elements.PocoConfiguration) || ElementsToGenerate.HasFlag(Elements.Context) || ElementsToGenerate.HasFlag(Elements.UnitOfWork)) && 
+      (!ElementsToGenerate.HasFlag(Elements.Poco) && !string.IsNullOrWhiteSpace(PocoNamespace))){ #>
+using <#= PocoNamespace #>;
+<# } #>
+<# 	if(	ElementsToGenerate.HasFlag(Elements.PocoConfiguration) && 
+        (!ElementsToGenerate.HasFlag(Elements.Context) && !string.IsNullOrWhiteSpace(ContextNamespace))){ #>
+using <#= ContextNamespace #>;
+<# } #>
+<# 	if( ElementsToGenerate.HasFlag(Elements.Context) && 
+        (!ElementsToGenerate.HasFlag(Elements.UnitOfWork) && !string.IsNullOrWhiteSpace(UnitOfWorkNamespace))){ #>
+using <#= UnitOfWorkNamespace #>;
+<# } #>
+<# 	if( ElementsToGenerate.HasFlag(Elements.Context) && 
+        (!ElementsToGenerate.HasFlag(Elements.PocoConfiguration) && !string.IsNullOrWhiteSpace(PocoConfigurationNamespace))){ #>
+using <#= PocoConfigurationNamespace #>;
+<# } #>
+<# 	if(	ElementsToGenerate.HasFlag(Elements.PocoConfiguration)){
+        switch (TargetFrameworkVersion)
+        {
+            case "4.0":#>
+using DatabaseGeneratedOption = System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption;
+<#              break;
+            default: #>
+//using DatabaseGeneratedOption = System.ComponentModel.DataAnnotations.DatabaseGeneratedOption;
+<#              break;
+        }
+    }    
+#>
+<#if (!string.IsNullOrEmpty(CollectionTypeNamespace)){
+        #>using <#=CollectionTypeNamespace#>;
+<#}#>
+
+namespace <#= Namespace #>
+{
+<# if(ElementsToGenerate.HasFlag(Elements.UnitOfWork)){ 
+       fileManager.StartNewFile("I" + DbContextName + FileExtension); 
+       if(!GenerateSeparateFiles) { #>
+    // ************************************************************************
+    // Unit of work
+<# } #>
+    public interface I<#=DbContextName#> : IDisposable
+    {
+<#
+var tempTables = tables.Where(t => !t.IsMapping).OrderBy(x => x.NameHumanCase).ToList();
+if(ElementsToGenerate.HasFlag(Elements.Enum))
+{
+	tempTables = tempTables.Where(t => !t.NameHumanCase.ToLower().Contains("enum")).ToList();
+}
+
+foreach(Table tbl in tempTables)
+{
+#>
+        IDbSet<<#=tbl.NameHumanCase#>> <#=Inflector.MakePlural(tbl.NameHumanCase)#> { get; set; }<#if(IncludeComments){#> // <#=tbl.Name#>
+<# } else { #>
+
+<# } #>
+<# } #>
+
+		string ConnectionString { get; }
+
+		/// <summary>
+		/// Saves the changes and removes specified entity from context if set to true.
+		/// </summary>
+		/// <typeparam name="TEntity">The type of the entity.</typeparam>
+		/// <param name="removeSpecifiedEntities">if set to <c>true</c> [remove specified entities].</param>
+		/// <returns></returns>
+		int SaveChanges<TEntity>(bool removeSpecifiedEntities);
+
+
+		/// <summary>
+		/// Saves the changes.
+		/// </summary>
+		/// <param name="removeAllEntities">if set to <c>true</c> [remove all entities].</param>
+		/// <returns></returns>
+		int SaveChanges(bool removeAllEntities);
+
+		/// <summary>
+		/// Persists all updates to the store.
+		/// </summary>
+		/// <returns>The number of saved objects</returns>
+		int SaveChanges();
+
+		/// <summary>
+		/// Refreshes the entire context using the store.
+		/// </summary>
+		void RefreshAll();
+
+		/// <summary>
+		/// Refreshes the entity.
+		/// </summary>
+		/// <typeparam name="TEntity">The type of the entity.</typeparam>
+		/// <param name="entity">The entity.</param>
+		void RefreshEntity<TEntity>(TEntity entity) where TEntity : class;
+
+		/// <summary>
+		/// Refreshes the entities.
+		/// </summary>
+		/// <typeparam name="TEntity">The type of the entity.</typeparam>
+		/// <param name="entities">The entities.</param>
+		void RefreshEntities<TEntity>(IEnumerable<TEntity> entities) where TEntity : class;
+		
+		/// <summary>
+		/// Clears the context entries.
+		/// </summary>
+		void ClearContextEntries<TEntity>();
+
+		/// <summary>
+		/// Clears the context entries.
+		/// </summary>
+		void ClearContextEntries();
+
+		/// <summary>
+		/// Attaches the entity.
+		/// </summary>
+		/// <typeparam name="TEntity">The type of the entity.</typeparam>
+		/// <param name="context">The context.</param>
+		/// <param name="entity">The entity.</param>
+		/// <param name="keyNames">Name of the key.</param>
+		/// <param name="userId">The user unique identifier.</param>
+		/// <exception cref="System.Exception">The given key( + keyName + ) for entity( + entities.FirstOrDefault().GetType().Name + ) is not found.</exception>
+		void AttachEntity<TEntity>(DbContext context, TEntity entity, IEnumerable<string> keyNames, string userId) where TEntity : class;
+
+		/// <summary>
+		/// Attaches the entities.
+		/// </summary>
+		/// <typeparam name="TEntity">The type of the entity.</typeparam>
+		/// <param name="context">The context.</param>
+		/// <param name="entities">The entities.</param>
+		/// <param name="keyNames">Name of the key.</param>
+		/// <param name="userId">The user unique identifier.</param>
+		/// <exception cref="System.Exception">The given key( + keyName + ) for entity( + entity.GetType().Name + ) is not found.</exception>
+		void AttachEntities<TEntity>(DbContext context, IEnumerable<TEntity> entities, IEnumerable<string> keyNames, string userId) where TEntity : class;
+
+		/// <summary>
+		/// Bulks the attach entities.
+		/// </summary>
+		/// <typeparam name="TEntity">The type of the entity.</typeparam>
+		/// <param name="entities">The entities.</param>
+		/// <param name="keyName">Name of the key.</param>
+		/// <param name="userId">The user unique identifier.</param>
+		void BulkAttachEntities<TEntity>(IEnumerable<TEntity> entities, string keyName, string userId) where TEntity : class;
+
+		/// <summary>
+		/// Bulks the insert.
+		/// This will NOT work for updates!!!
+		/// </summary>
+		/// <typeparam name="TEntity">The type of the entity.</typeparam>
+		/// <param name="entities">The entities.</param>
+		void BulkInsert<TEntity>(IEnumerable<TEntity> entities) where TEntity : class;
+    }
+
+<# }
+    if(ElementsToGenerate.HasFlag(Elements.Context)){ 
+    fileManager.StartNewFile(DbContextName + FileExtension); #>
+<# if(!GenerateSeparateFiles) { #>
+    // ************************************************************************
+    // Database context
+<# } #>
+    public <# if(MakeClassesPartial) { #>partial <# } #>class <#=DbContextName#> : CommonDbContext, I<#=DbContextName#>, IDbModelCacheKeyProvider
+    {
+<#
+var tempTables = tables.Where(t => !t.IsMapping).OrderBy(x => x.NameHumanCase).ToList();
+if(ElementsToGenerate.HasFlag(Elements.Enum))
+{
+	tempTables = tempTables.Where(t => !t.NameHumanCase.ToLower().Contains("enum")).ToList();
+}
+
+foreach(Table tbl in tempTables)
+{
+#>
+        public IDbSet<<#=tbl.NameHumanCase#>> <#=Inflector.MakePlural(tbl.NameHumanCase)#> { get; set; }<#if(IncludeComments){#> // <#=tbl.Name#>
+<# } else { #>
+
+<# } #>
+<# } #>
+
+        static <#=DbContextName#>()
+        {
+            Database.SetInitializer<<#=DbContextName#>>(null);
+        }
+
+        public <#=DbContextName#>()
+            : base("Name=<#=ConnectionStringName#>")
+        {
+<#if(MakeClassesPartial) {#>        InitializePartial();
+<#}#>
+        }
+
+        public <#=DbContextName#>(string connectionString) : base(connectionString)
+        {
+<#if(MakeClassesPartial) {#>        InitializePartial();
+<#}#>
+        }
+
+		public <#=DbContextName#>(string connectionString, string schema) : base(connectionString)
+        {
+            Database.SetInitializer<<#=DbContextName#>>(null);
+            this.SchemaName = schema;
+        }
+
+        public <#=DbContextName#>(string connectionString, System.Data.Entity.Infrastructure.DbCompiledModel model) : base(connectionString, model)
+        {
+<#if(MakeClassesPartial) {#>        InitializePartial();
+<#}#>
+        }
+
+		public string SchemaName { get; private set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+<#
+tempTables = tables.Where(t => !t.IsMapping).OrderBy(x => x.NameHumanCase).ToList();
+if(ElementsToGenerate.HasFlag(Elements.Enum))
+{
+	tempTables = tempTables.Where(t => !t.NameHumanCase.ToLower().Contains("enum")).ToList();
+}
+
+
+foreach(Table tbl in tempTables)
+{
+#>
+            modelBuilder.Configurations.Add(string.IsNullOrEmpty(this.SchemaName)
+                ? new <#=tbl.NameHumanCase + ConfigurationClassName#>()
+                : new <#=tbl.NameHumanCase + ConfigurationClassName#>(this.SchemaName));
+
+<# } #>
+<#if(MakeClassesPartial) {#>        OnModelCreatingPartial(modelBuilder);
+<#}#>
+        }
+
+        public static DbModelBuilder CreateModel(DbModelBuilder modelBuilder, string schema)
+        {
+<#
+tempTables = tables.Where(t => !t.IsMapping).OrderBy(x => x.NameHumanCase).ToList();
+if(ElementsToGenerate.HasFlag(Elements.Enum))
+{
+	tempTables = tempTables.Where(t => !t.NameHumanCase.ToLower().Contains("enum")).ToList();
+}
+
+foreach(Table tbl in tempTables)
+{
+#>
+            modelBuilder.Configurations.Add(new <#=tbl.NameHumanCase + ConfigurationClassName#>(schema));
+<# } #>
+            return modelBuilder;
+        }
+<#if(MakeClassesPartial) {#>
+
+        partial void InitializePartial();
+        partial void OnModelCreatingPartial(DbModelBuilder modelBuilder);
+<#}#>
+
+		public string CacheKey { get { return this.SchemaName; } }
+
+    }
+<# }
+ if(ElementsToGenerate.HasFlag(Elements.Poco)){
+ if(!GenerateSeparateFiles) { #>
+
+    // ************************************************************************
+    // POCO classes
+
+<# } #>
+<#
+var tempTables = tables.Where(t => !t.IsMapping).OrderBy(x => x.NameHumanCase).ToList();
+if(ElementsToGenerate.HasFlag(Elements.Enum))
+{
+	tempTables = tempTables.Where(t => !t.NameHumanCase.ToLower().Contains("enum")).ToList();
+}
+
+foreach(Table tbl in tempTables)
+{
+#>
+<# fileManager.StartNewFile(tbl.NameHumanCase + FileExtension); #>
+<#if(IncludeComments){#>    // <#=tbl.Name#>
+<# } #>
+<# if(AddWcfDataAttributes) { #>    [DataContract<#=ExtraWcfDataContractAttributes#>]
+<# } 
+    WritePocoClassAttributes(tbl);#>
+    public <# if(MakeClassesPartial) { #>partial <# } #>class <#=tbl.NameHumanCase#><#=WritePocoBaseClasses != null ? " : " + WritePocoBaseClasses(tbl) : "" #>
+    {
+<# WritePocoBaseClassBody(tbl); #>
+<# int DataMemberOrder = 1;
+foreach(Column col in tbl.Columns.OrderBy(x => x.Ordinal))
+{
+#>
+<# if(AddWcfDataAttributes) { #>        [DataMember(Order = <#=DataMemberOrder++#>, IsRequired = <#=col.IsNullable ? "false" : "true"#>)]
+<# } #>
+        <#= WritePocoColumn(col) #>
+<# if(AddWcfDataAttributes) { #>
+
+<# } } #>
+<#
+if(tbl.ReverseNavigationProperty.Count() > 0)
+{
+#>
+
+<#if(IncludeComments){#>        // Reverse navigation
+<# } #>
+<#
+foreach(string s in tbl.ReverseNavigationProperty.OrderBy(x => x))
+{
+#>
+        <#=s #>
+<# } } #>
+<# if(tbl.HasForeignKey) { #>
+
+<#if(IncludeComments){#>        // Foreign keys
+<# } #>
+<#
+
+foreach(Column col in from c in tbl.Columns.OrderBy(x => x.EntityFk) where c.EntityFk != null select c)
+{
+#>
+        <#=col.EntityFk #>
+<# } } #>
+<# 
+if(tbl.Columns.Where(c => c.Default != string.Empty).Count() > 0 || tbl.ReverseNavigationCtor.Count() > 0) 
+{ 
+#>
+
+        public <#=tbl.NameHumanCase#>()
+        {
+<#
+foreach(Column col in tbl.Columns.OrderBy(x => x.Ordinal).Where(c => c.Default != string.Empty))
+{
+#>
+            <#=col.PropertyNameHumanCase #> = <#=col.Default #>;
+<# } #>
+<#
+foreach(string s in tbl.ReverseNavigationCtor)
+{
+#>
+            <#=s #>
+<# } 
+if(MakeClassesPartial) {#>
+            InitializePartial();
+<#}#>        }
+<#if(MakeClassesPartial) {#>        partial void InitializePartial();
+<#} }#>
+    }
+
+<# } } #> 
+<#
+if(ElementsToGenerate.HasFlag(Elements.Enum)){ #>
+
+    // ************************************************************************
+    // Enums
+	
+	<# var data = GetEnumsData(); #>	
+	<#=data#>
+<# } #>
+
+<#
+if(ElementsToGenerate.HasFlag(Elements.PocoConfiguration)){
+if(!GenerateSeparateFiles) { #>
+
+    // ************************************************************************
+    // POCO Configuration
+
+<# } #>
+<#
+var tempTables = tables.Where(t => !t.IsMapping).OrderBy(x => x.NameHumanCase).ToList();
+if(ElementsToGenerate.HasFlag(Elements.Enum))
+{
+	tempTables = tempTables.Where(t => !t.NameHumanCase.ToLower().Contains("enum")).ToList();
+}
+
+foreach(Table tbl in tempTables)
+{
+#>
+<# fileManager.StartNewFile(tbl.NameHumanCase + ConfigurationClassName + FileExtension); #>
+<#if(IncludeComments){#>    // <#=tbl.Name#>
+<# } #>
+    internal <# if(MakeClassesPartial) { #>partial <# } #>class <#=tbl.NameHumanCase + ConfigurationClassName#> : EntityTypeConfiguration<<#=tbl.NameHumanCase#>>
+    {
+        public <#=tbl.NameHumanCase + ConfigurationClassName#>(string schema = "<#=tbl.Schema#>")
+        {
+ <# if (!string.IsNullOrEmpty(tbl.Schema)) { #>
+           ToTable(schema + ".<#=tbl.Name#>");
+ <# } else { #>
+           ToTable("<#=tbl.Name#>");
+ <# } #>
+           HasKey(<#=tbl.PrimaryKeyNameHumanCase()#>);
+
+<#
+foreach(Column col in tbl.Columns.OrderBy(x => x.Ordinal))
+{
+#>
+            <#=col.Config #>
+<# } #>
+<# if(tbl.HasForeignKey) { #>
+
+<#if(IncludeComments){#>            // Foreign keys
+<# } #>
+<#
+foreach(Column col in from c in tbl.Columns.OrderBy(x => x.Ordinal) where c.ConfigFk != null select c)
+{
+#>
+            <#=col.ConfigFk #>
+<# } } #>
+<#
+foreach (string s in tbl.MappingConfiguration)
+{
+#>
+            <#=s#>
+<# } #>
+<#if(MakeClassesPartial) {#>
+            InitializePartial();
+<#}#>        }
+<#if(MakeClassesPartial) {#>
+        partial void InitializePartial();
+<#}#>    }
+
+<# } } #>
+<# fileManager.StartFooter(); #>
+}
+<# fileManager.EndBlock();
+if(GenerateSeparateFiles)
+    fileManager.Process(); #>

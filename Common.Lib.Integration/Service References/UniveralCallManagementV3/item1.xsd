@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/UniveralCallManagementV3" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/UniveralCallManagementV3" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="DaysOfTheWeek_e">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Sunday" />
+      <xs:enumeration value="Monday" />
+      <xs:enumeration value="Tuesday" />
+      <xs:enumeration value="Wednesday" />
+      <xs:enumeration value="Thursday" />
+      <xs:enumeration value="Friday" />
+      <xs:enumeration value="Saturday" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DaysOfTheWeek_e" nillable="true" type="tns:DaysOfTheWeek_e" />
+  <xs:simpleType name="VipType_e">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Group" />
+      <xs:enumeration value="Contact" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="VipType_e" nillable="true" type="tns:VipType_e" />
+  <xs:simpleType name="ScheduleType_e">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ActiveAllDay" />
+      <xs:enumeration value="InactiveAllDay" />
+      <xs:enumeration value="Custom" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ScheduleType_e" nillable="true" type="tns:ScheduleType_e" />
+  <xs:simpleType name="AddDelete_e">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Add" />
+      <xs:enumeration value="Delete" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AddDelete_e" nillable="true" type="tns:AddDelete_e" />
+  <xs:simpleType name="TransferNumber_e">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="One" />
+      <xs:enumeration value="Two" />
+      <xs:enumeration value="Three" />
+      <xs:enumeration value="Four" />
+      <xs:enumeration value="Five" />
+      <xs:enumeration value="Six" />
+      <xs:enumeration value="Seven" />
+      <xs:enumeration value="Eight" />
+      <xs:enumeration value="Nine" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TransferNumber_e" nillable="true" type="tns:TransferNumber_e" />
+  <xs:complexType name="UniversalCallMgrSubType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AnnouncementDelay" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Enabled" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ForwardToVoicemail" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumbersToCall" nillable="true" type="tns:ArrayOfUniversalCallMgrItemType" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubscriberID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TCM" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="UseReleaseLinkTrunking" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UniversalCallMgrSubType" nillable="true" type="tns:UniversalCallMgrSubType" />
+  <xs:complexType name="ArrayOfUniversalCallMgrItemType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UniversalCallMgrItemType" nillable="true" type="tns:UniversalCallMgrItemType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUniversalCallMgrItemType" nillable="true" type="tns:ArrayOfUniversalCallMgrItemType" />
+  <xs:complexType name="UniversalCallMgrItemType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Delay" type="xs:int" />
+      <xs:element minOccurs="0" name="Enabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Priority" type="xs:int" />
+      <xs:element minOccurs="0" name="Schedule" nillable="true" type="tns:ArrayOfScheduleType" />
+      <xs:element minOccurs="0" name="TransferNumber" type="tns:TransferNumber_e" />
+      <xs:element minOccurs="0" name="VIPList" nillable="true" type="tns:ArrayOfContactListType" />
+      <xs:element minOccurs="0" name="VerifyCalledParty" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Wait" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UniversalCallMgrItemType" nillable="true" type="tns:UniversalCallMgrItemType" />
+  <xs:complexType name="ArrayOfScheduleType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ScheduleType" nillable="true" type="tns:ScheduleType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfScheduleType" nillable="true" type="tns:ArrayOfScheduleType" />
+  <xs:complexType name="ScheduleType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Day" type="tns:DaysOfTheWeek_e" />
+      <xs:element minOccurs="0" name="EndTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ScheduleTimeType" type="tns:ScheduleType_e" />
+      <xs:element minOccurs="0" name="StartTime" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ScheduleType" nillable="true" type="tns:ScheduleType" />
+  <xs:complexType name="ArrayOfContactListType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ContactListType" nillable="true" type="tns:ContactListType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfContactListType" nillable="true" type="tns:ArrayOfContactListType" />
+  <xs:complexType name="ContactListType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ContactGuid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactType" type="tns:VipType_e" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContactListType" nillable="true" type="tns:ContactListType" />
+</xs:schema>

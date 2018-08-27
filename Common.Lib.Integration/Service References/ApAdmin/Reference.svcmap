@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="24ca0000-3743-49b0-b355-13d2ae3bf01b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://A19226:8731/Design_Time_Addresses/LoginService/ApAdmin/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="e09b8e62-40b5-4157-b4de-a0f591aa5a87" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/LoginService/ApAdmin/?xsd=xsd1" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="4bdfee41-98fd-416e-bb74-b25dea7a9666" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/LoginService/ApAdmin/?xsd=xsd0" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="b1d2c138-a462-41f4-9db5-bf6e8cf889fa" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/LoginService/ApAdmin/?disco" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="4b10a480-0d2b-41c0-b6ba-5612d55e6793" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/LoginService/ApAdmin/?xsd=xsd2" />
+    <MetadataFile FileName="ApAdmin.wsdl" MetadataType="Wsdl" ID="2e7cde8b-0443-43fc-a3dc-b5aa370e99c8" SourceId="1" SourceUrl="http://a19226:8731/Design_Time_Addresses/LoginService/ApAdmin/?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

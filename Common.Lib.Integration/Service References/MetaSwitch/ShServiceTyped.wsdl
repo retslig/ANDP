@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:intf="http://www.metaswitch.com/ems/soap/sh" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:impl="http://www.metaswitch.com/ems/soap/sh" xmlns:tns1="http://www.metaswitch.com/ems/soap/sh" targetNamespace="http://www.metaswitch.com/ems/soap/sh" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:u="http://www.metaswitch.com/ems/soap/sh/userdata" xmlns:m="http://www.metaswitch.com/ems/soap/sh" elementFormDefault="qualified" targetNamespace="http://www.metaswitch.com/ems/soap/sh">
+      <xsd:import schemaLocation="userData.xsd" namespace="http://www.metaswitch.com/ems/soap/sh/userdata" />
+      <xsd:element name="ShPull">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="UserIdentity" type="m:tUserIdentity" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="DataReference" type="m:tDataReference" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="ServiceIndication" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="OriginHost" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ShPullResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="ResultCode" type="m:tResultCode" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="ExtendedResult" type="m:tExtendedResult" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="UserData" type="u:tUserData" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ShUpdate">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="UserIdentity" type="m:tUserIdentity" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="DataReference" type="m:tDataReference" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="UserData" type="u:tUserData" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="OriginHost" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ShUpdateResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="ResultCode" type="m:tResultCode" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="ExtendedResult" type="m:tExtendedResult" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:simpleType name="tDataReference">
+        <xsd:restriction base="xsd:int">
+          <xsd:minInclusive value="0" />
+          <xsd:maxInclusive value="0" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="tUserIdentity">
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="[0-9]*" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="tResultCode">
+        <xsd:restriction base="xsd:int">
+          <xsd:minInclusive value="1000" />
+          <xsd:maxInclusive value="9999" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="tExtendedResult">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="ExtendedResultCode" type="xsd:int" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="ExtendedResultDetail" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="ExtendedSubResults" type="m:tExtendedSubResults" />
+          <xsd:any minOccurs="0" maxOccurs="unbounded" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tExtendedSubResults">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SubResult" type="m:tSubResult" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tSubResult">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="SubResultCode" type="xsd:int" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="SubResultDetail" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="SubResultSource" type="xsd:string" />
+          <xsd:any minOccurs="0" maxOccurs="unbounded" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ShPull">
+    <wsdl:part name="parameters" element="tns1:ShPull" />
+  </wsdl:message>
+  <wsdl:message name="ShPullResponse">
+    <wsdl:part name="parameters" element="tns1:ShPullResponse" />
+  </wsdl:message>
+  <wsdl:message name="ShUpdate">
+    <wsdl:part name="parameters" element="tns1:ShUpdate" />
+  </wsdl:message>
+  <wsdl:message name="ShUpdateResponse">
+    <wsdl:part name="parameters" element="tns1:ShUpdateResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Sh">
+    <wsdl:operation name="ShPull">
+      <wsdl:input name="ShPull" message="tns1:ShPull" />
+      <wsdl:output name="ShPullResponse" message="tns1:ShPullResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ShUpdate">
+      <wsdl:input name="ShUpdate" message="tns1:ShUpdate" />
+      <wsdl:output name="ShUpdateResponse" message="tns1:ShUpdateResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ShSOAP" type="tns1:Sh">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ShPull">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="ShPull">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ShPullResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShUpdate">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="ShUpdate">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ShUpdateResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ShService">
+    <wsdl:port name="ShService" binding="tns1:ShSOAP">
+      <wsdlsoap:address location="http://127.0.0.1:8080/services/ShService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

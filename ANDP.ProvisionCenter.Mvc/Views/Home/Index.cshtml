@@ -1,0 +1,51 @@
+﻿@using Common.Lib.MVC.Helpers
+@model IEnumerable<ANDP.Lib.Domain.Models.Service>
+
+<div id="columns-wrapper">
+    <div id="col-one">
+        <div class="boxed">
+            <h2 class="title">Recent Updates</h2>
+            <div class="content">
+                <ul>
+                    @foreach (var model in Model)
+                    {
+                        <li>
+                            <h3> @Html.Raw(model.CompletionDate.HasValue ? model.CompletionDate.Value.ToString("f") : "")</h3>
+                            <p>
+                                External Service Id: @Html.Raw(model.ExternalServiceId)<br />
+                                Status: @Html.Raw(model.StatusType.ToString())<br />
+                                Message: @Html.Raw(model.ResultMessage.Substring(0, (model.ResultMessage.Length < 100 ? model.ResultMessage.Length : 100)))<br />
+                            </p>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="col-two">
+        <div class="boxed">
+            <h2 class="title">Thanks To</h2>
+            <div class="content">
+                <p><strong>ANDP</strong> is proudly powered by NewNet Services and partnered with UDP!</p>
+            </div>
+        </div>
+        <div class="boxed">
+            <h2 class="title">Famous Beer Quotes</h2>
+            <div class="content">
+                <p>Some fun quotes you may have heard already.</p>
+                <blockquote>
+                    <p>&ldquo;Fill with mingled cream and amber, I will drain that glass again. Such hilarious visions clamber Through the chambers of my brain. Quantist thoughts – queerest fancies, Come to life and fade away: What care I how time advances? I am drinking ale today.&rdquo;<br />– Edgar Allan Poe</p>
+                </blockquote>
+                <blockquote>
+                    <p>&ldquo;Beer makes you feel the way you ought to feel without beer.&ldquo;<br />- Henry Lawson – Australian Poet and Writer</p>
+                </blockquote>
+                <blockquote>
+                    <p>&ldquo;Beer is proof that God loves us and wants us to be happy.&ldquo;<br />― Benjamin Franklin</p>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<section class="clear-fix"></section>
