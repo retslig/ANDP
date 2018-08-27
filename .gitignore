@@ -43,3 +43,4 @@ Common.Authentication.Database/Common.Authentication.Database.dbmdl
 *.tmp
 ANDP.Provisioning.API.Rest/Logs/
 *.config
+*.Config
