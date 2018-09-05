@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Azure">
+  <ConnectionProperties>
+    <Extension>SQLAZURE</Extension>
+    <ConnectString></ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>12d43d2b-459f-4e56-89ae-4ff78f634c7f</DataSourceID>
+</RptDataSource>
