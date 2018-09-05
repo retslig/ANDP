@@ -206,24 +206,6 @@
     <EmbeddedResource Include="Scripts\Javascript.Controls.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Content\Images\aerostar.jpg" />
-    <EmbeddedResource Include="Content\Images\aerostar_bw.jpg" />
-    <EmbeddedResource Include="Content\Images\applied technology.jpg" />
-    <EmbeddedResource Include="Content\Images\applied technology_bw.jpg" />
-    <EmbeddedResource Include="Content\Images\applied technology_bw_resized.gif" />
-    <EmbeddedResource Include="Content\Images\applied technology_bw_resized.jpg" />
-    <EmbeddedResource Include="Content\Images\block.jpg" />
-    <EmbeddedResource Include="Content\Images\block_bw.jpg" />
-    <EmbeddedResource Include="Content\Images\corporate services division.jpg" />
-    <EmbeddedResource Include="Content\Images\corporate.gif" />
-    <EmbeddedResource Include="Content\Images\corporate.jpg" />
-    <EmbeddedResource Include="Content\Images\corporate_bw.jpg" />
-    <EmbeddedResource Include="Content\Images\electronic systems.jpg" />
-    <EmbeddedResource Include="Content\Images\electronic systems_bw.jpg" />
-    <EmbeddedResource Include="Content\Images\engineered films.jpg" />
-    <EmbeddedResource Include="Content\Images\engineered films_bw.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Content\jquery.qtip.css" />
     <EmbeddedResource Include="Content\jquery.qtip.min.css" />
     <EmbeddedResource Include="Scripts\jquery.qtip.js" />

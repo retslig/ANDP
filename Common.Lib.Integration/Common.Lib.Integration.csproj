@@ -268,12 +268,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Udp\Factories\UdpBillingServiceFactory.cs" />
-    <Compile Include="Udp\Models\MappingProfiles\BillingRecordProfile.cs" />
-    <Compile Include="Udp\Repositories\BillingEntityConfiguration.cs" />
-    <Compile Include="Udp\Repositories\UdpBillingRepository.cs" />
-    <Compile Include="Udp\Repositories\IUdpBillingRepository.cs" />
-    <Compile Include="Udp\Services\UdpBillingService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="NeoNova\Models\" />

@@ -19,7 +19,6 @@ using Common.Lib.Mapping;
 using Common.Lib.Security;
 using Common.Lib.Services;
 using Common.NewNet.Factories;
-using Common.Udp.Factories;
 using Microsoft.Practices.Unity;
 using MySql.Data.MySqlClient;
 
@@ -48,9 +47,6 @@ namespace ANDP.Lib.Infrastructure
             EquipmentServiceFactory.ConnectionString = AndpEntitiesBootstrapper().ConnectionString;
             ProvisioningEngineServiceFactory.Container = Container;
             ProvisioningEngineServiceFactory.ConnectionString = AndpEntitiesBootstrapper().ConnectionString;
-            UdpBillingServiceFactory.Container = Container;
-            UdpBillingServiceFactory.AndpConnectionString = AndpEntitiesBootstrapper().ConnectionString;
-            UdpBillingServiceFactory.BillingConnectionString = BillingEntitiesBootstrapper().ConnectionString;
             UserAccountServiceFactory.ConnectionString = AuthEntitiesBootstrapper().ConnectionString;
             return Container;
         }

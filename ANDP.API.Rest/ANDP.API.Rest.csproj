@@ -253,7 +253,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NewNetWorkflowController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
-    <Compile Include="Controllers\UdpBillingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

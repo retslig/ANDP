@@ -1025,44 +1025,6 @@
             <returns>The order status</returns>
             <exception cref="T:System.Exception">Error ServiceResults has no entries.</exception>
         </member>
-        <member name="T:ANDP.API.Rest.Controllers.UdpBillingController">
-            <summary>
-            This controller handles all orders.
-            </summary>
-        </member>
-        <member name="M:ANDP.API.Rest.Controllers.UdpBillingController.#ctor(Common.Lib.Interfaces.ILogger)">
-            <summary>
-            Initializes a new instance of the <see cref="T:ANDP.API.Rest.Controllers.UdpBillingController" /> class.
-            </summary>
-            <param name="logger">The logger.</param>
-        </member>
-        <member name="M:ANDP.API.Rest.Controllers.UdpBillingController.Setup">
-            <summary>
-            The reason this is not in the constructor is solely for the purpose of exception handling.
-            If you leave this in the controller and someone who is not authenticated calls the API you will not get a tenantId not found error.
-            The error will be ugly and be hard to figure out you are not authorized.
-            This way if the all methods have the ClaimsAuthorize attribute on them they will first be authenticated if not get a nice error message of not authorized.
-            </summary>
-            <exception cref="T:System.Exception">No Tenant Id Found.</exception>
-        </member>
-        <member name="M:ANDP.API.Rest.Controllers.UdpBillingController.RetrieveBillingRecordsByAccountNumberRange(System.String,System.String,System.String)">
-            <summary>
-            Retrieves the billing records.
-            </summary>
-            <param name="externalCompanyId">The external company identifier.</param>
-            <param name="startExternalAccountId">The start external account identifier.</param>
-            <param name="endExternalAccountId">The end external account identifier.</param>
-            <returns></returns>
-        </member>
-        <member name="M:ANDP.API.Rest.Controllers.UdpBillingController.RetrieveBillingRecordsByPhoneRange(System.String,System.String,System.String)">
-            <summary>
-            Retrieves the billing records.
-            </summary>
-            <param name="externalCompanyId">The external company identifier.</param>
-            <param name="startPhoneNumber">The start phone number.</param>
-            <param name="endPhoneNumber">The end phone number.</param>
-            <returns></returns>
-        </member>
         <member name="T:ANDP.API.Rest.Models.DataDictionaryDto">
             <summary>
             
